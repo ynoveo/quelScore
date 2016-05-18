@@ -1,0 +1,26 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="QuickStartApplication.controller.Pronostics">
+	<App>
+		<pages>
+			<Page title="Mes pronostics" showNavButton="true" navButtonPress="onNavBack">
+				<content>
+        			<List id="pronosList"
+        			      headerText="{i18n>ListOfAllPronostics}"
+        			      items="{
+			                path: '/match'
+		                    }" >
+        				<items>
+        					<StandardListItem
+        						title="{txtequipeA}"
+        						iconDensityAware="false"
+        						iconInset="false"/>
+        				</items>
+        					<StandardListItem
+        						title="{txtequipeB}"
+        						iconDensityAware="false"
+        						iconInset="false"/>
+        			</List>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
