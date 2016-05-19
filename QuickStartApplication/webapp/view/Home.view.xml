@@ -1,0 +1,37 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" controllerName="QuickStartApplication.controller.Home">
+	<App>
+	<pages>
+	    <!--<App id="__app1">-->
+	    <App>
+	        <pages>
+	            <Page id="__page1" showFooter="false" showSubHeader="false" showNavButton="false">
+	            <content>
+	                <sap.ui.layout:Grid xmlns:sap.ui.layout="sap.ui.layout" id="__grid0" class="sapUiSmallMarginTop">
+	                    <sap.ui.layout:content xmlns:sap.ui.layout="sap.ui.layout">
+                        <ObjectListItem counter="0" title="François" number="{/reponse/position}" numberUnit="{/reponse/nbpoints} pts" intro="Mon classement" icon="https://cdn4.iconfinder.com/data/icons/we-re-the-best/512/best-badge-cup-gold-medal-game-win-winner-gamification-first-award-acknowledge-acknowledgement-prize-victory-reward-conquest-premium-rank-ranking-gold-hero-star-quality-challenge-trophy-praise-victory-success-512.png" markFavorite="false" markFlagged="false" showMarkers="false" id="__item0" numberState="Success" busy="false"/>
+	                        <ObjectListItem ariaLabelledBy="__item4-label" type="Active" counter="0" number="3" intro="Mes groupes" markFavorite="false" markFlagged="false" showMarkers="false" id="__item1" icon="sap-icon://group"/>
+	                        <InputListItem type="Navigation" counter="0" label="Mon compte" id="__item4" press="onNavToCompte"/>
+	                        <InputListItem type="Navigation" counter="0" label="Mes pronostics" id="__item5" detailPress="" press="onNavToPronostics"/></sap.ui.layout:content>
+	                </sap.ui.layout:Grid>
+<!--	                <sap.ui.layout:Grid xmlns:sap.ui.layout="sap.ui.layout" id="__grid0" class="sapUiSmallMarginTop">
+	                    <sap.ui.layout:content xmlns:sap.ui.layout="sap.ui.layout">
+	                        <ObjectListItem counter="0" title="François" number="24" numberUnit="36 pts" intro="Mon classement" icon="https://cdn4.iconfinder.com/data/icons/we-re-the-best/512/best-badge-cup-gold-medal-game-win-winner-gamification-first-award-acknowledge-acknowledgement-prize-victory-reward-conquest-premium-rank-ranking-gold-hero-star-quality-challenge-trophy-praise-victory-success-512.png" markFavorite="false" markFlagged="false" showMarkers="false" id="__item0" numberState="Success" busy="false"/>
+	                        <ObjectListItem ariaLabelledBy="__item4-label" type="Active" counter="0" number="3" intro="Mes groupes" markFavorite="false" markFlagged="false" showMarkers="false" id="__item1" icon="sap-icon://group"/>
+	                        <InputListItem type="Navigation" counter="0" label="Mon compte" id="__item4" press="onNavToCompte"/>
+	                        <InputListItem type="Navigation" counter="0" label="Mes pronostics" id="__item5" detailPress="" press="onNavToPronostics"/></sap.ui.layout:content>
+	                </sap.ui.layout:Grid>-->
+	            </content>
+	            <headerContent>
+	                <HBox alignItems="Start" justifyContent="SpaceBetween">
+	                    <items>
+	                        <Image width="80px" id="__image0" src="../webapp/localService/logo_euro.png" densityAware="false"/>
+	                    </items>
+	                    <items><Button icon="https://cdn2.iconfinder.com/data/icons/app-types-in-grey/128/info_512pxGREY.png" width="80px" press="onDialogPress"/></items>
+	                </HBox>
+	            </headerContent>
+	            </Page>
+	        </pages>
+	    </App>
+	</pages>
+	</App>
+</mvc:View>

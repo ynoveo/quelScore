@@ -1,8 +1,10 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/core/routing/History",
-	'sap/ui/model/json/JSONModel'
-], function (Controller, History, JSONModel) {
+	"sap/ui/model/json/JSONModel",
+	"sap/m/Button",
+	"sap/m/Dialog"
+], function (Controller, History, JSONModel, Dialog, Button) {
 	"use strict";
 
 	return Controller.extend("QuickStartApplication.controller.Pronostics", {
@@ -13,9 +15,33 @@ sap.ui.define([
 		 */
 		 onInit: function() {
             var oModel = new JSONModel();
-            oModel.loadData("http://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty&phase=A");
+            //oModel.loadData("http://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty&phase=A");
+            oModel.loadData("../webapp/localService/matchlist.json");
             this.getView().setModel(oModel);
 	},
+	
+	    updateScore: function(){
+			var dialog = new Dialog({
+				title: "Votre pronostic",
+				type: "Message",
+					content: new Text({
+						text: "aaaa"
+					}),
+				beginButton: new Button({
+					text: "OK",
+					press: function () {
+						dialog.close();
+					}
+				}),
+				afterClose: function() {
+					dialog.destroy();
+				}
+			});
+ 
+			//to get access to the global model
+			this.getView().addDependent(dialog);
+			dialog.open();
+		},
 /**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 		 * (NOT before the first rendering! onInit() is used for that one!).

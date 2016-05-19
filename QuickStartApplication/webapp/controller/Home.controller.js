@@ -3,14 +3,15 @@ sap.ui.define([
     "sap/m/Dialog",
     "sap/m/Button",
     "sap/m/Text",
-    'sap/ui/model/json/JSONModel'
+    "sap/ui/model/json/JSONModel"
 ], function (Controller, Dialog, Button, Text, JSONModel) {
 	"use strict";
 	return Controller.extend("QuickStartApplication.controller.Home", {
 	    
 	    onInit: function() {
             var oModel = new JSONModel();
-            oModel.loadData("http://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty&phase=A");
+            //oModel.loadData("http://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty&phase=A");
+            oModel.loadData("../webapp/localService/connect.json");
             this.getView().setModel(oModel);
 	},
 		/**
@@ -30,13 +31,13 @@ sap.ui.define([
 		
 		onDialogPress: function () {
 			var dialog = new Dialog({
-				title: 'Règles du jeu',
-				type: 'Message',
+				title: "Règles du jeu",
+				type: "Message",
 					content: new Text({
-						text: '5 points si vous trouvez le score exact, (après prolongation)\\n\\n3 points si vous avez la bonne différence de buts\\n\\n1 point si vous avez pronostiqué le bon vainqueur (ou match nul)'
+						text: "5 points si vous trouvez le score exact, (après prolongation)\\n\\n3 points si vous avez la bonne différence de buts\\n\\n1 point si vous avez pronostiqué le bon vainqueur (ou match nul)"
 					}),
 				beginButton: new Button({
-					text: 'OK',
+					text: "OK",
 					press: function () {
 						dialog.close();
 					}
