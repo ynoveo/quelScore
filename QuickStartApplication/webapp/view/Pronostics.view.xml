@@ -12,8 +12,8 @@
 							<Column width="10em" hAlign="Left">
 							</Column>
 						</columns>
-						<items focusin="openPopup">
-							<ColumnListItem>
+						<items>
+							<ColumnListItem selected="true" type="Active" press="openPopup">
 								<cells>
 									<ObjectIdentifier id="equipeA" title="{txtequipeA}" text="Score final"/>
 									<ObjectIdentifier id="scores" title="{pronoA} - {pronoB}" text="{scoreA} - {scoreB}"/>

@@ -51,6 +51,10 @@ sap.ui.define([
 			this.getView().addDependent(dialog);
 			dialog.open();
 		},
+		
+		test: function () {
+			jQuery.sap.log.error("FYI: something has happened");
+		},
 /**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 		 * (NOT before the first rendering! onInit() is used for that one!).
@@ -80,7 +84,7 @@ sap.ui.define([
  
 			oHistory = History.getInstance();
 			sPreviousHash = oHistory.getPreviousHash();
- 
+
 			if (sPreviousHash !== undefined) {
 				window.history.go(-1);
 			} else {
