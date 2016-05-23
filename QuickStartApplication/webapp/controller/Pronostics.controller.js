@@ -3,8 +3,9 @@ sap.ui.define([
 	"sap/ui/core/routing/History",
 	"sap/ui/model/json/JSONModel",
 	"sap/m/Button",
-	"sap/m/Dialog"
-], function (Controller, History, JSONModel, Dialog, Button) {
+	"sap/m/Dialog",
+	"sap/m/Input"
+], function (Controller, History, JSONModel, Dialog, Button, Input) {
 	"use strict";
 
 	return Controller.extend("QuickStartApplication.controller.Pronostics", {
@@ -20,12 +21,12 @@ sap.ui.define([
             this.getView().setModel(oModel);
 	},
 	
-	    updateScore: function(){
+	    updateScore: function() {
 			var dialog = new Dialog({
-				title: "Votre pronostic",
-				type: "Message",
-					content: new Text({
-						text: "aaaa"
+				title: "Default Message",
+				//type: "Default",
+					content: new Input({
+						value: "0"
 					}),
 				beginButton: new Button({
 					text: "OK",
@@ -37,6 +38,38 @@ sap.ui.define([
 					dialog.destroy();
 				}
 			});
+/*			var oDialog = new Dialog("Dialog1",{
+ 
+                    title:"Details ofNew Entry",
+                    modal: true,
+                    contentWidth:"1em",
+                    buttons: [ oButton2, oButton3 ],
+             content:[
+                      new sap.m.Label({text:"First name"}),
+                      new sap.m.Input({
+ 
+                    maxLength: 20,
+                    id: "FName"
+ 
+                      }),
+ 
+                      new sap.m.Label({text:"LastName"}),
+                      new sap.m.Input({
+ 
+                   maxLength: 20,
+                     id: "LName"
+ 
+                       }),
+ 
+                      new sap.m.Label({text:"Age"}),
+                      new sap.m.Input({
+ 
+                   maxLength: 3,
+                   id: "Age" 
+ 
+                    }),
+                      ]
+             });*/
  
 			//to get access to the global model
 			this.getView().addDependent(dialog);
