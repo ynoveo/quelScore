@@ -23,7 +23,6 @@ sap.ui.define([
 	},
 	
 		openPopup: function(oEvent) {
-			//var label = new sap.m.Label({ text : sap.ui.getCore().byId("equipeA").getTitle() });
 			var bindingContext = oEvent.getSource().getBindingContext();
 			var title = bindingContext.getProperty("txtequipeA")+" - "+bindingContext.getProperty("txtequipeB");
 
@@ -34,13 +33,16 @@ sap.ui.define([
 			
 			var dialog = new Dialog({
 				title: "Mon pronostic",
-				//type: "Default",
-/*					content: new Input({
-						value: "0"
-					}),*/
-					content: simpleForm,
+				content: simpleForm,
 				beginButton: new Button({
-					text: "OK",
+					text: "Sauvegarder",
+					type: "Emphasized",
+					press: function () {
+						this.updateScore();
+					}
+				}),
+				endButton: new Button({
+					text: 'Annuler',
 					press: function () {
 						dialog.close();
 					}
@@ -54,6 +56,10 @@ sap.ui.define([
 			//to get access to the global model
 			this.getView().addDependent(dialog);
 			dialog.open();
+		},
+		
+		updateScore: function (scoreA, scoreB) {
+			// TODO: mettre à jour les scores sur le serveur
 		},
 		
 		test: function (toPrint, json) {
