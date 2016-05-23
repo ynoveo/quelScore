@@ -25,11 +25,12 @@ sap.ui.define([
 		openPopup: function(oEvent) {
 			var bindingContext = oEvent.getSource().getBindingContext();
 			var title = bindingContext.getProperty("txtequipeA")+" - "+bindingContext.getProperty("txtequipeB");
+			var idMatch = bindingContext.getProperty("idMatch");
 
 			var label = new sap.m.Label({ text : title });
-			var scoreA = new TextField({value:"0", width:"2em", maxLength:1});
-			var scoreB = new TextField({value:"0", width:"2em", maxLength:1});
-			var simpleForm = new SimpleForm({editable: true,content: [label, scoreA, scoreB]});
+			var pronoA = new TextField({value:bindingContext.getProperty("pronoA"), width:"2em", maxLength:1});
+			var pronoB = new TextField({value:bindingContext.getProperty("pronoB"), width:"2em", maxLength:1});
+			var simpleForm = new SimpleForm({editable: true,content: [label, pronoA, pronoB]});
 			
 			var dialog = new Dialog({
 				title: "Mon pronostic",
@@ -38,7 +39,10 @@ sap.ui.define([
 					text: "Sauvegarder",
 					type: "Emphasized",
 					press: function () {
-						this.updateScore();
+						jQuery.sap.log.error(idMatch);
+						jQuery.sap.log.error(pronoA.getProperty("value"));
+						jQuery.sap.log.error(pronoB.getProperty("value"));
+						// TODO: updateScore(idMatch, pronoA.getProperty("value"), pronoB.getProperty("value"));
 					}
 				}),
 				endButton: new Button({
@@ -58,13 +62,9 @@ sap.ui.define([
 			dialog.open();
 		},
 		
-		updateScore: function (scoreA, scoreB) {
-			// TODO: mettre à jour les scores sur le serveur
-		},
-		
-		test: function (toPrint, json) {
+		test: function (toPrint, isJson) {
 			var jsonToPrint = JSON.stringify(toPrint);
-			if(json) {
+			if(isJson) {
 				jQuery.sap.log.error(jsonToPrint);
 			} else {
 				jQuery.sap.log.error(toPrint);
