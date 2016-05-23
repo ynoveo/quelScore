@@ -3,41 +3,21 @@
 		<pages>
 			<Page title="Mes pronostics" showNavButton="true" navButtonPress="onNavBack">
 				<content>
-        			<Table id="matchTable"
-						inset="true"
-						items="{
-							path: '/match'
-						}"
-						width="10em"
-						hAlign="Center">
+        			<Table id="matchTable" inset="true" items="{        path: '/match'       }" width="10em" hAlign="Center">
 						<columns>
-							<Column
-								width="7em"
-								hAlign="Right">
+							<Column width="7em" hAlign="Right">
 							</Column>
-							<Column
-								width="3em"
-								hAlign="Center">
+							<Column width="3em" hAlign="Center">
 							</Column>
-							<Column
-								width="10em"
-								hAlign="Left">
+							<Column width="10em" hAlign="Left">
 							</Column>
 						</columns>
-						<items>
+						<items focusin="openPopup">
 							<ColumnListItem>
 								<cells>
-									<ObjectIdentifier
-										title="{txtequipeA}"
-										text="Score final"/>
-									<ObjectIdentifier
-										title="{pronoA} - {pronoB}"
-										text="{scoreA} - {scoreB}"
-										titleActive="true"
-										titlePress="updateScore"/>
-									<ObjectIdentifier
-										title="{txtequipeB}"
-										text=""/>
+									<ObjectIdentifier id="equipeA" title="{txtequipeA}" text="Score final"/>
+									<ObjectIdentifier id="scores" title="{pronoA} - {pronoB}" text="{scoreA} - {scoreB}"/>
+									<ObjectIdentifier id="equipeB" title="{txtequipeB}" text=""/>
 								</cells>
 							</ColumnListItem>
 						</items>

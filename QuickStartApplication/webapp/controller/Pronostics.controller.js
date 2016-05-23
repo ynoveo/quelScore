@@ -2,10 +2,11 @@ sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/core/routing/History",
 	"sap/ui/model/json/JSONModel",
-	"sap/m/Button",
 	"sap/m/Dialog",
-	"sap/m/Input"
-], function (Controller, History, JSONModel, Dialog, Button, Input) {
+	"sap/m/Button",
+	"sap/m/Input",
+	"sap/ui/layout/form/SimpleForm"
+], function (Controller, History, JSONModel, Dialog, Button, Input, SimpleForm) {
 	"use strict";
 
 	return Controller.extend("QuickStartApplication.controller.Pronostics", {
@@ -14,20 +15,26 @@ sap.ui.define([
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 		 * @memberOf QuickStartApplication.view.Pronostics
 		 */
-		 onInit: function() {
+		onInit: function() {
             var oModel = new JSONModel();
             //oModel.loadData("http://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty&phase=A");
             oModel.loadData("../webapp/localService/matchlist.json");
             this.getView().setModel(oModel);
 	},
 	
-	    updateScore: function() {
+		openPopup: function() {
+			//var label = new sap.m.Label({ text : sap.ui.getCore().byId("equipeA").getTitle() });
+			var label = new sap.m.Label({ text : "texte" });  
+			var input = new sap.m.Input({ id: "inputControl" });  
+			var simpleForm = new SimpleForm({editable: true,content: [label, input]});
+			
 			var dialog = new Dialog({
-				title: "Default Message",
+				title: "Mettre à jour mon pronostic",
 				//type: "Default",
-					content: new Input({
+/*					content: new Input({
 						value: "0"
-					}),
+					}),*/
+					content: simpleForm,
 				beginButton: new Button({
 					text: "OK",
 					press: function () {
@@ -38,38 +45,7 @@ sap.ui.define([
 					dialog.destroy();
 				}
 			});
-/*			var oDialog = new Dialog("Dialog1",{
- 
-                    title:"Details ofNew Entry",
-                    modal: true,
-                    contentWidth:"1em",
-                    buttons: [ oButton2, oButton3 ],
-             content:[
-                      new sap.m.Label({text:"First name"}),
-                      new sap.m.Input({
- 
-                    maxLength: 20,
-                    id: "FName"
- 
-                      }),
- 
-                      new sap.m.Label({text:"LastName"}),
-                      new sap.m.Input({
- 
-                   maxLength: 20,
-                     id: "LName"
- 
-                       }),
- 
-                      new sap.m.Label({text:"Age"}),
-                      new sap.m.Input({
- 
-                   maxLength: 3,
-                   id: "Age" 
- 
-                    }),
-                      ]
-             });*/
+
  
 			//to get access to the global model
 			this.getView().addDependent(dialog);
