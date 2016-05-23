@@ -4,9 +4,9 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/m/Dialog",
 	"sap/m/Button",
-	"sap/m/Input",
+	"sap/ui/commons/TextField",
 	"sap/ui/layout/form/SimpleForm"
-], function (Controller, History, JSONModel, Dialog, Button, Input, SimpleForm) {
+], function (Controller, History, JSONModel, Dialog, Button, TextField, SimpleForm) {
 	"use strict";
 
 	return Controller.extend("QuickStartApplication.controller.Pronostics", {
@@ -22,14 +22,18 @@ sap.ui.define([
             this.getView().setModel(oModel);
 	},
 	
-		openPopup: function() {
+		openPopup: function(oEvent) {
 			//var label = new sap.m.Label({ text : sap.ui.getCore().byId("equipeA").getTitle() });
-			var label = new sap.m.Label({ text : "texte" });  
-			var input = new sap.m.Input({ id: "inputControl" });  
-			var simpleForm = new SimpleForm({editable: true,content: [label, input]});
+			var bindingContext = oEvent.getSource().getBindingContext();
+			var title = bindingContext.getProperty("txtequipeA")+" - "+bindingContext.getProperty("txtequipeB");
+
+			var label = new sap.m.Label({ text : title });
+			var scoreA = new TextField({value:"0", width:"2em", maxLength:1});
+			var scoreB = new TextField({value:"0", width:"2em", maxLength:1});
+			var simpleForm = new SimpleForm({editable: true,content: [label, scoreA, scoreB]});
 			
 			var dialog = new Dialog({
-				title: "Mettre à jour mon pronostic",
+				title: "Mon pronostic",
 				//type: "Default",
 /*					content: new Input({
 						value: "0"
@@ -52,8 +56,13 @@ sap.ui.define([
 			dialog.open();
 		},
 		
-		test: function () {
-			jQuery.sap.log.error("FYI: something has happened");
+		test: function (toPrint, json) {
+			var jsonToPrint = JSON.stringify(toPrint);
+			if(json) {
+				jQuery.sap.log.error(jsonToPrint);
+			} else {
+				jQuery.sap.log.error(toPrint);
+			}
 		},
 /**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
