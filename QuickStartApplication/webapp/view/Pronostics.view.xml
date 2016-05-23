@@ -3,67 +3,45 @@
 		<pages>
 			<Page title="Mes pronostics" showNavButton="true" navButtonPress="onNavBack">
 				<content>
-<!--        			<List id="pronosList"
-        			      headerText="{i18n>ListOfAllPronostics}"
-        			      items="{
-			                path: '/match'
-		                    }" >
-        				<items>
-        					<StandardListItem
-        						title="{txtequipeA}"
-        						iconDensityAware="false"
-        						iconInset="false"/>
-        					<StandardListItem
-        						title="{txtequipeB}"
-        						iconDensityAware="false"
-        						iconInset="false"/>
-        				</items>
-        			</List>-->
         			<Table id="matchTable"
-		inset="true"
-		items="{
-			path: '/match'
-		}"
-		width="10em"
-		hAlign="Center">
-		<columns>
-			<Column
-				width="7em"
-				hAlign="Right">
-			</Column>
-			<Column
-				width="3em"
-				hAlign="Center">
-			</Column>
-			<Column
-				width="10em"
-				hAlign="Left">
-			</Column>
-		</columns>
-		<items>
-			<ColumnListItem>
-				<cells>
-<!--					<Text
-						text="{txtequipeA}" />
-					<Text
-						text="{scoreA} - {scoreB}" />
-					<Text
-						text="{txtequipeB}" />-->
-					<ObjectIdentifier
-						title="{txtequipeA}"
-						text="Score final"/>
-					<ObjectIdentifier
-						title="{pronoA} - {pronoB}"
-						text="{scoreA} - {scoreB}"
-						titleActive="true"
-						titlePress="updateScore"/>
-					<ObjectIdentifier
-						title="{txtequipeB}"
-						text=""/>
-				</cells>
-			</ColumnListItem>
-		</items>
-	</Table>
+						inset="true"
+						items="{
+							path: '/match'
+						}"
+						width="10em"
+						hAlign="Center">
+						<columns>
+							<Column
+								width="7em"
+								hAlign="Right">
+							</Column>
+							<Column
+								width="3em"
+								hAlign="Center">
+							</Column>
+							<Column
+								width="10em"
+								hAlign="Left">
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier
+										title="{txtequipeA}"
+										text="Score final"/>
+									<ObjectIdentifier
+										title="{pronoA} - {pronoB}"
+										text="{scoreA} - {scoreB}"
+										titleActive="true"
+										titlePress="updateScore"/>
+									<ObjectIdentifier
+										title="{txtequipeB}"
+										text=""/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
 				</content>
 			</Page>
 		</pages>
