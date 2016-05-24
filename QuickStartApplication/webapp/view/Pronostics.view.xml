@@ -10,7 +10,7 @@
 							<Column width="3em" hAlign="Center"/>
 							<Column width="10em" hAlign="Left"/>
 							<Column width="1em" hAlign="Left"/>
-							<Column width="2em" hAlign="Left"/>
+							<Column width="5em" hAlign="Left"/>
 						</columns>
 						<items>
 							<ColumnListItem selected="true" type="Active" press="openPopup">
@@ -22,6 +22,7 @@
 									<Image src="http://quelscore.com/flag/{flagB}"/>
 									<ObjectStatus
 										class="sapUiSmallMarginBottom"
+										text="{matchdate} {heurematch}"
 							            icon="{parts: [
 									                {path: 'encours' },
 									                {path: 'matchfini' }
