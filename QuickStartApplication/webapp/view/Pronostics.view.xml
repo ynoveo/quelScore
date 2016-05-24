@@ -1,0 +1,33 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="QuickStartApplication.controller.Pronostics">
+	<App>
+		<pages>
+			<Page title="Mes pronostics" showNavButton="true" navButtonPress="onNavBack">
+				<content>
+        			<Table id="matchTable" inset="true" items="{        path: '/match'       }" width="10em" hAlign="Center">
+						<columns>
+							<Column width="10em" hAlign="Right"/>
+							<Column width="3em" hAlign="Center"/>
+							<Column width="10em" hAlign="Left"/>
+							<Column width="2em" hAlign="Left"/>
+						</columns>
+						<items>
+							<ColumnListItem selected="true" type="Active" press="openPopup">
+								<cells>
+									<ObjectIdentifier id="equipeA" title="{txtequipeA}" text="Score final"/>
+									<ObjectIdentifier id="scores" title="{pronoA} - {pronoB}" text="{scoreA} - {scoreB}"/>
+									<ObjectIdentifier id="equipeB" title="{txtequipeB}" text=""/>
+									<ObjectStatus
+										class="sapUiSmallMarginBottom"
+							            icon="{parts: [
+									                {path: 'encours' },
+									                {path: 'matchfini' }
+									            ], formatter: '.matchIcon'}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
