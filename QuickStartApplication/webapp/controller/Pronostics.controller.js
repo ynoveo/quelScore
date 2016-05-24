@@ -43,6 +43,22 @@ sap.ui.define([
 						jQuery.sap.log.error(pronoA.getProperty("value"));
 						jQuery.sap.log.error(pronoB.getProperty("value"));
 						// TODO: updateScore(idMatch, pronoA.getProperty("value"), pronoB.getProperty("value"));
+						var updateURL = "http://www.quelscore.com/JSON_V2016.php?action=SAVESCORE&idmatch="+idMatch+"&scoreA="+pronoA.getProperty("value")+"&scoreB="+pronoB.getProperty("value");
+						$.ajax({
+							type: "POST",
+							data: "",
+							crossDomain: true,
+							url: updateURL,
+							headers: {"key1":"value1","key2":"value2"},
+							contentType: "application/json",
+							success: function (res, status, xhr) {
+							    //success code
+							    jQuery.sap.log.error("Success response: " + status + res);
+							},
+								error: function (jqXHR, textStatus, errorThrown) {
+								jQuery.sap.log.error("Got an error response: " + textStatus + errorThrown);
+							}
+							});
 					}
 				}),
 				endButton: new Button({
