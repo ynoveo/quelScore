@@ -17,8 +17,8 @@ sap.ui.define([
 		 */
 		onInit: function() {
             var oModel = new JSONModel();
-            //oModel.loadData("http://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty");
-            oModel.loadData("../webapp/localService/matchlist.json");
+            oModel.loadData("http://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty");
+            //oModel.loadData("../webapp/localService/matchlist.json");
             this.getView().setModel(oModel);
 	},
 	
