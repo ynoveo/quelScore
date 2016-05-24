@@ -5,17 +5,21 @@
 				<content>
         			<Table id="matchTable" inset="true" items="{        path: '/match'       }" width="10em" hAlign="Center">
 						<columns>
+							<Column width="1em" hAlign="Left"/>
 							<Column width="10em" hAlign="Right"/>
 							<Column width="3em" hAlign="Center"/>
 							<Column width="10em" hAlign="Left"/>
+							<Column width="1em" hAlign="Left"/>
 							<Column width="2em" hAlign="Left"/>
 						</columns>
 						<items>
 							<ColumnListItem selected="true" type="Active" press="openPopup">
 								<cells>
+									<Image src="http://quelscore.com/flag/{flagA}"/>
 									<ObjectIdentifier id="equipeA" title="{txtequipeA}" text="Score final"/>
 									<ObjectIdentifier id="scores" title="{pronoA} - {pronoB}" text="{scoreA} - {scoreB}"/>
 									<ObjectIdentifier id="equipeB" title="{txtequipeB}" text=""/>
+									<Image src="http://quelscore.com/flag/{flagB}"/>
 									<ObjectStatus
 										class="sapUiSmallMarginBottom"
 							            icon="{parts: [
