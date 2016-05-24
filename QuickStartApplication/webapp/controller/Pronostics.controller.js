@@ -53,6 +53,7 @@ sap.ui.define([
 							contentType: "application/json",
 							success: function (res, status, xhr) {
 							    //success code
+							    jQuery.sap.log.error("Success response: " + status + res + xhr);
 							    jQuery.sap.log.error("Success response: " + status + res);
 							},
 								error: function (jqXHR, textStatus, errorThrown) {
@@ -62,7 +63,7 @@ sap.ui.define([
 					}
 				}),
 				endButton: new Button({
-					text: 'Annuler',
+					text: "Annuler",
 					press: function () {
 						dialog.close();
 					}

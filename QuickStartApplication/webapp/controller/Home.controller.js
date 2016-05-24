@@ -10,7 +10,8 @@ sap.ui.define([
 	    
 	    onInit: function() {
             var oModel = new JSONModel();
-            //oModel.loadData("http://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty&phase=A");
+            // TODO: supprimer la virgule qui traine dans le JSON du serveur
+            //oModel.loadData("http://www.quelscore.com/JSON_V2016.php?action=CONNECT&pseudo=francois&email=francois.dumont@ynoveo.fr&pass=azerty");
             oModel.loadData("../webapp/localService/connect.json");
             this.getView().setModel(oModel);
 	},
