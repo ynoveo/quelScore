@@ -84,7 +84,14 @@ sap.ui.define([
 						otModel.loadData(sUrl, {}, false);
 						//otModel.loadData("../webapp/localService/connect.json", {}, false);
 						oController.getView().setModel(otModel);
-						//MessageToast.show("code retour = " + otModel.getProperty("/reponse/nbpoints"));
+						//MessageToast.show("code retour = " + otModel.getProperty("/reponse/retcode"));
+						if(otModel.getProperty("/reponse/retcode") === "0") {
+							console.log(oController.byId("__button1"));
+							oController.byId("__button1").setEnabled(false);
+							oController.byId("__button1").setText("Connecté");
+						} else {
+							MessageToast.show(otModel.getProperty("/reponse/retmsg"));
+						}
 						dialog.close();
 					}
 				}),
