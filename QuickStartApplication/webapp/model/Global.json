@@ -1,6 +1,7 @@
 {
 
-		"pseudo":"hello",
+		"pseudo":"",
 		"activeGroup":"MCO2C",
-		"activeGroupID":"00"
+		"activeGroupID":"00",
+		"pwd":""
 }

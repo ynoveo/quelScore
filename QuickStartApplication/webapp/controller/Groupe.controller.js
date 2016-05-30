@@ -15,10 +15,14 @@ sap.ui.define([
 		 * @memberOf QuickStartApplication.view.Pronostics
 		 */
 onInit: function () {
-			this._oList = this.byId("masterList");
+		    var ogModel=sap.ui.getCore().getModel("global");
+			var sLogin = ogModel.getProperty("/pseudo");
+			var sPass = ogModel.getProperty("/pwd");
+			var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=GRPLIST&email=" + sLogin + "&pass=" + sPass;
 			var oModel = new JSONModel();
-			//oModel.loadData("http://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty&phase=A");
-			oModel.loadData("../webapp/localService/groupes.json");
+			oModel.loadData(sUrl,{},false);
+			this._oList = this.byId("masterList");
+			//oModel.loadData("../webapp/localService/groupes.json");
 			this.getView().setModel(oModel);
 		},
 		// Event handler for the master list. It is attached declaratively.

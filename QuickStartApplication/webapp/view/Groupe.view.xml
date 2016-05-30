@@ -12,7 +12,7 @@
 			
 				<List id="masterList" selectionChange="onNavToGroup" modeAnimationOn="false" mode="SingleSelectMaster" updateFinished="onUpdateFinished" noDataText="Pas de groupes" swipe="onSwipe" items="{path: '/groupe'}">
 					<items>
-						<ObjectListItem id="masterListItem" title="{NomGroup}" type="Navigation" number="{idGroup}">
+						<ObjectListItem id="masterListItem" title="{NomGroup}" type="Navigation">
 						</ObjectListItem>
 					</items>
 				</List>
@@ -20,7 +20,7 @@
 		</content>
 		<footer>
 			<OverflowToolbar id="footerToolbar">
-				<ToolbarSpacer id="footerToolbarSpacer0"/>	
+			<!--	<ToolbarSpacer id="footerToolbarSpacer0"/>	-->
 				<SegmentedButton selectedKey="allGroup" select="OnGrpSel">
 					<items>
 						<SegmentedButtonItem text="Tous les groupes" key="allGroup"/>
