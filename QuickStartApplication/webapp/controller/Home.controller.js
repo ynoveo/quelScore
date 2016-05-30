@@ -7,6 +7,7 @@ sap.ui.define([
 	'sap/m/MessageToast',
 	"sap/m/Input",
 	"sap/m/Label"
+	
 ], function (Controller, Dialog, Button, Text, JSONModel, MessageToast, Input, Label) {
 	"use strict";
 	return Controller.extend("QuickStartApplication.controller.Home", {
