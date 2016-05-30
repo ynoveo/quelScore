@@ -1,0 +1,38 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="QuickStartApplication.controller.grouplist2" busy="false">
+	<App>
+		<Page showNavButton="true" navButtonPress="onNavBack" id="PageGroup" >
+
+			<headerContent>
+				<Button type="Accept" text="Rejoindre ce groupe" press="onJoinGroup"/>     
+			</headerContent>
+
+			<Table noDataText="Aucun joueur" id="__table0" items="{path: '/joueur'}">
+			    <items>
+			        <ColumnListItem counter="0" id="__item7">
+			            <cells>
+			                <Text text="{classement}" maxLines="0" id="__text5"/>
+			                <Text text="{pseudo}" maxLines="0" id="__text6"/>
+			                <Text text="{points}" maxLines="0" id="__text7"/>
+			             </cells>
+			        </ColumnListItem>
+			     </items>
+			    <columns>
+			        <Column id="__column0" width="50px">
+			            <header>
+			                <Label text="#" id="__label1"/>
+			            </header>
+			        </Column>
+			        <Column id="__column1">
+			            <header>
+			                <Label text="Pseudo" id="__label2"/>
+			            </header>
+			        </Column>
+			        <Column id="__column2">
+			            <header>
+			                <Label text="Nb Points" id="__label3"/>
+			            </header>
+			        </Column></columns></Table>
+
+		</Page>
+	</App>
+</mvc:View>

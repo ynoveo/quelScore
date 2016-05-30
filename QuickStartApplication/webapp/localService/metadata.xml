@@ -28,10 +28,20 @@
 				<Property Name="field1" Type="Edm.Int16"/>
 				<Property Name="field2" Nullable="false" Type="Edm.String"/>
 			</EntityType>
+			<EntityType Name="UserGroup">
+				<Key>
+					<PropertyRef Name="IdPlayer"/>
+				</Key>
+				<Property Name="IdPlayer" Nullable="false" Type="Edm.String"/>
+				<Property Name="pseudo"   Nullable="false" Type="Edm.String"/>
+				<Property Name="points"   Nullable="false" Type="Edm.Int16"/>
+				<Property Name="isConf"   Nullable="false" Type="Edm.String"/>					
+			</EntityType>			
 			<EntityContainer Name="DemoSetContainer" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
 				<EntitySet EntityType="Demo.Entity1" Name="Entity1_Set"/>
 				<EntitySet EntityType="Demo.Entity2" Name="Entity2_Set"/>
 				<EntitySet EntityType="Demo.Entity3" Name="Entity3_Set"/>
+				<EntitySet EntityType="Demo.UserGroup" Name="UserGroup"/>	
 			</EntityContainer>
 		</Schema>
 	</edmx:DataServices>

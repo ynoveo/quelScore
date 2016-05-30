@@ -1,0 +1,36 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="QuickStartApplication.controller.Groupe">
+	<Page id="GroupMasterPage" title="Un groupe" showNavButton="true" navButtonPress="onNavBack">	
+		<subHeader>
+			<Bar id="subHeaderBar">
+				<contentMiddle>
+					<SearchField id="searchField" showRefreshButton="true" search="onSearch" width="100%"/>
+				</contentMiddle>
+			</Bar>
+		</subHeader>
+		<content>
+			<PullToRefresh id="pullToRefresh" visible="{= ${device>/support/touch} }" refresh="onPullToRefresh"/>
+			
+				<List id="masterList" selectionChange="onNavToGroup" modeAnimationOn="false" mode="SingleSelectMaster" updateFinished="onUpdateFinished" noDataText="Pas de groupes" swipe="onSwipe" items="{path: '/groupe'}">
+					<items>
+						<ObjectListItem id="masterListItem" title="{NomGroup}" type="Navigation" number="{idGroup}">
+						</ObjectListItem>
+					</items>
+				</List>
+			
+		</content>
+		<footer>
+			<OverflowToolbar id="footerToolbar">
+				<ToolbarSpacer id="footerToolbarSpacer0"/>	
+				<SegmentedButton selectedKey="allGroup" select="OnGrpSel">
+					<items>
+						<SegmentedButtonItem text="Tous les groupes" key="allGroup"/>
+						<SegmentedButtonItem text="Mes groupes" key="mesgroupes"/>
+					</items>
+				</SegmentedButton>
+				<ToolbarSpacer id="footerToolbarSpacer"/>
+				<Button id="processButton" type="Emphasized" text="Nouveau groupe" press="onProcessPressed" icon="sap-icon://add-activity-2"/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+	
+</mvc:View>

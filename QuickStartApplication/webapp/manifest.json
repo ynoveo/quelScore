@@ -34,10 +34,7 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_bluecrystal"
-		]
+		"supportedThemes": ["sap_hcb", "sap_bluecrystal"]
 	},
 	"sap.ui5": {
 		"_version": "1.1.0",
@@ -63,14 +60,22 @@
 				"settings": {
 					"bundleName": "QuickStartApplication.i18n.i18n"
 				}
+			},
+			"global": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/Global.json"
+			},
+			"@i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "QuickStartApplication.i18n.i18n"
+				}
 			}
 		},
 		"resources": {
-			"css": [
-				{
-					"uri": "css/style.css"
-				}
-			]
+			"css": [{
+				"uri": "css/style.css"
+			}]
 		},
 		"routing": {
 			"config": {
@@ -81,28 +86,33 @@
 				"controlAggregation": "pages",
 				"transition": "slide"
 			},
-			"routes": [
-				{
-					"pattern": "connect",
-					"name": "connect",
-					"target": "connect"
-				},
-				{
-					"pattern": "",
-					"name": "appHome",
-					"target": "home"
-				},
-				{
-					"pattern": "pronostics",
-					"name": "mesPronostics",
-					"target": "pronostics"
-				},
-				{
-					"pattern": "compte",
-					"name": "monCompte",
-					"target": "compte"
-				}
-			],
+			"routes": [{
+				"pattern": "connect",
+				"name": "connect",
+				"target": "connect"
+			}, {
+				"pattern": "",
+				"name": "appHome",
+				"target": "home"
+			}, {
+				"pattern": "pronostics",
+				"name": "mesPronostics",
+				"target": "pronostics"
+			}, {
+				"pattern": "compte",
+				"name": "monCompte",
+				"target": "compte"
+			}, {
+				"name": "mesGroupes",
+				"pattern": "groupes",
+				"greedy": false,
+				"target": ["groupe"]
+			}, {
+				"name": "UserList",
+				"pattern": "{groupId}",
+				"greedy": false,
+				"target": ["GroupUsers"]
+			}],
 			"targets": {
 				"connect": {
 					"viewName": "Connect",
@@ -122,6 +132,21 @@
 				"compte": {
 					"viewPath": "QuickStartApplication.view",
 					"viewName": "Compte",
+					"viewLevel": 2
+				},
+				"groupe": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "Groupe",
+					"viewLevel": 2,
+					"viewPath": "QuickStartApplication.view"
+				},
+				"GroupUsers": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "grouplist2",
 					"viewLevel": 2
 				}
 			}

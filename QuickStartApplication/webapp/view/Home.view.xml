@@ -6,19 +6,21 @@
 	        <pages>
 	            <Page id="__page1" showFooter="false" showSubHeader="false" showNavButton="false">
 	            <content>
-	                <sap.ui.layout:Grid xmlns:sap.ui.layout="sap.ui.layout" id="__grid0" class="sapUiSmallMarginTop">
+	                <sap.ui.layout:Grid xmlns:sap.ui.layout="sap.ui.layout" id="__grid0" class="sapUiSmallMarginTop" position="Center" defaultSpan="XL12 L12 M12 S12">
 	                    <sap.ui.layout:content xmlns:sap.ui.layout="sap.ui.layout">
-                        <!--<ObjectListItem counter="0" title="{ {path: '/reponse/iduser' }, formatter: '.userInfo'}" number="{/reponse/position}" numberUnit="{/reponse/nbpoints} pts" intro="Mon classement" icon="https://cdn4.iconfinder.com/data/icons/we-re-the-best/512/best-badge-cup-gold-medal-game-win-winner-gamification-first-award-acknowledge-acknowledgement-prize-victory-reward-conquest-premium-rank-ranking-gold-hero-star-quality-challenge-trophy-praise-victory-success-512.png" markFavorite="false" markFlagged="false" showMarkers="false" id="__item0" numberState="Success" busy="false"/>-->
-                        	<ObjectListItem counter="0" title="François" number="{/reponse/position}" numberUnit="{/reponse/nbpoints} pts" intro="Mon classement" icon="https://cdn4.iconfinder.com/data/icons/we-re-the-best/512/best-badge-cup-gold-medal-game-win-winner-gamification-first-award-acknowledge-acknowledgement-prize-victory-reward-conquest-premium-rank-ranking-gold-hero-star-quality-challenge-trophy-praise-victory-success-512.png" markFavorite="false" markFlagged="false" showMarkers="false" id="__item0" numberState="Success" busy="false"/>
-	                        <ObjectListItem ariaLabelledBy="__item4-label" type="Active" counter="0" number="3" intro="Mes groupes" markFavorite="false" markFlagged="false" showMarkers="false" id="__item1" icon="sap-icon://group"/>
+                        <Bar id="__bar0">
+                            <contentLeft>
+                                <Button text="Se connecter" width="200px" id="__button1" activeIcon="sap-icon://connected" type="Accept" icon="sap-icon://connected" iconFirst="true" iconDensityAware="true" press="onLogon"/>
+                            </contentLeft>
+                        </Bar>
+                        <ObjectListItem counter="0" title="François" number="{/reponse/position}" numberUnit="{/reponse/nbpoints} pts" intro="Mon classement" icon="https://cdn4.iconfinder.com/data/icons/we-re-the-best/512/best-badge-cup-gold-medal-game-win-winner-gamification-first-award-acknowledge-acknowledgement-prize-victory-reward-conquest-premium-rank-ranking-gold-hero-star-quality-challenge-trophy-praise-victory-success-512.png" markFavorite="false" markFlagged="false" showMarkers="false" id="__item0" numberState="Success" busy="false"/>
+	                        <ObjectListItem ariaLabelledBy="__item4-label" type="Active" counter="0" number="3" intro="Mes groupes" markFavorite="false" markFlagged="false" showMarkers="false" id="__item1" icon="sap-icon://group" press="onNavToGroupe"/>
 	                        <InputListItem type="Navigation" counter="0" label="Mon compte" id="__item4" press="onNavToCompte"/>
 	                        <InputListItem type="Navigation" counter="0" label="Mes pronostics" id="__item5" detailPress="" press="onNavToPronostics"/></sap.ui.layout:content>
 	                </sap.ui.layout:Grid>
 	                <!--<sap.ui.layout:Grid xmlns:sap.ui.layout="sap.ui.layout" id="__grid1" class="sapUiSmallMarginTop">-->
 	     <!--               <sap.ui.layout:content xmlns:sap.ui.layout="sap.ui.layout">-->
-	                        <Text
-	                        class="sapUiSmallMarginBeginEnd sapUiSmallMarginTop"
-	                        text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat" />
+	                        <Text class="sapUiSmallMarginBeginEnd sapUiSmallMarginTop" text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat"/>
 						<!--</sap.ui.layout:content>-->
 	                <!--</sap.ui.layout:Grid>-->
 	            </content>

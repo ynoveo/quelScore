@@ -23,6 +23,7 @@ sap.ui.define([
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
 			
+			sap.ui.getCore().setModel(new sap.ui.model.json.JSONModel("./model/Global.json"), "global");
 			this.getRouter().initialize();
 			
 			var credentials = {

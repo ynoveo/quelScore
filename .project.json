@@ -1,0 +1,14 @@
+{
+  "generation": [
+    {
+      "templateId": "ui5template.basicSAPUI5ApplicationComponent",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Fri, 27 May 2016 20:08:32 GMT"
+    }
+  ],
+  "dataBinding": {
+    "/QuickStartApplication/webapp/view/grouplist2.view.xml": {
+      "entitySet": "UserGroup"
+    }
+  }
+}
