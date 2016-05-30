@@ -93,16 +93,21 @@ onLogon: function () {
 						oController.getView().setModel(otModel);
 						//MessageToast.show("code retour = " + otModel.getProperty("/reponse/retcode"));
 						if(otModel.getProperty("/reponse/retcode") === "0") {
-							//console.log(oController.byId("__button1"));
-							oController.byId("__button1").setEnabled(false);
-							oController.byId("__button1").setText("Connecté");
-		    				var ogModel=sap.ui.getCore().getModel("global");
-							ogModel.setProperty("/pseudo", sLogin);
-							ogModel.setProperty("/pwd", sPass);							
+
+						//	console.log(oController.byId("__button1"));
+						//	oController.byId("__button1").setEnabled(false);
+						//	oController.byId("__button1").setText("Connecté");
+		    			oController.byId("__button1").setVisible(false);
+		    			oController.byId("__button_disc").setVisible(true);
+		    			oController.byId("Bt_sub").setVisible(false);
+	    				var ogModel=sap.ui.getCore().getModel("global");
+						ogModel.setProperty("/pseudo", sLogin);
+						ogModel.setProperty("/pwd", sPass);							
+						MessageToast.show("Bienvenue");
+
 						} else {
 							MessageToast.show(otModel.getProperty("/reponse/retmsg"));
 						}
-
 						dialog.close();
 					}
 				}),
