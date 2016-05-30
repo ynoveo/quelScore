@@ -12,6 +12,9 @@
                             <contentLeft>
                                 <Button text="Se connecter" width="200px" id="__button1" activeIcon="sap-icon://connected" type="Accept" icon="sap-icon://connected" iconFirst="true" iconDensityAware="true" press="onLogon"/>
                             </contentLeft>
+                        <contentRight>
+                            <Button text="S'inscrire" width="100px" id="Bt_sub" type="Emphasized" press="onSubscribe"/>
+                        </contentRight>
                         </Bar>
                         <ObjectListItem counter="0" title="François" number="{/reponse/position}" numberUnit="{/reponse/nbpoints} pts" intro="Mon classement" icon="https://cdn4.iconfinder.com/data/icons/we-re-the-best/512/best-badge-cup-gold-medal-game-win-winner-gamification-first-award-acknowledge-acknowledgement-prize-victory-reward-conquest-premium-rank-ranking-gold-hero-star-quality-challenge-trophy-praise-victory-success-512.png" markFavorite="false" markFlagged="false" showMarkers="false" id="__item0" numberState="Success" busy="false"/>
 	                        <ObjectListItem ariaLabelledBy="__item4-label" type="Active" counter="0" number="3" intro="Mes groupes" markFavorite="false" markFlagged="false" showMarkers="false" id="__item1" icon="sap-icon://group" press="onNavToGroupe"/>
