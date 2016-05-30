@@ -51,6 +51,18 @@ sap.ui.define([
 			//to get access to the global model
 			this.getView().addDependent(dialog);
 			dialog.open();
+		},
+		
+		userInfo :  function (iduser) {
+			try {
+				if (iduser === "") {
+					return "Connexion";
+				} else {
+					return iduser;
+				}
+			} catch (err) {
+				return "Erreur";
+			}
 		}
 	});
 });
