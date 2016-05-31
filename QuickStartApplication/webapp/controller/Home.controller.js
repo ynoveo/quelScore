@@ -85,7 +85,7 @@ onLogon: function () {
 					press: function () {
 						var sLogin = encodeURIComponent(sap.ui.getCore().byId("login").getValue());
 						var sPass = encodeURIComponent(sap.ui.getCore().byId("pass").getValue());
-						var sUrl = "http://www.quelscore.com/JSON_V2016.php?action=CONNECT&email=" + sLogin + "&pass=" + sPass;
+						var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=CONNECT&email=" + sLogin + "&pass=" + sPass;
 						var otModel = new JSONModel();
 
 						otModel.loadData(sUrl, {}, false);
@@ -93,7 +93,7 @@ onLogon: function () {
 						oController.getView().setModel(otModel);
 						//MessageToast.show("code retour = " + otModel.getProperty("/reponse/retcode"));
 						if(otModel.getProperty("/reponse/retcode") === "0") {
-							console.log(oController.byId("__button1"));
+							//console.log(oController.byId("__button1"));
 							oController.byId("__button1").setEnabled(false);
 							oController.byId("__button1").setText("Connecté");
 						} else {
@@ -146,7 +146,7 @@ var dialog = new Dialog({
 					press: function () {
 						var sLogin = encodeURIComponent(sap.ui.getCore().byId('login').getValue());
 						var sPass = encodeURIComponent(sap.ui.getCore().byId('pass').getValue());
-						var sUrl = "http://www.quelscore.com/JSON_V2016.php?action=CONNECT&email=" + sLogin + "&pass=" + sPass;
+						var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=CONNECT&email=" + sLogin + "&pass=" + sPass;
 						var otModel = new JSONModel();
 //						otModel.loadData(sUrl);
 						otModel.loadData("../webapp/localService/connect.json", {},false);	

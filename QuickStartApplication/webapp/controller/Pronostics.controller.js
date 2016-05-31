@@ -5,8 +5,10 @@ sap.ui.define([
 	"sap/m/Dialog",
 	"sap/m/Button",
 	"sap/ui/commons/TextField",
-	"sap/ui/layout/form/SimpleForm"
-], function (Controller, History, JSONModel, Dialog, Button, TextField, SimpleForm) {
+	"sap/ui/layout/form/SimpleForm",
+	"sap/m/GroupHeaderListItem",
+	'sap/ui/core/Fragment'
+], function (Controller, History, JSONModel, Dialog, Button, TextField, SimpleForm, GroupHeaderListItem, Fragment) {
 	"use strict";
 
 	return Controller.extend("QuickStartApplication.controller.Pronostics", {
@@ -17,7 +19,7 @@ sap.ui.define([
 		 */
 		onInit: function() {
             var oModel = new JSONModel();
-            oModel.loadData("http://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty");
+            oModel.loadData("https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty");
             //oModel.loadData("../webapp/localService/matchlist.json");
             this.getView().setModel(oModel);
 	},
@@ -43,7 +45,7 @@ sap.ui.define([
 						jQuery.sap.log.error(pronoA.getProperty("value"));
 						jQuery.sap.log.error(pronoB.getProperty("value"));
 						// TODO: updateScore(idMatch, pronoA.getProperty("value"), pronoB.getProperty("value"));
-						var updateURL = "http://www.quelscore.com/JSON_V2016.php?action=SAVESCORE&idmatch="+idMatch+"&scoreA="+pronoA.getProperty("value")+"&scoreB="+pronoB.getProperty("value");
+						var updateURL = "https://www.quelscore.com/JSON_V2016.php?action=SAVESCORE&idmatch="+idMatch+"&scoreA="+pronoA.getProperty("value")+"&scoreB="+pronoB.getProperty("value");
 						$.ajax({
 							type: "POST",
 							data: "",
@@ -102,6 +104,38 @@ sap.ui.define([
 				return "None";
 			}
 		},
+		
+		heureOuScore :  function (enCours, matchFini, scoreA, scoreB, heurematch) {
+			try {
+				if (matchFini === "Y") {
+					var string = scoreA + " - " + scoreB;
+					return string;
+				} else if (enCours === "Y") {
+					return "En cours";
+				} else {
+					return heurematch;
+				}
+			} catch (err) {
+				return "None";
+			}
+		},
+		
+		onOpenPopover: function () {
+ 
+			// create popover
+			if (! this._oPopover) {
+				//this._oPopover = sap.ui.xmlfragment("../webapp/view/Popover", this.getView().getController());
+				this._oPopover = sap.ui.xmlfragment("Popover", this);
+				this.getView().addDependent(this._oPopover);
+			}
+		},
+		
+		getGroupHeader: function (oGroup){
+			return new GroupHeaderListItem( {
+				title: oGroup.key,
+				upperCase: false
+			} );
+		},
 /**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 		 * (NOT before the first rendering! onInit() is used for that one!).
@@ -142,6 +176,6 @@ sap.ui.define([
 });
 /**
 var oModel = new JSONModel(Device);
-oModel.loadData("http://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty&phase=A");
+oModel.loadData("https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty&phase=A");
 this.getView().setModel(oModel);
 */

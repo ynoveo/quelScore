@@ -3,26 +3,48 @@
 		<pages>
 			<Page title="Mes pronostics" showNavButton="true" navButtonPress="onNavBack">
 				<content>
-        			<Table id="matchTable" inset="true" items="{        path: '/match'       }" width="10em" hAlign="Center">
+        			<Table
+        				id="matchTable"
+        				inset="true"
+        				items="{
+							path: '/match',
+							sorter: {
+								path: 'matchdate',
+								descending: false,
+								group: true
+							},
+							groupHeaderFactory: '.getGroupHeader'
+						}"
+        				width="10em"
+        				hAlign="Center">
 						<columns>
 							<Column width="1em" hAlign="Left"/>
 							<Column width="10em" hAlign="Right"/>
 							<Column width="3em" hAlign="Center"/>
 							<Column width="10em" hAlign="Left"/>
 							<Column width="1em" hAlign="Left"/>
-							<Column width="5em" hAlign="Left"/>
+							<Column width="3em" hAlign="Center"/>
 						</columns>
 						<items>
-							<ColumnListItem selected="true" type="Active" press="openPopup">
+							<ColumnListItem selected="true" type="Active" press="onOpenPopover">
 								<cells>
-									<Image src="http://quelscore.com/flag/{flagA}"/>
+									<Image src="https://quelscore.com/flag/{flagA}"/>
 									<ObjectIdentifier id="equipeA" title="{txtequipeA}" text="Score final"/>
-									<ObjectIdentifier id="scores" title="{pronoA} - {pronoB}" text="{scoreA} - {scoreB}"/>
+									<ObjectIdentifier
+										id="scores"
+										itle="{pronoA} - {pronoB}"
+										text="{parts: [
+									                {path: 'encours' },
+									                {path: 'matchfini' },
+									                {path: 'scoreA' },
+									                {path: 'scoreB' },
+									                {path: 'heurematch' }
+									            ],
+									            formatter: '.heureOuScore'}"/>
 									<ObjectIdentifier id="equipeB" title="{txtequipeB}" text=""/>
-									<Image src="http://quelscore.com/flag/{flagB}"/>
+									<Image src="https://quelscore.com/flag/{flagB}"/>
 									<ObjectStatus
 										class="sapUiSmallMarginBottom"
-										text="{matchdate} {heurematch}"
 							            icon="{parts: [
 									                {path: 'encours' },
 									                {path: 'matchfini' }
