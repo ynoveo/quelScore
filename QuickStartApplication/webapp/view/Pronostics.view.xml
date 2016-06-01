@@ -26,21 +26,21 @@
 							<Column width="3em" hAlign="Center"/>
 						</columns>
 						<items>
-							<ColumnListItem selected="true" type="Active" press="onOpenPopover">
+							<ColumnListItem selected="true" type="Active" press="openPopup">
 								<cells>
 									<Image src="https://quelscore.com/flag/{flagA}"/>
-									<ObjectIdentifier id="equipeA" title="{txtequipeA}" text="Score final"/>
+									<ObjectIdentifier id="equipeA" title="{txtequipeA}" text="Mon score"/>
 									<ObjectIdentifier
 										id="scores"
-										itle="{pronoA} - {pronoB}"
-										text="{parts: [
+										title="{parts: [
 									                {path: 'encours' },
 									                {path: 'matchfini' },
 									                {path: 'scoreA' },
 									                {path: 'scoreB' },
 									                {path: 'heurematch' }
 									            ],
-									            formatter: '.heureOuScore'}"/>
+									            formatter: '.heureOuScore'}"
+										text="{pronoA} - {pronoB}"/>
 									<ObjectIdentifier id="equipeB" title="{txtequipeB}" text=""/>
 									<Image src="https://quelscore.com/flag/{flagB}"/>
 									<ObjectStatus

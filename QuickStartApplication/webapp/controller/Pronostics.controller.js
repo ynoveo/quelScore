@@ -6,9 +6,8 @@ sap.ui.define([
 	"sap/m/Button",
 	"sap/ui/commons/TextField",
 	"sap/ui/layout/form/SimpleForm",
-	"sap/m/GroupHeaderListItem",
-	'sap/ui/core/Fragment'
-], function (Controller, History, JSONModel, Dialog, Button, TextField, SimpleForm, GroupHeaderListItem, Fragment) {
+	"sap/m/GroupHeaderListItem"
+], function (Controller, History, JSONModel, Dialog, Button, TextField, SimpleForm, GroupHeaderListItem) {
 	"use strict";
 
 	return Controller.extend("QuickStartApplication.controller.Pronostics", {
@@ -44,18 +43,19 @@ sap.ui.define([
 						jQuery.sap.log.error(idMatch);
 						jQuery.sap.log.error(pronoA.getProperty("value"));
 						jQuery.sap.log.error(pronoB.getProperty("value"));
-						// TODO: updateScore(idMatch, pronoA.getProperty("value"), pronoB.getProperty("value"));
-						var updateURL = "https://www.quelscore.com/JSON_V2016.php?action=SAVESCORE&idmatch="+idMatch+"&scoreA="+pronoA.getProperty("value")+"&scoreB="+pronoB.getProperty("value");
+						var newPronoA = pronoA.getProperty("value");
+						var newPronoB = pronoB.getProperty("value");
+
+						var updateURL = "https://www.quelscore.com/JSON_V2016.php?action=SAVESCORE&idmatch="+idMatch+"&scoreA="+newPronoA+"&scoreB="+newPronoB;
 						$.ajax({
 							type: "POST",
 							data: "",
 							crossDomain: true,
 							url: updateURL,
-							headers: {"key1":"value1","key2":"value2"},
+							
 							contentType: "application/json",
 							success: function (res, status, xhr) {
 							    //success code
-							    jQuery.sap.log.error("Success response: " + status + res + xhr);
 							    jQuery.sap.log.error("Success response: " + status + res);
 							},
 								error: function (jqXHR, textStatus, errorThrown) {
@@ -120,14 +120,38 @@ sap.ui.define([
 			}
 		},
 		
-		onOpenPopover: function () {
+		onOpenPopover: function (oEvent) {
  
 			// create popover
 			if (! this._oPopover) {
 				//this._oPopover = sap.ui.xmlfragment("../webapp/view/Popover", this.getView().getController());
-				this._oPopover = sap.ui.xmlfragment("Popover", this);
+				this._oPopover = sap.ui.xmlfragment("QuickStartApplication.view.Popover", this);
+				var popModel = new sap.ui.model.json.JSONModel({
+					  data: [
+					    { id: 0 },
+					    { id: 1 },
+					    { id: 2 },
+					    { id: 3 },
+					    { id: 4 },
+					    { id: 5 },
+					    { id: 6 },
+					    { id: 7 },
+					    { id: 8 },
+					    { id: 9 }
+					  ]
+					  
+					});
+				this._oPopover.setModel(popModel);
 				this.getView().addDependent(this._oPopover);
+				//console.log(this._oPopover.getParent().getModel());
+				
 			}
+ 
+			// delay because addDependent will do a async rerendering and the popover will immediately close without it
+			var oColumnListItem = oEvent.getSource();
+			jQuery.sap.delayedCall(0, this, function () {
+				this._oPopover.openBy(oColumnListItem);
+			});
 		},
 		
 		getGroupHeader: function (oGroup){
@@ -135,6 +159,24 @@ sap.ui.define([
 				title: oGroup.key,
 				upperCase: false
 			} );
+		},
+		
+		getTitle: function (oEvent){
+			//var title = this.getModel().getProperty("txtequipeA");
+			//console.log(JSON.stringify(title));
+			var bindingContext = oEvent.getSource().getBindingContext();
+			var title = bindingContext.getProperty("txtequipeA");
+			return title;
+		},
+		
+		saveScore: function (oEvent) {
+			//console.log(oEvent.getSource());
+			//var bindingContext = oEvent.getSource().getBindingContext();
+			//var txt = bindingContext.getProperty("/match");
+			//console.log(bindingContext);
+			console.log(this._oPopover.getId("oCombo1").getValue());
+			console.log(sap.ui.getCore().getId("oCombo1").getValue());
+			this._oPopover.close();
 		},
 /**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
