@@ -78,7 +78,7 @@ sap.ui.define([
 							    oldPronoA = newPronoA;
 							    oldPronoB = newPronoB;
 							    //oView.setModel(oView.getModel());
-							    oView.getModel().refresh(true);
+							    //oView.getModel().refresh(true);
 							    console.log(oldPronoA);
 							    console.log(oView.getModel());
 							    //oView.byId("scores").setText(newPronoA+" - "+newPronoB);
