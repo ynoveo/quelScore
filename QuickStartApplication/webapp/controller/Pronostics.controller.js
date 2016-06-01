@@ -17,16 +17,28 @@ sap.ui.define([
 		 * @memberOf QuickStartApplication.view.Pronostics
 		 */
 		onInit: function() {
-            var oModel = new JSONModel();
-            oModel.loadData("https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty");
+            //var oModel = new JSONModel();
+            //oModel.loadData("https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty");
             //oModel.loadData("../webapp/localService/matchlist.json");
-            this.getView().setModel(oModel);
+            //this.getView().setModel(oModel);
+            
+            var ogModel=sap.ui.getCore().getModel("global");
+			var sLogin = ogModel.getProperty("/pseudo");
+			var sPass = ogModel.getProperty("/pwd");
+			var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=" + sLogin + "&pass=" + sPass;
+			var oModel = new JSONModel();
+			oModel.loadData(sUrl,{},false);
+			this.getView().setModel(oModel);
 	},
 	
 		openPopup: function(oEvent) {
+			var oView = this.getView();
+			
 			var bindingContext = oEvent.getSource().getBindingContext();
 			var title = bindingContext.getProperty("txtequipeA")+" - "+bindingContext.getProperty("txtequipeB");
 			var idMatch = bindingContext.getProperty("idMatch");
+			var oldPronoA = bindingContext.getProperty("pronoA");
+			var oldPronoB = bindingContext.getProperty("pronoB");
 
 			var label = new sap.m.Label({ text : title });
 			var pronoA = new TextField({value:bindingContext.getProperty("pronoA"), width:"2em", maxLength:1});
@@ -39,14 +51,18 @@ sap.ui.define([
 				beginButton: new Button({
 					text: "Sauvegarder",
 					type: "Emphasized",
-					press: function () {
+					press: function (oEvent2) {
 						jQuery.sap.log.error(idMatch);
 						jQuery.sap.log.error(pronoA.getProperty("value"));
 						jQuery.sap.log.error(pronoB.getProperty("value"));
 						var newPronoA = pronoA.getProperty("value");
 						var newPronoB = pronoB.getProperty("value");
+						
+						var olModel=sap.ui.getCore().getModel("global");
+						var sPseudo = olModel.getProperty("/pseudo");
+						var sPwd = olModel.getProperty("/pwd");
 
-						var updateURL = "https://www.quelscore.com/JSON_V2016.php?action=SAVESCORE&idmatch="+idMatch+"&scoreA="+newPronoA+"&scoreB="+newPronoB;
+						var updateURL = "https://www.quelscore.com/JSON_V2016.php?action=SAVESCORE&idmatch="+idMatch+"&scoreA="+newPronoA+"&scoreB="+newPronoB+"&email="+sPseudo+"&pass="+sPwd;
 						$.ajax({
 							type: "POST",
 							data: "",
@@ -56,7 +72,17 @@ sap.ui.define([
 							contentType: "application/json",
 							success: function (res, status, xhr) {
 							    //success code
-							    jQuery.sap.log.error("Success response: " + status + res);
+							    //jQuery.sap.log.error("Success response: " + status + res);
+							    //bindingContext.setProperty("/match/pronoA", newPronoA);
+							    //bindingContext.setProperty("/match/pronoB", newPronoB);
+							    oldPronoA = newPronoA;
+							    oldPronoB = newPronoB;
+							    //oView.setModel(oView.getModel());
+							    oView.getModel().refresh(true);
+							    console.log(oldPronoA);
+							    console.log(oView.getModel());
+							    //oView.byId("scores").setText(newPronoA+" - "+newPronoB);
+							    dialog.close();
 							},
 								error: function (jqXHR, textStatus, errorThrown) {
 								jQuery.sap.log.error("Got an error response: " + textStatus + errorThrown);
