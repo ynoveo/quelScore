@@ -36,7 +36,13 @@ sap.ui.define([
 			oModel.loadData(sUrl,{},false);
 			this.getView().setModel(oModel);
 			this._oPage = this.byId("PageGroup");
-			this._oPage.setTitle(sId);
+			if(sId === "0"){
+				this._oPage.setTitle("Classement : Top 100");				
+			}  else { 
+			//	this._oPage.setTitle(decodeURIComponent(oEvent.getParameter("arguments").groupT));
+			// adapter le JSON pour retourner également le nom du groupe dans ce cas
+				
+			}
 			ogModel.setProperty("/activeGroupID", sId);
 		},
 

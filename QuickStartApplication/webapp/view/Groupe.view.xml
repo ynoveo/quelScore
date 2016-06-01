@@ -1,5 +1,5 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="QuickStartApplication.controller.Groupe">
-	<Page id="GroupMasterPage" title="Un groupe" showNavButton="true" navButtonPress="onNavBack">	
+	<Page id="GroupMasterPage" title="Les groupes" showNavButton="true" navButtonPress="onNavBack">	
 		<subHeader>
 			<Bar id="subHeaderBar">
 				<contentMiddle>
@@ -8,7 +8,7 @@
 			</Bar>
 		</subHeader>
 		<content>
-			<PullToRefresh id="pullToRefresh" visible="{= ${device>/support/touch} }" refresh="onPullToRefresh"/>
+			<PullToRefresh id="pullToRefresh" visible="false" refresh="onPullToRefresh"/>
 			
 				<List id="masterList" selectionChange="onNavToGroup" modeAnimationOn="false" mode="SingleSelectMaster" updateFinished="onUpdateFinished" noDataText="Pas de groupes" swipe="onSwipe" items="{path: '/groupe'}">
 					<items>
@@ -28,7 +28,7 @@
 					</items>
 				</SegmentedButton>
 				<ToolbarSpacer id="footerToolbarSpacer"/>
-				<Button id="processButton" type="Emphasized" text="Nouveau groupe" press="onProcessPressed" icon="sap-icon://add-activity-2"/>
+				<Button id="processButton" type="Emphasized" text="Nouveau groupe" press="onNewPressed" icon="sap-icon://add-activity-2"/>
 			</OverflowToolbar>
 		</footer>
 	</Page>
