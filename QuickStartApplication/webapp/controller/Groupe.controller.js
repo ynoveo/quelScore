@@ -165,6 +165,9 @@ onNewPressed: function () {
 						if(otModel.getProperty("/reponse/retcode") === "0") {
 							MessageToast.show("Groupe créé : " + sGroup);
 							dialog.close();
+							// refresh model
+//							push du groupe
+//							this.getView().getModel().refresh(true);
 						} else {
 							MessageToast.show(otModel.getProperty("/reponse/retmsg"));
 						}

@@ -30,7 +30,8 @@
 			<footer>
 			<OverflowToolbar id="footerToolbar">
 				<ToolbarSpacer id="footerToolbarSpacer0"/>	
-				<Button type="Accept" text="Rejoindre ce groupe" press="onJoinGroup"/>     
+				<Button type="Reject" text="Quitter ce groupe" press="onQuitGroup"  id="bt_reject"/>
+				<Button type="Accept" text="Rejoindre ce groupe" press="onJoinGroup" id="bt_join"/>     
 			</OverflowToolbar>
 		</footer>
 		</Page>
