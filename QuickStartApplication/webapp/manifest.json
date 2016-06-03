@@ -95,7 +95,7 @@
 				"name": "appHome",
 				"target": "home"
 			}, {
-				"pattern": "pronostics/{idUser}",
+				"pattern": "pronostics/{idUser}/pronostics/{oPseudo}",
 				"name": "mesPronostics",
 				"target": ["pronostics"]
 			}, {

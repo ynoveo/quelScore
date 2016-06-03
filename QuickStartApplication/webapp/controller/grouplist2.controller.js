@@ -117,8 +117,9 @@ onQuitGroup: function () {
 		},
 openPronostics: function (oEvent) {
 	var bindingContext = oEvent.getSource().getBindingContext();
-	var pseudo = bindingContext.getProperty("pseudo");
-	sap.ui.core.UIComponent.getRouterFor(this).navTo("mesPronostics", { idUser: pseudo});
+	var sIdUser = bindingContext.getProperty("idPlayer");
+	var sPseudo = bindingContext.getProperty("pseudo");
+	sap.ui.core.UIComponent.getRouterFor(this).navTo("mesPronostics", {idUser: sIdUser, oPseudo: sPseudo});
 }
 	});
 });

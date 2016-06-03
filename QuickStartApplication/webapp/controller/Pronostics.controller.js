@@ -35,6 +35,7 @@ sap.ui.define([
 		onUserMatched: function(oEvent) {
 			// récupération du paramètre idUser
 			var sIdUser = decodeURIComponent(oEvent.getParameter("arguments").idUser);
+			var sPseudo = decodeURIComponent(oEvent.getParameter("arguments").oPseudo);
 			
 			// Définition du modèle de la vue
 			var ogModel = sap.ui.getCore().getModel("global");
@@ -55,7 +56,7 @@ sap.ui.define([
 			}  else { 
 				//	autre user, refuser la saisie
 				this._myUser = false;
-				title = "Pronostics de "+sIdUser;
+				title = "Pronostics de "+sPseudo;
 			}
 
 			this.getView().byId("idPage").setTitle(title);
@@ -307,7 +308,7 @@ sap.ui.define([
 			} );
 		},
 		
-		getTitle: function (pseudo){
+/*		getTitle: function (pseudo){
 			var ogModel = this.getView().getModel("remote");
 			var sPseudo = ogModel.getProperty("/reponse/pseudo");
 			var title;
@@ -318,7 +319,7 @@ sap.ui.define([
 				title = "Pronostics de "+pseudo.pseudo;
 			}
 			return title;
-		},
+		},*/
 		
 /*		saveScore: function (oEvent) {
 			//console.log(oEvent.getSource());
