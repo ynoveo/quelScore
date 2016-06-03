@@ -39,19 +39,26 @@ sap.ui.define([
 			// Définition du modèle de la vue
 			var ogModel = sap.ui.getCore().getModel("global");
 			var sUser = ogModel.getProperty("/iduser");
-			var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&idPlayer=" + sIdUser;
+			var sLogin = ogModel.getProperty("/pseudo");
+  			var sPass = ogModel.getProperty("/pwd");
+			var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&idPlayer=" + sIdUser + "&email=" + sLogin + "&pass=" + sPass;
 			var oModel = new JSONModel();
 			oModel.loadData(sUrl,{},false);
 			this.getView().setModel(oModel, "remote");
 			//this.getView().setModel(ogModel, "global");
 			
+			var title;
 			if(sUser === sIdUser) {
 				// mon user, autoriser la saisie
 				this._myUser = true;
+				title = "Mes pronostics";
 			}  else { 
 				//	autre user, refuser la saisie
 				this._myUser = false;
+				title = "Pronostics de "+sIdUser;
 			}
+
+			this.getView().byId("idPage").setTitle(title);
 		},
 	
 		openPopup: function(oEvent) {
@@ -298,13 +305,18 @@ sap.ui.define([
 			} );
 		},
 		
-/*		getTitle: function (oEvent){
-			//var title = this.getModel().getProperty("txtequipeA");
-			//console.log(JSON.stringify(title));
-			var bindingContext = oEvent.getSource().getBindingContext();
-			var title = bindingContext.getProperty("txtequipeA");
+		getTitle: function (pseudo){
+			var ogModel = this.getView().getModel("remote");
+			var sPseudo = ogModel.getProperty("/reponse/pseudo");
+			var title;
+			console.log(pseudo);
+			if(sPseudo === pseudo.pseudo) {
+				title = "Mes pronostics";
+			} else {
+				title = "Pronostics de "+pseudo.pseudo;
+			}
 			return title;
-		},*/
+		},
 		
 /*		saveScore: function (oEvent) {
 			//console.log(oEvent.getSource());

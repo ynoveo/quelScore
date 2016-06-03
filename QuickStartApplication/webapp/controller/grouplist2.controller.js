@@ -8,9 +8,9 @@ sap.ui.define([
 	return Controller.extend("QuickStartApplication.controller.grouplist2", {
 		onInit: function () {
 //			this._oPage = this.byId("PageGroup");
-			var ogModel=sap.ui.getCore().getModel("global");
-			var sLogin = ogModel.getProperty("/pseudo");
-			var sPass = ogModel.getProperty("/pwd");
+			// var ogModel=sap.ui.getCore().getModel("global");
+			// var sLogin = ogModel.getProperty("/pseudo");
+			// var sPass = ogModel.getProperty("/pwd");
 			sap.ui.core.UIComponent.getRouterFor(this).getRoute("UserList").attachPatternMatched(this.onIDMatched, this);
 		},
 
@@ -114,6 +114,11 @@ onQuitGroup: function () {
 			} else {
 				Mst.show(oModel.getProperty("/reponse/retmsg"));
 			}
-		}		
+		},
+openPronostics: function (oEvent) {
+	var bindingContext = oEvent.getSource().getBindingContext();
+	var pseudo = bindingContext.getProperty("pseudo");
+	sap.ui.core.UIComponent.getRouterFor(this).navTo("mesPronostics", { idUser: pseudo});
+}
 	});
 });

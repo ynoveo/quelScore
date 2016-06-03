@@ -1,7 +1,11 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="QuickStartApplication.controller.Pronostics">
 	<App>
 		<pages>
-			<Page title="Mes pronostics" showNavButton="true" navButtonPress="onNavBack">
+			<Page
+				id="idPage"
+				title=""
+				showNavButton="true"
+				navButtonPress="onNavBack">
 				<content>
 					<VBox
 						id="idVBox">
@@ -41,6 +45,7 @@
 									},
 									groupHeaderFactory: '.getGroupHeader'
 								}"
+								noDataText="Aucun match"
 		        				width="100%"
 		        				hAlign="Center">
 								<columns>

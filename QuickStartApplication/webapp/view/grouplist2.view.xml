@@ -3,7 +3,7 @@
 		<Page showNavButton="true" navButtonPress="onNavBack" id="PageGroup" title="{/GroupLib}">
 			<Table noDataText="Aucun joueur" id="__table0" items="{path: '/joueur'}">
 			    <items>
-			        <ColumnListItem counter="0" id="__item7">
+			        <ColumnListItem counter="0" id="__item7" press="openPronostics" selected="true" type="Active">
 			            <cells>
 			                <Text text="{classement}" maxLines="0" id="__text5"/>
 			                <Text text="{pseudo}" maxLines="0" id="__text6"/>
