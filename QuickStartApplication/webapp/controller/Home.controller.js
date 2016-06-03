@@ -84,7 +84,7 @@ sap.ui.define([
 				});
 				dialog.open();
 			}	else {		
-				sap.ui.core.UIComponent.getRouterFor(this).navTo("mesPronostics");
+				sap.ui.core.UIComponent.getRouterFor(this).navTo("mesPronostics", { myUser: true});
 			}
 		},
 		/**

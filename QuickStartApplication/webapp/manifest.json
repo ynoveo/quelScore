@@ -95,9 +95,9 @@
 				"name": "appHome",
 				"target": "home"
 			}, {
-				"pattern": "pronostics",
+				"pattern": "{myUser}",
 				"name": "mesPronostics",
-				"target": "pronostics"
+				"target": ["pronostics"]
 			}, {
 				"pattern": "compte",
 				"name": "monCompte",
@@ -122,7 +122,7 @@
 					"viewPath": "QuickStartApplication.view",
 					"viewName": "Home",
 					"viewLevel": 2,
-					"transition": "flip"
+					"transition": "slide"
 				},
 				"pronostics": {
 					"viewPath": "QuickStartApplication.view",
