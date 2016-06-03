@@ -6,8 +6,10 @@ sap.ui.define([
 	"sap/m/Button",
 	"sap/ui/commons/TextField",
 	"sap/ui/layout/form/SimpleForm",
-	"sap/m/GroupHeaderListItem"
-], function (Controller, History, JSONModel, Dialog, Button, TextField, SimpleForm, GroupHeaderListItem) {
+	"sap/m/GroupHeaderListItem",
+	"sap/m/MessageToast",
+	'sap/ui/model/Filter'
+], function (Controller, History, JSONModel, Dialog, Button, TextField, SimpleForm, GroupHeaderListItem, MessageToast, Filter) {
 	"use strict";
 
 	return Controller.extend("QuickStartApplication.controller.Pronostics", {
@@ -25,25 +27,103 @@ sap.ui.define([
             var ogModel=sap.ui.getCore().getModel("global");
 			var sLogin = ogModel.getProperty("/pseudo");
 			var sPass = ogModel.getProperty("/pwd");
-			var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=" + sLogin + "&pass=" + sPass;
+			var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&idPlayer="; //&email=" + sLogin + "&pass=" + sPass;
 			var oModel = new JSONModel();
 			oModel.loadData(sUrl,{},false);
-			this.getView().setModel(oModel);
+			this.getView().setModel(oModel, "remote");
+			this.getView().setModel(ogModel, "global");
+			//console.log(this.getView().getModel());
 	},
 	
 		openPopup: function(oEvent) {
 			var oView = this.getView();
 			
-			var bindingContext = oEvent.getSource().getBindingContext();
+			var bindingContext = oEvent.getSource().getBindingContext("remote");
 			var title = bindingContext.getProperty("txtequipeA")+" - "+bindingContext.getProperty("txtequipeB");
 			var idMatch = bindingContext.getProperty("idMatch");
-			var oldPronoA = bindingContext.getProperty("pronoA");
-			var oldPronoB = bindingContext.getProperty("pronoB");
+			//var oldPronoA = bindingContext.getProperty("pronoA");
+			//var oldPronoB = bindingContext.getProperty("pronoB");
+			var enCours = bindingContext.getProperty("encours");
+			var matchfini = bindingContext.getProperty("matchfini");
 
 			var label = new sap.m.Label({ text : title });
-			var pronoA = new TextField({value:bindingContext.getProperty("pronoA"), width:"2em", maxLength:1});
-			var pronoB = new TextField({value:bindingContext.getProperty("pronoB"), width:"2em", maxLength:1});
-			var simpleForm = new SimpleForm({editable: true,content: [label, pronoA, pronoB]});
+			//var pronoA = new TextField({value:bindingContext.getProperty("pronoA"), width:"2em", maxLength:1});
+			//var pronoB = new TextField({value:bindingContext.getProperty("pronoB"), width:"2em", maxLength:1});
+			// Dropdown box pour pronostic A
+			var oDropdownBox1 = new sap.ui.commons.DropdownBox("DropdownBox1");
+			oDropdownBox1.setTooltip("Pronostic "+bindingContext.getProperty("txtequipeA"));
+			oDropdownBox1.setEditable(true);
+			oDropdownBox1.setWidth("40px");
+			var oItem = new sap.ui.core.ListItem("ScoreA0");
+			oItem.setText("0");
+			oDropdownBox1.addItem(oItem);
+			oItem = new sap.ui.core.ListItem("ScoreA1");
+			oItem.setText("1");
+			oDropdownBox1.addItem(oItem);
+			oItem = new sap.ui.core.ListItem("ScoreA2");
+			oItem.setText("2");
+			oDropdownBox1.addItem(oItem);
+			oItem = new sap.ui.core.ListItem("ScoreA3");
+			oItem.setText("3");
+			oDropdownBox1.addItem(oItem);
+			oItem = new sap.ui.core.ListItem("ScoreA4");
+			oItem.setText("4");
+			oDropdownBox1.addItem(oItem);
+			oItem = new sap.ui.core.ListItem("ScoreA5");
+			oItem.setText("5");
+			oDropdownBox1.addItem(oItem);
+			oItem = new sap.ui.core.ListItem("ScoreA6");
+			oItem.setText("6");
+			oDropdownBox1.addItem(oItem);
+			oItem = new sap.ui.core.ListItem("ScoreA7");
+			oItem.setText("7");
+			oDropdownBox1.addItem(oItem);
+			oItem = new sap.ui.core.ListItem("ScoreA8");
+			oItem.setText("8");
+			oDropdownBox1.addItem(oItem);
+			oItem = new sap.ui.core.ListItem("ScoreA9");
+			oItem.setText("9");
+			oDropdownBox1.addItem(oItem);
+			oDropdownBox1.setValue(bindingContext.getProperty("pronoA"));
+			
+			// Dropdown box pour pronostic B
+			var oDropdownBox2 = new sap.ui.commons.DropdownBox("DropdownBox2");
+			oDropdownBox2.setTooltip("Pronostic "+bindingContext.getProperty("txtequipeB"));
+			oDropdownBox2.setEditable(true);
+			oDropdownBox2.setWidth("40px");
+			oItem = new sap.ui.core.ListItem("ScoreB0");
+			oItem.setText("0");
+			oDropdownBox2.addItem(oItem);
+			oItem = new sap.ui.core.ListItem("ScoreB1");
+			oItem.setText("1");
+			oDropdownBox2.addItem(oItem);
+			oItem = new sap.ui.core.ListItem("ScoreB2");
+			oItem.setText("2");
+			oDropdownBox2.addItem(oItem);
+			oItem = new sap.ui.core.ListItem("ScoreB3");
+			oItem.setText("3");
+			oDropdownBox2.addItem(oItem);
+			oItem = new sap.ui.core.ListItem("ScoreB4");
+			oItem.setText("4");
+			oDropdownBox2.addItem(oItem);
+			oItem = new sap.ui.core.ListItem("ScoreB5");
+			oItem.setText("5");
+			oDropdownBox2.addItem(oItem);
+			oItem = new sap.ui.core.ListItem("ScoreB6");
+			oItem.setText("6");
+			oDropdownBox2.addItem(oItem);
+			oItem = new sap.ui.core.ListItem("ScoreB7");
+			oItem.setText("7");
+			oDropdownBox2.addItem(oItem);
+			oItem = new sap.ui.core.ListItem("ScoreB8");
+			oItem.setText("8");
+			oDropdownBox2.addItem(oItem);
+			oItem = new sap.ui.core.ListItem("ScoreB9");
+			oItem.setText("9");
+			oDropdownBox2.addItem(oItem);
+			oDropdownBox2.setValue(bindingContext.getProperty("pronoB"));
+			
+			var simpleForm = new SimpleForm({editable: true,content: [label, oDropdownBox1, oDropdownBox2]});
 			
 			var dialog = new Dialog({
 				title: "Mon pronostic",
@@ -51,43 +131,48 @@ sap.ui.define([
 				beginButton: new Button({
 					text: "Sauvegarder",
 					type: "Emphasized",
-					press: function (oEvent2) {
-						jQuery.sap.log.error(idMatch);
-						jQuery.sap.log.error(pronoA.getProperty("value"));
-						jQuery.sap.log.error(pronoB.getProperty("value"));
-						var newPronoA = pronoA.getProperty("value");
-						var newPronoB = pronoB.getProperty("value");
-						
-						var olModel=sap.ui.getCore().getModel("global");
-						var sPseudo = olModel.getProperty("/pseudo");
-						var sPwd = olModel.getProperty("/pwd");
-
-						var updateURL = "https://www.quelscore.com/JSON_V2016.php?action=SAVESCORE&idmatch="+idMatch+"&scoreA="+newPronoA+"&scoreB="+newPronoB+"&email="+sPseudo+"&pass="+sPwd;
-						$.ajax({
-							type: "POST",
-							data: "",
-							crossDomain: true,
-							url: updateURL,
+					press: function () {
+						if(enCours === "N" & matchfini === "N") {
+							//var newPronoA = pronoA.getProperty("value");
+							//var newPronoB = pronoB.getProperty("value");
+							var newPronoA = oDropdownBox1.getValue();
+							var newPronoB = oDropdownBox2.getValue();
 							
-							contentType: "application/json",
-							success: function (res, status, xhr) {
-							    //success code
-							    //jQuery.sap.log.error("Success response: " + status + res);
-							    //bindingContext.setProperty("/match/pronoA", newPronoA);
-							    //bindingContext.setProperty("/match/pronoB", newPronoB);
-							    oldPronoA = newPronoA;
-							    oldPronoB = newPronoB;
-							    //oView.setModel(oView.getModel());
-							    //oView.getModel().refresh(true);
-							    console.log(oldPronoA);
-							    console.log(oView.getModel());
-							    //oView.byId("scores").setText(newPronoA+" - "+newPronoB);
-							    dialog.close();
-							},
-								error: function (jqXHR, textStatus, errorThrown) {
-								jQuery.sap.log.error("Got an error response: " + textStatus + errorThrown);
-							}
-							});
+							var olModel=sap.ui.getCore().getModel("global");
+							var sPseudo = olModel.getProperty("/pseudo");
+							var sPwd = olModel.getProperty("/pwd");
+	
+							var updateURL = "https://www.quelscore.com/JSON_V2016.php?action=SAVESCORE&idmatch="+idMatch+"&scoreA="+newPronoA+"&scoreB="+newPronoB+"&email="+sPseudo+"&pass="+sPwd;
+							$.ajax({
+								type: "POST",
+								data: "",
+								crossDomain: true,
+								url: updateURL,
+								
+								contentType: "application/json",
+								success: function (res, status, xhr) {
+								    //success code
+								    //jQuery.sap.log.error("Success response: " + status + res);
+								    //oldPronoA = newPronoA;
+								    //oldPronoB = newPronoB;
+								    var ogModel=sap.ui.getCore().getModel("global");
+									var sLogin = ogModel.getProperty("/pseudo");
+									var sPass = ogModel.getProperty("/pwd");
+									var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=" + sLogin + "&pass=" + sPass;
+									var oModel = new JSONModel();
+									oModel.loadData(sUrl,{},false);
+									dialog.close();
+									oView.setModel(oModel, "remote");
+								    //console.log(oView.getModel());
+								},
+									error: function (jqXHR, textStatus, errorThrown) {
+									jQuery.sap.log.error("Got an error response: " + textStatus + errorThrown);
+								}
+								});
+						}
+						else {
+							MessageToast.show("Le match est déjà commencé ou terminé !");
+						}
 					}
 				}),
 				endButton: new Button({
@@ -146,7 +231,7 @@ sap.ui.define([
 			}
 		},
 		
-		onOpenPopover: function (oEvent) {
+/*		onOpenPopover: function (oEvent) {
  
 			// create popover
 			if (! this._oPopover) {
@@ -178,24 +263,37 @@ sap.ui.define([
 			jQuery.sap.delayedCall(0, this, function () {
 				this._oPopover.openBy(oColumnListItem);
 			});
-		},
+		},*/
 		
 		getGroupHeader: function (oGroup){
+/*			var keyStr = oGroup.key;
+			var day = keyStr.substr(0,2);
+			var month = keyStr.substr(3,2);
+			var year = keyStr.substr(6,4);
+			var newDate = year+"-"+month+"-"+day;
+			var d = new Date(newDate);
+			jQuery.sap.require("sap.ui.core.format.DateFormat");
+			//var oDateFormat = sap.ui.core.format.DateFormat.getDateInstance({pattern: "dddd dS mmmm yyyy", style: "long"});
+			
+			//var d2 = oDateFormat.parse(newDate);
+			//oDateFormat.format(d2);
+			d.toDateString();
+			console.log(d);*/
 			return new GroupHeaderListItem( {
 				title: oGroup.key,
 				upperCase: false
 			} );
 		},
 		
-		getTitle: function (oEvent){
+/*		getTitle: function (oEvent){
 			//var title = this.getModel().getProperty("txtequipeA");
 			//console.log(JSON.stringify(title));
 			var bindingContext = oEvent.getSource().getBindingContext();
 			var title = bindingContext.getProperty("txtequipeA");
 			return title;
-		},
+		},*/
 		
-		saveScore: function (oEvent) {
+/*		saveScore: function (oEvent) {
 			//console.log(oEvent.getSource());
 			//var bindingContext = oEvent.getSource().getBindingContext();
 			//var txt = bindingContext.getProperty("/match");
@@ -203,6 +301,77 @@ sap.ui.define([
 			console.log(this._oPopover.getId("oCombo1").getValue());
 			console.log(sap.ui.getCore().getId("oCombo1").getValue());
 			this._oPopover.close();
+		},*/
+		
+		_applyFilter: function(oFilter) {
+			// Get the table (last thing in the VBox) and apply the filter
+			var aTableItems = this.getView().byId("idVBox").getItems();
+			var oTable = aTableItems[aTableItems.length-1];
+			oTable.getBinding("items").filter(oFilter);
+		},
+ 
+		handleFacetFilterReset: function(oEvent) {
+			var oFacetFilter = sap.ui.getCore().byId(oEvent.getParameter("id"));
+			var aFacetFilterLists = oFacetFilter.getLists();
+			for(var i=0; i < aFacetFilterLists.length; i++) {
+				aFacetFilterLists[i].setSelectedKeys();
+			}
+			this._applyFilter([]);
+		},
+ 
+		handleListClose: function(oEvent) {
+			// Get the Facet Filter lists and construct a (nested) filter for the binding
+			var oFacetFilter = oEvent.getSource().getParent();
+			var mFacetFilterLists = oFacetFilter.getLists().filter(function(oList) {
+					return oList.getSelectedItems().length;
+				});
+ 
+			if(mFacetFilterLists.length) {
+				// Build the nested filter with ORs between the values of each group and
+				// ANDs between each group
+				var oFilter = new Filter(mFacetFilterLists.map(function(oList) {
+					return new Filter(oList.getSelectedItems().map(function(oItem) {
+						var filterKey = oList.getTitle();
+						var filterItem;
+						switch(filterKey) {
+						    case "Date du match":
+						        filterItem = "matchdate";
+						        break;
+						    case "Match en cours":
+						        filterItem = "encours";
+						        break;
+						    case "Groupes/Phase":
+						        filterItem = "phase";
+						        break;
+						    case "Equipe domicile":
+						        filterItem = "txtequipeA";
+						        break;
+						    case "Equipe extérieur":
+						        filterItem = "txtequipeB";
+						        break;
+						}
+						var oItemText = oItem.getText();
+						switch(oItemText) {
+						    case "8ème de finale":
+						        oItemText = "matchdate";
+						        break;
+						    case "1/4 de finale":
+						        oItemText = "encours";
+						        break;
+						    case "1/2 finale":
+						        oItemText = "phase";
+						        break;
+						    case "Finale":
+						        oItemText = "txtequipeA";
+						        break;
+						}
+						return new Filter(filterItem, "EQ", oItemText);
+					}), false);
+				}), true);
+				this._applyFilter(oFilter);
+			} else {
+				this._applyFilter([]);
+			}
 		},
 /**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
@@ -242,8 +411,3 @@ sap.ui.define([
 		}
 	});
 });
-/**
-var oModel = new JSONModel(Device);
-oModel.loadData("https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty&phase=A");
-this.getView().setModel(oModel);
-*/

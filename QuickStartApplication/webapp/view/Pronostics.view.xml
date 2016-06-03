@@ -3,56 +3,86 @@
 		<pages>
 			<Page title="Mes pronostics" showNavButton="true" navButtonPress="onNavBack">
 				<content>
-        			<Table
-        				id="matchTable"
-        				inset="true"
-        				items="{
-							path: '/match',
-							sorter: {
-								path: 'matchdate',
-								descending: false,
-								group: true
-							},
-							groupHeaderFactory: '.getGroupHeader'
-						}"
-        				width="10em"
-        				hAlign="Center">
-						<columns>
-							<Column width="1em" hAlign="Left"/>
-							<Column width="10em" hAlign="Right"/>
-							<Column width="3em" hAlign="Center"/>
-							<Column width="10em" hAlign="Left"/>
-							<Column width="1em" hAlign="Left"/>
-							<Column width="3em" hAlign="Center"/>
-						</columns>
+					<VBox
+						id="idVBox">
 						<items>
-							<ColumnListItem selected="true" type="Active" press="openPopup">
-								<cells>
-									<Image src="https://quelscore.com/flag/{flagA}"/>
-									<ObjectIdentifier id="equipeA" title="{txtequipeA}" text="Mon score"/>
-									<ObjectIdentifier
-										id="scores"
-										title="{parts: [
-									                {path: 'encours' },
-									                {path: 'matchfini' },
-									                {path: 'scoreA' },
-									                {path: 'scoreB' },
-									                {path: 'heurematch' }
-									            ],
-									            formatter: '.heureOuScore'}"
-										text="{pronoA} - {pronoB}"/>
-									<ObjectIdentifier id="equipeB" title="{txtequipeB}" text=""/>
-									<Image src="https://quelscore.com/flag/{flagB}"/>
-									<ObjectStatus
-										class="sapUiSmallMarginBottom"
-							            icon="{parts: [
-									                {path: 'encours' },
-									                {path: 'matchfini' }
-									            ], formatter: '.matchIcon'}"/>
-								</cells>
-							</ColumnListItem>
+		<!--				Filtre sur les pronostics -->
+							<FacetFilter
+								id="idFacetFilter"
+								type="Light"
+								showPersonalization="true"
+								showReset="true"
+								reset="handleFacetFilterReset"
+								lists="{global>/Filters}">
+								<lists>
+									<FacetFilterList
+										title="{global>type}"
+										key="{global>key}"
+										multiselect="true"
+										listClose="handleListClose"
+										items="{global>values}" >
+										<items>
+											<FacetFilterItem
+												text="{global>data}"/>
+										</items>
+									</FacetFilterList>
+								</lists>
+							</FacetFilter>
+							
+		<!--				Tableau des pronostics -->
+		        			<Table
+		        				id="matchTable"
+		        				items="{
+									path: 'remote>/match',
+									sorter: {
+										path: 'remote>matchdate',
+										descending: false,
+										group: true
+									},
+									groupHeaderFactory: '.getGroupHeader'
+								}"
+		        				width="100%"
+		        				hAlign="Center">
+								<columns>
+									<Column width="10%" hAlign="Left"/>
+									<Column width="32%" hAlign="Right"/>
+									<Column width="16%" hAlign="Center"/>
+									<Column width="32%" hAlign="Left"/>
+									<Column width="10%" hAlign="Left"/>
+									<!--<Column width="3em" hAlign="Center"/>-->
+								</columns>
+								<items>
+									<ColumnListItem selected="true" type="Active" press="openPopup">
+										<cells>
+											<Image src="https://quelscore.com/flag/{remote>flagA}" width="50%"/>
+											<ObjectIdentifier id="equipeA" title="{remote>txtequipeA}" text="Mon score" wrapping="false"/>
+											<ObjectIdentifier
+												id="scores"
+												title="{parts: [
+											                {path: 'remote>encours' },
+											                {path: 'remote>matchfini' },
+											                {path: 'remote>scoreA' },
+											                {path: 'remote>scoreB' },
+											                {path: 'remote>heurematch' }
+											            ],
+											            formatter: '.heureOuScore'}"
+												text="{remote>pronoA} - {remote>pronoB}"/>
+											<ObjectIdentifier id="equipeB" title="{remote>txtequipeB}" text=""/>
+											<Image src="https://quelscore.com/flag/{remote>flagB}" width="40%"/>
+											<!--
+											<ObjectStatus
+												class="sapUiSmallMarginBottom"
+									            icon="{parts: [
+											                {path: 'encours' },
+											                {path: 'matchfini' }
+											            ], formatter: '.matchIcon'}"/>
+											-->
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
 						</items>
-					</Table>
+					</VBox>
 				</content>
 			</Page>
 		</pages>

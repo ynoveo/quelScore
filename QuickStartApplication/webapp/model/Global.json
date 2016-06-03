@@ -1,8 +1,366 @@
 {
-
-		"pseudo":"",
-		"activeGroup":"",
-		"activeGroupID":"",
-		"pwd":"",
-		"iduser":""
+	"pseudo":"",
+	"activeGroup":"",
+	"activeGroupID":"",
+	"pwd":"",
+	"iduser":"",
+	"Filters": [
+		{
+			"type": "Date du match",
+			"values": [
+				{
+					"data": "10-06-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "11-06-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "12-06-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "13-06-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "14-06-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "15-06-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "16-06-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "17-06-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "18-06-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "19-06-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "20-06-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "21-06-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "22-06-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "25-06-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "26-06-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "27-06-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "30-06-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "01-07-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "02-07-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "03-07-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "06-07-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "07-07-2016",
+					"key": "matchdate"
+				},
+				{
+					"data": "10-07-2016",
+					"key": "matchdate"
+				}
+			]
+		},
+		{
+			"type": "Match en cours",
+			"values": [
+				{
+					"data": "Y",
+					"key": "encours"
+				},
+				{
+					"data": "N",
+					"key": "encours"
+				}
+			]
+		},
+		{
+			"type": "Groupes/Phase",
+			"values": [
+				{
+					"data": "A",
+					"key": "phase"
+				},
+				{
+					"data": "B",
+					"key": "phase"
+				},
+				{
+					"data": "C",
+					"key": "phase"
+				},
+				{
+					"data": "D",
+					"key": "phase"
+				},
+				{
+					"data": "E",
+					"key": "phase"
+				},
+				{
+					"data": "F",
+					"key": "phase"
+				},
+				{
+					"data": "8ème de finale",
+					"key": "phase"
+				},
+				{
+					"data": "1/4 de finale",
+					"key": "phase"
+				},
+				{
+					"data": "1/2 finale",
+					"key": "phase"
+				},
+				{
+					"data": "Finale",
+					"key": "phase"
+				}
+			]
+		},
+		{
+			"type": "Equipe domicile",
+			"values": [
+				{
+					"data": "SUISSE",
+					"key": "equipeA"
+				},
+				{
+					"data": "ALBANIE",
+					"key": "equipeA"
+				},
+				{
+					"data": "FRANCE",
+					"key": "equipeA"
+				},
+				{
+					"data": "ROUMANIE",
+					"key": "equipeA"
+				},
+				{
+					"data": "GALLES",
+					"key": "equipeA"
+				},
+				{
+					"data": "RUSSIE",
+					"key": "equipeA"
+				},
+				{
+					"data": "ANGLETERRE",
+					"key": "equipeA"
+				},
+				{
+					"data": "SLOVAQUIE",
+					"key": "equipeA"
+				},
+				{
+					"data": "ALLEMAGNE",
+					"key": "equipeA"
+				},
+				{
+					"data": "IRLANDE DU NORD",
+					"key": "equipeA"
+				},
+				{
+					"data": "UKRAINE",
+					"key": "equipeA"
+				},
+				{
+					"data": "POLOGNE",
+					"key": "equipeA"
+				},
+				{
+					"data": "TURQUIE",
+					"key": "equipeA"
+				},
+				{
+					"data": "ESPAGNE",
+					"key": "equipeA"
+				},
+				{
+					"data": "CROATIE",
+					"key": "equipeA"
+				},
+				{
+					"data": "REP. TCHEQUE",
+					"key": "equipeA"
+				},
+				{
+					"data": "ITALIE",
+					"key": "equipeA"
+				},
+				{
+					"data": "SUEDE",
+					"key": "equipeA"
+				},
+				{
+					"data": "IRLANDE",
+					"key": "equipeA"
+				},
+				{
+					"data": "BELGIQUE",
+					"key": "equipeA"
+				},
+				{
+					"data": "ISLANDE",
+					"key": "equipeA"
+				},
+				{
+					"data": "AUTRICHE",
+					"key": "equipeA"
+				},
+				{
+					"data": "PORTUGAL",
+					"key": "equipeA"
+				},
+				{
+					"data": "HONGRIE",
+					"key": "equipeA"
+				}
+			]
+		},
+		{
+			"type": "Equipe extérieur",
+			"values": [
+				{
+					"data": "SUISSE",
+					"key": "equipeB"
+				},
+				{
+					"data": "ALBANIE",
+					"key": "equipeB"
+				},
+				{
+					"data": "FRANCE",
+					"key": "equipeB"
+				},
+				{
+					"data": "ROUMANIE",
+					"key": "equipeB"
+				},
+				{
+					"data": "GALLES",
+					"key": "equipeB"
+				},
+				{
+					"data": "RUSSIE",
+					"key": "equipeB"
+				},
+				{
+					"data": "ANGLETERRE",
+					"key": "equipeB"
+				},
+				{
+					"data": "SLOVAQUIE",
+					"key": "equipeB"
+				},
+				{
+					"data": "ALLEMAGNE",
+					"key": "equipeB"
+				},
+				{
+					"data": "IRLANDE DU NORD",
+					"key": "equipeB"
+				},
+				{
+					"data": "UKRAINE",
+					"key": "equipeB"
+				},
+				{
+					"data": "POLOGNE",
+					"key": "equipeB"
+				},
+				{
+					"data": "TURQUIE",
+					"key": "equipeB"
+				},
+				{
+					"data": "ESPAGNE",
+					"key": "equipeB"
+				},
+				{
+					"data": "CROATIE",
+					"key": "equipeB"
+				},
+				{
+					"data": "REP. TCHEQUE",
+					"key": "equipeB"
+				},
+				{
+					"data": "ITALIE",
+					"key": "equipeB"
+				},
+				{
+					"data": "SUEDE",
+					"key": "equipeB"
+				},
+				{
+					"data": "IRLANDE",
+					"key": "equipeB"
+				},
+				{
+					"data": "BELGIQUE",
+					"key": "equipeB"
+				},
+				{
+					"data": "ISLANDE",
+					"key": "equipeB"
+				},
+				{
+					"data": "AUTRICHE",
+					"key": "equipeB"
+				},
+				{
+					"data": "PORTUGAL",
+					"key": "equipeB"
+				},
+				{
+					"data": "HONGRIE",
+					"key": "equipeB"
+				}
+			]
+		}
+	]
 }
