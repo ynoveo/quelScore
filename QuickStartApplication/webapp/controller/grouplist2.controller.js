@@ -11,13 +11,6 @@ sap.ui.define([
 			var ogModel=sap.ui.getCore().getModel("global");
 			var sLogin = ogModel.getProperty("/pseudo");
 			var sPass = ogModel.getProperty("/pwd");
-//			var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=PLAYERLIST&groupe=" +  + "&email=" + sLogin + "&pass=" + sPass;
-//			var oModel = new JSONModel();
-//			oModel.loadData(sUrl,{},false);
-//			oModel.loadData("../webapp/localService/userGroup.json");
-//			this.getView().setModel(oModel);
-//			var oCModel=sap.ui.getCore().getModel("global");
-//			this._oPage.setTitle(oCModel.getProperty("/activeGroupID"));
 			sap.ui.core.UIComponent.getRouterFor(this).getRoute("UserList").attachPatternMatched(this.onIDMatched, this);
 		},
 
@@ -96,10 +89,10 @@ onJoinGroup: function () {
 			var sId = ogModel.getProperty("/activeGroupID"); 
 			var sLogin = ogModel.getProperty("/pseudo");
 			var sPass = ogModel.getProperty("/pwd");
-			var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=ASKGROUP&groupeid=" + sId + "&email=" + sLogin + "&pass=" + sPass;
+			var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=ASKGROUP&idgroup=" + sId + "&email=" + sLogin + "&pass=" + sPass;
 			var oModel = new JSONModel();
 			oModel.loadData(sUrl,{},false);
-			if(oModel.getProperty("/reponse/retcode")===0){
+			if(oModel.getProperty("/reponse/retcode")==="0"){
 				Mst.show("Demande envoyée");
 			} else {
 				Mst.show(oModel.getProperty("/reponse/retmsg"));
@@ -111,11 +104,13 @@ onQuitGroup: function () {
 			var sId = ogModel.getProperty("/activeGroupID"); 
 			var sLogin = ogModel.getProperty("/pseudo");
 			var sPass = ogModel.getProperty("/pwd");
-			var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=QUITGROUP&groupeid=" + sId + "&email=" + sLogin + "&pass=" + sPass;
+//			var sIdUser = ogModel.getProperty("/iduser");
+			var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=QUITGROUP&idgroup=" + sId + "&email=" + sLogin + "&pass=" + sPass;
 			var oModel = new JSONModel();
 			oModel.loadData(sUrl,{},false);
-			if(oModel.getProperty("/reponse/retcode")===0){
+			if(oModel.getProperty("/reponse/retcode")==="0"){
 				Mst.show("Vous avez quitté le groupe");
+				this.onNavBack();
 			} else {
 				Mst.show(oModel.getProperty("/reponse/retmsg"));
 			}

@@ -21,6 +21,10 @@ sap.ui.define([
 		 * @memberOf QuickStartApplication.view.Pronostics
 		 */
 onInit: function () {
+			sap.ui.core.UIComponent.getRouterFor(this).getRoute("mesGroupes").attachPatternMatched(this.onIDMatched, this);
+		},
+		
+onIDMatched: function(oEvent) {
 		    var ogModel=sap.ui.getCore().getModel("global");
 			var sLogin = ogModel.getProperty("/pseudo");
 			var sPass = ogModel.getProperty("/pwd");
@@ -30,10 +34,12 @@ onInit: function () {
 			this._oList = this.byId("masterList");
 			//oModel.loadData("../webapp/localService/groupes.json");
 			this.getView().setModel(oModel);
-		},
+
+		
+},
 		// Event handler for the master list. It is attached declaratively.
 		onUpdateFinished: function (oEvent) {
-			this._setItem();
+//			this._setItem();
 		},
 		_getListBinding: function () {
 			return this._oList.getBinding("items");
@@ -103,15 +109,15 @@ var oHistory, sPreviousHash;
 	*@memberOf QuickStartApplication.controller.Groupe
 	*/
 onNavToGroup: function (oEvent) {
-//			var oListItem = oEvent.getParameter("listItem") || oEvent.getSource();//, oSelectedPO = oListItem.getBindingContext().getObject();
-			//				this.getModel("appProperties").getProperty("/appControl").hideMaster();
-//			var oModel=sap.ui.getCore().getModel("global");
-//			oModel.setProperty("/activeGroupID", oListItem.getProperty("number"));
-//			this._navToDetails(oListItem);
-			var oListItem = oEvent.getParameter("listItem") || oEvent.getSource();
-//			MessageBox.confirm(oListItem.getBindingContext().getProperty("idGroup")) ;
-//			var oItem = oListItem.getSelectedItem;
-//			var oCtx = oItem.getBindingContext();
+//			var oListItem = oEvent.getParameter("listItem") || oEvent.getSource();
+			var oListItem = oEvent.getParameter("listItem");
+//			var sPath = oListItem.getBindingContext().getPath();
+			// sap.ui.core.UIComponent.getRouterFor(this).navTo("UserList", {
+			// 	groupId: oListItem.getBindingContext().getPath().substr(1)
+			// });
+//			sap.ui.core.UIComponent.getRouterFor(this).navTo("UserList", {
+//				groupId: oListItem.getBindingContext().getModel().getProperty(sPath)
+//			});
 			sap.ui.core.UIComponent.getRouterFor(this).navTo("UserList", {
 				groupId: oListItem.getBindingContext().getProperty("idGroup")
 			});
@@ -157,15 +163,22 @@ onNewPressed: function () {
 					text: "Créer",
 					visible: inputViz,
 					press: function () {
+						sap.ui.core.BusyIndicator.show();
 						var sGroup = encodeURIComponent(sap.ui.getCore().byId("NomGroup").getValue());
 						var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=ADDGRP&autoconfirm=O&email=" + sLogin + "&pass=" + sPass + "&groupname=" + sGroup;
 						var otModel = new JSONModel();
 						otModel.loadData(sUrl, {}, false);
 						//MessageToast.show("code retour = " + otModel.getProperty("/reponse/retcode"));
 						if(otModel.getProperty("/reponse/retcode") === "0") {
+							sGroup = decodeURIComponent(sGroup);
 							MessageToast.show("Groupe créé : " + sGroup);
 							dialog.close();
 							// refresh model
+							var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=GRPLIST&email=" + sLogin + "&pass=" + sPass;
+							var oModel = new JSONModel();
+							oModel.loadData(sUrl,{},false);
+							oController.getView().setModel(oModel);	
+							sap.ui.core.BusyIndicator.hide();
 //							push du groupe
 //							this.getView().getModel().refresh(true);
 						} else {
