@@ -4,7 +4,6 @@
 	"activeGroupID":"",
 	"pwd":"",
 	"iduser":"",
-	"myUser":true,
 	"Filters": [
 		{
 			"type": "Date du match",

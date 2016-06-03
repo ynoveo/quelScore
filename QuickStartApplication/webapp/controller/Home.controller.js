@@ -83,8 +83,9 @@ sap.ui.define([
 					}
 				});
 				dialog.open();
-			}	else {		
-				sap.ui.core.UIComponent.getRouterFor(this).navTo("mesPronostics", { myUser: true});
+			}	else {
+				var sIdUser = ogModel.getProperty("/iduser");
+				sap.ui.core.UIComponent.getRouterFor(this).navTo("mesPronostics", { idUser: sIdUser});
 			}
 		},
 		/**

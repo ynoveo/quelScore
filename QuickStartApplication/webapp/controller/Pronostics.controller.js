@@ -29,24 +29,23 @@ sap.ui.define([
 			this.getView().setModel(ogModel, "global");*/
 			
 			// Récupération du paramètre passé à la vue
-			sap.ui.core.UIComponent.getRouterFor(this).getRoute("mesPronostics").attachPatternMatched(this.onIDMatched, this);
+			sap.ui.core.UIComponent.getRouterFor(this).getRoute("mesPronostics").attachPatternMatched(this.onUserMatched, this);
 		},
 	
-		onIDMatched: function(oEvent) {
-			// récupération du paramètre myUser et modification dans le modèle global
-			var sMyUser = decodeURIComponent(oEvent.getParameter("arguments").myUser);
-			sap.ui.getCore().getModel("global").setProperty("/myUser", sMyUser);
+		onUserMatched: function(oEvent) {
+			// récupération du paramètre idUser
+			var sIdUser = decodeURIComponent(oEvent.getParameter("arguments").idUser);
 			
 			// Définition du modèle de la vue
-			var ogModel=sap.ui.getCore().getModel("global");
+			var ogModel = sap.ui.getCore().getModel("global");
 			var sUser = ogModel.getProperty("/iduser");
-			var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&idPlayer=" + sUser;
+			var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&idPlayer=" + sIdUser;
 			var oModel = new JSONModel();
 			oModel.loadData(sUrl,{},false);
 			this.getView().setModel(oModel, "remote");
-			this.getView().setModel(ogModel, "global");
+			//this.getView().setModel(ogModel, "global");
 			
-			if(sMyUser){
+			if(sUser === sIdUser) {
 				// mon user, autoriser la saisie
 				this._myUser = true;
 			}  else { 
@@ -62,14 +61,11 @@ sap.ui.define([
 				var bindingContext = oEvent.getSource().getBindingContext("remote");
 				var title = bindingContext.getProperty("txtequipeA")+" - "+bindingContext.getProperty("txtequipeB");
 				var idMatch = bindingContext.getProperty("idMatch");
-				//var oldPronoA = bindingContext.getProperty("pronoA");
-				//var oldPronoB = bindingContext.getProperty("pronoB");
 				var enCours = bindingContext.getProperty("encours");
 				var matchfini = bindingContext.getProperty("matchfini");
 	
 				var label = new sap.m.Label({ text : title });
-				//var pronoA = new TextField({value:bindingContext.getProperty("pronoA"), width:"2em", maxLength:1});
-				//var pronoB = new TextField({value:bindingContext.getProperty("pronoB"), width:"2em", maxLength:1});
+
 				// Dropdown box pour pronostic A
 				var oDropdownBox1 = new sap.ui.commons.DropdownBox("DropdownBox1");
 				oDropdownBox1.setTooltip("Pronostic "+bindingContext.getProperty("txtequipeA"));
@@ -154,14 +150,15 @@ sap.ui.define([
 						type: "Emphasized",
 						press: function () {
 							if(enCours === "N" & matchfini === "N") {
-								//var newPronoA = pronoA.getProperty("value");
-								//var newPronoB = pronoB.getProperty("value");
 								var newPronoA = oDropdownBox1.getValue();
 								var newPronoB = oDropdownBox2.getValue();
 								
+								// Récupération du pseudo + pwd car la session ne fonctionne pas
+								var olModel=sap.ui.getCore().getModel("global");
+								var sPseudo = olModel.getProperty("/pseudo");
+								var sPwd = olModel.getProperty("/pwd");
 								
-		
-								var updateURL = "https://www.quelscore.com/JSON_V2016.php?action=SAVESCORE&idmatch="+idMatch+"&scoreA="+newPronoA+"&scoreB="+newPronoB;
+								var updateURL = "https://www.quelscore.com/JSON_V2016.php?action=SAVESCORE&idmatch="+idMatch+"&scoreA="+newPronoA+"&scoreB="+newPronoB+"&email="+sPseudo+"&pass="+sPwd;
 								$.ajax({
 									type: "POST",
 									data: "",
@@ -172,8 +169,6 @@ sap.ui.define([
 									success: function (res, status, xhr) {
 									    //success code
 									    //jQuery.sap.log.error("Success response: " + status + res);
-									    //oldPronoA = newPronoA;
-									    //oldPronoB = newPronoB;
 									    var ogModel=sap.ui.getCore().getModel("global");
 										var sUser = ogModel.getProperty("/iduser");
 										var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&idPlayer=" + sUser;
@@ -181,7 +176,6 @@ sap.ui.define([
 										oModel.loadData(sUrl,{},false);
 										dialog.close();
 										oView.setModel(oModel, "remote");
-									    //console.log(oView.getModel());
 									},
 										error: function (jqXHR, textStatus, errorThrown) {
 										jQuery.sap.log.error("Got an error response: " + textStatus + errorThrown);
