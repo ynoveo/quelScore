@@ -209,6 +209,8 @@ sap.ui.define([
 				//to get access to the global model
 				this.getView().addDependent(dialog);
 				dialog.open();
+			} else {
+				MessageToast.show("Vous ne pouvez pas saisir les pronostics d'un autre joueur");
 			}
 		},
 		
