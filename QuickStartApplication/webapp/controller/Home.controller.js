@@ -150,12 +150,17 @@ onLogon: function () {
 					new Input("login"),
 					new Label({ text: "Mot de passe" }),
 					new Input("pass", {type: "Password"})
-//					new TextArea('rejectDialogTextarea', {
-//						width: '100%',
-//						placeholder: 'Add note (optional)'
-//					})
 				],
-				beginButton: new Button({
+				buttons: [ new Button({
+						text: "S'inscrire",
+						type: "Emphasized",
+						press: function () {
+							oController.onSubscribe();
+							dialog.close();
+						}
+					}),
+//				beginButton: 
+				new Button({
 					text: "Connexion",
 					type: "Accept",
 					press: function () {
@@ -188,12 +193,14 @@ onLogon: function () {
 						}
 					}
 				}),
-				endButton: new Button({
+//				endButton:
+				new Button({
 					text: 'Annuler',
 					press: function () {
 						dialog.close();
 					}
-				}),
+				})
+			],
 				afterClose: function() {
 					dialog.destroy();
 				}
