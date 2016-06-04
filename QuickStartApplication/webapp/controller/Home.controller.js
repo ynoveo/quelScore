@@ -147,9 +147,9 @@ onLogon: function () {
 				content: [
 //					new Text({ text: 'Entrer vos identifiants' }),
 					new Label({ text: "Pseudo ou email" }),
-					new Input("login"),
+					new Input("loginc"),
 					new Label({ text: "Mot de passe" }),
-					new Input("pass", {type: "Password"})
+					new Input("passc", {type: "Password"})
 				],
 				buttons: [ new Button({
 						text: "S'inscrire",
@@ -164,8 +164,8 @@ onLogon: function () {
 					text: "Connexion",
 					type: "Accept",
 					press: function () {
-						var sLogin = encodeURIComponent(sap.ui.getCore().byId("login").getValue());
-						var sPass = encodeURIComponent(sap.ui.getCore().byId("pass").getValue());
+						var sLogin = encodeURIComponent(sap.ui.getCore().byId("loginc").getValue());
+						var sPass = encodeURIComponent(sap.ui.getCore().byId("passc").getValue());
 						var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=CONNECT&email=" + sLogin + "&pass=" + sPass;
 						var otModel = new JSONModel();
 
