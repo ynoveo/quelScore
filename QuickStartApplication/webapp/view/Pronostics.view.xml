@@ -49,17 +49,17 @@
 		        				width="100%"
 		        				hAlign="Center">
 								<columns>
-									<Column width="10%" hAlign="Left"/>
+									<Column width="9%" hAlign="Left" vAlign="Center"/>
 									<Column width="32%" hAlign="Right"/>
-									<Column width="16%" hAlign="Center"/>
+									<Column width="18%" hAlign="Center"/>
 									<Column width="32%" hAlign="Left"/>
-									<Column width="10%" hAlign="Left"/>
+									<Column width="9%" hAlign="Left"/>
 									<!--<Column width="3em" hAlign="Center"/>-->
 								</columns>
 								<items>
 									<ColumnListItem selected="true" type="Active" press="openPopup">
 										<cells>
-											<Image src="https://quelscore.com/flag/{remote>flagA}" width="50%"/>
+											<Image src="https://quelscore.com/flag/{remote>flagA}" width="100%"/>
 											<ObjectIdentifier id="equipeA" title="{remote>txtequipeA}" text="Mon score" wrapping="false"/>
 											<ObjectIdentifier
 												id="scores"
@@ -72,8 +72,8 @@
 											            ],
 											            formatter: '.heureOuScore'}"
 												text="{remote>pronoA} - {remote>pronoB}"/>
-											<ObjectIdentifier id="equipeB" title="{remote>txtequipeB}" text=""/>
-											<Image src="https://quelscore.com/flag/{remote>flagB}" width="40%"/>
+											<ObjectIdentifier id="equipeB" title="{remote>txtequipeB}" text="" />
+											<Image src="https://quelscore.com/flag/{remote>flagB}" width="100%"/>
 											<!--
 											<ObjectStatus
 												class="sapUiSmallMarginBottom"
