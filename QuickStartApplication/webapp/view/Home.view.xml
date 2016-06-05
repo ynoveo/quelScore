@@ -25,10 +25,9 @@
 	                        <InputListItem type="Navigation" counter="0" label="Classement" id="__item4" press="onNavToCompte"/>
 	                        <InputListItem type="Navigation" counter="0" label="Mes pronostics" id="__item5" detailPress="" press="onNavToPronostics"/>
 
- <MessageStrip text="Ce site a été entièrement réalisé en SAPUI5" showIcon="true" showCloseButton="true" class="sapUiMediumMarginBottom, sapUiMediumPadding"/>	                        	
-	                        	
-	                        	
-	                        	
+<Text  text="Cette application a été entièrement réalisé avec la bblitohèque SAPUI5 par Ynoveo. SAPUI5 est la bibliothèque permettant de gérer des interfaces SAP FIORI. Ces interfaces sont entièrement responsive.\n
+ Pour avoir plus d'information sur l'offre SAP FIORI" class="sapUiMediumMarginBottom, sapUiMediumPadding"/>
+ <Link	href="mailto:fiori@ynoveo.fr" text="Contacter Ynoveo"/>		                        	
 	                        </sap.ui.layout:content>
 	                </sap.ui.layout:Grid>
 
@@ -43,6 +42,12 @@
 	                    <items><Button icon="sap-icon://message-information" width="100px" press="onDialogPress" text="Règles"/></items>
 	                </HBox>
 	            </headerContent>
+	            <footer>
+	             
+	            	<!--  showIcon="true" showCloseButton="true" class="sapUiMediumMarginBottom, sapUiMediumPadding" -->
+ 
+ 	            	
+	            </footer>
 	            </Page>
 	        </pages>
 	    </App>
