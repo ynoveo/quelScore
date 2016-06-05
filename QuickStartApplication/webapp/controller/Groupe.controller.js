@@ -28,7 +28,8 @@ onIDMatched: function(oEvent) {
 		    var ogModel=sap.ui.getCore().getModel("global");
 			var sLogin = ogModel.getProperty("/pseudo");
 			var sPass = ogModel.getProperty("/pwd");
-			var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=GRPLIST&email=" + sLogin + "&pass=" + sPass;
+			var sPreURL = ogModel.getProperty("/preURL");
+			var sUrl = sPreURL + "JSON_V2016.php?action=GRPLIST&email=" + sLogin + "&pass=" + sPass;
 			var oModel = new JSONModel();
 			oModel.loadData(sUrl,{},false);
 			this._oList = this.byId("masterList");
@@ -143,7 +144,8 @@ onNewPressed: function () {
 			var oController = this;
 			var ogModel=sap.ui.getCore().getModel("global");
 			var sLogin = ogModel.getProperty("/pseudo");
-			var sPass = ogModel.getProperty("/pwd");			
+			var sPass = ogModel.getProperty("/pwd");	
+			var sPreURL = ogModel.getProperty("/preURL");
 			var inputViz = true;
 			var labText = "Nom du groupe à créer";
 			if (sLogin==="" || sPass===""){
@@ -165,7 +167,7 @@ onNewPressed: function () {
 					press: function () {
 						sap.ui.core.BusyIndicator.show();
 						var sGroup = encodeURIComponent(sap.ui.getCore().byId("NomGroup").getValue());
-						var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=ADDGRP&autoconfirm=O&email=" + sLogin + "&pass=" + sPass + "&groupname=" + sGroup;
+						var sUrl = sPreURL + "JSON_V2016.php?action=ADDGRP&autoconfirm=O&email=" + sLogin + "&pass=" + sPass + "&groupname=" + sGroup;
 						var otModel = new JSONModel();
 						otModel.loadData(sUrl, {}, false);
 						//MessageToast.show("code retour = " + otModel.getProperty("/reponse/retcode"));
@@ -174,7 +176,7 @@ onNewPressed: function () {
 							MessageToast.show("Groupe créé : " + sGroup);
 							dialog.close();
 							// refresh model
-							var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=GRPLIST&email=" + sLogin + "&pass=" + sPass;
+							sUrl = sPreURL + "JSON_V2016.php?action=GRPLIST&email=" + sLogin + "&pass=" + sPass;
 							var oModel = new JSONModel();
 							oModel.loadData(sUrl,{},false);
 							oController.getView().setModel(oModel);	

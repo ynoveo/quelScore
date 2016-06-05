@@ -42,7 +42,8 @@ sap.ui.define([
 			var sUser = ogModel.getProperty("/iduser");
 			var sLogin = ogModel.getProperty("/pseudo");
   			var sPass = ogModel.getProperty("/pwd");
-			var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&idPlayer=" + sIdUser + "&email=" + sLogin + "&pass=" + sPass;
+			var sPreURL = ogModel.getProperty("/preURL");  			
+			var sUrl = sPreURL + "JSON_V2016.php?action=MATCHLIST&idPlayer=" + sIdUser + "&email=" + sLogin + "&pass=" + sPass;
 			var oModel = new JSONModel();
 			oModel.loadData(sUrl,{},false);
 			this.getView().setModel(oModel, "remote");
@@ -165,8 +166,8 @@ sap.ui.define([
 								var olModel=sap.ui.getCore().getModel("global");
 								var sPseudo = olModel.getProperty("/pseudo");
 								var sPwd = olModel.getProperty("/pwd");
-								
-								var updateURL = "https://www.quelscore.com/JSON_V2016.php?action=SAVESCORE&idmatch="+idMatch+"&scoreA="+newPronoA+"&scoreB="+newPronoB+"&email="+sPseudo+"&pass="+sPwd;
+								var sPreURL = olModel.getProperty("/preURL");
+								var updateURL = sPreURL + "JSON_V2016.php?action=SAVESCORE&idmatch="+idMatch+"&scoreA="+newPronoA+"&scoreB="+newPronoB+"&email="+sPseudo+"&pass="+sPwd;
 								$.ajax({
 									type: "POST",
 									data: "",
@@ -179,7 +180,8 @@ sap.ui.define([
 									    //jQuery.sap.log.error("Success response: " + status + res);
 									    var ogModel=sap.ui.getCore().getModel("global");
 										var sUser = ogModel.getProperty("/iduser");
-										var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&idPlayer=" + sUser;
+										var sPreURL2 = ogModel.getProperty("/preURL");
+										var sUrl = sPreURL2 + "JSON_V2016.php?action=MATCHLIST&idPlayer=" + sUser;
 										var oModel = new JSONModel();
 										oModel.loadData(sUrl,{},false);
 										dialog.close();

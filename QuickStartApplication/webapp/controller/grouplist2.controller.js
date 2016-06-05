@@ -24,7 +24,8 @@ sap.ui.define([
 			var ogModel=sap.ui.getCore().getModel("global");
 			var sLogin = ogModel.getProperty("/pseudo");
 			var sPass = ogModel.getProperty("/pwd");
-			var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=PLAYERLIST&groupe=" + sId + "&email=" + sLogin + "&pass=" + sPass;
+			var sPreURL = ogModel.getProperty("/preURL");
+			var sUrl = sPreURL + "JSON_V2016.php?action=PLAYERLIST&groupe=" + sId + "&email=" + sLogin + "&pass=" + sPass;
 			var oModel = new JSONModel();
 			oModel.loadData(sUrl,{},false);
 			this.getView().setModel(oModel);
@@ -89,7 +90,8 @@ onJoinGroup: function () {
 			var sId = ogModel.getProperty("/activeGroupID"); 
 			var sLogin = ogModel.getProperty("/pseudo");
 			var sPass = ogModel.getProperty("/pwd");
-			var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=ASKGROUP&idgroup=" + sId + "&email=" + sLogin + "&pass=" + sPass;
+			var sPreURL = ogModel.getProperty("/preURL");
+			var sUrl = sPreURL + "JSON_V2016.php?action=ASKGROUP&idgroup=" + sId + "&email=" + sLogin + "&pass=" + sPass;
 			var oModel = new JSONModel();
 			oModel.loadData(sUrl,{},false);
 			if(oModel.getProperty("/reponse/retcode")==="0"){
@@ -105,7 +107,8 @@ onQuitGroup: function () {
 			var sLogin = ogModel.getProperty("/pseudo");
 			var sPass = ogModel.getProperty("/pwd");
 //			var sIdUser = ogModel.getProperty("/iduser");
-			var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=QUITGROUP&idgroup=" + sId + "&email=" + sLogin + "&pass=" + sPass;
+			var sPreURL = ogModel.getProperty("/preURL");
+			var sUrl = sPreURL + "JSON_V2016.php?action=QUITGROUP&idgroup=" + sId + "&email=" + sLogin + "&pass=" + sPass;
 			var oModel = new JSONModel();
 			oModel.loadData(sUrl,{},false);
 			if(oModel.getProperty("/reponse/retcode")==="0"){

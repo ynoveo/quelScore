@@ -166,7 +166,8 @@ onLogon: function () {
 					press: function () {
 						var sLogin = encodeURIComponent(sap.ui.getCore().byId("loginc").getValue());
 						var sPass = encodeURIComponent(sap.ui.getCore().byId("passc").getValue());
-						var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=CONNECT&email=" + sLogin + "&pass=" + sPass;
+						var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
+						var sUrl = sPreURL + "JSON_V2016.php?action=CONNECT&email=" + sLogin + "&pass=" + sPass;
 						var otModel = new JSONModel();
 
 						otModel.loadData(sUrl, {}, false);
@@ -242,7 +243,8 @@ var dialog = new Dialog({
 						var sPass = encodeURIComponent(sap.ui.getCore().byId('pass').getValue());
 						var sPass2 = encodeURIComponent(sap.ui.getCore().byId('pass2').getValue());
 						var sPseudo = encodeURIComponent(sap.ui.getCore().byId('pseudo').getValue());
-						var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=INSCRIPTION&mail=" + sEmail + "&pass1=" + sPass + "&pass2=" + sPass2 + "&pseudo=" + sPseudo;
+						var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
+						var sUrl = sPreURL + "JSON_V2016.php?action=INSCRIPTION&mail=" + sEmail + "&pass1=" + sPass + "&pass2=" + sPass2 + "&pseudo=" + sPseudo;
 						var otModel = new JSONModel();
 						otModel.loadData(sUrl, {},false);	
 						oController.getView().setModel(otModel);
