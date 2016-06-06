@@ -59,7 +59,7 @@
 								<items>
 									<ColumnListItem selected="true" type="Active" press="openPopup">
 										<cells>
-											<Image src="https://quelscore.com/flag/{remote>flagA}" width="100%"/>
+											<Image src="./flag/{remote>flagA}" width="100%"/>
 											<ObjectIdentifier id="equipeA" title="{remote>txtequipeA}" text="Mon score" wrapping="false"/>
 											<ObjectIdentifier
 												id="scores"
@@ -73,7 +73,7 @@
 											            formatter: '.heureOuScore'}"
 												text="{remote>pronoA} - {remote>pronoB}"/>
 											<ObjectIdentifier id="equipeB" title="{remote>txtequipeB}" text="" />
-											<Image src="https://quelscore.com/flag/{remote>flagB}" width="100%"/>
+											<Image src="./flag/{remote>flagB}" width="100%"/>
 											<!--
 											<ObjectStatus
 												class="sapUiSmallMarginBottom"

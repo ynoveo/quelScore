@@ -4,7 +4,7 @@
 	    <!--<App id="__app1">-->
 	    <App>
 	        <pages>
-	            <Page id="__page1" showFooter="false" showSubHeader="false" showNavButton="false">
+	            <Page id="__page1" showFooter="false" showSubHeader="false" showNavButton="false" title="Euro 2016 concours de pronostics">
 	            <content>
 	                <sap.ui.layout:Grid xmlns:sap.ui.layout="sap.ui.layout" id="__grid0" class="sapUiSmallMarginTop" position="Center" defaultSpan="XL12 L12 M12 S12">
 	                    <sap.ui.layout:content xmlns:sap.ui.layout="sap.ui.layout">
@@ -37,7 +37,7 @@
 	            <headerContent>
 	                <HBox alignItems="Start" justifyContent="SpaceBetween">
 	                    <items>
-	                        <Image width="80px" id="__image0" src="./QuickStartApplication/webapp/localService/logo_euro.png" densityAware="false"/>
+	                        <Image width="80px" id="__image0" src=".localService/logo_euro.png" densityAware="false"/>
 	                    </items>
 	                    <items><Button icon="sap-icon://message-information" width="100px" press="onDialogPress" text="Règles"/></items>
 	                </HBox>
