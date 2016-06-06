@@ -155,7 +155,9 @@ onLogon: function () {
 					new Label({ text: "Mot de passe" }),
 					new Input("passc", {type: "Password"})
 				],
-				buttons: [ new Button({
+				buttons: 
+				[ 
+				/* new Button({
 						text: "S'inscrire",
 						type: "Emphasized",
 						press: function () {
@@ -163,6 +165,7 @@ onLogon: function () {
 							dialog.close();
 						}
 					}),
+*/					
 //				beginButton: 
 				new Button({
 					text: "Connexion",
