@@ -129,7 +129,11 @@ onLogout: function (){
 			    this.byId("__item0").setVisible(false);
 				var ogModel=sap.ui.getCore().getModel("global");
 				ogModel.setProperty("/pseudo", "");
-				ogModel.setProperty("/pwd", "");							
+				ogModel.setProperty("/pwd", "");
+				var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
+				var sUrl = sPreURL + "JSON_V2016.php?action=DISCONNECT";
+				var otModel = new JSONModel();
+				otModel.loadData(sUrl, {}, false);
 				MessageToast.show("A bientôt");
 		
 },
