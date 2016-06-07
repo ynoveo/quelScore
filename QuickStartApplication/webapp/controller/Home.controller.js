@@ -138,6 +138,14 @@ onLogout: function (){
 		
 },
 
+onMail: function () {
+                    sap.m.URLHelper.triggerEmail("fiori@ynoveo.fr", "SAP FIORI - quelscore", "");
+ },
+
+onYnoveo: function () {
+                    sap.m.URLHelper.redirect("http://www.ynoveo.fr", true);
+ },
+
 /* -----------------------------------------------------------------------
 							Formulaire de connexion 
 -------------------------------------------------------------------------*/
