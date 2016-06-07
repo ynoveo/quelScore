@@ -8,8 +8,8 @@
 		"applicationVersion": {
 			"version": "1.0.0"
 		},
-		"title": "Application",
-		"description": "Application test",
+		"title": "Quelscore euro2016",
+		"description": "Concours de pronostics pour l'euro2016",
 		"resources": "resources.json",
 		"ach": "ach",
 		"sourceTemplate": {

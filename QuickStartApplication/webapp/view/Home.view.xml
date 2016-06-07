@@ -22,8 +22,16 @@
 	                        <InputListItem type="Navigation" counter="0" label="Classement" id="__item4" press="onNavToCompte"/>
 	                        <InputListItem type="Navigation" counter="0" label="Mes pronostics" id="__item5" detailPress="" press="onNavToPronostics"/>
 
-<Text text="Cette application a été entièrement réalisé avec la bblitohèque SAPUI5 par Ynoveo. SAPUI5 est la bibliothèque permettant de gérer des interfaces SAP FIORI. Ces interfaces sont entièrement responsive.\n  Pour avoir plus d'information sur l'offre SAP FIORI" class="sapUiMediumMarginBottom, sapUiMediumPadding"/>
- <Link href="mailto:fiori@ynoveo.fr" text="Contacter Ynoveo"/>
+<HBox width="100%" id="__hbox1">
+
+    <items>
+        <Text width="60%" text="Cette application a été entièrement réalisé avec la bblitohèque SAPUI5 par Ynoveo. SAPUI5 est la bibliothèque permettant de gérer des interfaces SAP FIORI. Ces interfaces sont entièrement responsive.\n  Pour avoir plus d'information sur l'offre SAP FIORI" class="sapUiMediumMarginBottom, sapUiMediumPadding"/>
+		<Link href="mailto:fiori@ynoveo.fr" text="Contacter Ynoveo"/>		
+    	
+    </items>
+
+</HBox>
+
          <Image id="__image2" width="100%" src="http://euro2016.quelscore.com/localService/euro2016-bg.jpg"/>
  
 	                        </sap.ui.layout:content>
