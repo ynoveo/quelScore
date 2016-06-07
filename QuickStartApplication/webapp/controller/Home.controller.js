@@ -168,6 +168,7 @@ onLogon: function () {
 */					
 //				beginButton: 
 				new Button({
+					id: "idAccept",
 					text: "Connexion",
 					type: "Accept",
 					press: function () {
@@ -211,6 +212,14 @@ onLogon: function () {
 			],
 				afterClose: function() {
 					dialog.destroy();
+				},
+				afterOpen : function(){
+					$(document).bind('keypress', function(e) {
+						if(e.keyCode === 13){
+							e.preventDefault();
+							sap.ui.getCore().byId("idAccept").firePress();
+						}
+					});
 				}
 			});
 
