@@ -17,6 +17,8 @@ sap.ui.define([
 //			oModel.loadData("https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty&phase=A");
 			//oModel.loadData("../webapp/localService/connect.json");
 			//this.getView().setModel(oModel);
+			
+			var oBusyDialog_Global = new sap.m.BusyDialog("GlobalBusyDialog");
 		},
 		/**
 	*@memberOf QuickStartApplication.controller.View1
@@ -87,6 +89,10 @@ sap.ui.define([
 				var sIdUser = ogModel.getProperty("/iduser");
 				var sPseudo = ogModel.getProperty("/pseudo");
 				sap.ui.core.UIComponent.getRouterFor(this).navTo("mesPronostics", { idUser: sIdUser, oPseudo: sPseudo});
+				
+						var getDialog = sap.ui.getCore().byId("GlobalBusyDialog");
+						getDialog.open();
+					
 			}
 		},
 		/**
