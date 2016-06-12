@@ -21,7 +21,7 @@
 		<footer>
 			<OverflowToolbar id="footerToolbar">
 			<!--	<ToolbarSpacer id="footerToolbarSpacer0"/>	-->
-				<SegmentedButton selectedKey="allGroup" select="OnGrpSel">
+				<SegmentedButton selectedKey="allGroup" select="OnGrpSel" id="segBut" >
 					<items>
 						<SegmentedButtonItem text="Tous les groupes" key="allGroup"/>
 						<SegmentedButtonItem text="Mes groupes" key="mesgroupes"/>

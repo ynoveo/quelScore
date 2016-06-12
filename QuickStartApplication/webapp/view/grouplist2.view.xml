@@ -8,6 +8,18 @@
 			                <Text text="{classement}" maxLines="0" id="__text5"/>
 			                <Text text="{pseudo}" maxLines="0" id="__text6"/>
 			                <Text text="{points}" maxLines="0" id="__text7"/>
+			                <Button
+			                	icon="sap-icon://delete"
+			                	type="Reject"
+			                	iconFirst="true"
+			                	visible="{=  ${/isAdmin}  === 'Y'  ? true: false}"
+			                	press = "onRejectUser"
+			                	
+			                	/>
+			                	
+			                <Button press = "onAcceptUser" icon="sap-icon://accept" type="Accept" visible="{= ${isconf}  === 'N'  ? ( ${/isAdmin}  === 'Y'  ? true: false ): false}"/>
+
+
 			             </cells>
 			        </ColumnListItem>
 			     </items>
@@ -22,11 +34,22 @@
 			                <Label text="Pseudo" id="__label2"/>
 			            </header>
 			        </Column>
-			        <Column id="__column2">
+			        <Column id="__column2" >
 			            <header>
 			                <Label text="Nb Points" id="__label3"/>
 			            </header>
-			        </Column></columns></Table>
+			        </Column>
+			        <Column id="__column3" width="30px">
+			            <header>
+			                <Label text="" id="__label4"/>
+			            </header>
+			        </Column>
+			        <Column id="__column4" width="30px">
+			            <header>
+			                <Label text="" id="__label5"/>
+			            </header>
+			        </Column>
+			        </columns></Table>
 			<footer>
 			<OverflowToolbar id="footerToolbar">
 				<ToolbarSpacer id="footerToolbarSpacer0"/>	
