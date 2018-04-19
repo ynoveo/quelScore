@@ -203,9 +203,9 @@ onLogon: function () {
 						var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
 						var sUrl = sPreURL + "JSON_V2016.php?action=CONNECT&email=" + sLogin + "&pass=" + sPass;
 						var otModel = new JSONModel();
-
+					
 						otModel.loadData(sUrl, {}, false);
-						//otModel.loadData("../webapp/localService/connect.json", {}, false);
+						otModel.loadData("../webapp/localService/connect.json", {}, false);
 						oController.getView().setModel(otModel);
 						//MessageToast.show("code retour = " + otModel.getProperty("/reponse/retcode"));
 						if(otModel.getProperty("/reponse/retcode") === "0") {
