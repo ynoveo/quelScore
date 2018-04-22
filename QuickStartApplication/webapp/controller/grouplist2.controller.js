@@ -30,7 +30,11 @@ sap.ui.define([
 			var sPreURL = ogModel.getProperty("/preURL");
 			var sUrl = sPreURL + "JSON_V2016.php?action=PLAYERLIST&groupe=" + sId + "&email=" + sLogin + "&pass=" + sPass;
 			var oModel = new JSONModel();
-			oModel.loadData(sUrl,{},false);
+			if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
+				oModel.loadData("../webapp/localService/userGroup.json");
+			} else {
+				oModel.loadData(sUrl,{},false);				
+			}
 			this.getView().setModel(oModel);
 			this._oPage = this.byId("PageGroup");
 			if(sId === "0"){

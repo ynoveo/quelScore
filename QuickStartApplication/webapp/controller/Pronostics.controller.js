@@ -53,7 +53,13 @@ sap.ui.define([
 			var sPreURL = ogModel.getProperty("/preURL");  			
 			var sUrl = sPreURL + "JSON_V2016.php?action=MATCHLIST&idPlayer=" + sIdUser + "&email=" + sLogin + "&pass=" + sPass;
 			var oModel = new JSONModel();
-			oModel.loadData(sUrl,{},false);
+			if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
+				oModel.loadData("../webapp/localService/matchlist.json", {}, false);
+			} else {
+				oModel.loadData(sUrl,{},false);				
+			}
+
+			
 			this.getView().setModel(oModel, "remote");
 			//this.getView().setModel(ogModel, "global");
 			

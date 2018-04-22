@@ -31,9 +31,13 @@ onIDMatched: function(oEvent) {
 			var sPreURL = ogModel.getProperty("/preURL");
 			var sUrl = sPreURL + "JSON_V2016.php?action=GRPLIST&email=" + sLogin + "&pass=" + sPass;
 			var oModel = new JSONModel();
-			oModel.loadData(sUrl,{},false);
+			if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
+				oModel.loadData("../webapp/localService/groupes.json");
+			} else {
+				oModel.loadData(sUrl,{},false);				
+			}
 			this._oList = this.byId("masterList");
-			//oModel.loadData("../webapp/localService/groupes.json");
+			
 			this.getView().setModel(oModel);
 			var bBut = this.byId("segBut");
 			bBut.setSelectedKey("allGroup");
