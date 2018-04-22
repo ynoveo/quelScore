@@ -17,6 +17,7 @@ sap.ui.define([
 //			oModel.loadData("https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty&phase=A");
 			//oModel.loadData("../webapp/localService/connect.json");
 			//this.getView().setModel(oModel);
+			//test
 			
 			var oBusyDialog_Global = new sap.m.BusyDialog("GlobalBusyDialog");
 		},
