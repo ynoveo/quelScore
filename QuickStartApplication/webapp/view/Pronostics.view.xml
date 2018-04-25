@@ -39,7 +39,7 @@
 		        				items="{
 									path: 'remote>/match',
 									sorter: {
-										path: 'remote>matchdate',
+										path: 'remote>sortdate',
 										descending: false,
 										group: true
 									},

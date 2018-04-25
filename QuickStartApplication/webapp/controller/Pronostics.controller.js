@@ -305,10 +305,11 @@ sap.ui.define([
 		},*/
 		
 		getGroupHeader: function (oGroup){
-/*			var keyStr = oGroup.key;
-			var day = keyStr.substr(0,2);
-			var month = keyStr.substr(3,2);
-			var year = keyStr.substr(6,4);
+			var keyStr = oGroup.key;
+			var day = keyStr.substr(6,2);
+			var month = keyStr.substr(4,2);
+			var year = keyStr.substr(0,4);
+/*
 			var newDate = year+"-"+month+"-"+day;
 			var d = new Date(newDate);
 			jQuery.sap.require("sap.ui.core.format.DateFormat");
@@ -319,7 +320,8 @@ sap.ui.define([
 			d.toDateString();
 			console.log(d);*/
 			return new GroupHeaderListItem( {
-				title: oGroup.key,
+				//title: oGroup.key,
+				title: day + "/" + month + "/" + year,
 				upperCase: false
 			} );
 		},
