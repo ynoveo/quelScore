@@ -86,146 +86,152 @@ sap.ui.define([
 				var idMatch = bindingContext.getProperty("idMatch");
 				var enCours = bindingContext.getProperty("encours");
 				var matchfini = bindingContext.getProperty("matchfini");
+				
+				if(enCours === "N" & matchfini === "N") {
+				
+					var label = new sap.m.Label({ text : title });
 	
-				var label = new sap.m.Label({ text : title });
-
-				// Dropdown box pour pronostic A
-				var oDropdownBox1 = new sap.ui.commons.DropdownBox("DropdownBox1");
-				oDropdownBox1.setTooltip("Pronostic "+bindingContext.getProperty("txtequipeA"));
-				oDropdownBox1.setEditable(true);
-				oDropdownBox1.setWidth("40px");
-				var oItem = new sap.ui.core.ListItem("ScoreA0");
-				oItem.setText("0");
-				oDropdownBox1.addItem(oItem);
-				oItem = new sap.ui.core.ListItem("ScoreA1");
-				oItem.setText("1");
-				oDropdownBox1.addItem(oItem);
-				oItem = new sap.ui.core.ListItem("ScoreA2");
-				oItem.setText("2");
-				oDropdownBox1.addItem(oItem);
-				oItem = new sap.ui.core.ListItem("ScoreA3");
-				oItem.setText("3");
-				oDropdownBox1.addItem(oItem);
-				oItem = new sap.ui.core.ListItem("ScoreA4");
-				oItem.setText("4");
-				oDropdownBox1.addItem(oItem);
-				oItem = new sap.ui.core.ListItem("ScoreA5");
-				oItem.setText("5");
-				oDropdownBox1.addItem(oItem);
-				oItem = new sap.ui.core.ListItem("ScoreA6");
-				oItem.setText("6");
-				oDropdownBox1.addItem(oItem);
-				oItem = new sap.ui.core.ListItem("ScoreA7");
-				oItem.setText("7");
-				oDropdownBox1.addItem(oItem);
-				oItem = new sap.ui.core.ListItem("ScoreA8");
-				oItem.setText("8");
-				oDropdownBox1.addItem(oItem);
-				oItem = new sap.ui.core.ListItem("ScoreA9");
-				oItem.setText("9");
-				oDropdownBox1.addItem(oItem);
-				oDropdownBox1.setValue(bindingContext.getProperty("pronoA"));
-				
-				// Dropdown box pour pronostic B
-				var oDropdownBox2 = new sap.ui.commons.DropdownBox("DropdownBox2");
-				oDropdownBox2.setTooltip("Pronostic "+bindingContext.getProperty("txtequipeB"));
-				oDropdownBox2.setEditable(true);
-				oDropdownBox2.setWidth("40px");
-				oItem = new sap.ui.core.ListItem("ScoreB0");
-				oItem.setText("0");
-				oDropdownBox2.addItem(oItem);
-				oItem = new sap.ui.core.ListItem("ScoreB1");
-				oItem.setText("1");
-				oDropdownBox2.addItem(oItem);
-				oItem = new sap.ui.core.ListItem("ScoreB2");
-				oItem.setText("2");
-				oDropdownBox2.addItem(oItem);
-				oItem = new sap.ui.core.ListItem("ScoreB3");
-				oItem.setText("3");
-				oDropdownBox2.addItem(oItem);
-				oItem = new sap.ui.core.ListItem("ScoreB4");
-				oItem.setText("4");
-				oDropdownBox2.addItem(oItem);
-				oItem = new sap.ui.core.ListItem("ScoreB5");
-				oItem.setText("5");
-				oDropdownBox2.addItem(oItem);
-				oItem = new sap.ui.core.ListItem("ScoreB6");
-				oItem.setText("6");
-				oDropdownBox2.addItem(oItem);
-				oItem = new sap.ui.core.ListItem("ScoreB7");
-				oItem.setText("7");
-				oDropdownBox2.addItem(oItem);
-				oItem = new sap.ui.core.ListItem("ScoreB8");
-				oItem.setText("8");
-				oDropdownBox2.addItem(oItem);
-				oItem = new sap.ui.core.ListItem("ScoreB9");
-				oItem.setText("9");
-				oDropdownBox2.addItem(oItem);
-				oDropdownBox2.setValue(bindingContext.getProperty("pronoB"));
-				
-				var simpleForm = new SimpleForm({editable: true,content: [label, oDropdownBox1, oDropdownBox2]});
-				
-				var dialog = new Dialog({
-					title: "Mon pronostic",
-					content: simpleForm,
-					beginButton: new Button({
-						text: "Sauvegarder",
-						type: "Emphasized",
-						press: function () {
-							if(enCours === "N" & matchfini === "N") {
-								var newPronoA = oDropdownBox1.getValue();
-								var newPronoB = oDropdownBox2.getValue();
-								
-								// Récupération du pseudo + pwd car la session ne fonctionne pas
-								var olModel=sap.ui.getCore().getModel("global");
-								var sPseudo = olModel.getProperty("/pseudo");
-								var sPwd = olModel.getProperty("/pwd");
-								var sPreURL = olModel.getProperty("/preURL");
-								var updateURL = sPreURL + "JSON_V2016.php?action=SAVESCORE&idmatch="+idMatch+"&scoreA="+newPronoA+"&scoreB="+newPronoB+"&email="+sPseudo+"&pass="+sPwd;
-								$.ajax({
-									type: "POST",
-									data: "",
-									crossDomain: true,
-									url: updateURL,
+					// Dropdown box pour pronostic A
+					var oDropdownBox1 = new sap.ui.commons.DropdownBox("DropdownBox1");
+					oDropdownBox1.setTooltip("Pronostic "+bindingContext.getProperty("txtequipeA"));
+					oDropdownBox1.setEditable(true);
+					oDropdownBox1.setWidth("40px");
+					var oItem = new sap.ui.core.ListItem("ScoreA0");
+					oItem.setText("0");
+					oDropdownBox1.addItem(oItem);
+					oItem = new sap.ui.core.ListItem("ScoreA1");
+					oItem.setText("1");
+					oDropdownBox1.addItem(oItem);
+					oItem = new sap.ui.core.ListItem("ScoreA2");
+					oItem.setText("2");
+					oDropdownBox1.addItem(oItem);
+					oItem = new sap.ui.core.ListItem("ScoreA3");
+					oItem.setText("3");
+					oDropdownBox1.addItem(oItem);
+					oItem = new sap.ui.core.ListItem("ScoreA4");
+					oItem.setText("4");
+					oDropdownBox1.addItem(oItem);
+					oItem = new sap.ui.core.ListItem("ScoreA5");
+					oItem.setText("5");
+					oDropdownBox1.addItem(oItem);
+					oItem = new sap.ui.core.ListItem("ScoreA6");
+					oItem.setText("6");
+					oDropdownBox1.addItem(oItem);
+					oItem = new sap.ui.core.ListItem("ScoreA7");
+					oItem.setText("7");
+					oDropdownBox1.addItem(oItem);
+					oItem = new sap.ui.core.ListItem("ScoreA8");
+					oItem.setText("8");
+					oDropdownBox1.addItem(oItem);
+					oItem = new sap.ui.core.ListItem("ScoreA9");
+					oItem.setText("9");
+					oDropdownBox1.addItem(oItem);
+					oDropdownBox1.setValue(bindingContext.getProperty("pronoA"));
+					
+					// Dropdown box pour pronostic B
+					var oDropdownBox2 = new sap.ui.commons.DropdownBox("DropdownBox2");
+					oDropdownBox2.setTooltip("Pronostic "+bindingContext.getProperty("txtequipeB"));
+					oDropdownBox2.setEditable(true);
+					oDropdownBox2.setWidth("40px");
+					oItem = new sap.ui.core.ListItem("ScoreB0");
+					oItem.setText("0");
+					oDropdownBox2.addItem(oItem);
+					oItem = new sap.ui.core.ListItem("ScoreB1");
+					oItem.setText("1");
+					oDropdownBox2.addItem(oItem);
+					oItem = new sap.ui.core.ListItem("ScoreB2");
+					oItem.setText("2");
+					oDropdownBox2.addItem(oItem);
+					oItem = new sap.ui.core.ListItem("ScoreB3");
+					oItem.setText("3");
+					oDropdownBox2.addItem(oItem);
+					oItem = new sap.ui.core.ListItem("ScoreB4");
+					oItem.setText("4");
+					oDropdownBox2.addItem(oItem);
+					oItem = new sap.ui.core.ListItem("ScoreB5");
+					oItem.setText("5");
+					oDropdownBox2.addItem(oItem);
+					oItem = new sap.ui.core.ListItem("ScoreB6");
+					oItem.setText("6");
+					oDropdownBox2.addItem(oItem);
+					oItem = new sap.ui.core.ListItem("ScoreB7");
+					oItem.setText("7");
+					oDropdownBox2.addItem(oItem);
+					oItem = new sap.ui.core.ListItem("ScoreB8");
+					oItem.setText("8");
+					oDropdownBox2.addItem(oItem);
+					oItem = new sap.ui.core.ListItem("ScoreB9");
+					oItem.setText("9");
+					oDropdownBox2.addItem(oItem);
+					oDropdownBox2.setValue(bindingContext.getProperty("pronoB"));
+					
+					var simpleForm = new SimpleForm({editable: true,content: [label, oDropdownBox1, oDropdownBox2]});
+					
+					var dialog = new Dialog({
+						title: "Mon pronostic",
+						content: simpleForm,
+						beginButton: new Button({
+							text: "Sauvegarder",
+							type: "Emphasized",
+							press: function () {
+								if(enCours === "N" & matchfini === "N") {
+									var newPronoA = oDropdownBox1.getValue();
+									var newPronoB = oDropdownBox2.getValue();
 									
-									contentType: "application/json",
-									success: function (res, status, xhr) {
-									    //success code
-									    //jQuery.sap.log.error("Success response: " + status + res);
-									    var ogModel=sap.ui.getCore().getModel("global");
-										var sUser = ogModel.getProperty("/iduser");
-										var sPreURL2 = ogModel.getProperty("/preURL");
-										var sUrl = sPreURL2 + "JSON_V2016.php?action=MATCHLIST&idPlayer=" + sUser;
-										var oModel = new JSONModel();
-										oModel.loadData(sUrl,{},false);
-										dialog.close();
-										oView.setModel(oModel, "remote");
-									},
-										error: function (jqXHR, textStatus, errorThrown) {
-										jQuery.sap.log.error("Got an error response: " + textStatus + errorThrown);
-									}
-									});
+									// Récupération du pseudo + pwd car la session ne fonctionne pas
+									var olModel=sap.ui.getCore().getModel("global");
+									var sPseudo = olModel.getProperty("/pseudo");
+									var sPwd = olModel.getProperty("/pwd");
+									var sPreURL = olModel.getProperty("/preURL");
+									var updateURL = sPreURL + "JSON_V2016.php?action=SAVESCORE&idmatch="+idMatch+"&scoreA="+newPronoA+"&scoreB="+newPronoB+"&email="+sPseudo+"&pass="+sPwd;
+									$.ajax({
+										type: "POST",
+										data: "",
+										crossDomain: true,
+										url: updateURL,
+										
+										contentType: "application/json",
+										success: function (res, status, xhr) {
+										    //success code
+										    //jQuery.sap.log.error("Success response: " + status + res);
+										    var ogModel=sap.ui.getCore().getModel("global");
+											var sUser = ogModel.getProperty("/iduser");
+											var sPreURL2 = ogModel.getProperty("/preURL");
+											var sUrl = sPreURL2 + "JSON_V2016.php?action=MATCHLIST&idPlayer=" + sUser;
+											var oModel = new JSONModel();
+											oModel.loadData(sUrl,{},false);
+											dialog.close();
+											oView.setModel(oModel, "remote");
+										},
+											error: function (jqXHR, textStatus, errorThrown) {
+											jQuery.sap.log.error("Got an error response: " + textStatus + errorThrown);
+										}
+										});
+								}
+								else {
+									MessageToast.show("Le match est déjà commencé ou terminé !");
+								}
 							}
-							else {
-								MessageToast.show("Le match est déjà commencé ou terminé !");
+						}),
+						endButton: new Button({
+							text: "Annuler",
+							press: function () {
+								dialog.close();
 							}
+						}),
+						afterClose: function() {
+							dialog.destroy();
 						}
-					}),
-					endButton: new Button({
-						text: "Annuler",
-						press: function () {
-							dialog.close();
-						}
-					}),
-					afterClose: function() {
-						dialog.destroy();
-					}
-				});
-	
-	 
-				//to get access to the global model
-				this.getView().addDependent(dialog);
-				dialog.open();
+					});
+		
+		 
+					//to get access to the global model
+					this.getView().addDependent(dialog);
+					dialog.open();
+				}
+				else {
+									MessageToast.show("Le match est déjà commencé ou terminé !");
+								}
 			} else {
 				MessageToast.show("Vous ne pouvez pas saisir les pronostics d'un autre joueur");
 			}
