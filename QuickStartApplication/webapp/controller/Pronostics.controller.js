@@ -31,7 +31,8 @@ sap.ui.define([
 			
 			// Récupération du paramètre passé à la vue
 			sap.ui.core.UIComponent.getRouterFor(this).getRoute("mesPronostics").attachPatternMatched(this.onUserMatched, this);
-			
+			var ogModel = sap.ui.getCore().getModel("global");
+			ogModel.setProperty("/flagsize","$$$");
 			this.getView().addEventDelegate({  
 				onAfterShow: function() {  
 					var getDialog = sap.ui.getCore().byId("GlobalBusyDialog");  
@@ -58,7 +59,12 @@ sap.ui.define([
 			} else {
 				oModel.loadData(sUrl,{},false);				
 			}
-
+			//taille des drapeaux a 200% si utilisation d'un telephone
+			if(sap.ui.Device.system.phone) {
+				oModel.setProperty("/flagsize","200%");
+			} else {
+				oModel.setProperty("/flagsize","100%");				
+			}
 			
 			this.getView().setModel(oModel, "remote");
 			//this.getView().setModel(ogModel, "global");

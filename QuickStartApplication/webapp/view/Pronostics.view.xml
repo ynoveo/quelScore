@@ -59,7 +59,7 @@
 								<items>
 									<ColumnListItem selected="true" type="Active" press="openPopup">
 										<cells>
-											<Image src="./flag/{remote>flagA}" width="100%"/>
+											<Image src="./flag/{remote>flagA}" width="{remote>/flagsize}"/>
 											<ObjectIdentifier id="equipeA" title="{remote>txtequipeA}" text="Mon score" wrapping="false"/>
 											<ObjectIdentifier
 												id="scores"
