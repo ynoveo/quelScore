@@ -49,17 +49,17 @@
 		        				width="100%"
 		        				hAlign="Center">
 								<columns>
-									<Column width="9%" hAlign="Left" vAlign="Center"/>
-									<Column width="32%" hAlign="Right"/>
+									<Column width="{remote>/flagsize}" hAlign="Left" vAlign="Center"/>
+									<Column width="{remote>/teamsize}" hAlign="Right"/>
 									<Column width="18%" hAlign="Center"/>
-									<Column width="32%" hAlign="Left"/>
-									<Column width="9%" hAlign="Left"/>
+									<Column width="{remote>/teamsize}" hAlign="Left"/>
+									<Column width="{remote>/flagsize}" hAlign="Left"/>
 									<!--<Column width="3em" hAlign="Center"/>-->
 								</columns>
 								<items>
 									<ColumnListItem selected="true" type="Active" press="openPopup">
 										<cells>
-											<Image src="./flag/{remote>flagA}" width="{remote>/flagsize}"/>
+											<Image src="./flag/{remote>flagA}" width="100%"/>
 											<ObjectIdentifier id="equipeA" title="{remote>txtequipeA}" text="Mon score" wrapping="false"/>
 											<ObjectIdentifier
 												id="scores"
