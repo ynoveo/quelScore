@@ -41,7 +41,7 @@
 									sorter: {
 										path: 'remote>sortdate',
 										descending: false,
-										group: true
+										group: '.getGroup'
 									},
 									groupHeaderFactory: '.getGroupHeader'
 								}"
@@ -72,7 +72,7 @@
 											            ],
 											            formatter: '.heureOuScore'}"
 												text="{remote>pronoA} - {remote>pronoB}"/>
-											<ObjectIdentifier id="equipeB" title="{remote>txtequipeB}" text="" />
+											<ObjectIdentifier id="equipeB" title="{remote>txtequipeB}" text="{remote>points}" />
 											<Image src="./flag/{remote>flagB}" width="100%"/>
 											<!--
 											<ObjectStatus

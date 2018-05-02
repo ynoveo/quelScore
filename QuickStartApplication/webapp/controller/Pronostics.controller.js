@@ -315,7 +315,13 @@ sap.ui.define([
 				this._oPopover.openBy(oColumnListItem);
 			});
 		},*/
-		
+		getGroup: function (oContext){
+			var sKey = oContext.getProperty("sortdate");
+			return {
+				key: sKey.substr(0,8),
+				title: sKey.substr(0,8) || "No Specific Region"
+			};
+		},
 		getGroupHeader: function (oGroup){
 			var keyStr = oGroup.key;
 			var day = keyStr.substr(6,2);
