@@ -52,21 +52,30 @@ sap.ui.define([
 			var sPreURL = ogModel.getProperty("/preURL");  			
 			var sUrl = sPreURL + "JSON_V2016.php?action=MATCHLIST&idPlayer=" + sIdUser + "&email=" + sLogin + "&pass=" + sPass;
 			var oModel = new JSONModel();
+			var oModelGroupe = new JSONModel();
 			if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
 				oModel.loadData("../webapp/localService/matchlist.json", {}, false);
+				oModelGroupe.loadData("../webapp/localService/topteam.json", {}, false);
 			} else {
 				oModel.loadData(sUrl,{},false);				
 			}
-			//taille des drapeaux a 200% si utilisation d'un telephone
+			//taille des drapeaux si utilisation d'un telephone
 			if(sap.ui.Device.system.phone) {
 				oModel.setProperty("/flagsize","15%");	
 				oModel.setProperty("/teamsize","26%");
+				oModelGroupe.setProperty("/flagsize","8%");
+				oModelGroupe.setProperty("/nophone",false);
+				oModelGroupe.setProperty("/isphone",true);
 			} else {
 				oModel.setProperty("/flagsize","9%");	
 				oModel.setProperty("/teamsize","32%");
+				oModelGroupe.setProperty("/flagsize","8%");
+				oModelGroupe.setProperty("/nophone",true);
+				oModelGroupe.setProperty("/isphone",false);
 			}
 			
 			this.getView().setModel(oModel, "remote");
+			this.getView().setModel(oModelGroupe, "remotegroupe");
 			//this.getView().setModel(ogModel, "global");
 			
 			var title;

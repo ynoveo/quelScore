@@ -6,6 +6,16 @@
 	"activeGroupID":"",
 	"pwd":"",
 	"iduser":"",
+	"Groupes" : [
+		{"phase":"A"},
+		{"phase":"B"},
+		{"phase":"C"},
+		{"phase":"D"},
+		{"phase":"E"},
+		{"phase":"F"},
+		{"phase":"G"},
+		{"phase":"H"}
+		],
 	"Filters": [
 		{
 			"type": "Date du match",
