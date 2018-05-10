@@ -1,6 +1,7 @@
 {
 	"preURL": "https://www.quelscore.com/",
 	"pseudo":"",
+	"mode":"test",
 	"activeGroup":"",
 	"activeGroupID":"",
 	"pwd":"",

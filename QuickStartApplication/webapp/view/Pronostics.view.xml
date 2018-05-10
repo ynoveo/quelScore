@@ -39,7 +39,7 @@
 		        				items="{
 									path: 'remote>/match',
 									sorter: {
-										path: 'remote>matchdate',
+										path: 'remote>sortdate',
 										descending: false,
 										group: true
 									},
@@ -49,11 +49,11 @@
 		        				width="100%"
 		        				hAlign="Center">
 								<columns>
-									<Column width="9%" hAlign="Left" vAlign="Center"/>
-									<Column width="32%" hAlign="Right"/>
+									<Column width="{remote>/flagsize}" hAlign="Left" vAlign="Center"/>
+									<Column width="{remote>/teamsize}" hAlign="Right"/>
 									<Column width="18%" hAlign="Center"/>
-									<Column width="32%" hAlign="Left"/>
-									<Column width="9%" hAlign="Left"/>
+									<Column width="{remote>/teamsize}" hAlign="Left"/>
+									<Column width="{remote>/flagsize}" hAlign="Left"/>
 									<!--<Column width="3em" hAlign="Center"/>-->
 								</columns>
 								<items>
