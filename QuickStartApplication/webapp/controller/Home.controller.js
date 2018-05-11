@@ -18,7 +18,7 @@ sap.ui.define([
 			//oModel.loadData("../webapp/localService/connect.json");
 			//this.getView().setModel(oModel);
 			//test2
-			
+			this.byId("__box_text1").addStyleClass("mybgcolor");
 			var oBusyDialog_Global = new sap.m.BusyDialog("GlobalBusyDialog");
 		},
 		/**
@@ -217,10 +217,17 @@ onLogon: function () {
 						//	console.log(oController.byId("__button1"));
 						//	oController.byId("__button1").setEnabled(false);
 						//	oController.byId("__button1").setText("Connecté");
+		    		
+/* ancienne version		    		
 		    			oController.byId("__button1").setVisible(false);
 		    			oController.byId("__button_disc").setVisible(true);
 		    			oController.byId("Bt_sub").setVisible(false);
 		    			oController.byId("__item0").setVisible(true);
+*/
+		    			oController.byId("__box_login").setVisible(false);
+		    			oController.byId("__box_user_info").setVisible(true);
+		    			oController.byId("__text0_copy3").setText = "TEST";
+		    			
 	    				var ogModel=sap.ui.getCore().getModel("global");
 						ogModel.setProperty("/pseudo", sLogin);
 						ogModel.setProperty("/pwd", sPass);
