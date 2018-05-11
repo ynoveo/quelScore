@@ -1,0 +1,65 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" controllerName="QuickStartApplication.controller.Home" id="homeView">
+	<App>
+	<pages>
+	    <!--<App id="__app1">-->
+	    <App>
+	        <pages>
+	            <Page id="__page1" showFooter="false" showSubHeader="false" showNavButton="false" title="Euro 2016 concours de pronostics">
+	            <content>
+	                <sap.ui.layout:Grid xmlns:sap.ui.layout="sap.ui.layout" id="__grid0" class="sapUiSmallMarginTop" position="Center" defaultSpan="XL12 L12 M12 S12">
+	                    <sap.ui.layout:content xmlns:sap.ui.layout="sap.ui.layout">
+                        <Bar id="__bar0">
+                            <contentLeft>
+                                <Button text="Se connecter" width="200px" id="__button1" activeIcon="sap-icon://connected" type="Accept" icon="sap-icon://connected" iconFirst="true" iconDensityAware="true" press="onLogon"/>
+                                <Button text="Deconnexion" width="200px" id="__button_disc" activeIcon="sap-icon://disconnected" type="Reject" icon="sap-icon://disconnected" iconFirst="true" iconDensityAware="true" press="onLogout" visible="false"/>
+                            </contentLeft>
+                    		<contentRight>
+                            	<Button text="S'inscrire" width="100px" id="Bt_sub" type="Emphasized" press="onSubscribe"/>
+                        	</contentRight>
+                        </Bar>
+                        <ObjectListItem counter="0" title="{/reponse/pseudo}" number="{/reponse/position}" numberUnit="{/reponse/nbpoints} pts" intro="Mon profil" icon="https://cdn4.iconfinder.com/data/icons/we-re-the-best/512/best-badge-cup-gold-medal-game-win-winner-gamification-first-award-acknowledge-acknowledgement-prize-victory-reward-conquest-premium-rank-ranking-gold-hero-star-quality-challenge-trophy-praise-victory-success-512.png" markFavorite="false" markFlagged="false" showMarkers="false" id="__item0" numberState="Success" busy="false" visible="false"/>
+	                        <ObjectListItem ariaLabelledBy="__item4-label" type="Navigation" counter="0" intro="Groupes de joueurs" markFavorite="false" markFlagged="false" showMarkers="false" id="__item1" icon="sap-icon://group" press="onNavToGroupe" unread="false"/>
+	                        <InputListItem type="Navigation" counter="0" label="Classement" id="__item4" press="onNavToCompte"/>
+	                        <InputListItem type="Navigation" counter="0" label="Mes pronostics" id="__item5" detailPress="" press="onNavToPronostics"/>
+
+<Panel expandable="true" expanded="true"  class="sapUiResponsiveMargin">
+<headerToolbar>
+			<Toolbar height="3rem">
+				<Title text="Créé par YNOVEO"/>
+
+				<Button icon="sap-icon://email" press="onMail"/>
+			</Toolbar>
+		</headerToolbar>
+
+<content>
+        <Text width="60%" text="Cette application a été entièrement réalisée avec la bblitohèque SAPUI5 par Ynoveo. SAPUI5 est la bibliothèque permettant de gérer des interfaces SAP FIORI. Ces interfaces sont entièrement responsive.\n  Pour avoir plus d'information sur l'offre SAP FIORI" class="sapUiMediumMarginBottom, sapUiMediumPadding"/>
+		<Image src="http://euro2016.quelscore.com/localService/ynoveosmall.png" press="onYnoveo"/>
+</content>
+ </Panel>   	
+
+
+         <Image id="__image2" width="100%" src="http://euro2016.quelscore.com/localService/euro2016-bg.jpg"/>
+ 
+	                        </sap.ui.layout:content>
+	                </sap.ui.layout:Grid>
+	            </content>
+	            <headerContent>
+	                <HBox alignItems="Start" justifyContent="SpaceBetween">
+	                    <items>
+	                        <Image width="80px" id="__image0" src=".localService/logo_euro.png" densityAware="false"/>
+	                    </items>
+	                    <items><Button icon="sap-icon://message-information" width="100px" press="onDialogPress" text="Règles"/></items>
+	                </HBox>
+	            </headerContent>
+	            <footer>
+	             
+	            	<!--  showIcon="true" showCloseButton="true" class="sapUiMediumMarginBottom, sapUiMediumPadding" -->
+ 
+ 	            	
+	            </footer>
+	            </Page>
+	        </pages>
+	    </App>
+	</pages>
+	</App>
+</mvc:View>

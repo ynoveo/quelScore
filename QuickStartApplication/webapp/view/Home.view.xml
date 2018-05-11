@@ -1,27 +1,104 @@
-<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" controllerName="QuickStartApplication.controller.Home" id="homeView">
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="QuickStartApplication.controller.Home" displayBlock="true">
 	<App>
-	<pages>
-	    <!--<App id="__app1">-->
-	    <App>
-	        <pages>
-	            <Page id="__page1" showFooter="false" showSubHeader="false" showNavButton="false" title="Euro 2016 concours de pronostics">
-	            <content>
-	                <sap.ui.layout:Grid xmlns:sap.ui.layout="sap.ui.layout" id="__grid0" class="sapUiSmallMarginTop" position="Center" defaultSpan="XL12 L12 M12 S12">
-	                    <sap.ui.layout:content xmlns:sap.ui.layout="sap.ui.layout">
-                        <Bar id="__bar0">
-                            <contentLeft>
-                                <Button text="Se connecter" width="200px" id="__button1" activeIcon="sap-icon://connected" type="Accept" icon="sap-icon://connected" iconFirst="true" iconDensityAware="true" press="onLogon"/>
-                                <Button text="Deconnexion" width="200px" id="__button_disc" activeIcon="sap-icon://disconnected" type="Reject" icon="sap-icon://disconnected" iconFirst="true" iconDensityAware="true" press="onLogout" visible="false"/>
-                            </contentLeft>
-                    		<contentRight>
-                            	<Button text="S'inscrire" width="100px" id="Bt_sub" type="Emphasized" press="onSubscribe"/>
-                        	</contentRight>
-                        </Bar>
-                        <ObjectListItem counter="0" title="{/reponse/pseudo}" number="{/reponse/position}" numberUnit="{/reponse/nbpoints} pts" intro="Mon profil" icon="https://cdn4.iconfinder.com/data/icons/we-re-the-best/512/best-badge-cup-gold-medal-game-win-winner-gamification-first-award-acknowledge-acknowledgement-prize-victory-reward-conquest-premium-rank-ranking-gold-hero-star-quality-challenge-trophy-praise-victory-success-512.png" markFavorite="false" markFlagged="false" showMarkers="false" id="__item0" numberState="Success" busy="false" visible="false"/>
-	                        <ObjectListItem ariaLabelledBy="__item4-label" type="Navigation" counter="0" intro="Groupes de joueurs" markFavorite="false" markFlagged="false" showMarkers="false" id="__item1" icon="sap-icon://group" press="onNavToGroupe" unread="false"/>
-	                        <InputListItem type="Navigation" counter="0" label="Classement" id="__item4" press="onNavToCompte"/>
-	                        <InputListItem type="Navigation" counter="0" label="Mes pronostics" id="__item5" detailPress="" press="onNavToPronostics"/>
-
+		<pages><Page showHeader="false" showFooter="false">
+				<content>
+				    <FlexBox width="100%" id="__box_text1">
+				        <items>
+				            <Text text="Quelscore.com vous accompagne tous les 2 ans depuis 2010 pour organiser vos compétitions de pronostics. Bienvenue dans cette édition 2018 !" id="__text4"/>
+				        </items>
+				    </FlexBox>
+				    <FlexBox width="100%" id="__box_text2" alignItems="Center" height="100px" justifyContent="Center">
+				        <items>
+				            <Text text="DEFIER VOS COLLEGUES, VOS AMIS, VOTRE FAMILLE A TRAVERS UN CONCOURS DE PRONOSTICS AUTOUR DE LA COUPE DU MONDE DE FOOT 2018 " id="__text5"/>
+				        </items>
+				    </FlexBox>
+				    <FlexBox width="100%" id="__box_login" height="200px">
+				        <items>
+				            <FlexBox xmlns="sap.m" width="50%" id="__box3" alignContent="Center" alignItems="Center" justifyContent="Center">
+				        <items>
+				            <Button text="Inscription" width="150px" id="__button0" activeIcon="sap-icon://account" icon="sap-icon://account" type="Emphasized" press="onSubscribe"/>
+				        </items>
+				    </FlexBox>
+				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box3_copy" justifyContent="Center" alignContent="Center" alignItems="Center">
+				        <items>
+				            <Button xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Connexion" width="150px" id="__button0_copy" activeIcon="sap-icon://log" icon="sap-icon://log" type="Accept" press="onLogon"/>
+				        </items>
+				    </FlexBox>
+				        </items>
+				    </FlexBox>
+				    <FlexBox xmlns="sap.m" visible="true" width="100%" id="__box_user_info" height="200px" backgroundDesign="Translucent">
+				        <items>
+				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box3_copy5" alignContent="Center" alignItems="Center" direction="Column" justifyContent="Center">
+				                <items>
+				                    <Text text="PSEUDO" id="__text0_copy3"/>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Classement :" id="__text0_copy4"/>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Nb de points :" id="__text0_copy5" />
+				                    </items>
+				                
+				            </FlexBox>
+				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box3_copy3" justifyContent="Center" alignContent="Center" alignItems="Center" direction="Column">
+				                
+				            <items>
+				                
+				                <Button text="Mes pronostics" width="150px" id="__button1" icon="sap-icon://activities" press="onNavToPronostics"/>
+				                
+				                <Button xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Mes groupes" width="150px" id="__button1_copy" icon="sap-icon://family-care" press="onNavToGroupe"/>
+				                
+				                <Button xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Classement" width="150px" id="__button1_copy2" icon="sap-icon://leads" press="onNavToCompte"/>
+				                
+				            </items>
+				                
+				            </FlexBox>
+				            </items>
+				        
+				    </FlexBox>
+				    <FlexBox xmlns="sap.m" width="100%" id="__box_login_copy" height="200px" backgroundDesign="Solid">
+				        <items>
+				            <FlexBox xmlns="sap.m" width="50%" id="__box3_copy2" alignContent="Start" alignItems="Start" direction="Column" backgroundDesign="Solid">
+				                
+				                <items>
+				                    <Text text="100% Gratuit" id="__text0"/>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__text0_copy" text="Facile à utiliser"/>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__text0_copy2" text="Du suspens jusqu'au dernier match"/>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__text0_copy17" text="changer vos pronostics jusqu'à la dernière seconde avant le début du match"/>
+				                </items>
+				            </FlexBox>
+				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box3_copy4" justifyContent="Center">
+				                
+				                <items>
+				                    <Image id="__image0" activeSrc="Capture_QS.PNG" src="Capture_QS.PNG" height="100%"/>
+				                </items>
+				            </FlexBox>
+				            </items>
+				        
+				    </FlexBox>
+				    <FlexBox xmlns="sap.m" width="100%" id="__box_user_info_copy" height="200px" backgroundDesign="Translucent">
+				        <items>
+				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box3_copy6" alignContent="Center" alignItems="Start" direction="Column" justifyContent="Center">
+				                <items>
+				                    <Text text="Les règles du jeu" id="__text0_copy6"/>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Pour chaque match vous pronostiquez le score, en fonction du résultat du match, vous gagnez :" id="__text0_copy7"/>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="5 points si vous avez le score exact" id="__text0_copy8"/>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="3 points si vous avez la bonne différence de buts" id="__text0_copy9"/>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="1 point si vous avez trouvez le bon vainqueur" id="__text0_copy10"/>
+				                    </items>
+				                
+				            </FlexBox>
+				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box3_copy7" justifyContent="Center" alignContent="Center" alignItems="Center" direction="Column">
+				                
+				                <items>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Un coefficient multiplicateur pour garantir le suspens jusqu'à la fin de la compétition" id="__text0_copy11"/>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="x1 pour chaque match de poule" id="__text0_copy12"/>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="x2 pour chaque match de 1/8 de finale" id="__text0_copy13"/>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="x3 pour chaque match de 1/4 de finale" id="__text0_copy14"/>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="x5 pour chaque match demi finale" id="__text0_copy15"/>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="x8 pour la finale et la petit finale " id="__text0_copy16"/>
+				                </items>
+				            </FlexBox>
+				            </items>
+				        
+				    </FlexBox>
+				    
 <Panel expandable="true" expanded="true"  class="sapUiResponsiveMargin">
 <headerToolbar>
 			<Toolbar height="3rem">
@@ -32,34 +109,12 @@
 		</headerToolbar>
 
 <content>
-        <Text width="60%" text="Cette application a été entièrement réalisée avec la bblitohèque SAPUI5 par Ynoveo. SAPUI5 est la bibliothèque permettant de gérer des interfaces SAP FIORI. Ces interfaces sont entièrement responsive.\n  Pour avoir plus d'information sur l'offre SAP FIORI" class="sapUiMediumMarginBottom, sapUiMediumPadding"/>
+        <Text width="60%" text="Cette application a été entièrement réalisée avec la bibliothèque SAPUI5 par Ynoveo. SAPUI5 est la bibliothèque permettant de gérer des interfaces SAP FIORI.\n  Pour avoir plus d'information sur l'offre SAP FIORI - http://www.ynoveo.fr/nos-services/offre-sap-fiori-sap-ui5/" class="sapUiMediumMarginBottom, sapUiMediumPadding"/>
 		<Image src="http://euro2016.quelscore.com/localService/ynoveosmall.png" press="onYnoveo"/>
 </content>
- </Panel>   	
-
-
-         <Image id="__image2" width="100%" src="http://euro2016.quelscore.com/localService/euro2016-bg.jpg"/>
- 
-	                        </sap.ui.layout:content>
-	                </sap.ui.layout:Grid>
-	            </content>
-	            <headerContent>
-	                <HBox alignItems="Start" justifyContent="SpaceBetween">
-	                    <items>
-	                        <Image width="80px" id="__image0" src=".localService/logo_euro.png" densityAware="false"/>
-	                    </items>
-	                    <items><Button icon="sap-icon://message-information" width="100px" press="onDialogPress" text="Règles"/></items>
-	                </HBox>
-	            </headerContent>
-	            <footer>
-	             
-	            	<!--  showIcon="true" showCloseButton="true" class="sapUiMediumMarginBottom, sapUiMediumPadding" -->
- 
- 	            	
-	            </footer>
-	            </Page>
-	        </pages>
-	    </App>
-	</pages>
+ </Panel>   
+				</content>
+			</Page>
+		</pages>
 	</App>
 </mvc:View>
