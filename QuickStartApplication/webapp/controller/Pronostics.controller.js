@@ -53,9 +53,11 @@ sap.ui.define([
 			var sUrl = sPreURL + "JSON_V2016.php?action=MATCHLIST&idPlayer=" + sIdUser + "&email=" + sLogin + "&pass=" + sPass;
 			var oModel = new JSONModel();
 			var oModelGroupe = new JSONModel();
+			var oModelTest = new JSONModel();
 			if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
 				oModel.loadData("../webapp/localService/matchlist.json", {}, false);
 				oModelGroupe.loadData("../webapp/localService/topteam.json", {}, false);
+				oModelTest.loadData("../webapp/localService/userGroup.json");
 			} else {
 				oModel.loadData(sUrl,{},false);				
 			}
@@ -76,6 +78,7 @@ sap.ui.define([
 			
 			this.getView().setModel(oModel, "remote");
 			this.getView().setModel(oModelGroupe, "remotegroupe");
+			this.getView().setModel(oModelTest, "Test");
 			//this.getView().setModel(ogModel, "global");
 			
 			var title;
