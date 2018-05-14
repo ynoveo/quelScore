@@ -1,0 +1,15 @@
+{
+	"reponse": { "msgtyp" : "GRPLIST", 
+				 "retcode" : "0",
+				 "retmsg" : "", 
+				 "iduser" : "",
+				 "nbpoints" : "",
+				 "position"	: "0"	
+				}
+, 
+"groupe" : [{ "idGroup" : "17", "NomGroup" : "Les pronostiqueurs du dimanche", "isAdmin" : "", "isMember" : "X"},
+{ "idGroup" : "95", "NomGroup" : "los ponchos", "isAdmin" : "X", "isMember" : "X"},
+{ "idGroup" : "1", "NomGroup" : "MCO2C", "isAdmin" : "", "isMember" : "X"},
+{ "NomGroup" : "Tous les groupes","isSpecial":"All"},
+{ "NomGroup" : "Créer un groupe","isSpecial":"Create"}
+]}

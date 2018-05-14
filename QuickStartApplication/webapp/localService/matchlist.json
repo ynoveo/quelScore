@@ -41,7 +41,8 @@
 			"pronoB" : "7",
 			"encours" : "Y",
 			"txtequipeA" : "ALBANIE",
-			"txtequipeB" : "SUISSE"
+			"txtequipeB" : "SUISSE",
+			"commentaire" : "<strong>Hello</strong> <em>world</em>"
 		}, {
 			"idMatch" : "164",
 			"idequipeA" : "49",

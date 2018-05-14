@@ -79,7 +79,7 @@
 														text="{remote>pronoA} - {remote>pronoB}"/>
 													<ObjectIdentifier id="equipeB" title="{remote>txtequipeB}" text="{remote>points}" />
 													<Image src="./flag/{remote>flagB}" width="100%"/>
-													<Text text="{remote>commentaire}" />
+													<core:HTML content='{remote>commentaire}' />
 												</cells>
 											</ColumnListItem>
 										</items>
@@ -317,6 +317,45 @@
 								</content>
 							</Panel>
 						</ScrollContainer>
+						<ScrollContainer height="100%" width="100%"
+							horizontal="false" vertical="true" id="testcontent">
+							
+						</ScrollContainer>
+						<ScrollContainer height="100%" width="100%"
+							horizontal="false" vertical="true">
+							<Table
+		        				items="{
+									path: 'remotetestbis>/TileCollection'
+								}"
+								noDataText="Aucun match"
+								headerText="Matchs à venir"
+		        				width="100%"
+		        				hAlign="Center">
+								<columns>
+									<Column width="100%" hAlign="Left" vAlign="Center"/>
+								</columns>
+								<items>
+									<ColumnListItem selected="true" type="Active" press="openPopup">
+										<cells>
+											<Text text="{remotetestbis>title}" />
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</ScrollContainer>
+							<TileContainer
+								id="container"
+								tileDelete="handleTileDelete"
+								tiles="{remotetestbis>/TileCollection}">
+								<StandardTile
+									icon="sap-icon://{icon}"
+									type="{remotetestbis>type}"
+									number="{remotetestbis>number}"
+									numberUnit="{remotetestbis>numberUnit}"
+									title="{remotetestbis>title}"
+									info="{remotetestbis>info}"
+									infoState="{remotetestbis>infoState}" />
+							</TileContainer>
 					</Carousel>
 				</content>
 			</Page>

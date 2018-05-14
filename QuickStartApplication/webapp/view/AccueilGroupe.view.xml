@@ -1,0 +1,30 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="QuickStartApplication.controller.AccueilGroupe">
+	<Page id="GroupAccueilPage" title="Les groupes accueil" showNavButton="true" navButtonPress="onNavBack">	
+		<content>
+			<PullToRefresh id="pullToRefresh" visible="false" refresh="onPullToRefresh"/>
+			<!--
+				<List id="masterList" selectionChange="onNavToGroup" modeAnimationOn="false" mode="SingleSelectMaster" updateFinished="onUpdateFinished" noDataText="Pas de groupes" swipe="onSwipe" items="{path: '/groupe'}">
+					<items>
+						<ObjectListItem id="masterListItem" title="{NomGroup}" type="Navigation">
+						</ObjectListItem>
+					</items>
+				</List>
+			-->	
+				<TileContainer
+					id="groupTiles"
+					tiles="{path: '/groupe'}">
+						<StandardTile
+							icon="{parts: [{path: 'isSpecial' }],formatter: '.displayIcon'}"
+							type="{parts: [{path: 'isSpecial' }],formatter: '.displayType'}"
+							number="{remotetestbis>number}"
+							numberUnit="{remotetestbis>numberUnit}"
+							title="{NomGroup}"
+							press="onNavToGroup"
+							info="{parts: [{path: 'isAdmin' }],formatter: '.isAdmin'}"
+							infoState="{remotetestbis>infoState}" />
+				</TileContainer>
+			
+		</content>
+	</Page>
+	
+</mvc:View>

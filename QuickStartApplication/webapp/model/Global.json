@@ -115,19 +115,6 @@
 			]
 		},
 		{
-			"type": "Match en cours",
-			"values": [
-				{
-					"data": "Y",
-					"key": "encours"
-				},
-				{
-					"data": "N",
-					"key": "encours"
-				}
-			]
-		},
-		{
 			"type": "Groupes/Phase",
 			"values": [
 				{

@@ -13,22 +13,9 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("QuickStartApplication.controller.Pronostics", {
-/**
-		 * Called when a controller is instantiated and its View controls (if available) are already created.
-		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
-		 * @memberOf QuickStartApplication.view.Pronostics
-		 * Test pour synchro
-		 */
+
 		onInit: function() {
-/*			// Définition du modèle de la vue
-            var ogModel=sap.ui.getCore().getModel("global");
-			var sUser = ogModel.getProperty("/iduser");
-			var sUrl = "https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&idPlayer=" + sUser;
-			var oModel = new JSONModel();
-			oModel.loadData(sUrl,{},false);
-			this.getView().setModel(oModel, "remote");
-			this.getView().setModel(ogModel, "global");*/
-			
+
 			// Récupération du paramètre passé à la vue
 			sap.ui.core.UIComponent.getRouterFor(this).getRoute("mesPronostics").attachPatternMatched(this.onUserMatched, this);
 			this.getView().addEventDelegate({  
@@ -37,7 +24,53 @@ sap.ui.define([
 					getDialog.close();  
 				}  
 			}, this);
-		},
+
+			// set mock model
+			var oModeltestbis = new JSONModel();
+			oModeltestbis.loadData("../webapp/localService/datatesttile.json", {}, false);
+			this.getView().setModel(oModeltestbis, "remotetestbis");
+	
+			var x = ["A", "B"];
+			var i;
+			for (i = 0; i < x.length; i++) { 
+			var oModelClGroupe = new JSONModel();
+			oModelClGroupe.loadData("../webapp/localService/topteam"+x[i]+".json", {}, false);
+			this.getView().setModel(oModelClGroupe, "remoteClgroupe"+x[i]);
+			var maTable = new sap.m.Table({
+					columns:[
+			          new sap.m.Column({
+			          header:[
+			                  new sap.m.Label({
+			                  text:"salut"
+			                  })
+			                  ]
+			          }),new sap.m.Column({
+			          header:[
+			                  new sap.m.Label({
+			                  text:"salutbis"
+			                  })
+			                  ]
+			          })
+			          ],
+					items:{
+						path: 'remoteClgroupe'+x[i]+'>/equipes',
+						template: new sap.m.ColumnListItem({
+						  cells:[             
+						       new sap.m.Text({
+						       text:"{remoteClgroupe"+x[i]+">txtequipe}"
+						        }),
+						        new sap.m.Text({
+						        text:"{remoteClgroupe"+x[i]+">Nbpoints}"
+						        })
+						     ]
+						  })
+						}
+				});
+			this.getView().byId("testcontent").addContent(maTable);
+				
+			}
+			
+			},
 	
 		onUserMatched: function(oEvent) {
 			// récupération du paramètre idUser
@@ -294,39 +327,6 @@ sap.ui.define([
 			}
 		},
 		
-/*		onOpenPopover: function (oEvent) {
- 
-			// create popover
-			if (! this._oPopover) {
-				//this._oPopover = sap.ui.xmlfragment("../webapp/view/Popover", this.getView().getController());
-				this._oPopover = sap.ui.xmlfragment("QuickStartApplication.view.Popover", this);
-				var popModel = new sap.ui.model.json.JSONModel({
-					  data: [
-					    { id: 0 },
-					    { id: 1 },
-					    { id: 2 },
-					    { id: 3 },
-					    { id: 4 },
-					    { id: 5 },
-					    { id: 6 },
-					    { id: 7 },
-					    { id: 8 },
-					    { id: 9 }
-					  ]
-					  
-					});
-				this._oPopover.setModel(popModel);
-				this.getView().addDependent(this._oPopover);
-				//console.log(this._oPopover.getParent().getModel());
-				
-			}
- 
-			// delay because addDependent will do a async rerendering and the popover will immediately close without it
-			var oColumnListItem = oEvent.getSource();
-			jQuery.sap.delayedCall(0, this, function () {
-				this._oPopover.openBy(oColumnListItem);
-			});
-		},*/
 		getGroup: function (oContext){
 			var sKey = oContext.getProperty("sortdate");
 			return {
@@ -339,45 +339,13 @@ sap.ui.define([
 			var day = keyStr.substr(6,2);
 			var month = keyStr.substr(4,2);
 			var year = keyStr.substr(0,4);
-/*
-			var newDate = year+"-"+month+"-"+day;
-			var d = new Date(newDate);
-			jQuery.sap.require("sap.ui.core.format.DateFormat");
-			//var oDateFormat = sap.ui.core.format.DateFormat.getDateInstance({pattern: "dddd dS mmmm yyyy", style: "long"});
-			
-			//var d2 = oDateFormat.parse(newDate);
-			//oDateFormat.format(d2);
-			d.toDateString();
-			console.log(d);*/
+
 			return new GroupHeaderListItem( {
 				//title: oGroup.key,
 				title: day + "/" + month + "/" + year,
 				upperCase: false
 			} );
 		},
-		
-/*		getTitle: function (pseudo){
-			var ogModel = this.getView().getModel("remote");
-			var sPseudo = ogModel.getProperty("/reponse/pseudo");
-			var title;
-			console.log(pseudo);
-			if(sPseudo === pseudo.pseudo) {
-				title = "Mes pronostics";
-			} else {
-				title = "Pronostics de "+pseudo.pseudo;
-			}
-			return title;
-		},*/
-		
-/*		saveScore: function (oEvent) {
-			//console.log(oEvent.getSource());
-			//var bindingContext = oEvent.getSource().getBindingContext();
-			//var txt = bindingContext.getProperty("/match");
-			//console.log(bindingContext);
-			console.log(this._oPopover.getId("oCombo1").getValue());
-			console.log(sap.ui.getCore().getId("oCombo1").getValue());
-			this._oPopover.close();
-		},*/
 		
 		_applyFilter: function(oFilter) {
 			// Get the table (last thing in the VBox) and apply the filter
@@ -449,29 +417,7 @@ sap.ui.define([
 				this._applyFilter([]);
 			}
 		},
-/**
-		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
-		 * (NOT before the first rendering! onInit() is used for that one!).
-		 * @memberOf QuickStartApplication.view.Pronostics
-		 *///	onBeforeRendering: function() {
-//
-//	},
-/**
-		 * Called when the View has been rendered (so its HTML is part of the document). Post-rendering manipulations of the HTML could be done here.
-		 * This hook is the same one that SAPUI5 controls get after being rendered.
-		 * @memberOf QuickStartApplication.view.Pronostics
-		 *///	onAfterRendering: function() {
-//
-//	},
-/**
-		 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
-		 * @memberOf QuickStartApplication.view.Pronostics
-		 *///	onExit: function() {
-//
-//	}
-		/**
-	*@memberOf QuickStartApplication.controller.Pronostics
-	*/
+
 	    onNavBack: function () {
 	//      This code was generated by the layout editor.
 	            var oHistory, sPreviousHash;

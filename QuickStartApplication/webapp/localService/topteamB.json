@@ -1,9 +1,5 @@
 { "reponse": { "msgtyp" : "TOPTEAM", "retcode" : "0", "retmsg" : "", "iduser" : "", "pseudo" : "", "nbpoints" : "", "position" : "0" } ,
 "equipes" : [
-	{ "phase" : "A", "classement" : "1", "flag" : "France.png", "idequipe" : "4", "txtequipe" : "FRANCE", "play" : "3", "win" : "2", "nul" : "1", "perdu" : "0", "buts" : "4", "encaisse" : "1", "dif" : "3", "Nbpoints" :"7"} ,
-	{ "phase" : "A", "classement" : "2", "flag" : "Switzerland.png", "idequipe" : "32", "txtequipe" : "SUISSE", "play" : "3", "win" : "1", "nul" : "2", "perdu" : "0", "buts" : "2", "encaisse" : "1", "dif" : "1", "Nbpoints" :"5"} ,
-	{ "phase" : "A", "classement" : "3", "flag" : "Albania.png", "idequipe" : "48", "txtequipe" : "ALBANIE", "play" : "3", "win" : "1", "nul" : "0", "perdu" : "2", "buts" : "1", "encaisse" : "3", "dif" : "-2", "Nbpoints" :"3"} ,
-	{ "phase" : "A", "classement" : "4", "flag" : "Romania.png", "idequipe" : "47", "txtequipe" : "ROUMANIE", "play" : "3", "win" : "0", "nul" : "1", "perdu" : "2", "buts" : "2", "encaisse" : "4", "dif" : "-2", "Nbpoints" :"1"},
 	{ "phase" : "B", "classement" : "1", "flag" : "France.png", "idequipe" : "4", "txtequipe" : "dfgf", "play" : "3", "win" : "2", "nul" : "1", "perdu" : "0", "buts" : "4", "encaisse" : "1", "dif" : "3", "Nbpoints" :"7"} ,
 	{ "phase" : "B", "classement" : "2", "flag" : "Switzerland.png", "idequipe" : "32", "txtequipe" : "dfsggfd", "play" : "3", "win" : "1", "nul" : "2", "perdu" : "0", "buts" : "2", "encaisse" : "1", "dif" : "1", "Nbpoints" :"5"} ,
 	{ "phase" : "B", "classement" : "3", "flag" : "Albania.png", "idequipe" : "48", "txtequipe" : "sdgsdf", "play" : "3", "win" : "1", "nul" : "0", "perdu" : "2", "buts" : "1", "encaisse" : "3", "dif" : "-2", "Nbpoints" :"3"} ,

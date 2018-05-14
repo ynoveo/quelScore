@@ -107,6 +107,12 @@
 				"pattern": "groupes",
 				"greedy": false,
 				"target": ["groupe"]
+			},
+			{
+				"name": "accueilGroupes",
+				"pattern": "accueilgroupes",
+				"greedy": false,
+				"target": ["accueilgroupe"]
 			}, {
 				"name": "UserList",
 				"pattern": "{groupId}",
@@ -139,6 +145,14 @@
 					"transition": "slide",
 					"clearAggregation": true,
 					"viewName": "Groupe",
+					"viewLevel": 2,
+					"viewPath": "QuickStartApplication.view"
+				},
+				"accueilgroupe": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "AccueilGroupe",
 					"viewLevel": 2,
 					"viewPath": "QuickStartApplication.view"
 				},
