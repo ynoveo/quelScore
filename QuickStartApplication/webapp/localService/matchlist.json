@@ -22,9 +22,9 @@
 			"pronoA" : "4",
 			"pronoB" : "2",
 			"encours" : "N",
-			"txtequipeA" : "FRANCE",
-			"txtequipeB" : "ROUMANIE",
-			"commentaire" : "But de Payet dans les dernières minutes"
+			"txtequipeA" : "FRANCE (GRP. A)",
+			"txtequipeB" : "ROUMANIE (GRP. A)",
+			"commentaire" : "<div>But de <strong>Payet</strong> dans les dernières minutes. Ouaiiiiiiis! 5 points poue JSPI!</div>"
 		}, {
 			"idMatch" : "163",
 			"idequipeA" : "48",
@@ -40,8 +40,8 @@
 			"pronoA" : "8",
 			"pronoB" : "7",
 			"encours" : "Y",
-			"txtequipeA" : "ALBANIE",
-			"txtequipeB" : "SUISSE",
+			"txtequipeA" : "ALBANIE (GRP. B)",
+			"txtequipeB" : "SUISSE (GRP. B)",
 			"commentaire" : "<strong>Hello</strong> <em>world</em>"
 		}, {
 			"idMatch" : "164",
@@ -58,8 +58,8 @@
 			"pronoA" : "0",
 			"pronoB" : "0",
 			"encours" : "N",
-			"txtequipeA" : "GALLES",
-			"txtequipeB" : "SLOVAQUIE",
+			"txtequipeA" : "GALLES (GRP. B)",
+			"txtequipeB" : "SLOVAQUIE (GRP. B)",
 			"points" : "(5 points)"
 		}, {
 			"idMatch" : "165",
@@ -76,8 +76,8 @@
 			"pronoA" : "",
 			"pronoB" : "",
 			"encours" : "N",
-			"txtequipeA" : "ANGLETERRE",
-			"txtequipeB" : "RUSSIE"
+			"txtequipeA" : "ANGLETERRE (GRP. B)",
+			"txtequipeB" : "RUSSIE (GRP. B)"
 		}, {
 			"idMatch" : "166",
 			"idequipeA" : "50",

@@ -24,49 +24,127 @@ sap.ui.define([
 					getDialog.close();  
 				}  
 			}, this);
-
-			// set mock model
-			var oModeltestbis = new JSONModel();
-			oModeltestbis.loadData("../webapp/localService/datatesttile.json", {}, false);
-			this.getView().setModel(oModeltestbis, "remotetestbis");
 	
-			var x = ["A", "B"];
+			//Affichage du classement des groupes
+			var x = ["A", "B","C","D","E","F","G","H"];
 			var i;
 			for (i = 0; i < x.length; i++) { 
-			var oModelClGroupe = new JSONModel();
-			oModelClGroupe.loadData("../webapp/localService/topteam"+x[i]+".json", {}, false);
-			this.getView().setModel(oModelClGroupe, "remoteClgroupe"+x[i]);
-			var maTable = new sap.m.Table({
+				var oModelClGroupe = new JSONModel();
+				oModelClGroupe.loadData("../webapp/localService/topteam"+x[i]+".json", {}, false);
+				this.getView().setModel(oModelClGroupe, "remoteClgroupe"+x[i]);
+				
+				var maTable = new sap.m.Table({
 					columns:[
 			          new sap.m.Column({
-			          header:[
-			                  new sap.m.Label({
-			                  text:"salut"
-			                  })
-			                  ]
+			        	width:"8%",hAlign:"Center"
+			          }),new sap.m.Column({
+			        	width:"10%", hAlign:"Center", vAlign:"Middle", demandPopin:true, minScreenWidth:"Tablet"
 			          }),new sap.m.Column({
 			          header:[
 			                  new sap.m.Label({
-			                  text:"salutbis"
+			                  text:"Pts"
 			                  })
-			                  ]
+			                  ],
+			          width:"10%", hAlign:"Center", vAlign:"Middle", demandPopin:true, minScreenWidth:"Tablet", popinDisplay:"Inline"
+			          })
+			          ,new sap.m.Column({
+			        	width:"5%", hAlign:"Center", vAlign:"Middle", visible:sap.ui.Device.system.phone
+			          }),new sap.m.Column({
+			          header:[
+			                  new sap.m.Label({
+			                  text:"J"
+			                  })
+			                  ],
+			          width:"10%", hAlign:"Center", vAlign:"Middle"
+			          }),new sap.m.Column({
+			          header:[
+			                  new sap.m.Label({
+			                  text:"G"
+			                  })
+			                  ],
+			          width:"10%", hAlign:"Center", vAlign:"Middle"
+			          }),new sap.m.Column({
+			          header:[
+			                  new sap.m.Label({
+			                  text:"N"
+			                  })
+			                  ],
+			          width:"10%", hAlign:"Center", vAlign:"Middle"
+			          }),new sap.m.Column({
+			          header:[
+			                  new sap.m.Label({
+			                  text:"P"
+			                  })
+			                  ],
+			          width:"10%", hAlign:"Center", vAlign:"Middle"
+			          }),new sap.m.Column({
+			          header:[
+			                  new sap.m.Label({
+			                  text:"p"
+			                  })
+			                  ],
+			          width:"10%", hAlign:"Center", vAlign:"Middle", visible:!(sap.ui.Device.system.phone)
+			          }),new sap.m.Column({
+			          header:[
+			                  new sap.m.Label({
+			                  text:"+/-"
+			                  })
+			                  ],
+			          width:"10%", hAlign:"Center", vAlign:"Middle"
 			          })
 			          ],
 					items:{
 						path: 'remoteClgroupe'+x[i]+'>/equipes',
 						template: new sap.m.ColumnListItem({
 						  cells:[             
+						       new sap.m.Image({
+						       		src:"./flag/{remoteClgroupe"+x[i]+">flag}",
+						       		width:"100%"
+						       }),
 						       new sap.m.Text({
 						       text:"{remoteClgroupe"+x[i]+">txtequipe}"
 						        }),
 						        new sap.m.Text({
 						        text:"{remoteClgroupe"+x[i]+">Nbpoints}"
+						        }),
+						        new sap.m.Text({
+						        text:""
+						        }),
+						        new sap.m.Text({
+						        text:"{remoteClgroupe"+x[i]+">play}"
+						        }),
+						        new sap.m.Text({
+						        text:"{remoteClgroupe"+x[i]+">win}"
+						        }),
+						        new sap.m.Text({
+						        text:"{remoteClgroupe"+x[i]+">nul}"
+						        }),
+						        new sap.m.Text({
+						        text:"{remoteClgroupe"+x[i]+">perdu}"
+						        }),
+						        new sap.m.Text({
+						        text:"{remoteClgroupe"+x[i]+">buts}"
+						        }),
+						        new sap.m.Text({
+						        text:"{remoteClgroupe"+x[i]+">encaisse}"
+						        }),
+						        new sap.m.Text({
+						        text:"{remoteClgroupe"+x[i]+">dif}"
 						        })
 						     ]
 						  })
 						}
 				});
-			this.getView().byId("testcontent").addContent(maTable);
+				
+				var monPanel = new sap.m.Panel();
+				monPanel.setExpandable(true);
+				monPanel.setExpanded(false);
+				monPanel.setHeaderText("Classement Groupe " + x[i]);
+				monPanel.setWidth("auto");
+				monPanel.addStyleClass("sapUiResponsiveMargin");
+				monPanel.addContent(maTable);
+				
+				this.getView().byId("classementGroupe").addContent(monPanel);
 				
 			}
 			
