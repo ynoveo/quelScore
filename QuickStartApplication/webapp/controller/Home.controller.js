@@ -138,7 +138,7 @@ onLogout: function (){
 				ogModel.setProperty("/pseudo", "");
 				ogModel.setProperty("/pwd", "");
 				var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
-				var sUrl = sPreURL + "JSON_V2016.php?action=DISCONNECT";
+				var sUrl = sPreURL + "JSON_V2018.php?action=DISCONNECT";
 				var otModel = new JSONModel();
 				otModel.loadData(sUrl, {}, false);
 				MessageToast.show("A bientôt");
@@ -202,7 +202,7 @@ onLogon: function () {
 						var sLogin = encodeURIComponent(sap.ui.getCore().byId("loginc").getValue());
 						var sPass = encodeURIComponent(sap.ui.getCore().byId("passc").getValue());
 						var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
-						var sUrl = sPreURL + "JSON_V2016.php?action=CONNECT&email=" + sLogin + "&pass=" + sPass;
+						var sUrl = sPreURL + "JSON_V2018.php?action=CONNECT&email=" + sLogin + "&pass=" + sPass;
 						var otModel = new JSONModel();
 
 						if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
@@ -297,7 +297,7 @@ var dialog = new Dialog({
 						var sPass2 = encodeURIComponent(sap.ui.getCore().byId('pass2').getValue());
 						var sPseudo = encodeURIComponent(sap.ui.getCore().byId('pseudo').getValue());
 						var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
-						var sUrl = sPreURL + "JSON_V2016.php?action=INSCRIPTION&mail=" + sEmail + "&pass1=" + sPass + "&pass2=" + sPass2 + "&pseudo=" + sPseudo;
+						var sUrl = sPreURL + "JSON_V2018.php?action=INSCRIPTION&mail=" + sEmail + "&pass1=" + sPass + "&pass2=" + sPass2 + "&pseudo=" + sPseudo;
 						var otModel = new JSONModel();
 						otModel.loadData(sUrl, {},false);	
 						oController.getView().setModel(otModel);
@@ -352,7 +352,7 @@ var dialog = new Dialog({
 						var sEmail = encodeURIComponent(sap.ui.getCore().byId('email').getValue());
 						if(oController.verifMail(sEmail)) {
 							var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
-							var sUrl = sPreURL + "JSON_V2016.php?action=PASSWORD&mail=" + sEmail;
+							var sUrl = sPreURL + "JSON_V2018.php?action=PASSWORD&mail=" + sEmail;
 							var otModel = new JSONModel();
 							otModel.loadData(sUrl, {},false);	
 							oController.getView().setModel(otModel);

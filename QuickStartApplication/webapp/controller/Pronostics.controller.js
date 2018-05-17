@@ -161,7 +161,7 @@ sap.ui.define([
 			var sLogin = ogModel.getProperty("/pseudo");
   			var sPass = ogModel.getProperty("/pwd");
 			var sPreURL = ogModel.getProperty("/preURL");  			
-			var sUrl = sPreURL + "JSON_V2016.php?action=MATCHLIST&idPlayer=" + sIdUser + "&email=" + sLogin + "&pass=" + sPass;
+			var sUrl = sPreURL + "JSON_V2018.php?action=MATCHLIST&idPlayer=" + sIdUser + "&email=" + sLogin + "&pass=" + sPass;
 			var oModel = new JSONModel();
 			var oModelGroupe = new JSONModel();
 			var oModelTest = new JSONModel();
@@ -312,7 +312,7 @@ sap.ui.define([
 									var sPseudo = olModel.getProperty("/pseudo");
 									var sPwd = olModel.getProperty("/pwd");
 									var sPreURL = olModel.getProperty("/preURL");
-									var updateURL = sPreURL + "JSON_V2016.php?action=SAVESCORE&idmatch="+idMatch+"&scoreA="+newPronoA+"&scoreB="+newPronoB+"&email="+sPseudo+"&pass="+sPwd;
+									var updateURL = sPreURL + "JSON_V2018.php?action=SAVESCORE&idmatch="+idMatch+"&scoreA="+newPronoA+"&scoreB="+newPronoB+"&email="+sPseudo+"&pass="+sPwd;
 									$.ajax({
 										type: "POST",
 										data: "",
@@ -326,7 +326,7 @@ sap.ui.define([
 										    var ogModel=sap.ui.getCore().getModel("global");
 											var sUser = ogModel.getProperty("/iduser");
 											var sPreURL2 = ogModel.getProperty("/preURL");
-											var sUrl = sPreURL2 + "JSON_V2016.php?action=MATCHLIST&idPlayer=" + sUser;
+											var sUrl = sPreURL2 + "JSON_V2018.php?action=MATCHLIST&idPlayer=" + sUser;
 											var oModel = new JSONModel();
 											oModel.loadData(sUrl,{},false);
 											dialog.close();

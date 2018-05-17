@@ -29,7 +29,7 @@ onIDMatched: function(oEvent) {
 			var sLogin = ogModel.getProperty("/pseudo");
 			var sPass = ogModel.getProperty("/pwd");
 			var sPreURL = ogModel.getProperty("/preURL");
-			var sUrl = sPreURL + "JSON_V2016.php?action=GRPLIST&email=" + sLogin + "&pass=" + sPass;
+			var sUrl = sPreURL + "JSON_V2018.php?action=GRPLIST&email=" + sLogin + "&pass=" + sPass;
 			var oModel = new JSONModel();
 			if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
 				oModel.loadData("../webapp/localService/groupes.json");
@@ -173,7 +173,7 @@ onNewPressed: function () {
 					press: function () {
 						sap.ui.core.BusyIndicator.show();
 						var sGroup = encodeURIComponent(sap.ui.getCore().byId("NomGroup").getValue());
-						var sUrl = sPreURL + "JSON_V2016.php?action=ADDGRP&autoconfirm=O&email=" + sLogin + "&pass=" + sPass + "&groupname=" + sGroup;
+						var sUrl = sPreURL + "JSON_V2018.php?action=ADDGRP&autoconfirm=O&email=" + sLogin + "&pass=" + sPass + "&groupname=" + sGroup;
 						var otModel = new JSONModel();
 						otModel.loadData(sUrl, {}, false);
 						//MessageToast.show("code retour = " + otModel.getProperty("/reponse/retcode"));
@@ -182,7 +182,7 @@ onNewPressed: function () {
 							MessageToast.show("Groupe créé : " + sGroup);
 							dialog.close();
 							// refresh model
-							sUrl = sPreURL + "JSON_V2016.php?action=GRPLIST&email=" + sLogin + "&pass=" + sPass;
+							sUrl = sPreURL + "JSON_V2018.php?action=GRPLIST&email=" + sLogin + "&pass=" + sPass;
 							var oModel = new JSONModel();
 							oModel.loadData(sUrl,{},false);
 							oController.getView().setModel(oModel);	
