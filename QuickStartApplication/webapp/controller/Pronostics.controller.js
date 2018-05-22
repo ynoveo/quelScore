@@ -21,7 +21,54 @@ sap.ui.define([
 			this.getView().addEventDelegate({  
 				onAfterShow: function() {  
 					var getDialog = sap.ui.getCore().byId("GlobalBusyDialog");  
-					getDialog.close();  
+					getDialog.close();
+					
+					// A l'ouverture, illustration pour la navigation
+						if(sap.ui.Device.support.touch){
+						var dialog = new Dialog({
+							icon: 'sap-icon://lightbulb',
+							type: 'Message',
+							
+							content: new sap.m.Image({src:"./view/finger_scroll.png", width:"100%"}),
+	
+							beginButton: new Button({
+								text: 'J\'ai compris',
+								press: function () {
+									dialog.close();
+								}
+							}),
+							afterClose: function() {
+								dialog.destroy();
+							}
+						});} else {
+							var dialog = new Dialog({
+							icon: 'sap-icon://lightbulb',
+							type: 'Message',
+							
+							content: new sap.m.Text({text:"Utilisez les flèches sur les côtés pour changer d'écran."}),
+	
+							beginButton: new Button({
+								text: 'J\'ai compris',
+								press: function () {
+									dialog.close();
+								}
+							}),
+							afterClose: function() {
+								dialog.destroy();
+							}
+						});
+						}
+		
+					//to get access to the global model
+					this.getView().addDependent(dialog);
+					dialog.open();
+					var _timeout;
+					
+					// simulate end of operation
+					_timeout = jQuery.sap.delayedCall(3000, this, function () {
+						dialog.close();
+					});
+					
 				}  
 			}, this);
 	
@@ -138,7 +185,7 @@ sap.ui.define([
 				
 				var monPanel = new sap.m.Panel();
 				monPanel.setExpandable(true);
-				monPanel.setExpanded(false);
+				monPanel.setExpanded(true);
 				monPanel.setHeaderText("Classement Groupe " + x[i]);
 				monPanel.setWidth("auto");
 				monPanel.addStyleClass("sapUiResponsiveMargin");
@@ -149,7 +196,7 @@ sap.ui.define([
 			}
 			
 			},
-	
+		
 		onUserMatched: function(oEvent) {
 			// récupération du paramètre idUser
 			var sIdUser = decodeURIComponent(oEvent.getParameter("arguments").idUser);
