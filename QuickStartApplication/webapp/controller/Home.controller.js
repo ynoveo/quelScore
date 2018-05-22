@@ -18,7 +18,21 @@ sap.ui.define([
 			//oModel.loadData("../webapp/localService/connect.json");
 			//this.getView().setModel(oModel);
 			//test2
-			this.byId("__box_text1").addStyleClass("mybgcolor");
+			this.byId("__box_text1").addStyleClass("mybandeau1");
+			this.byId("__box_text2").addStyleClass("mybandeau2");
+			this.byId("__box3a").addStyleClass("mybandeau3a");
+			this.byId("__box3b").addStyleClass("mybandeau3b");			
+			this.byId("__box4a").addStyleClass("mybandeau4a");
+			this.byId("__box4b").addStyleClass("mybandeau4b");
+			this.byId("__box5a").addStyleClass("mybandeau5a");
+			this.byId("__box5b").addStyleClass("mybandeau5b");
+			this.byId("__box6a").addStyleClass("mybandeau6a");
+			this.byId("__box6b").addStyleClass("mybandeau6b");			
+			this.byId("__textR1").addStyleClass("myText");
+			this.byId("__textR2").addStyleClass("myText");
+			this.byId("__textR3").addStyleClass("myText");
+			this.byId("__textR4").addStyleClass("myText");			
+	//		this.byId("__textB1").addStyleClass("myText");			
 			var oBusyDialog_Global = new sap.m.BusyDialog("GlobalBusyDialog");
 		},
 		/**

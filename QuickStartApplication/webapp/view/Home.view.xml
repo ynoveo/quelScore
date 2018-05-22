@@ -4,22 +4,27 @@
 				<content>
 				    <FlexBox width="100%" id="__box_text1">
 				        <items>
-				            <Text text="Quelscore.com vous accompagne tous les 2 ans depuis 2010 pour organiser vos compétitions de pronostics. Bienvenue dans cette édition 2018 !" id="__text4"/>
+				        	<Text text=" " id="textvide"/>
+				            <!--
+				            <Text text="Quelscore.com vous accompagne tous les 2 ans depuis 2010 pour organiser vos compétitions de pronostics. Bienvenue dans cette édition 2018 !" id="__textB1"/>
+				        -->
 				        </items>
 				    </FlexBox>
-				    <FlexBox width="100%" id="__box_text2" alignItems="Center" height="100px" justifyContent="Center">
+				    <FlexBox width="100%" id="__box_text2" alignItems="Center" height="70px" justifyContent="Center">
 				        <items>
-				            <Text text="DEFIER VOS COLLEGUES, VOS AMIS, VOTRE FAMILLE A TRAVERS UN CONCOURS DE PRONOSTICS AUTOUR DE LA COUPE DU MONDE DE FOOT 2018 " id="__text5"/>
+				        	<!--
+				        	<Image id="__bandeau2" activeSrc="images/bandeau2.jpg" src="images/bandeau2.jpg" height="100%"/>
+				        -->
 				        </items>
 				    </FlexBox>
 				    <FlexBox width="100%" id="__box_login" height="200px">
 				        <items>
-				            <FlexBox xmlns="sap.m" width="50%" id="__box3" alignContent="Center" alignItems="Center" justifyContent="Center">
+				            <FlexBox xmlns="sap.m" width="50%" id="__box3a" alignContent="Center" alignItems="Center" justifyContent="Center">
 				        <items>
 				            <Button text="Inscription" width="150px" id="__button0" activeIcon="sap-icon://account" icon="sap-icon://account" type="Emphasized" press="onSubscribe"/>
 				        </items>
 				    </FlexBox>
-				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box3_copy" justifyContent="Center" alignContent="Center" alignItems="Center">
+				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box3b" justifyContent="Center" alignContent="Center" alignItems="Center">
 				        <items>
 				            <Button xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Connexion" width="150px" id="__button0_copy" activeIcon="sap-icon://log" icon="sap-icon://log" type="Accept" press="onLogon"/>
 				        </items>
@@ -28,7 +33,7 @@
 				    </FlexBox>
 				    <FlexBox xmlns="sap.m" visible="true" width="100%" id="__box_user_info" height="200px" backgroundDesign="Translucent">
 				        <items>
-				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box3_copy5" alignContent="Center" alignItems="Center" direction="Column" justifyContent="Center">
+				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box4a" alignContent="Center" alignItems="Center" direction="Column" justifyContent="Center">
 				                <items>
 				                    <Text text="PSEUDO" id="__text0_copy3"/>
 				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Classement :" id="__text0_copy4"/>
@@ -36,7 +41,7 @@
 				                    </items>
 				                
 				            </FlexBox>
-				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box3_copy3" justifyContent="Center" alignContent="Center" alignItems="Center" direction="Column">
+				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box4b" justifyContent="Center" alignContent="Center" alignItems="Center" direction="Column">
 				                
 				            <items>
 				                
@@ -52,48 +57,34 @@
 				            </items>
 				        
 				    </FlexBox>
-				    <FlexBox xmlns="sap.m" width="100%" id="__box_login_copy" height="200px" backgroundDesign="Solid">
+				    <FlexBox xmlns="sap.m" wrap="Wrap" width="100%" id="__box_bandeau5"  backgroundDesign="Solid" renderType="Bare" alignItems="Stretch">
 				        <items>
-				            <FlexBox xmlns="sap.m" width="50%" id="__box3_copy2" alignContent="Start" alignItems="Start" direction="Column" backgroundDesign="Solid">
-				                
+				            <FlexBox xmlns="sap.m" min-width="50%" height="200px" fitContainer="true" id="__box5a" alignContent="Center" alignItems="Center" direction="Column" justifyContent="Center">
 				                <items>
-				                    <Text text="100% Gratuit" id="__text0"/>
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__text0_copy" text="Facile à utiliser"/>
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__text0_copy2" text="Du suspens jusqu'au dernier match"/>
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__text0_copy17" text="changer vos pronostics jusqu'à la dernière seconde avant le début du match"/>
+				                    <Text text="100% Gratuit" id="__textR1" align="center" color="white"/>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__textR2" text="Facile à utiliser"/>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__textR3" text="Du suspens jusqu'au dernier match"/>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__textR4" text="changer vos pronostics jusqu'à la dernière seconde avant le début du match"/>
 				                </items>
 				            </FlexBox>
-				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box3_copy4" justifyContent="Center">
-				                
+				            <FlexBox fitContainer="true" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" height="200px" id="__box5b" justifyContent="Center">
 				                <items>
-				                    <Image id="__image0" activeSrc="Capture_QS.PNG" src="Capture_QS.PNG" height="100%"/>
+             					   <!--     	<Image id="__bandeau5" activeSrc="images/bandeau5b.jpg" src="images/bandeau5b.jpg" width="100%" />  -->
 				                </items>
 				            </FlexBox>
 				            </items>
-				        
 				    </FlexBox>
-				    <FlexBox xmlns="sap.m" width="100%" id="__box_user_info_copy" height="200px" backgroundDesign="Translucent">
+				    <FlexBox xmlns="sap.m" width="100%" id="__box_rules" backgroundDesign="Translucent" wrap="Wrap">
 				        <items>
-				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box3_copy6" alignContent="Center" alignItems="Start" direction="Column" justifyContent="Center">
+				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box6a" alignContent="Center" alignItems="Start" direction="Column" justifyContent="Center" height="200px">
 				                <items>
-				                    <Text text="Les règles du jeu" id="__text0_copy6"/>
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Pour chaque match vous pronostiquez le score, en fonction du résultat du match, vous gagnez :" id="__text0_copy7"/>
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="5 points si vous avez le score exact" id="__text0_copy8"/>
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="3 points si vous avez la bonne différence de buts" id="__text0_copy9"/>
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="1 point si vous avez trouvez le bon vainqueur" id="__text0_copy10"/>
 				                    </items>
 				                
 				            </FlexBox>
-				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box3_copy7" justifyContent="Center" alignContent="Center" alignItems="Center" direction="Column">
+				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box6b" justifyContent="Center" alignContent="Center" alignItems="Center" direction="Column" height="200px">
 				                
 				                <items>
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Un coefficient multiplicateur pour garantir le suspens jusqu'à la fin de la compétition" id="__text0_copy11"/>
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="x1 pour chaque match de poule" id="__text0_copy12"/>
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="x2 pour chaque match de 1/8 de finale" id="__text0_copy13"/>
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="x3 pour chaque match de 1/4 de finale" id="__text0_copy14"/>
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="x5 pour chaque match demi finale" id="__text0_copy15"/>
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="x8 pour la finale et la petit finale " id="__text0_copy16"/>
-				                </items>
+				                    </items>
 				            </FlexBox>
 				            </items>
 				        

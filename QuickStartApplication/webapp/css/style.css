@@ -2,3 +2,86 @@
 .mybgcolor{
 	background-color: coral;
 }
+
+.mybandeau1{
+	background-image: url("../images/bandeau1.jpg"); 
+}
+
+.mybandeau2{
+	background-image: url("../images/bandeau2.jpg"); 
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;  
+}
+
+.mybandeau3a{
+	background-image: url("../images/bandeau3a.jpg"); 
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;  
+}
+
+.mybandeau3b{
+	background-image: url("../images/bandeau3b.jpg"); 
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;  
+}
+
+.mybandeau4a{
+	background-image: url("../images/bandeau4a.jpg"); 
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;  
+}
+
+.mybandeau4b{
+	background-image: url("../images/bandeau4b.jpg"); 
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;  
+}
+
+.mybandeau5a{
+	background-image: url("../images/bandeau5a.jpg"); 
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;  
+	color : white;
+	text-align : center;
+	min-width: 350px;
+	flex: 1;
+}
+
+.myText{
+	color: white;
+}
+
+.mybandeau5b{
+	background-image: url("../images/bandeau5b.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;  
+	min-width: 50%;
+	flex : 1;
+	
+}
+
+.mybandeau6a{
+	background-image: url("../images/bandeau6a.jpg"); 
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;  
+	min-width: 350px;
+		flex : 1;
+}
+
+
+.mybandeau6b{
+	background-image: url("../images/bandeau6b.jpg"); 
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;  
+	min-width: 350px;
+		flex : 1;
+}
