@@ -31,7 +31,8 @@ sap.ui.define([
 			this.byId("__textR1").addStyleClass("myText");
 			this.byId("__textR2").addStyleClass("myText");
 			this.byId("__textR3").addStyleClass("myText");
-			this.byId("__textR4").addStyleClass("myText");			
+			this.byId("__textR4").addStyleClass("myText");
+			this.byId("__box_ynoveo").addStyleClass("mybandeau7");			
 	//		this.byId("__textB1").addStyleClass("myText");			
 			var oBusyDialog_Global = new sap.m.BusyDialog("GlobalBusyDialog");
 		},

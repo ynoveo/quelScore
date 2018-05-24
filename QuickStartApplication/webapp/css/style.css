@@ -1,6 +1,8 @@
 /* Enter your custom styles here */
-.mybgcolor{
-	background-color: coral;
+
+
+.mybg{
+background: linear-gradient(to bottom,#0066c1 0%,#001c73 100%);
 }
 
 .mybandeau1{
@@ -84,4 +86,8 @@
 	background-size: cover;  
 	min-width: 350px;
 		flex : 1;
+}
+
+.mybandeau7{
+	background : linear-gradient(to bottom,#ffffff  0%,#898a8c 100%);
 }
