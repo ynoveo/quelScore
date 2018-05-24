@@ -31,7 +31,7 @@
 				    </FlexBox>
 				        </items>
 				    </FlexBox>
-				    <FlexBox xmlns="sap.m" visible="true" width="100%" id="__box_user_info" height="200px" backgroundDesign="Translucent">
+				    <FlexBox xmlns="sap.m" visible="false" width="100%" id="__box_user_info" height="200px" backgroundDesign="Translucent">
 				        <items>
 				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box4a" alignContent="Center" alignItems="Center" direction="Column" justifyContent="Center">
 				                <items>
