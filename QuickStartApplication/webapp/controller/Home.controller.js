@@ -365,7 +365,7 @@ var dialog = new Dialog({
 					type: "Emphasized",
 					press: function () {
 						var sEmail = encodeURIComponent(sap.ui.getCore().byId('email').getValue());
-						if(oController.verifMail(sEmail)) {
+//						if(oController.verifMail(sEmail)) {
 							var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
 							var sUrl = sPreURL + "JSON_V2018.php?action=PASSWORD&mail=" + sEmail;
 							var otModel = new JSONModel();
@@ -378,9 +378,9 @@ var dialog = new Dialog({
 							} else {
 								MessageToast.show(otModel.getProperty("/reponse/retmsg"));
 							}
-						}	else {
-							MessageToast.show("Adresse mail incorrecte");
-						}
+//						}	else {
+//							MessageToast.show("Adresse mail incorrecte");
+//						}
 					}
 				}),
 				endButton: new Button({
@@ -398,6 +398,7 @@ var dialog = new Dialog({
 		},
 		
 verifMail: function(oMail) {
+// Cette fonction ne fonctionne pas
 		   var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
 		   if(!regex.test(oMail))
 		   {
