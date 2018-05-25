@@ -398,7 +398,7 @@ var dialog = new Dialog({
 		},
 		
 verifMail: function(oMail) {
-// Cette fonction ne fonctionne pas
+// !! Cette fonction ne fonctionne pas !!
 		   var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
 		   if(!regex.test(oMail))
 		   {
