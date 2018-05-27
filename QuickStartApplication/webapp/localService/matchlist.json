@@ -94,7 +94,8 @@
 			"pronoB" : "",
 			"encours" : "N",
 			"txtequipeA" : "TURQUIE",
-			"txtequipeB" : "CROATIE"
+			"txtequipeB" : "CROATIE",
+			"phase" : "A"
 		}, {
 			"idMatch" : "167",
 			"idequipeA" : "33",
@@ -111,7 +112,8 @@
 			"pronoB" : "",
 			"encours" : "N",
 			"txtequipeA" : "POLOGNE",
-			"txtequipeB" : "IRLANDE DU NORD"
+			"txtequipeB" : "IRLANDE DU NORD",
+			"phase" : "B"
 		}, {
 			"idMatch" : "168",
 			"idequipeA" : "15",
@@ -128,7 +130,8 @@
 			"pronoB" : "",
 			"encours" : "N",
 			"txtequipeA" : "ALLEMAGNE",
-			"txtequipeB" : "UKRAINE"
+			"txtequipeB" : "UKRAINE",
+			"phase" : "C"
 		}, {
 			"idMatch" : "169",
 			"idequipeA" : "31",
@@ -145,7 +148,8 @@
 			"pronoB" : "",
 			"encours" : "N",
 			"txtequipeA" : "ESPAGNE",
-			"txtequipeB" : "REP. TCHEQUE"
+			"txtequipeB" : "REP. TCHEQUE",
+			"phase" : "Demie-Finale"
 		}, {
 			"idMatch" : "170",
 			"idequipeA" : "36",
@@ -162,7 +166,8 @@
 			"pronoB" : "",
 			"encours" : "N",
 			"txtequipeA" : "IRLANDE",
-			"txtequipeB" : "SUEDE"
+			"txtequipeB" : "SUEDE",
+			"phase" : "Demie-Finale"
 		}, {
 			"idMatch" : "171",
 			"idequipeA" : "45",
@@ -179,7 +184,8 @@
 			"pronoB" : "",
 			"encours" : "N",
 			"txtequipeA" : "BELGIQUE",
-			"txtequipeB" : "ITALIE"
+			"txtequipeB" : "ITALIE",
+			"phase" : "Demie-Finale"
 		}, {
 			"idMatch" : "172",
 			"idequipeA" : "52",

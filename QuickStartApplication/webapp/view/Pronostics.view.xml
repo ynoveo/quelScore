@@ -7,7 +7,7 @@
 				showNavButton="true"
 				navButtonPress="onNavBack">
 				<content>
-					<Carousel class="sapUiResponsiveContentPadding" loop="true" pageIndicatorPlacement="Top">
+					<Carousel id="carousel" class="sapUiResponsiveContentPadding" loop="true" pageIndicatorPlacement="Top">
 						<ScrollContainer height="100%" width="100%"
 							horizontal="false" vertical="true">
 							<VBox
