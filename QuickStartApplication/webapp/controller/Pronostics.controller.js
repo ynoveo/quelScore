@@ -18,46 +18,52 @@ sap.ui.define([
 
 			// Récupération du paramètre passé à la vue
 			sap.ui.core.UIComponent.getRouterFor(this).getRoute("mesPronostics").attachPatternMatched(this.onUserMatched, this);
+			
 			this.getView().addEventDelegate({  
 				onAfterShow: function() {  
 					var getDialog = sap.ui.getCore().byId("GlobalBusyDialog");  
 					getDialog.close();
 					
 					// A l'ouverture, illustration pour la navigation
-						if(sap.ui.Device.support.touch){
-						var dialog = new Dialog({
-							icon: 'sap-icon://lightbulb',
-							type: 'Message',
-							
-							content: new sap.m.Image({src:"./view/finger_scroll.png", width:"100%"}),
-	
-							beginButton: new Button({
-								text: 'J\'ai compris',
-								press: function () {
-									dialog.close();
+						var ogModel = sap.ui.getCore().getModel("global");
+						if(!ogModel.getProperty("/donotshow")){
+							if(sap.ui.Device.support.touch){
+								var dialog = new Dialog({
+									icon: 'sap-icon://lightbulb',
+									type: 'Message',
+									
+									content: [new sap.m.Image({src:"./view/finger_scroll.png", width:"100%"}),new sap.m.Text({text:"Balayez l'écran pour changer de page."})],
+			
+									beginButton: new Button({
+										text: 'J\'ai compris',
+										press: function () {
+											dialog.close();
+										}
+									}),
+									afterClose: function() {
+										dialog.destroy();
+										ogModel.setProperty("/donotshow",true);
+									}
+							});} else {
+								var dialog = new Dialog({
+								icon: 'sap-icon://lightbulb',
+								type: 'Message',
+								
+								content: new sap.m.Text({text:"Utilisez les flèches sur les côtés pour changer d'écran."}),
+		
+								beginButton: new Button({
+									text: 'J\'ai compris',
+									press: function () {
+										dialog.close();
+									}
+								}),
+								afterClose: function() {
+									dialog.destroy();
+									
 								}
-							}),
-							afterClose: function() {
-								dialog.destroy();
+							});
 							}
-						});} else {
-							var dialog = new Dialog({
-							icon: 'sap-icon://lightbulb',
-							type: 'Message',
-							
-							content: new sap.m.Text({text:"Utilisez les flèches sur les côtés pour changer d'écran."}),
-	
-							beginButton: new Button({
-								text: 'J\'ai compris',
-								press: function () {
-									dialog.close();
-								}
-							}),
-							afterClose: function() {
-								dialog.destroy();
-							}
-						});
-						}
+						
 		
 					//to get access to the global model
 					this.getView().addDependent(dialog);
@@ -68,7 +74,7 @@ sap.ui.define([
 					_timeout = jQuery.sap.delayedCall(3000, this, function () {
 						dialog.close();
 					});
-					
+				}
 				}  
 			}, this);
 	
@@ -251,6 +257,10 @@ sap.ui.define([
 			}
 
 			this.getView().byId("idPage").setTitle(title);
+			//affichage de la page 1 du carousel
+				/*var page1 = this.getView().byId("carousel").getPages()[0];
+				this.getView().byId("carousel").setActivePage(page1);*/
+			
 		},
 	
 		openPopup: function(oEvent) {
