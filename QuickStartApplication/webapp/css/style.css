@@ -21,6 +21,8 @@ background: linear-gradient(to bottom,#0066c1 0%,#001c73 100%);
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;  
+	color : white;
+	
 }
 
 .mybandeau3b{
@@ -58,6 +60,12 @@ background: linear-gradient(to bottom,#0066c1 0%,#001c73 100%);
 
 .myText{
 	color: white;
+	font-family: "Merriweather Sans";
+}
+
+.myBlackText{
+	color: black;
+	font-family: "Merriweather Sans";
 }
 
 .mybandeau5b{
