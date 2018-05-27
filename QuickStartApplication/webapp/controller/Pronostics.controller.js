@@ -464,8 +464,15 @@ sap.ui.define([
 		
 		getGroup: function (oContext){
 			var sKey = oContext.getProperty("sortdate");
+			var sPhase = oContext.getProperty("phase");
+			var x = ["A", "B","C","D","E","F","G","H"];
+			if(x.indexOf(sPhase) !== -1){
+				var suffixe="Match de groupe";
+			}else{
+				var suffixe=sPhase;
+			}
 			return {
-				key: sKey.substr(0,8),
+				key: sKey.substr(0,8) + suffixe,
 				title: sKey.substr(0,8) || "No Specific Region"
 			};
 		},
@@ -474,10 +481,11 @@ sap.ui.define([
 			var day = keyStr.substr(6,2);
 			var month = keyStr.substr(4,2);
 			var year = keyStr.substr(0,4);
+			var phase = keyStr.substr(8,20);
 
 			return new GroupHeaderListItem( {
 				//title: oGroup.key,
-				title: day + "/" + month + "/" + year,
+				title: day + "/" + month + "/" + year + " - " + phase,
 				upperCase: false
 			} );
 		},
