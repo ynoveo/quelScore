@@ -241,7 +241,9 @@ onLogon: function () {
 */
 		    			oController.byId("__box_login").setVisible(false);
 		    			oController.byId("__box_user_info").setVisible(true);
-		    			oController.byId("__text0_copy3").setText = "TEST";
+		    			oController.byId("__text_pseudo").setProperty("text", otModel.getProperty("/reponse/pseudo"));
+		    			oController.byId("__text_classement").setProperty("text", "Position au classement général : " +  otModel.getProperty("/reponse/position"));
+		    			oController.byId("__text_points").setProperty("text", otModel.getProperty("/reponse/nbpoints") + " pts");
 		    			
 	    				var ogModel=sap.ui.getCore().getModel("global");
 						ogModel.setProperty("/pseudo", sLogin);

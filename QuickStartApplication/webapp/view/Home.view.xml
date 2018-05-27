@@ -35,9 +35,9 @@
 				        <items>
 				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box4a" alignContent="Center" alignItems="Center" direction="Column" justifyContent="Center">
 				                <items>
-				                    <Text text="PSEUDO" id="__text0_copy3"/>
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Classement :" id="__text0_copy4"/>
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Nb de points :" id="__text0_copy5" />
+				                    <Text text="" id="__text_pseudo"/>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Classement : " id="__text_classement"/>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Nb de points : " id="__text_points" />
 				                    </items>
 				                
 				            </FlexBox>
