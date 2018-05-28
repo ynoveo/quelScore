@@ -90,7 +90,7 @@ sap.ui.define([
 				var sPreURL = ogModel.getProperty("/preURL");  			
 				var sUrl = sPreURL + "https://www.quelscore.com/JSON_V2018.php?action=TOPTEAM&phase=" + x[i];
 				
-				
+				//
 				if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
 				oModelClGroupe.loadData("../webapp/localService/topteam"+x[i]+".json", {}, false);
 				} else {
