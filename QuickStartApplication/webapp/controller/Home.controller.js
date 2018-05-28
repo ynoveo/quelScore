@@ -18,8 +18,10 @@ sap.ui.define([
 			//oModel.loadData("../webapp/localService/connect.json");
 			//this.getView().setModel(oModel);
 			//test2
-			this.byId("__box_text1").addStyleClass("mybandeau1");
-			this.byId("__box_text2").addStyleClass("mybandeau2");
+			this.byId("__box_text1").addStyleClass("mybg");
+//			this.byId("__box_text2").addStyleClass("mybandeau2");
+			this.byId("__box2a").addStyleClass("mybandeau2a");
+			this.byId("__box2b").addStyleClass("mybandeau2b");
 			this.byId("__box3a").addStyleClass("mybandeau3a");
 			this.byId("__box3b").addStyleClass("mybandeau3b");			
 			this.byId("__box4a").addStyleClass("mybandeau4a");

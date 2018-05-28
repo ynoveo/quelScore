@@ -10,13 +10,26 @@
 				        -->
 				        </items>
 				    </FlexBox>
+				    <FlexBox xmlns="sap.m" width="100%" id="__box_text2" backgroundDesign="Translucent" wrap="Wrap">
+				        <items>
+				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box2a" alignContent="Center" alignItems="Start" direction="Column" justifyContent="Center" height="150px">
+				                <items>
+				                    </items>
+				            </FlexBox>
+				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box2b" justifyContent="Center" alignContent="Center" alignItems="Center" direction="Column" height="150px">
+				                <items>
+				                    </items>
+				            </FlexBox>
+				            </items>
+				        
+				    </FlexBox>				    
+				    <!--
 				    <FlexBox width="100%" id="__box_text2" alignItems="Center" height="150px" justifyContent="Center">
 				        <items>
-				        	<!--
-				        	<Image id="__bandeau2" activeSrc="images/bandeau2.jpg" src="images/bandeau2.jpg" height="100%"/>
-				        -->
 				        </items>
 				    </FlexBox>
+				    -->
+				    
 				    <FlexBox width="100%" id="__box_login" height="200px">
 				        <items>
 				            <FlexBox xmlns="sap.m" width="50%" id="__box3a" alignContent="Center" alignItems="Center" justifyContent="Center">

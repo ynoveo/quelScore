@@ -16,6 +16,25 @@ background: linear-gradient(to bottom,#0066c1 0%,#001c73 100%);
 	background-size: cover;  
 }
 
+.mybandeau2a{
+	background-image: url("../images/bandeau2a.jpg"); 
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;  
+	min-width: 350px;
+		flex : 1;
+}
+
+
+.mybandeau2b{
+	background-image: url("../images/bandeau2b.jpg"); 
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;  
+	min-width: 350px;
+		flex : 1;
+}
+
 .mybandeau3a{
 	background-image: url("../images/bandeau3a.jpg"); 
 	background-position: center center;
