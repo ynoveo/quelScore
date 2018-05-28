@@ -83,7 +83,20 @@ sap.ui.define([
 			var i;
 			for (i = 0; i < x.length; i++) { 
 				var oModelClGroupe = new JSONModel();
+				var ogModel = sap.ui.getCore().getModel("global");
+				var sUser = ogModel.getProperty("/iduser");
+				var sLogin = ogModel.getProperty("/pseudo");
+	  			var sPass = ogModel.getProperty("/pwd");
+				var sPreURL = ogModel.getProperty("/preURL");  			
+				var sUrl = sPreURL + "https://www.quelscore.com/JSON_V2018.php?action=TOPTEAM&phase=" + x[i];
+				
+				
+				if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
 				oModelClGroupe.loadData("../webapp/localService/topteam"+x[i]+".json", {}, false);
+				} else {
+					oModelClGroupe.loadData(sUrl,{},false);				
+				}
+				
 				this.getView().setModel(oModelClGroupe, "remoteClgroupe"+x[i]);
 				
 				var maTable = new sap.m.Table({
@@ -387,6 +400,14 @@ sap.ui.define([
 											var oModel = new JSONModel();
 											oModel.loadData(sUrl,{},false);
 											dialog.close();
+											//taille des drapeaux si utilisation d'un telephone
+												if(sap.ui.Device.system.phone) {
+													oModel.setProperty("/flagsize","15%");	
+													oModel.setProperty("/teamsize","26%");
+												} else {
+													oModel.setProperty("/flagsize","9%");	
+													oModel.setProperty("/teamsize","32%");
+												}
 											oView.setModel(oModel, "remote");
 										},
 											error: function (jqXHR, textStatus, errorThrown) {
