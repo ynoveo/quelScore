@@ -88,7 +88,7 @@ sap.ui.define([
 				var sLogin = ogModel.getProperty("/pseudo");
 	  			var sPass = ogModel.getProperty("/pwd");
 				var sPreURL = ogModel.getProperty("/preURL");  			
-				var sUrl = sPreURL + "https://www.quelscore.com/JSON_V2018.php?action=TOPTEAM&phase=" + x[i];
+				var sUrl = sPreURL + "JSON_V2018.php?action=TOPTEAM&phase=" + x[i];
 				
 				//
 				if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
@@ -483,6 +483,13 @@ sap.ui.define([
 			}
 		},
 		
+		nbpoints : function (points, matchfini){
+			if (matchfini === "Y") {
+					var string = "(" + points + " points)";
+					return string;
+			}
+		},
+		
 		getGroup: function (oContext){
 			var sKey = oContext.getProperty("sortdate");
 			var sPhase = oContext.getProperty("phase");
@@ -511,25 +518,36 @@ sap.ui.define([
 			} );
 		},
 		
-		_applyFilter: function(oFilter) {
+		_applyFilter: function(oFilter,idFilter) {
 			// Get the table (last thing in the VBox) and apply the filter
-			var aTableItems = this.getView().byId("idVBox").getItems();
+			var aTableItems = this.getView().byId(idFilter).getItems();
 			var oTable = aTableItems[aTableItems.length-1];
 			oTable.getBinding("items").filter(oFilter);
 		},
  
 		handleFacetFilterReset: function(oEvent) {
 			var oFacetFilter = sap.ui.getCore().byId(oEvent.getParameter("id"));
+			
+			if(String(oFacetFilter).indexOf("idFacetFilter1") !== -1){
+				var idfilter="idVBox";
+			}else{
+				var idfilter="idVBox2";
+			}
 			var aFacetFilterLists = oFacetFilter.getLists();
 			for(var i=0; i < aFacetFilterLists.length; i++) {
 				aFacetFilterLists[i].setSelectedKeys();
 			}
-			this._applyFilter([]);
+			this._applyFilter([],idfilter);
 		},
  
 		handleListClose: function(oEvent) {
 			// Get the Facet Filter lists and construct a (nested) filter for the binding
 			var oFacetFilter = oEvent.getSource().getParent();
+			if(String(oFacetFilter).indexOf("idFacetFilter1") !== -1){
+				var idfilter="idVBox";
+			}else{
+				var idfilter="idVBox2";
+			}
 			var mFacetFilterLists = oFacetFilter.getLists().filter(function(oList) {
 					return oList.getSelectedItems().length;
 				});
@@ -544,9 +562,6 @@ sap.ui.define([
 						switch(filterKey) {
 						    case "Date du match":
 						        filterItem = "matchdate";
-						        break;
-						    case "Match en cours":
-						        filterItem = "encours";
 						        break;
 						    case "Groupes/Phase":
 						        filterItem = "phase";
@@ -576,9 +591,9 @@ sap.ui.define([
 						return new Filter(filterItem, "EQ", oItemText);
 					}), false);
 				}), true);
-				this._applyFilter(oFilter);
+				this._applyFilter(oFilter,idfilter);
 			} else {
-				this._applyFilter([]);
+				this._applyFilter([],idfilter);
 			}
 		},
 
