@@ -10,13 +10,26 @@
 				        -->
 				        </items>
 				    </FlexBox>
-				    <FlexBox width="100%" id="__box_text2" alignItems="Center" height="120px" justifyContent="Center">
+				    <FlexBox xmlns="sap.m" width="100%" id="__box_text2" backgroundDesign="Translucent" wrap="Wrap">
 				        <items>
-				        	<!--
-				        	<Image id="__bandeau2" activeSrc="images/bandeau2.jpg" src="images/bandeau2.jpg" height="100%"/>
-				        -->
+				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box2a" alignContent="Center" alignItems="Start" direction="Column" justifyContent="Center" height="150px">
+				                <items>
+				                    </items>
+				            </FlexBox>
+				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box2b" justifyContent="Center" alignContent="Center" alignItems="Center" direction="Column" height="150px">
+				                <items>
+				                    </items>
+				            </FlexBox>
+				            </items>
+				        
+				    </FlexBox>				    
+				    <!--
+				    <FlexBox width="100%" id="__box_text2" alignItems="Center" height="150px" justifyContent="Center">
+				        <items>
 				        </items>
 				    </FlexBox>
+				    -->
+				    
 				    <FlexBox width="100%" id="__box_login" height="200px">
 				        <items>
 				            <FlexBox xmlns="sap.m" width="50%" id="__box3a" alignContent="Center" alignItems="Center" justifyContent="Center">
@@ -64,7 +77,7 @@
 				                    <Text text="100% Gratuit" id="__textR1" align="center" color="white"/>
 				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__textR2" text="Facile à utiliser"/>
 				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__textR3" text="Du suspens jusqu'au dernier match"/>
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__textR4" text="changer vos pronostics jusqu'à la dernière seconde avant le début du match"/>
+				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__textR4" text="Changer vos pronostics jusqu'à la dernière seconde avant le début du match" textAlign="Center" />
 				                </items>
 				            </FlexBox>
 				            <FlexBox fitContainer="true" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" height="200px" id="__box5b" justifyContent="Center">
