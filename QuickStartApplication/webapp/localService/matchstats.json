@@ -1,4 +1,3 @@
-
 {
 	"reponse": { "msgtyp" : "MATCHSTATS", 
 				 "retcode" : "0",
@@ -9,9 +8,9 @@
 				 "position"	: "1"
 				}
 , 
-"stats" : [{ "scoreA" : "2",  "scoreB" : "0",  "pourcentage" : "28.8462"}
+"stats" : [{ "scoreA" : "2",  "scoreB" : "0",  "pourcentage" : "29%"}
 ,
-{ "scoreA" : "2",  "scoreB" : "1",  "pourcentage" : "19.2308"}
+{ "scoreA" : "2",  "scoreB" : "1",  "pourcentage" : "19%"}
 ,
 { "scoreA" : "3",  "scoreB" : "1",  "pourcentage" : "17.3077"}
 ,
@@ -47,4 +46,3 @@
 ,
 { "scoreA" : "3",  "scoreB" : "0",  "points" : "1",  "idPlayer" : "714286700",  "pseudo" : "nabilelouerghi"}
 ]}
-

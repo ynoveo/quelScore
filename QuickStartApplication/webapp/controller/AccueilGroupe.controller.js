@@ -219,7 +219,7 @@ onNewPressed: function () {
 							MessageToast.show("Groupe créé : " + sGroup);
 							dialog.close();
 							// refresh model
-							sUrl = sPreURL + "JSON_V2016.php?action=GRPLIST&email=" + sLogin + "&pass=" + sPass;
+							sUrl = sPreURL + "JSON_V2018.php?action=GRPLIST&isMember=X&email=" + sLogin + "&pass=" + sPass;
 							var oModel = new JSONModel();
 							oModel.loadData(sUrl,{},false);
 							oController.getView().setModel(oModel);	

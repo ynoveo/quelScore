@@ -370,7 +370,7 @@ sap.ui.define([
 					var monPanel = new sap.m.Panel();
 					monPanel.setExpandable(true);
 					monPanel.setExpanded(false);
-					monPanel.setHeaderText("Voir les statistiques globales");
+					monPanel.setHeaderText("stats (%)");
 					monPanel.setWidth("auto");
 					monPanel.addStyleClass("sapUiResponsiveMargin");
 					
@@ -385,13 +385,13 @@ sap.ui.define([
 					var maTable = new sap.m.Table({
 					columns:[
 			          new sap.m.Column({
-			        	width:"5%",hAlign:"Center"
+			        	width:"1%",hAlign:"Center"
 			          }),new sap.m.Column({
-			        	width:"5%",hAlign:"Center"
+			        	width:"1%",hAlign:"Center"
 			          }),new sap.m.Column({
-			        	width:"5%",hAlign:"Center"
+			        	width:"1%",hAlign:"Center"
 			          }),new sap.m.Column({
-			        	width:"85%",hAlign:"Center"
+			        	width:"5%",hAlign:"Right"
 			          })
 			          ],
 					items:{
@@ -408,7 +408,7 @@ sap.ui.define([
 						       text:"{remotestatmodel>scoreB}"
 						        }),
 						       new sap.m.Text({
-						       text:"{remotestatmodel>pourcentage}"
+						       text:{parts:[{path: 'remotestatmodel>pourcentage'}],formatter:'this.formatpourcent'}
 						        })
 						     ]
 						  })
@@ -431,7 +431,7 @@ sap.ui.define([
 								content:simpleForm
 							}),
 							new sap.m.IconTabFilter({
-								text:"Statistiques du match",
+								text:"Stats(%)",
 								content:maTable
 							})
 							]
@@ -540,6 +540,12 @@ sap.ui.define([
 			} catch (err) {
 				return "None";
 			}
+		},
+		
+		formatpourcent :  function (pourcent) {
+			
+				return "Salut";
+			
 		},
 		
 		heureOuScore :  function (enCours, matchFini, scoreA, scoreB, heurematch) {
