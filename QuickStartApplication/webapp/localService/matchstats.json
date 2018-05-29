@@ -1,0 +1,50 @@
+
+{
+	"reponse": { "msgtyp" : "MATCHSTATS", 
+				 "retcode" : "0",
+				 "retmsg" : "", 
+				 "iduser" : "593869020",
+				 "pseudo" : "GLOU",
+				 "nbpoints" : "0",
+				 "position"	: "1"
+				}
+, 
+"stats" : [{ "scoreA" : "2",  "scoreB" : "0",  "pourcentage" : "28.8462"}
+,
+{ "scoreA" : "2",  "scoreB" : "1",  "pourcentage" : "19.2308"}
+,
+{ "scoreA" : "3",  "scoreB" : "1",  "pourcentage" : "17.3077"}
+,
+{ "scoreA" : "3",  "scoreB" : "0",  "pourcentage" : "15.3846"}
+,
+{ "scoreA" : "1",  "scoreB" : "0",  "pourcentage" : "5.7692"}
+,
+{ "scoreA" : "4",  "scoreB" : "2",  "pourcentage" : "1.9231"}
+,
+{ "scoreA" : "2",  "scoreB" : "2",  "pourcentage" : "1.9231"}
+,
+{ "scoreA" : "1",  "scoreB" : "1",  "pourcentage" : "1.9231"}
+,
+{ "scoreA" : "9",  "scoreB" : "0",  "pourcentage" : "1.9231"}
+,
+{ "scoreA" : "0",  "scoreB" : "9",  "pourcentage" : "1.9231"}
+,
+{ "scoreA" : "4",  "scoreB" : "1",  "pourcentage" : "1.9231"}
+,
+{ "scoreA" : "0",  "scoreB" : "1",  "pourcentage" : "1.9231"}
+], 
+"friend_stats" : [{ "scoreA" : "2",  "scoreB" : "0",  "points" : "1",  "idPlayer" : "593869020",  "pseudo" : "GLOU"}
+,
+{ "scoreA" : "2",  "scoreB" : "0",  "points" : "1",  "idPlayer" : "714285853",  "pseudo" : "Fanfan"}
+,
+{ "scoreA" : "1",  "scoreB" : "0",  "points" : "3",  "idPlayer" : "714286673",  "pseudo" : "bilel"}
+,
+{ "scoreA" : "3",  "scoreB" : "0",  "points" : "1",  "idPlayer" : "714286676",  "pseudo" : "Lolo"}
+,
+{ "scoreA" : "2",  "scoreB" : "1",  "points" : "5",  "idPlayer" : "714286682",  "pseudo" : "Ranoe "}
+,
+{ "scoreA" : "2",  "scoreB" : "0",  "points" : "1",  "idPlayer" : "714286683",  "pseudo" : "Raph"}
+,
+{ "scoreA" : "3",  "scoreB" : "0",  "points" : "1",  "idPlayer" : "714286700",  "pseudo" : "nabilelouerghi"}
+]}
+

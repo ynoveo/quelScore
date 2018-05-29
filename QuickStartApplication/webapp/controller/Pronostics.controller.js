@@ -366,9 +366,83 @@ sap.ui.define([
 					
 					var simpleForm = new SimpleForm({editable: true,content: [label, oDropdownBox1, oDropdownBox2]});
 					
+					//Ajout des statistiques en %
+					var monPanel = new sap.m.Panel();
+					monPanel.setExpandable(true);
+					monPanel.setExpanded(false);
+					monPanel.setHeaderText("Voir les statistiques globales");
+					monPanel.setWidth("auto");
+					monPanel.addStyleClass("sapUiResponsiveMargin");
+					
+					var oStatModel = new JSONModel();
+
+					if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
+					oStatModel.loadData("../webapp/localService/matchstats.json", {}, false);
+					}
+					
+					this.getView().setModel(oStatModel, "remotestatmodel");
+					
+					var maTable = new sap.m.Table({
+					columns:[
+			          new sap.m.Column({
+			        	width:"5%",hAlign:"Center"
+			          }),new sap.m.Column({
+			        	width:"5%",hAlign:"Center"
+			          }),new sap.m.Column({
+			        	width:"5%",hAlign:"Center"
+			          }),new sap.m.Column({
+			        	width:"85%",hAlign:"Center"
+			          })
+			          ],
+					items:{
+						path: 'remotestatmodel>/stats',
+						template: new sap.m.ColumnListItem({
+						  cells:[             
+						       new sap.m.Text({
+						       text:"{remotestatmodel>scoreA}"
+						       }),
+						       new sap.m.Text({
+						       text:"-"
+						        }),
+						       new sap.m.Text({
+						       text:"{remotestatmodel>scoreB}"
+						        }),
+						       new sap.m.Text({
+						       text:"{remotestatmodel>pourcentage}"
+						        })
+						     ]
+						  })
+						}
+					});
+					
+					monPanel.addContent(maTable);
+					
+					var monPanel2 = new sap.m.Panel();
+					monPanel2.setExpandable(false);
+					monPanel2.setWidth("auto");
+					
+					monPanel2.addContent(simpleForm);
+					monPanel2.addContent(monPanel);
+					
+					var contenu=new sap.m.IconTabBar({
+						items:[
+							new sap.m.IconTabFilter({
+								text:"Mon pronostic",
+								content:simpleForm
+							}),
+							new sap.m.IconTabFilter({
+								text:"Statistiques du match",
+								content:maTable
+							})
+							]
+					}
+					);
+					
+					
 					var dialog = new Dialog({
-						title: "Mon pronostic",
-						content: simpleForm,
+						//title: "Mon pronostic",
+						showHeader: false,
+						content: contenu,
 						beginButton: new Button({
 							text: "Sauvegarder",
 							type: "Emphasized",
