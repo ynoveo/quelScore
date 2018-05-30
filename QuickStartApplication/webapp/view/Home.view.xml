@@ -74,6 +74,7 @@
 				        <items>
 				            <FlexBox xmlns="sap.m" min-width="50%" height="200px" fitContainer="true" id="__box5a" alignContent="Center" alignItems="Center" direction="Column" justifyContent="Center">
 				                <items>
+				                	<Image src="./flag/France.png" width="100%" press="onAvatar"/>
 				                    <Text text="100% Gratuit" id="__textR1" align="center" color="white"/>
 				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__textR2" text="Facile à utiliser"/>
 				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__textR3" text="Du suspens jusqu'au dernier match"/>

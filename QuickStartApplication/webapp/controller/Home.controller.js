@@ -172,6 +172,52 @@ onYnoveo: function () {
                     sap.m.URLHelper.redirect("http://www.ynoveo.fr", true);
  },
 
+onAvatar  : function () {
+		        var oModel = new JSONModel();
+				oModel.loadData("../webapp/localService/matchlist.json", {}, false);
+				this.getView().setModel(oModel, "remoteAvatar");
+				var tableAvatar = new sap.m.Table({
+					columns:[
+			          new sap.m.Column({
+			        	hAlign:"Center"
+			          })
+			          ],
+					items:{
+						path: 'remoteAvatar>/match',
+						template: new sap.m.ColumnListItem({
+						  cells:[             
+						       new sap.m.Image({
+						       		src:"./flag/{remoteAvatar>flagA}",
+						       		width:"25%"
+						       })
+						     ]
+						  })
+						}
+					});
+				
+				var dialog = new Dialog({
+						//title: "Mon pronostic",
+						showHeader: false,
+						content: tableAvatar,
+						contentWidth: "25%",
+						endButton: new Button({
+							text: "Annuler",
+							press: function () {
+								dialog.close();
+							}
+						}),
+						afterClose: function() {
+							dialog.destroy();
+						}
+					});
+		
+					this.getView().addDependent(dialog);
+					dialog.open();
+					
+						
+				
+ },
+
 /* -----------------------------------------------------------------------
 							Formulaire de connexion 
 -------------------------------------------------------------------------*/
