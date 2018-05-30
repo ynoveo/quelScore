@@ -286,8 +286,6 @@ sap.ui.define([
 				var enCours = bindingContext.getProperty("encours");
 				var matchfini = bindingContext.getProperty("matchfini");
 				
-				if(enCours === "N" & matchfini === "N") {
-				
 					var label = new sap.m.Label({ text : title });
 	
 					// Dropdown box pour pronostic A
@@ -367,22 +365,24 @@ sap.ui.define([
 					var simpleForm = new SimpleForm({editable: true,content: [label, oDropdownBox1, oDropdownBox2]});
 					
 					//Ajout des statistiques en %
-					var monPanel = new sap.m.Panel();
-					monPanel.setExpandable(true);
-					monPanel.setExpanded(false);
-					monPanel.setHeaderText("stats (%)");
-					monPanel.setWidth("auto");
-					monPanel.addStyleClass("sapUiResponsiveMargin");
-					
+					// Définition du modèle de la vue
+					var ogModel = sap.ui.getCore().getModel("global");
+					var sUser = ogModel.getProperty("/iduser");
+					var sLogin = ogModel.getProperty("/pseudo");
+		  			var sPass = ogModel.getProperty("/pwd");
+					var sPreURL = ogModel.getProperty("/preURL");  			
+					var sUrl = sPreURL + "JSON_V2018.php?action=MATCHSTATS&idmatch=" + idMatch;
 					var oStatModel = new JSONModel();
 
 					if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
-					oStatModel.loadData("../webapp/localService/matchstats.json", {}, false);
+						oStatModel.loadData("../webapp/localService/matchstats.json", {}, false);
+					}else{
+						oStatModel.loadData(sUrl,{},false);
 					}
 					
 					this.getView().setModel(oStatModel, "remotestatmodel");
-					
-					var maTable = new sap.m.Table({
+
+					var tableStat = new sap.m.Table({
 					columns:[
 			          new sap.m.Column({
 			        	width:"1%",hAlign:"Center"
@@ -408,22 +408,58 @@ sap.ui.define([
 						       text:"{remotestatmodel>scoreB}"
 						        }),
 						       new sap.m.Text({
-						       text:{parts:[{path: 'remotestatmodel>pourcentage'}],formatter:'this.formatpourcent'}
-						        })
+						       text:
+						       {
+						        parts: [
+						            {path: 'remotestatmodel>pourcentage'}
+						            ],
+						        formatter: function(pourcent){ // string, string, float, float
+						            return Math.round(pourcent*10)/10 + "%";
+						        }
+						       }
+						       })
 						     ]
 						  })
 						}
 					});
 					
-					monPanel.addContent(maTable);
+					//Statistique joueurs de mes groupes
+					var tableJoueur = new sap.m.Table({
+					columns:[
+			          new sap.m.Column({
+			        	width:"1%",hAlign:"Center"
+			          }),new sap.m.Column({
+			        	width:"1%",hAlign:"Center"
+			          }),new sap.m.Column({
+			        	width:"1%",hAlign:"Center"
+			          }),new sap.m.Column({
+			        	width:"5%",hAlign:"Right"
+			          })
+			          ],
+					items:{
+						path: 'remotestatmodel>/friend_stats',
+						template: new sap.m.ColumnListItem({
+						  cells:[             
+						       new sap.m.Text({
+						       text:"{remotestatmodel>scoreA}"
+						       }),
+						       new sap.m.Text({
+						       text:"-"
+						        }),
+						       new sap.m.Text({
+						       text:"{remotestatmodel>scoreB}"
+						        }),
+						       new sap.m.Text({
+						       text:"{remotestatmodel>pseudo}"
+						        })
+						     ]
+						  })
+						}
+					});
+			
+			if(enCours === "N" & matchfini === "N") {
 					
-					var monPanel2 = new sap.m.Panel();
-					monPanel2.setExpandable(false);
-					monPanel2.setWidth("auto");
-					
-					monPanel2.addContent(simpleForm);
-					monPanel2.addContent(monPanel);
-					
+					//Contenu de la fenêtre de dialog par onglet, cas pronostic ouvert
 					var contenu=new sap.m.IconTabBar({
 						items:[
 							new sap.m.IconTabFilter({
@@ -432,17 +468,35 @@ sap.ui.define([
 							}),
 							new sap.m.IconTabFilter({
 								text:"Stats(%)",
-								content:maTable
+								content:tableStat
 							})
 							]
 					}
 					);
-					
+			
+			}
+				else {
+						//Contenu de la fenêtre de dialog par onglet, cas pronostic fermé
+					var contenu=new sap.m.IconTabBar({
+						items:[
+							new sap.m.IconTabFilter({
+								text:"Stats(%)",
+								content:tableStat
+							}),
+							new sap.m.IconTabFilter({
+								text:"Autres joueurs",
+								content:tableJoueur
+							})
+							]
+					}
+					);
+								}		
 					
 					var dialog = new Dialog({
 						//title: "Mon pronostic",
 						showHeader: false,
 						content: contenu,
+						contentWidth: "25%",
 						beginButton: new Button({
 							text: "Sauvegarder",
 							type: "Emphasized",
@@ -489,9 +543,7 @@ sap.ui.define([
 										}
 										});
 								}
-								else {
-									MessageToast.show("Le match est déjà commencé ou terminé !");
-								}
+								
 							}
 						}),
 						endButton: new Button({
@@ -507,12 +559,12 @@ sap.ui.define([
 		
 		 
 					//to get access to the global model
+					if 	(!(enCours === "N" & matchfini === "N")){
+						dialog.destroyBeginButton();
+					}
 					this.getView().addDependent(dialog);
 					dialog.open();
-				}
-				else {
-									MessageToast.show("Le match est déjà commencé ou terminé !");
-								}
+				
 			} else {
 				MessageToast.show("Vous ne pouvez pas saisir les pronostics d'un autre joueur");
 			}
