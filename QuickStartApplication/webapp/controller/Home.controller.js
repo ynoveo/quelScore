@@ -172,7 +172,7 @@ onMail: function () {
  },
 
 onYnoveo: function () {
-                    sap.m.URLHelper.redirect("http://www.ynoveo.fr", true);
+                    sap.m.URLHelper.redirect("http://www.ynoveo.fr/nos-services/offre-sap-fiori-sap-ui5/", true);
  },
 
 onAvatar  : function () {
