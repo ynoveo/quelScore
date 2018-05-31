@@ -149,10 +149,13 @@ sap.ui.define([
 	*@memberOf QuickStartApplication.controller.Home
 	*/
 onLogout: function (){
-    			this.byId("__button1").setVisible(true);
-			    this.byId("__button_disc").setVisible(false);
-			    this.byId("Bt_sub").setVisible(true);
-			    this.byId("__item0").setVisible(false);
+//    			this.byId("__button1").setVisible(true);
+//			    this.byId("__button_disc").setVisible(false);
+//			    this.byId("Bt_sub").setVisible(true);
+//			    this.byId("__item0").setVisible(false);
+
+//Ajouter les  évenements pour revenir interface initiale
+
 				var ogModel=sap.ui.getCore().getModel("global");
 				ogModel.setProperty("/pseudo", "");
 				ogModel.setProperty("/pwd", "");
