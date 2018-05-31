@@ -15,7 +15,7 @@ sap.ui.define([
 	return Controller.extend("QuickStartApplication.controller.Pronostics", {
 
 		onInit: function() {
-
+//
 			// Récupération du paramètre passé à la vue
 			sap.ui.core.UIComponent.getRouterFor(this).getRoute("mesPronostics").attachPatternMatched(this.onUserMatched, this);
 			
