@@ -527,6 +527,22 @@ sap.ui.define([
 											var sUrl = sPreURL2 + "JSON_V2018.php?action=MATCHLIST&idPlayer=" + sUser;
 											var oModel = new JSONModel();
 											oModel.loadData(sUrl,{},false);
+											var i;
+											var x;
+											for (i = 0; i < x.length; i++) { 
+											var oModelClGroupe = new JSONModel();
+											var sPreURL = ogModel.getProperty("/preURL");  			
+											var sUrl = sPreURL + "JSON_V2018.php?action=TOPTEAM&phase=" + x[i];
+											
+											//
+											if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
+											oModelClGroupe.loadData("../webapp/localService/topteam"+x[i]+".json", {}, false);
+											} else {
+												oModelClGroupe.loadData(sUrl,{},false);				
+											}
+											
+											this.getView().setModel(oModelClGroupe, "remoteClgroupe"+x[i]);
+											}
 											dialog.close();
 											//taille des drapeaux si utilisation d'un telephone
 												if(sap.ui.Device.system.phone) {
@@ -537,6 +553,7 @@ sap.ui.define([
 													oModel.setProperty("/teamsize","32%");
 												}
 											oView.setModel(oModel, "remote");
+											
 										},
 											error: function (jqXHR, textStatus, errorThrown) {
 											jQuery.sap.log.error("Got an error response: " + textStatus + errorThrown);
