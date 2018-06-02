@@ -117,8 +117,8 @@
 		</headerToolbar>
 
 <content>
-        <Text width="60%" text="Cette application a été entièrement réalisée avec la bibliothèque SAPUI5 par Ynoveo. SAPUI5 est la bibliothèque permettant de gérer des interfaces SAP FIORI.\n  Pour avoir plus d'information sur l'offre SAP FIORI - http://www.ynoveo.fr/nos-services/offre-sap-fiori-sap-ui5/" class="sapUiMediumMarginBottom, sapUiMediumPadding"/>
-		<Image src="http://euro2016.quelscore.com/localService/ynoveosmall.png" press="onYnoveo"/>
+        <Text width="60%" text="Cette application a été entièrement réalisée avec la bibliothèque SAPUI5 par Ynoveo. SAPUI5 est la bibliothèque permettant de gérer des interfaces SAP FIORI.\n  Pour avoir plus d'information, consulter notre offre SAP FIORI" class="sapUiMediumMarginBottom, sapUiMediumPadding"/>
+		<Image src="https://www.quelscore.com/localService/ynoveosmall.png" press="onYnoveo"/>
 </content>
  </Panel>  
  

@@ -149,10 +149,13 @@ sap.ui.define([
 	*@memberOf QuickStartApplication.controller.Home
 	*/
 onLogout: function (){
-    			this.byId("__button1").setVisible(true);
-			    this.byId("__button_disc").setVisible(false);
-			    this.byId("Bt_sub").setVisible(true);
-			    this.byId("__item0").setVisible(false);
+//    			this.byId("__button1").setVisible(true);
+//			    this.byId("__button_disc").setVisible(false);
+//			    this.byId("Bt_sub").setVisible(true);
+//			    this.byId("__item0").setVisible(false);
+
+//Ajouter les  évenements pour revenir interface initiale
+
 				var ogModel=sap.ui.getCore().getModel("global");
 				ogModel.setProperty("/pseudo", "");
 				ogModel.setProperty("/pwd", "");
@@ -169,7 +172,7 @@ onMail: function () {
  },
 
 onYnoveo: function () {
-                    sap.m.URLHelper.redirect("http://www.ynoveo.fr", true);
+                    sap.m.URLHelper.redirect("http://www.ynoveo.fr/nos-services/offre-sap-fiori-sap-ui5/", true);
  },
 
 onAvatar  : function () {
@@ -370,10 +373,17 @@ var dialog = new Dialog({
 						oController.getView().setModel(otModel);
 //						console.log(sUrl);
 						if(otModel.getProperty("/reponse/retcode") === "0") {
-			    			oController.byId("__button1").setVisible(false);
-			    			oController.byId("__button_disc").setVisible(true);
-			    			oController.byId("Bt_sub").setVisible(false);
-			    			oController.byId("__item0").setVisible(true);
+//			    			oController.byId("__button1").setVisible(false);
+//			    			oController.byId("__button_disc").setVisible(true);
+//			    			oController.byId("Bt_sub").setVisible(false);
+//			    			oController.byId("__item0").setVisible(true);
+
+			    			oController.byId("__box_login").setVisible(false);
+			    			oController.byId("__box_user_info").setVisible(true);
+			    			oController.byId("__text_pseudo").setProperty("text", otModel.getProperty("/reponse/pseudo"));
+//			    			oController.byId("__text_classement").setProperty("text", "Position au classement général : " +  otModel.getProperty("/reponse/position"));
+			    			oController.byId("__text_points").setProperty("text", " 0 point");
+
 		    				var ogModel=sap.ui.getCore().getModel("global");
 							ogModel.setProperty("/pseudo", sPseudo);
 							ogModel.setProperty("/pwd", sPass);							
