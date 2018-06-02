@@ -79,7 +79,7 @@
 														text="{remote>pronoA} - {remote>pronoB}"/>
 													<ObjectIdentifier id="equipeB" title="{remote>txtequipeB}" text="{parts: [{path: 'remote>points'},{path: 'remote>matchfini'}], formatter: '.nbpoints'}" />
 													<Image src="./flag/{remote>flagB}" width="100%"/>
-													<core:HTML content="{remote>commentaire}"/>
+													<Text text="{remote>commentaire}"/>
 												</cells>
 											</ColumnListItem>
 										</items>
@@ -158,7 +158,7 @@
 														text="{remote>pronoA} - {remote>pronoB}"/>
 													<ObjectIdentifier id="equipeB2" title="{remote>txtequipeB}" text="{remote>points}" />
 													<Image src="./flag/{remote>flagB}" width="100%"/>
-													<core:HTML content="{remote>commentaire}"/>
+													<Text text="{remote>commentaire}"/>
 												</cells>
 											</ColumnListItem>
 										</items>
