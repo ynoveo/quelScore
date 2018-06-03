@@ -286,7 +286,6 @@ sap.ui.define([
 			if(this._myUser) {
 				var oView = this.getView();
 				var id =oEvent.getSource().getId();
-				alert(String(id));
 				if(String(id).indexOf("matchTable2") === -1){
 					var bindingContext = oEvent.getSource().getBindingContext("remote");
 				} else
@@ -397,13 +396,13 @@ sap.ui.define([
 					var tableStat = new sap.m.Table({
 					columns:[
 			          new sap.m.Column({
-			        	width:"1%",hAlign:"Center"
+			        	width:"12.5%",hAlign:"Center"
 			          }),new sap.m.Column({
-			        	width:"1%",hAlign:"Center"
+			        	width:"12.5%",hAlign:"Center"
 			          }),new sap.m.Column({
-			        	width:"1%",hAlign:"Center"
+			        	width:"12.5%",hAlign:"Center"
 			          }),new sap.m.Column({
-			        	width:"5%",hAlign:"Right"
+			        	width:"62.5%",hAlign:"Right"
 			          })
 			          ],
 					items:{
