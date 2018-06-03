@@ -541,7 +541,9 @@ sap.ui.define([
 												oModelClGroupe.loadData(sUrl,{},false);				
 											}
 											
-											this.getView().setModel(oModelClGroupe, "remoteClgroupe"+x[i]);
+//											this.getView().setModel(oModelClGroupe, "remoteClgroupe"+x[i]);
+											oView.setModel(oModelClGroupe, "remoteClgroupe"+x[i]);
+												
 											}
 											dialog.close();
 											//taille des drapeaux si utilisation d'un telephone
