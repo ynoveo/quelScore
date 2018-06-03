@@ -528,7 +528,7 @@ sap.ui.define([
 											var oModel = new JSONModel();
 											oModel.loadData(sUrl,{},false);
 											var i;
-											var x;
+											var x = ["A", "B","C","D","E","F","G","H"];
 											for (i = 0; i < x.length; i++) { 
 											var oModelClGroupe = new JSONModel();
 											var sPreURL = ogModel.getProperty("/preURL");  			
