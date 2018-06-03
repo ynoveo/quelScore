@@ -228,15 +228,20 @@ sap.ui.define([
   			var sPass = ogModel.getProperty("/pwd");
 			var sPreURL = ogModel.getProperty("/preURL");  			
 			var sUrl = sPreURL + "JSON_V2018.php?action=MATCHLIST&idPlayer=" + sIdUser + "&email=" + sLogin + "&pass=" + sPass;
+			var sUrlOuvert=sUrl +"&pronoOuvert=Y";
+			var sUrlClos=sUrl +"&pronoOuvert=N";
 			var oModel = new JSONModel();
+			var oModelClos = new JSONModel();
 			var oModelGroupe = new JSONModel();
 			var oModelTest = new JSONModel();
 			if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
 				oModel.loadData("../webapp/localService/matchlist.json", {}, false);
+				oModelClos.loadData("../webapp/localService/matchlistClos.json", {}, false);
 				oModelGroupe.loadData("../webapp/localService/topteam.json", {}, false);
 				oModelTest.loadData("../webapp/localService/userGroup.json");
 			} else {
-				oModel.loadData(sUrl,{},false);				
+				oModel.loadData(sUrlOuvert,{},false);
+				oModelClos.loadData(sUrlClos,{},false);
 			}
 			//taille des drapeaux si utilisation d'un telephone
 			if(sap.ui.Device.system.phone) {
@@ -254,6 +259,7 @@ sap.ui.define([
 			}
 			
 			this.getView().setModel(oModel, "remote");
+			this.getView().setModel(oModelClos, "remoteClos");
 			this.getView().setModel(oModelGroupe, "remotegroupe");
 			this.getView().setModel(oModelTest, "Test");
 			//this.getView().setModel(ogModel, "global");
@@ -279,8 +285,14 @@ sap.ui.define([
 		openPopup: function(oEvent) {
 			if(this._myUser) {
 				var oView = this.getView();
-				
-				var bindingContext = oEvent.getSource().getBindingContext("remote");
+				var id =oEvent.getSource().getId();
+				alert(String(id));
+				if(String(id).indexOf("matchTable2") === -1){
+					var bindingContext = oEvent.getSource().getBindingContext("remote");
+				} else
+				{
+					var bindingContext = oEvent.getSource().getBindingContext("remoteClos");
+				}
 				var title = bindingContext.getProperty("txtequipeA")+" - "+bindingContext.getProperty("txtequipeB");
 				var idMatch = bindingContext.getProperty("idMatch");
 				var enCours = bindingContext.getProperty("encours");

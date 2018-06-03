@@ -38,10 +38,6 @@
 				        				id="matchTable"
 				        				items="{
 											path: 'remote>/match',
-											filters: [
-											{path: 'matchfini', operator: 'EQ', value1: 'N'},
-											{path: 'encours', operator: 'EQ', value1: 'N'}
-											],
 											sorter: {
 												path: 'remote>sortdate',
 												descending: false,
@@ -117,12 +113,9 @@
 									<Table
 					    				id="matchTable2"
 					    				items="{
-											path: 'remote>/match',
-											filters: [
-														{path: 'matchfini', operator: 'NE', value1: 'N'}
-														],
+											path: 'remoteClos>/match',
 											sorter: {
-												path: 'remote>sortdate',
+												path: 'remoteClos>sortdate',
 												descending: true,
 												group: '.getGroup'
 											},
@@ -141,24 +134,24 @@
 											<Column demandPopin="true" minScreenWidth="9999px"/>
 										</columns>
 										<items>
-											<ColumnListItem selected="true" type="Active" press="openPopup">
+											<ColumnListItem id="salut" selected="true" type="Active" press="openPopup">
 												<cells>
-													<Image src="./flag/{remote>flagA}" width="100%"/>
-													<ObjectIdentifier id="equipeA2" title="{remote>txtequipeA}" text="Mon score" wrapping="false"/>
+													<Image src="./flag/{remoteClos>flagA}" width="100%"/>
+													<ObjectIdentifier id="equipeA2" title="{remoteClos>txtequipeA}" text="Mon score" wrapping="false"/>
 													<ObjectIdentifier
 														id="scores2"
 														title="{parts: [
-													                {path: 'remote>encours' },
-													                {path: 'remote>matchfini' },
-													                {path: 'remote>scoreA' },
-													                {path: 'remote>scoreB' },
-													                {path: 'remote>heurematch' }
+													                {path: 'remoteClos>encours' },
+													                {path: 'remoteClos>matchfini' },
+													                {path: 'remoteClos>scoreA' },
+													                {path: 'remoteClos>scoreB' },
+													                {path: 'remoteClos>heurematch' }
 													            ],
 													            formatter: '.heureOuScore'}"
-														text="{remote>pronoA} - {remote>pronoB}"/>
-													<ObjectIdentifier id="equipeB2" title="{remote>txtequipeB}" text="{remote>points}" />
-													<Image src="./flag/{remote>flagB}" width="100%"/>
-													<core:HTML content="{remote>commentaire}"/>
+														text="{remoteClos>pronoA} - {remoteClos>pronoB}"/>
+													<ObjectIdentifier id="equipeB2" title="{remoteClos>txtequipeB}" text="{remoteClos>points}" />
+													<Image src="./flag/{remoteClos>flagB}" width="100%"/>
+													<core:HTML content="{remoteClos>commentaire}"/>
 												</cells>
 											</ColumnListItem>
 										</items>
