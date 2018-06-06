@@ -438,13 +438,13 @@ sap.ui.define([
 					var tableJoueur = new sap.m.Table({
 					columns:[
 			          new sap.m.Column({
-			        	width:"1%",hAlign:"Center"
+			        	width:"12.5%",hAlign:"Center"
 			          }),new sap.m.Column({
-			        	width:"1%",hAlign:"Center"
+			        	width:"12.5%",hAlign:"Center"
 			          }),new sap.m.Column({
-			        	width:"1%",hAlign:"Center"
+			        	width:"12.5%",hAlign:"Center"
 			          }),new sap.m.Column({
-			        	width:"5%",hAlign:"Right"
+			        	width:"62.5%",hAlign:"Right"
 			          })
 			          ],
 					items:{

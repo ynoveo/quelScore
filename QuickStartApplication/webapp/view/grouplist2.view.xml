@@ -1,4 +1,4 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="QuickStartApplication.controller.grouplist2" busy="false">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.f" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="QuickStartApplication.controller.grouplist2" busy="false">
 	<App>
 		<Page showNavButton="true" navButtonPress="onNavBack" id="PageGroup" title="{/GroupLib}">
 			<Table noDataText="Aucun joueur" id="__table0" items="{path: '/joueur'}">
@@ -6,6 +6,13 @@
 			        <ColumnListItem counter="0" id="__item7" press="openPronostics" selected="true" type="Active">
 			            <cells>
 			                <Text text="{classement}" maxLines="0" id="__text5"/>
+			                <f:Avatar
+			                id="avatar"
+			                width="100%"
+			                src="{parts: [
+									{path: 'avatar' }
+									],
+									formatter: '.avatarformatter'}"/>
 			                <Text text="{pseudo}" maxLines="0" id="__text6"/>
 			                <Text text="{points}" maxLines="0" id="__text7"/>
 			                <Button
@@ -24,27 +31,29 @@
 			        </ColumnListItem>
 			     </items>
 			    <columns>
-			        <Column id="__column0" width="50px">
+			        <Column id="__column0" width="15%" hAlign="Center">
 			            <header>
 			                <Label text="#" id="__label1"/>
 			            </header>
 			        </Column>
-			        <Column id="__column1">
+			        <Column width="25%" hAlign="Center">
+			        </Column>
+			        <Column id="__column1" width="20%">
 			            <header>
 			                <Label text="Pseudo" id="__label2"/>
 			            </header>
 			        </Column>
-			        <Column id="__column2" >
+			        <Column id="__column2" width="20%">
 			            <header>
 			                <Label text="Nb Points" id="__label3"/>
 			            </header>
 			        </Column>
-			        <Column id="__column3" width="30px">
+			        <Column id="__column3" width="15%">
 			            <header>
 			                <Label text="" id="__label4"/>
 			            </header>
 			        </Column>
-			        <Column id="__column4" width="30px">
+			        <Column id="__column4" width="5%">
 			            <header>
 			                <Label text="" id="__label5"/>
 			            </header>

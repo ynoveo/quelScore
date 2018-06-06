@@ -174,46 +174,60 @@ onMail: function () {
 onYnoveo: function () {
                     sap.m.URLHelper.redirect("http://www.ynoveo.fr/nos-services/offre-sap-fiori-sap-ui5/", true);
  },
-
 onAvatar  : function () {
+				var myAvatar = this.byId("avatar");
 		        var oModel = new JSONModel();
-				oModel.loadData("../webapp/localService/matchlist.json", {}, false);
+				oModel.loadData("../webapp/localService/avatarlist.json", {}, false);
 				this.getView().setModel(oModel, "remoteAvatar");
-				var tableAvatar = new sap.m.Table({
-					columns:[
-			          new sap.m.Column({
-			        	hAlign:"Center"
-			          })
-			          ],
-					items:{
-						path: 'remoteAvatar>/match',
-						template: new sap.m.ColumnListItem({
+				
+		
+					var dialog = new sap.m.TableSelectDialog({
+						contentWidth: "25%",
+						columns:[
+				          new sap.m.Column({
+				        	hAlign:"Center",
+				        	visible:false
+				          }),
+				          new sap.m.Column({
+				        	hAlign:"Center"
+				          })
+				        ],
+			        	confirm: function(oEvent) {
+							var selectedItem = oEvent.getParameter("selectedItem");
+							var oCells = selectedItem.getCells();
+							var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
+							var sUrl = sPreURL + "JSON_V2018.php?action=SETAVATAR&avatar=" + oCells[0].getText();
+							var otModel = new JSONModel();
+							if(sap.ui.getCore().getModel("global").getProperty("/mode") !== "test") {
+									otModel.loadData(sUrl,{},false);				
+								}
+							if (oCells[0].getText() ==="AUCUN"){
+								myAvatar.setSrc("sap-icon://person-placeholder");
+							}
+							else{
+								myAvatar.setSrc("./avatars/"+oCells[0].getText());
+							}
+						}
+        			});
+        			
+        			dialog.bindAggregation("items",{
+			            path:"remoteAvatar>/avatarlist",
+			            template: new  sap.m.ColumnListItem({
 						  cells:[             
-						       new sap.m.Image({
-						       		src:"./flag/{remoteAvatar>flagA}",
+						       new sap.m.Text({
+						       text:'{remoteAvatar>avatar}'
+						        }),
+						       new sap.f.Avatar({
+						       		src:"./avatars/{remoteAvatar>avatar}",
+						       		displaySize:"S",
+						       		imageFitType:"Contain",
 						       		width:"25%"
 						       })
 						     ]
 						  })
-						}
-					});
-				
-				var dialog = new Dialog({
-						//title: "Mon pronostic",
-						showHeader: false,
-						content: tableAvatar,
-						contentWidth: "25%",
-						endButton: new Button({
-							text: "Annuler",
-							press: function () {
-								dialog.close();
-							}
-						}),
-						afterClose: function() {
-							dialog.destroy();
-						}
-					});
-		
+			          });
+					dialog.setModel(oModel);
+					
 					this.getView().addDependent(dialog);
 					dialog.open();
 					
@@ -294,6 +308,9 @@ onLogon: function () {
 */
 		    			oController.byId("__box_login").setVisible(false);
 		    			oController.byId("__box_user_info").setVisible(true);
+		    			if (otModel.getProperty("/reponse/avatar")!=="AUCUN"){
+		    				oController.byId("avatar").setSrc("./avatars/"+otModel.getProperty("/reponse/avatar"));
+		    			}
 		    			oController.byId("__text_pseudo").setProperty("text", otModel.getProperty("/reponse/pseudo"));
 		    			oController.byId("__text_classement").setProperty("text", "Position au classement général : " +  otModel.getProperty("/reponse/position"));
 		    			oController.byId("__text_points").setProperty("text", otModel.getProperty("/reponse/nbpoints") + " pts");

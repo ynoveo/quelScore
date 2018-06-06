@@ -1,0 +1,43 @@
+{
+	"reponse" : {
+		"msgtyp" : "MATCHLIST",
+		"retcode" : "0",
+		"retmsg" : "",
+		"iduser" : "714286667",
+		"nbpoints" : "0",
+		"position" : "134"
+	},
+	"avatarlist" : [
+		{
+			"avatar" : "AUCUN"
+		},{
+			"avatar" : "img1.png"
+		},{
+			"avatar" : "img2.png"
+		},{
+			"avatar" : "img3.png"
+		},{
+			"avatar" : "img4.png"
+		},{
+			"avatar" : "img5.png"
+		},{
+			"avatar" : "img6.png"
+		},{
+			"avatar" : "img7.png"
+		},{
+			"avatar" : "Turkey.png"
+		}, {
+			"avatar" : "Poland.png"
+		}, {
+			"avatar" : "Germany.png"
+		}, {
+			"avatar" : "Spain.png"
+		}, {
+			"avatar" : "France.png"
+		}, {
+			"avatar" : "France.png"
+		}, {
+			"avatar" : "France.png"
+		}
+	]
+}

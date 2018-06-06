@@ -132,6 +132,14 @@ sap.ui.define([
 		sap.ui.core.UIComponent.getRouterFor(this).navTo("mesPronostics", {idUser: sIdUser, oPseudo: sPseudo});
 	},
 	
+	avatarformatter: function (avatar) {
+		if (avatar==="AUCUN"){
+			return "";
+		}else{
+			return "./avatars/"+avatar ;
+		}
+	},
+	
 	onRejectUser: function (oEvent) {
 		var but = oEvent.getSource();
 		var _sIdJoueur = but.getParent().getBindingContext().getProperty("idPlayer");
