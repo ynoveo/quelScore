@@ -9,7 +9,7 @@
 , 
 "joueur" : [{ "idPlayer" : "3", "pseudo" : "JSPI", "points" : "88", "isconf" : "Y", "classement" : "1", "avatar" : "France.png"}
 ,
-{ "idPlayer" : "22", "pseudo" : "MELA", "points" : "84", "isconf" : "Y", "classement" : "2", "avatar" : "img2.png"}
+{ "idPlayer" : "22", "pseudo" : "MELA", "points" : "84", "isconf" : "Y", "classement" : "2", "avatar" : "chance.png"}
 ,
 { "idPlayer" : "593869020", "pseudo" : "GLOU", "points" : "78", "isconf" : "Y", "classement" : "3", "avatar" : "Northern-ireland.png"}
 ,

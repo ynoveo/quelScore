@@ -132,11 +132,15 @@ sap.ui.define([
 		sap.ui.core.UIComponent.getRouterFor(this).navTo("mesPronostics", {idUser: sIdUser, oPseudo: sPseudo});
 	},
 	
-	avatarformatter: function (avatar) {
-		if (avatar==="AUCUN"){
-			return "";
+	avatarformatter: function (avatar,pseudo) {
+		if (pseudo==="GLOU" || pseudo==="JSPI"){
+			return "./avatars/ynoveo-eo-final.png";
 		}else{
-			return "./avatars/"+avatar ;
+			if (avatar==="AUCUN"){
+				return "";
+			}else{
+				return "./avatars/"+avatar ;
+			}
 		}
 	},
 	

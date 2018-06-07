@@ -11,33 +11,117 @@
 		{
 			"avatar" : "AUCUN"
 		},{
-			"avatar" : "img1.png"
+			"avatar" : "ballon.png"
 		},{
-			"avatar" : "img2.png"
+			"avatar" : "cartons.png"
 		},{
-			"avatar" : "img3.png"
+			"avatar" : "tel_ballon.png"
 		},{
-			"avatar" : "img4.png"
+			"avatar" : "camera.png"
 		},{
-			"avatar" : "img5.png"
+			"avatar" : "chance.png"
 		},{
-			"avatar" : "img6.png"
+			"avatar" : "terrain.png"
 		},{
-			"avatar" : "img7.png"
+			"avatar" : "chelsea.png"
 		},{
-			"avatar" : "Turkey.png"
-		}, {
-			"avatar" : "Poland.png"
-		}, {
-			"avatar" : "Germany.png"
-		}, {
+			"avatar" : "liverpool.png"
+		},{
+			"avatar" : "manu.png"
+		},{
+			"avatar" : "cocci.png"
+		},{
+			"avatar" : "runner.png"
+		},{
+			"avatar" : "cartons_sifflet.png"
+		},{
+			"avatar" : "crampons.png"
+		},{
+			"avatar" : "medaille.png"
+		},{
+			"avatar" : "coupe.png"
+		},{
+			"avatar" : "plante.png"
+		},{
+			"avatar" : "fraise.png"
+		},{
+			"avatar" : "soleil.png"
+		},{
+			"avatar" : "cible.png"
+		},{
+			"avatar" : "rando.png"
+		},{
+			"avatar" : "muscu.png"
+		},{
+			"avatar" : "yoga.png"
+		},{
+			"avatar" : "joueur.png"
+		},{
+			"avatar" : "medaille.png"
+		},{
+			"avatar" : "Russia.png"
+		},{
+			"avatar" : "Uruguay.png"
+		},{
+			"avatar" : "Egypt.png"
+		},{
+			"avatar" : "Saudi-arabia.png"
+		},{
 			"avatar" : "Spain.png"
-		}, {
+		},{
+			"avatar" : "Portugal.png"
+		},{
+			"avatar" : "Morocco.png"
+		},{
+			"avatar" : "Iran.png"
+		},{
 			"avatar" : "France.png"
-		}, {
-			"avatar" : "France.png"
-		}, {
-			"avatar" : "France.png"
+		},{
+			"avatar" : "Denmark.png"
+		},{
+			"avatar" : "Australia.png"
+		},{
+			"avatar" : "Peru.png"
+		},{
+			"avatar" : "Argentina.png"
+		},{
+			"avatar" : "Croatia.png"
+		},{
+			"avatar" : "Nigeria.png"
+		},{
+			"avatar" : "Iceland.png"
+		},{
+			"avatar" : "Brazil.png"
+		},{
+			"avatar" : "Switzerland.png"
+		},{
+			"avatar" : "Costa-rica.png"
+		},{
+			"avatar" : "Serbia.png"
+		},{
+			"avatar" : "Germany.png"
+		},{
+			"avatar" : "Sweden.png"
+		},{
+			"avatar" : "Mexico.png"
+		},{
+			"avatar" : "South-Korea.png"
+		},{
+			"avatar" : "England.png"
+		},{
+			"avatar" : "Belgium.png"
+		},{
+			"avatar" : "Tunisia.png"
+		},{
+			"avatar" : "Panama.png"
+		},{
+			"avatar" : "Colombia.png"
+		},{
+			"avatar" : "Senegal.png"
+		},{
+			"avatar" : "Japan.png"
+		},{
+			"avatar" : "Poland.png"
 		}
 	]
 }

@@ -10,7 +10,7 @@
 			                id="avatar"
 			                width="100%"
 			                src="{parts: [
-									{path: 'avatar' }
+									{path: 'avatar' },{path: 'pseudo' }
 									],
 									formatter: '.avatarformatter'}"/>
 			                <Text text="{pseudo}" maxLines="0" id="__text6"/>

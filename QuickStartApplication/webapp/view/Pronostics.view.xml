@@ -47,6 +47,8 @@
 										}"
 										noDataText="Aucun match"
 										headerText="Matchs à venir"
+										growing="true"
+										growingThreshold="10"
 				        				width="100%"
 				        				hAlign="Center">
 										<columns>
