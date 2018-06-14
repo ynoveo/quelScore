@@ -149,7 +149,7 @@
 													            ],
 													            formatter: '.heureOuScore'}"
 														text="{remoteClos>pronoA} - {remoteClos>pronoB}"/>
-													<ObjectIdentifier id="equipeB2" title="{remoteClos>txtequipeB}" text="{remoteClos>points}" />
+													<ObjectIdentifier id="equipeB2" title="{remoteClos>txtequipeB}" text="{parts: [{path: 'remoteClos>points'},{path: 'remoteClos>matchfini'}], formatter: '.nbpoints'}" />
 													<Image src="./flag/{remoteClos>flagB}" width="100%"/>
 													<core:HTML content="{remoteClos>commentaire}"/>
 												</cells>
