@@ -298,7 +298,7 @@ sap.ui.define([
 				var enCours = bindingContext.getProperty("encours");
 				var matchfini = bindingContext.getProperty("matchfini");
 				
-					var label = new sap.m.Label({ text : title });
+				var label = new sap.m.Label({ text : title });
 	
 					// Dropdown box pour pronostic A
 					var oDropdownBox1 = new sap.ui.commons.DropdownBox("DropdownBox1");
@@ -491,6 +491,11 @@ sap.ui.define([
 						//Contenu de la fenêtre de dialog par onglet, cas pronostic fermé
 					var contenu=new sap.m.IconTabBar({
 						items:[
+							new sap.m.IconTabFilter({
+								text:"Mon pronostic",
+								content:simpleForm,
+								visible:false
+							}),
 							new sap.m.IconTabFilter({
 								text:"Stats(%)",
 								content:tableStat
