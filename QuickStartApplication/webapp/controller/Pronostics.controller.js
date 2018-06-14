@@ -541,7 +541,7 @@ sap.ui.define([
 										    var ogModel=sap.ui.getCore().getModel("global");
 											var sUser = ogModel.getProperty("/iduser");
 											var sPreURL2 = ogModel.getProperty("/preURL");
-											var sUrl = sPreURL2 + "JSON_V2018.php?action=MATCHLIST&idPlayer=" + sUser+"&pronoOuvert=N";
+											var sUrl = sPreURL2 + "JSON_V2018.php?action=MATCHLIST&idPlayer=" + sUser+"&pronoOuvert=Y";
 											var oModel = new JSONModel();
 											oModel.loadData(sUrl,{},false);
 											var i;
