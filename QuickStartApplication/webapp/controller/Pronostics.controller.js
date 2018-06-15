@@ -283,6 +283,14 @@ sap.ui.define([
 			
 		},
 	
+		onPrevious:function(){
+			this.getView().byId("carousel").previous();
+		},
+		
+		onNext:function(){
+			this.getView().byId("carousel").next();
+		},
+		
 		openPopup: function(oEvent) {
 			if(this._myUser) {
 				var oView = this.getView();

@@ -6,6 +6,10 @@
 				title=""
 				showNavButton="true"
 				navButtonPress="onNavBack">
+				<headerContent>
+					<Button icon="sap-icon://media-reverse" tooltip="Page précédente" press="onPrevious" />
+					<Button icon="sap-icon://media-play" tooltip="Page suivante" press="onNext" />
+				</headerContent>
 				<content>
 					<Carousel id="carousel" class="sapUiResponsiveContentPadding" loop="true" pageIndicatorPlacement="Top">
 						<ScrollContainer height="100%" width="100%"
