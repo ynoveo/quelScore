@@ -40,6 +40,38 @@ sap.ui.define([
 			this.byId("__text_points").addStyleClass("myBlackText");	
 			var oBusyDialog_Global = new sap.m.BusyDialog("GlobalBusyDialog");
 		},
+		onAfterRendering: function (){
+		// Add JSPI : test si connexion active
+//			var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");			
+//			var sUrl = sPreURL + "JSON_V2018.php?action=CONNECT";
+			var sUrl = "https://www.quelscore.com/JSON_V2018.php?action=CONNECT";
+			var otModel = new JSONModel();
+			if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
+				otModel.loadData("../webapp/localService/connect.json", {}, false);
+			} else {
+				otModel.loadData(sUrl, {}, false);	
+			}
+			this.getView().setModel(otModel);
+			//MessageToast.show("code retour = " + otModel.getProperty("/reponse/retcode"));
+			if(otModel.getProperty("/reponse/retcode") === "0") {
+
+				this.byId("__box_login").setVisible(false);
+				this.byId("__box_user_info").setVisible(true);
+				if (otModel.getProperty("/reponse/avatar")!=="AUCUN"){
+					this.byId("avatar").setSrc("./avatars/"+otModel.getProperty("/reponse/avatar"));
+				}
+				this.byId("__text_pseudo").setProperty("text", otModel.getProperty("/reponse/pseudo"));
+				this.byId("__text_classement").setProperty("text", "Position au classement général : " +  otModel.getProperty("/reponse/position"));
+				this.byId("__text_points").setProperty("text", otModel.getProperty("/reponse/nbpoints") + " pts");
+				
+				var ogModel=sap.ui.getCore().getModel("global");
+				ogModel.setProperty("/pseudo", otModel.getProperty("/reponse/pseudo"));
+		//		ogModel.setProperty("/pwd", sPass);
+				ogModel.setProperty("/iduser", otModel.getProperty("/reponse/iduser") );
+			} 
+// fin ajout JSPI 	
+			
+		},
 		/**
 	*@memberOf QuickStartApplication.controller.View1
 	*/
