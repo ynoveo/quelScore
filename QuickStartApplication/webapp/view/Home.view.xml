@@ -64,7 +64,7 @@
 				                <Button xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Mes groupes" width="150px" id="__button1_copy" icon="sap-icon://family-care" press="onNavToGroupe"/>
 				                
 				                <Button xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Classement" width="150px" id="__button1_copy2" icon="sap-icon://leads" press="onNavToCompte"/>
-				                
+				                <Button xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Deconnexion" width="150px" id="__button0_logout" icon="sap-icon://disconnected" type="Reject" press="onLogout"/>
 				            </items>
 				                
 				            </FlexBox>

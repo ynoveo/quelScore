@@ -153,7 +153,8 @@ onLogout: function (){
 //			    this.byId("__button_disc").setVisible(false);
 //			    this.byId("Bt_sub").setVisible(true);
 //			    this.byId("__item0").setVisible(false);
-
+		    	this.byId("__box_login").setVisible(true);
+		    	this.byId("__box_user_info").setVisible(false);
 //Ajouter les  évenements pour revenir interface initiale
 
 				var ogModel=sap.ui.getCore().getModel("global");
@@ -177,7 +178,7 @@ onYnoveo: function () {
 onAvatar  : function () {
 				var myAvatar = this.byId("avatar");
 		        var oModel = new JSONModel();
-				oModel.loadData("../webapp/localService/avatarlist.json", {}, false);
+				oModel.loadData("https://www.quelscore.com/localService/avatarlist.json", {}, false);
 				this.getView().setModel(oModel, "remoteAvatar");
 				
 		
