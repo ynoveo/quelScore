@@ -127,6 +127,8 @@
 										}"
 										noDataText="Aucun match"
 										headerText="Résultats"
+										growing="true"
+										growingThreshold="5"
 					    				width="100%"
 					    				hAlign="Center">
 										<columns>

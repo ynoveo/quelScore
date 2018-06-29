@@ -78,7 +78,7 @@
 			"encours" : "N",
 			"txtequipeA" : "ESPAGNE",
 			"txtequipeB" : "REP. TCHEQUE",
-			"phase" : "Demie-Finale"
+			"phase" : "2"
 		}, {
 			"idMatch" : "170",
 			"idequipeA" : "36",
@@ -114,7 +114,7 @@
 			"encours" : "N",
 			"txtequipeA" : "BELGIQUE",
 			"txtequipeB" : "ITALIE",
-			"phase" : "Demie-Finale"
+			"phase" : "2"
 		}, {
 			"idMatch" : "172",
 			"idequipeA" : "52",
@@ -131,7 +131,8 @@
 			"pronoB" : "",
 			"encours" : "N",
 			"txtequipeA" : "AUTRICHE",
-			"txtequipeB" : "HONGRIE"
+			"txtequipeB" : "HONGRIE",
+			"phase" : "8"
 		}, {
 			"idMatch" : "173",
 			"idequipeA" : "26",
@@ -148,7 +149,8 @@
 			"pronoB" : "",
 			"encours" : "N",
 			"txtequipeA" : "PORTUGAL",
-			"txtequipeB" : "ISLANDE"
+			"txtequipeB" : "ISLANDE",
+			"phase" : "8"
 		}, {
 			"idMatch" : "174",
 			"idequipeA" : "34",

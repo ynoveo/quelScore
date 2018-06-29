@@ -673,7 +673,7 @@ sap.ui.define([
 			if(x.indexOf(sPhase) !== -1){
 				var suffixe="Match de groupe";
 			}else{
-				var suffixe=sPhase;
+				var suffixe="";
 			}
 			return {
 				key: sKey.substr(0,8) + suffixe,
