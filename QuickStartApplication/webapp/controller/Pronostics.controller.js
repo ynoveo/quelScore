@@ -27,7 +27,9 @@ sap.ui.define([
 					
 					// A l'ouverture, illustration pour la navigation
 						var ogModel = sap.ui.getCore().getModel("global");
-						if(!ogModel.getProperty("/donotshow")){
+						//if(!ogModel.getProperty("/donotshow")){
+						//desactivation du message dialogue (condition if(false) pour désactiver)
+						if(false){
 							if(sap.ui.Device.support.touch){
 								var dialog = new Dialog({
 									icon: 'sap-icon://lightbulb',
