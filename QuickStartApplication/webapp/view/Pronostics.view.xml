@@ -140,7 +140,7 @@
 											<Column demandPopin="true" minScreenWidth="9999px"/>
 										</columns>
 										<items>
-											<ColumnListItem id="salut" selected="true" type="Active" press="openPopup">
+											<ColumnListItem id="matchTable2_" selected="true" type="Active" press="openPopup">
 												<cells>
 													<Image src="./flag/{remoteClos>flagA}" width="100%"/>
 													<ObjectIdentifier id="equipeA2" title="{remoteClos>txtequipeA}" text="Mon score" wrapping="false"/>
