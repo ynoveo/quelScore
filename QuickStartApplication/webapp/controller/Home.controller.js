@@ -469,7 +469,7 @@ var dialog = new Dialog({
 				type: "Message",
 				content: [
 //					new Text({ text: 'Entrer vos identifiants' }),
-					new Label({ text: 'Veuillez entrer votre e-mail pour recevoir le mot de passe svp' }),
+					new Label({ text: 'Veuillez entrer votre e-mail pour réinitiliser votre mot de passe svp' }),
 					new Input('email',  {type: 'Email', value: oMail})
 				],
 				beginButton: new Button({
@@ -485,7 +485,7 @@ var dialog = new Dialog({
 							oController.getView().setModel(otModel);
 	//						console.log(sUrl);
 							if(otModel.getProperty("/reponse/retcode") === "0") {
-								MessageToast.show("Un email vient de vous être envoyé");
+								MessageToast.show("Un email avec le lien de réinitialisation vient de vous être envoyé");
 								dialog.close();
 							} else {
 								MessageToast.show(otModel.getProperty("/reponse/retmsg"));
