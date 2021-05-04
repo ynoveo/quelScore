@@ -1,4 +1,9 @@
-<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f" xmlns="sap.m" controllerName="QuickStartApplication.controller.Home" displayBlock="true">
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" 
+	  xmlns:mvc="sap.ui.core.mvc" 
+	  xmlns:f="sap.f" 
+	  xmlns="sap.m" 
+	  controllerName="QuickStartApplication.controller.Home" 
+	  displayBlock="true">
 	<App >
 		<pages><Page showHeader="false" showFooter="false">
 				<content>
