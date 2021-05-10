@@ -29,7 +29,8 @@
 				        
 				    </FlexBox>				    
 				    <!--
-				    <FlexBox width="100%" id="__box_text2" alignItems="Center" height="150px" justifyContent="Center">
+				    hello
+                    <FlexBox width="100%" id="__box_text2" alignItems="Center" height="150px" justifyContent="Center">
 				        <items>
 				        </items>
 				    </FlexBox>
