@@ -25,3 +25,4 @@ else
    serait utilisé dans le controller associé pour déterminé s'il faut afficher la home.view la home_phone.view
    
    
+3 - Créer un user FTP pour accéder au repertoire de prod de l'application Quelscore  --> le transmettre à Guillaume
