@@ -1,1 +1,27 @@
-Mettre à jour le fichier model.json avec les élements de l'euro 2021, date, groupe et équipe
+1- Mettre à jour le fichier model.json avec les élements de l'euro 2021, date, groupe et équipe
+
+
+2 - Afficher la vue adequate au terminal utilisé :
+
+Une possibilité serait de définir une rootView qui intègre en retour le contenu d'une vue phone ou computer
+Une façon de faire avec des js.view:
+
+// Root-view dans le component.js
+var oView = sap.ui.view({
+    id: "app",
+    viewName: "ABC.custom.App",
+    type: "JS",
+    viewData: { component: this },
+});
+
+// Puis dans la vue custom
+if (sap.ui.Device.system.phone)
+   app.addPage(sap.ui.jsview("mMileageListing", "ABC.custom.mobile.mMain"));
+else
+   app.addPage(sap.ui.jsview("dMileageListing", "ABC.custom.desktop.dMain"));
+   
+   
+   Si on le retranscrit pour quelscore, il faudrait une nouvelle vue Home2021.xml celle-ci doit contenir une balise (peut être <page> avec un id qui
+   serait utilisé dans le controller associé pour déterminé s'il faut afficher la home.view la home_phone.view
+   
+   
