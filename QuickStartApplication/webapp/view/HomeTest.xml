@@ -1,13 +1,14 @@
-<mvc:View
-   controllerName="HomeTest.controller.App"
-   xmlns="sap.m"
-   xmlns:mvc="sap.ui.core.mvc"
-   displayBlock="true" >
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" 
+	  xmlns:mvc="sap.ui.core.mvc" 
+	  xmlns:f="sap.f" 
+	  xmlns="sap.m" 
+	  controllerName="QuickStartApplication.controller.HomeTest" 
+	  displayBlock="true">   
    <App>
       <pages>
          <Page title="{i18n>homePageTitle}">
             <content>
-               <mvc:XMLView viewName="Home.view"/>
+               <mvc:XMLView viewName="QuickStartApplication.view.Home"/>
             </content>
          </Page>
       </pages>
