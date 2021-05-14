@@ -22,7 +22,20 @@ else
    
    
    Si on le retranscrit pour quelscore, il faudrait une nouvelle vue Home2021.xml celle-ci doit contenir une balise (peut être <page> avec un id qui
-   serait utilisé dans le controller associé pour déterminé s'il faut afficher la home.view la home_phone.view
+   serait utilisé dans le controller associé pour déterminé s'il faut afficher la home.view la home_phone.view, on aurait donc un controller associé du type
+   
+   sap.ui.define([
+   "sap/ui/core/mvc/Controller"
+], function (Controller) {
+   "use strict";
+   return Controller.extend("sap.ui.demo.wt.controller.App", {
+   if (sap.ui.Device.system.phone)
+   // charger/affcher la vue pour telephone;
+   else
+   // charger/afficher la vue pour ordi
+   });
+});
+   
    
    
 3 - Créer un user FTP pour accéder au repertoire de prod de l'application Quelscore  --> le transmettre à Guillaume
