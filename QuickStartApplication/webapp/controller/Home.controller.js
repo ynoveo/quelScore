@@ -13,6 +13,9 @@ sap.ui.define([
 	return Controller.extend("QuickStartApplication.controller.Home", {
 
 		onInit: function () {
+            if (sap.ui.Device.system.phone) {
+            	sap.ui.core.UIComponent.getRouterFor(this).navTo("HomeTest");
+            }
 			//var oModel = new JSONModel();
 //			oModel.loadData("https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty&phase=A");
 			//oModel.loadData("../webapp/localService/connect.json");
@@ -57,11 +60,16 @@ sap.ui.define([
 
 				this.byId("__box_login").setVisible(false);
 				this.byId("__box_user_info").setVisible(true);
+				this.byId("Btn_logout").setVisible(true);
+				var myhtmlid = this.createId("userinfo");
+				document.getElementById(myhtmlid).style.display = "block";  //masquer
+				document.getElementById(this.createId("accueil")).style.display = "none";
+				
 				if (otModel.getProperty("/reponse/avatar")!=="AUCUN"){
 					this.byId("avatar").setSrc("./avatars/"+otModel.getProperty("/reponse/avatar"));
 				}
 				this.byId("__text_pseudo").setProperty("text", otModel.getProperty("/reponse/pseudo"));
-				this.byId("__text_classement").setProperty("text", "Position au classement général : " +  otModel.getProperty("/reponse/position"));
+				this.byId("__text_classement").setProperty("text", "Classement général : " +  otModel.getProperty("/reponse/position"));
 				this.byId("__text_points").setProperty("text", otModel.getProperty("/reponse/nbpoints") + " pts");
 				
 				var ogModel=sap.ui.getCore().getModel("global");
@@ -187,6 +195,10 @@ onLogout: function (){
 //			    this.byId("__item0").setVisible(false);
 		    	this.byId("__box_login").setVisible(true);
 		    	this.byId("__box_user_info").setVisible(false);
+				this.byId("Btn_logout").setVisible(false);
+				var myhtmlid = this.createId("userinfo");
+				document.getElementById(myhtmlid).style.display = "none";  //masquer
+				document.getElementById(this.createId("accueil")).style.display = "block";
 //Ajouter les  évenements pour revenir interface initiale
 
 				var ogModel=sap.ui.getCore().getModel("global");
@@ -341,11 +353,16 @@ onLogon: function () {
 */
 		    			oController.byId("__box_login").setVisible(false);
 		    			oController.byId("__box_user_info").setVisible(true);
+						oController.byId("Btn_logout").setVisible(true);
+						var myhtmlid = oController.createId("userinfo");
+						document.getElementById(myhtmlid).style.display = "block";  //masquer
+						document.getElementById(oController.createId("accueil")).style.display = "none";
+
 		    			if (otModel.getProperty("/reponse/avatar")!=="AUCUN"){
 		    				oController.byId("avatar").setSrc("./avatars/"+otModel.getProperty("/reponse/avatar"));
 		    			}
 		    			oController.byId("__text_pseudo").setProperty("text", otModel.getProperty("/reponse/pseudo"));
-		    			oController.byId("__text_classement").setProperty("text", "Position au classement général : " +  otModel.getProperty("/reponse/position"));
+		    			oController.byId("__text_classement").setProperty("text", "Classement général : " +  otModel.getProperty("/reponse/position"));
 		    			oController.byId("__text_points").setProperty("text", otModel.getProperty("/reponse/nbpoints") + " pts");
 		    			
 	    				var ogModel=sap.ui.getCore().getModel("global");
@@ -430,6 +447,10 @@ var dialog = new Dialog({
 
 			    			oController.byId("__box_login").setVisible(false);
 			    			oController.byId("__box_user_info").setVisible(true);
+							oController.byId("Btn_logout").setVisible(true);
+							var myhtmlid = oController.createId("userinfo");
+							document.getElementById(myhtmlid).style.display = "block";  //masquer
+							document.getElementById(oController.createId("accueil")).style.display = "none";							
 			    			oController.byId("__text_pseudo").setProperty("text", otModel.getProperty("/reponse/pseudo"));
 //			    			oController.byId("__text_classement").setProperty("text", "Position au classement général : " +  otModel.getProperty("/reponse/position"));
 			    			oController.byId("__text_points").setProperty("text", " 0 point");
