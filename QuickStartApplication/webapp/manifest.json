@@ -8,8 +8,8 @@
 		"applicationVersion": {
 			"version": "1.0.0"
 		},
-		"title": "Quelscore Coupe du monde 2018",
-		"description": "Concours de pronostics pour la coupe du monde 2018",
+		"title": "Quelscore Euro 2021",
+		"description": "Concours de pronostics pour l'euro 2021",
 		"resources": "resources.json",
 		"ach": "ach",
 		"sourceTemplate": {
@@ -20,14 +20,14 @@
 	},
 	"sap.ui": {
 		"_version": "1.1.0",
-		"technology": "UI5",
+        "technology": "UI5",
 		"icons": {
 			"icon": "",
 			"favIcon": "",
 			"phone": "",
 			"phone@2": "",
 			"tablet": "",
-			"tablet@2": ""
+            "tablet@2": ""
 		},
 		"deviceTypes": {
 			"desktop": true,
@@ -37,6 +37,9 @@
 		"supportedThemes": ["sap_hcb", "sap_bluecrystal"]
 	},
 	"sap.ui5": {
+        "config": {
+        "fullWidth": true
+        },
 		"_version": "1.1.0",
 		"rootView": {
 			"viewName": "QuickStartApplication.view.Connect",
@@ -95,6 +98,10 @@
 				"name": "appHome",
 				"target": "home"
 			}, {
+				"pattern": "HomePhone",
+                "name": "HomePhone",
+				"target": ["HomePhone"]
+			},{
 				"pattern": "pronostics/{idUser}/pronostics/{oPseudo}",
 				"name": "mesPronostics",
 				"target": ["pronostics"]
@@ -127,6 +134,12 @@
 				"home": {
 					"viewPath": "QuickStartApplication.view",
 					"viewName": "Home",
+					"viewLevel": 2,
+					"transition": "slide"
+                },
+                "HomePhone": {
+					"viewPath": "QuickStartApplication.view",
+					"viewName": "HomeTest",
 					"viewLevel": 2,
 					"transition": "slide"
 				},
