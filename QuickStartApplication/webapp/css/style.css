@@ -119,3 +119,701 @@ background: linear-gradient(to bottom,#0066c1 0%,#001c73 100%);
 .mybandeau7{
 	background : linear-gradient(to bottom,#ffffff  0%,#898a8c 100%);
 }
+
+.myMainFlex{
+    position: relative;
+    width: 1440px;
+    height: 688px;
+    background-color:#E5E5E5;
+}
+.myMainFlexHeader{
+	position: relative;
+	height: 88px;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	width: 1440px;
+	background-color: teal;
+}
+
+.MenuFlex{
+	position: relative;
+	width: 1440px;
+	height: 368px;
+	background: #FFFFFF;
+}
+
+
+.RulesFlex{
+	position: relative;
+	width: 1440px;
+	height: 600px;
+	background: #faf7f7;
+	}
+
+
+.RulesFlex-images{
+	position: absolute;
+	height: 440px;
+	left: 735px;
+	right: 165px;
+	top: calc(50% - 440px/2);
+	background-color: #e6ecf8;
+}
+.RulesFlex-img{
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	left: calc(50% - 40px/2);
+	top: calc(50% - 40px/2);
+}
+
+.RulesFlex-content{
+/* content */
+	
+/* Auto Layout */
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+
+	position: absolute;
+	width: 540px;
+	height: 290px;
+	left: 165px;
+	top: calc(50% - 290px/2);
+
+}
+
+.RulesFlex-content-titre{
+	position: static;
+	height: 120px;
+	left: 0px;
+	right: 0px;
+	top: calc(50% - 120px/2 - 85px);
+	
+	/* H3 - bold 32 (40, 0.1px) */
+	
+	font-family: Mulish;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 32px;
+	line-height: 40px;
+	/* or 125% */
+	
+	letter-spacing: 0.1px;
+	
+	/* Light / Black */
+	
+	color: #373F41;
+
+
+}
+
+
+.RulesFlex-content-cols{
+/* Auto Layout */
+
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	padding: 0px;
+
+	position: static;
+	height: 114px;
+	left: 0px;
+	right: 0px;
+	top: 176px;
+
+}
+
+.RulesFlex-content-col{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+	
+	position: static;
+	width: 255px;
+	height: 114px;
+	left: 285px;
+	top: 0px;
+
+}
+
+.RulesFlexMargin{
+	margin: 0px 30px;	
+}
+
+.RulesFlex-content-sstitre{
+	
+	position: static;
+	height: 66px;
+	left: 0px;
+	right: 0px;
+	top: 48px;
+	
+	/* Body 1 - regular 16 (22, 0.3px) */
+	
+	font-family: Mulish;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 22px;
+	/* or 137% */
+	
+	letter-spacing: 0.3px;
+	
+	/* Light / Gray dark */
+	
+	color: #737B7D;
+
+}
+
+.RulesFlex-content-sstitre-icone{
+	position: static;
+	width: 32px;
+	height: 32px;
+	left: 0px;
+	top: 0px;
+	background-color: #e6ecf8;
+	
+	/* Inside Auto Layout */
+	
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	margin: 16px 0px;
+}
+
+/* LOGO */
+
+.myMainFlexHeader-Logo{
+	position: absolute;
+	width: 70px;
+	height: 32px;
+	left: 165px;
+	top: calc(50% - 32px/2);
+
+	font-family: Lato;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 32px;
+	/* identical to box height, or 133% */
+	display: flex;
+	align-items: center;
+	letter-spacing: 0.2px;
+	text-transform: uppercase;
+	
+	/* Accent / Default */
+	
+	color: #3C64B1;
+
+}
+
+.myMainFlexHeader-disconnect{
+	position: absolute;
+	width: 150px;
+	height: 32px;
+	right: 100px;
+	top: calc(50% - 32px/2);
+	
+	display: flex;
+	align-items: center;
+
+}
+
+
+.myMainFlexContent{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    position: absolute;
+    width: 540px;
+    height: 254px;
+    right: 165px;
+    top: calc(50% - 254px/2 - 0px);
+}
+
+.myMainFlexContent-titres{
+/* title + text */
+
+/* Auto Layout */
+	display: flex;
+	flex-direction: column;
+/*	align-items: center;  */
+	padding: 0px;
+	position: static;
+	height: 156px;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+
+/* Inside Auto Layout */
+	flex: none;
+	order: 0;
+	align-self: center;
+	flex-grow: 0;
+	margin: 0px 0px;
+}
+
+.myMainFlexContent-titre{
+	position: static;
+	height: 80px;
+	left: 0px;
+	right: 0px;
+	top: calc(50% - 80px/2 - 38px);
+/* H3 - bold 32 (40, 0.1px) */
+
+	font-family: Mulish;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 32px;
+	line-height: 40px;
+/* or 125% */
+
+	letter-spacing: 0.1px;
+
+/* Light / Black */
+	color: #373F41;	
+	
+/* Inside Auto Layout */
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	margin: 0px 0px;	
+	
+}
+
+
+.myMainFlexContent-sstitre{
+	position: static;
+	height: 44px;
+	left: 0px;
+	right: 0px;
+	top: calc(50% - 44px/2 + 56px);
+
+	font-family: Mulish;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 22px;
+/* or 137% */
+	letter-spacing: 0.3px;
+/* Light / Gray dark */
+	color: #737B7D;
+/*
+/* Inside Auto Layout */
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+	margin: 32px 0px; 
+}
+
+.myMainFlexContent-boutons{
+/* buttons */
+
+/* Auto Layout */
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0px;
+
+	position: static;
+	width: 242px;
+	height: 42px;
+	left: 0px;
+	top: 212px;
+
+
+/* Inside Auto Layout */
+
+	flex: none;
+	order: 1;
+	align-self: flex-start;
+	flex-grow: 0;
+	margin: 56px 0px;
+}
+
+
+.myMainFlexContent-bouton-login{
+/* outlined / default */
+
+
+/* Auto Layout */
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 12px 18px;
+
+	position: static;
+	width: 109px;
+	height: 42px;
+	left: 133px;
+	top: calc(50% - 42px/2);
+
+/* Accent / Default */
+
+	border: 1px solid #3C64B1;
+	box-sizing: border-box;
+
+/* Inside Auto Layout */
+
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+	margin: 0px 24px;
+}
+.myMainFlexContent-bouton-login:hover{
+background-color: whitesmoke;
+}
+.myMainFlexContent-bouton-inscription{
+/* contained / default */
+/* Auto Layout */
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 12px 18px;
+
+	position: static;
+	width: 109px;
+	height: 42px;
+	left: 0px;
+	top: calc(50% - 42px/2);
+
+/* Accent / Default */
+	background: #3C64B1;
+
+/* Inside Auto Layout */
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	margin: 0px 24px;
+}
+.myMainFlexContent-bouton-inscription:hover{
+	background: #2752a0;
+}
+.myMainFlexContent-bouton-inscription-label{
+/* label */
+	position: static;
+	height: 18px; 
+	left: 18px;
+	right: 18px;
+	top: calc(50% - 18px/2);
+
+/* Button - bold 14 (18, 0.3px) */
+	font-family: Mulish;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 18px;
+/* identical to box height, or 129% */
+	display: flex;
+	align-items: center;
+	text-align: center;
+	letter-spacing: 0.3px;
+
+/* Light / White */
+	color: #FFFFFF;
+
+
+/* Inside Auto Layout */
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	margin: 0px 0px;
+}
+
+.myMainFlexContent-bouton-login-label{
+/* label */
+	position: static;
+	height: 18px;
+	left: 18px;
+	right: 18px;
+	top: calc(50% - 18px/2);
+
+/* Button - bold 14 (18, 0.3px) */
+
+	font-family: Mulish;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 18px;
+/* identical to box height, or 129% */
+
+	display: flex;
+	align-items: center;
+	text-align: center;
+	letter-spacing: 0.3px;
+
+/* Accent / Default */
+	color: #3C64B1;
+
+
+/* Inside Auto Layout */
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	margin: 0px 0px;
+}
+
+ 
+.myMainFlexContent-image{
+	position: absolute;
+	height: 440px;
+	left: 165px;
+	right: 735px;
+	top: calc(50% - 440px/2);
+	background-color: #e6ecf8;
+}
+.myMainFlexContent-img{
+position: absolute;
+width: 40px;
+height: 40px;
+left: calc(50% - 40px/2);
+top: calc(50% - 40px/2);
+opacity: 0.5;
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)), drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+
+
+/* column */
+
+
+/* Auto Layout */
+.MenuFlexCol1{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0px;
+
+	position: absolute;
+	width: 255px;
+	height: 368px;
+	left: calc(50% - 255px/2 - 427.5px);
+	top: calc(50% - 368px/2);
+
+}
+
+.MenuFlexCol2{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0px;
+
+	position: absolute;
+	width: 255px;
+	height: 368px;
+	left: calc(50% - 255px/2 - 142.5px);
+	top: calc(50% - 368px/2);
+	
+}
+
+.MenuFlexCol3{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0px;
+
+	position: absolute;
+	width: 255px;
+	height: 368px;
+	left: calc(50% - 255px/2 + 142.5px);
+	top: calc(50% - 368px/2);
+
+}
+
+.MenuFlexCol4{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0px;
+	display: none;
+	position: absolute;
+	width: 255px;
+	height: 368px;
+	left: calc(50% - 255px/2 + 427.5px);
+	top: calc(50% - 368px/2);
+
+}
+
+
+
+.MenuFlexColx-avatar{ 
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	left: 36px;
+	top: 33px;
+}
+.MenuFlexColx-user{ 
+	position: relative;
+	width: 144px;
+	height: 40px;
+	left: 80;
+	top: calc(50% - 40px/2 - 77px);
+	margin-left:50px;
+	font-family: Mulish;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 40px;
+	/* identical to box height, or 250% */
+	
+	letter-spacing: 0.3px;
+	
+/* Light / Gray dark */
+	color: #737B7D;
+}
+.MenuFlexColx-nbpoints{ 
+	position: absolute;
+	width: 100px;
+	height: 40px;
+	left: 77px;
+	top: 120px;
+	font-family: Mulish;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 24px;
+	line-height: 40px;
+	/* identical to box height, or 250% */
+	
+	letter-spacing: 0.3px;
+/* Light / Gray dark */
+	color: #737B7D;
+}
+.MenuFlexColx-ranking{ 
+	position: absolute;
+	width: 205px;
+	height: 40px;
+	left: 36px;
+	top: 190px;
+	
+	font-family: Mulish;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 15px;
+	line-height: 40px;
+	/* identical to box height, or 333% */
+	
+	letter-spacing: 0.3px;
+	
+	color: #737B7D;
+	
+}
+
+/* title + text */
+
+.MenuFlexColx-titres{
+/* Auto Layout */
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0px;
+
+	position: static;
+	width: 255px;
+	height: 76px;
+	left: 0px;
+	top: 292px;
+
+
+/* Inside Auto Layout */
+
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+	margin: 0px 0px;
+
+}
+
+.MenuFlexColx-images{
+	position: static;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 108px;
+	background-color: #e6ecf8;
+	height: calc(368px - 108px);
+	width:100%;
+	vertical-align: bottom;
+	/*Inside Auto Layout 
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	margin: 32px 0px;*/
+
+}
+
+.MenuFlexColx-titre{
+/* Mes groupes */
+	position: static;
+	height: 24px;
+	left: 0px;
+	right: 0px;
+	bottom: 52px;
+
+/* H6 - bold 18 (24. 0.1px) */
+
+	font-family: Mulish;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 24px;
+/* identical to box height, or 133% */
+
+	text-align: center;
+	letter-spacing: 0.1px;
+
+/* Light / Black */
+
+	color: #373F41;
+
+
+/* Inside Auto Layout */
+
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	margin: 12px 0px;
+}
+
+.MenuFlexColx-sstitre{
+	position: static;
+	height: 40px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	text-align: center;
+
+/* Body 2 - regular 14 (20, 0.2px) */
+
+	font-family: Mulish;
+	font-style: normal;
+	font-weight: normal;
+/*	font-size: 14px;  */
+	line-height: 20px;
+	/* or 143% */
+
+	text-align: center;
+	letter-spacing: 0.2px;
+
+/* Light / Black */
+
+	color: #373F41;
+
+/* Inside Auto Layout 
+
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+	margin: 12px 0px; */
+}
+
