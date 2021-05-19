@@ -1308,3 +1308,18 @@ opacity: 0.1;
 .QSnodisplay{
     display: none;
 }
+
+.fontYnoveo{
+    font-family: Mulish;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 20px;
+	/* or 137% */
+	
+	letter-spacing: 0.2px;
+	
+	/* Light / Gray dark */
+	
+	color: #737B7D;
+}
