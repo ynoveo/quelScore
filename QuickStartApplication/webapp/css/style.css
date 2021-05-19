@@ -817,3 +817,490 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)), drop-shadow(0px 4px 4px rg
 	margin: 12px 0px; */
 }
 
+/*** VERSION POUR AFFICHAGE TELEPHONE ***/
+.Phone-myMainFlexHeader{
+	position: relative;
+	height: 44px;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	width: 375px;
+	background-color: teal;
+}
+
+
+.Phone-myMainFlexHeader-Logo{
+	position: absolute;
+	width: 35px;
+	height: 16px;
+	left: 16px;
+	top: calc(50% - 31px/2);
+
+	font-family: Lato;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 16px;
+	/* identical to box height, or 133% */
+	display: flex;
+	align-items: center;
+	letter-spacing: 0.2px;
+	text-transform: uppercase;
+	
+	/* Accent / Default */
+	
+	color: #3C64B1;
+
+}
+
+.Phone-myMainFlexHeader-disconnect{
+	position: absolute;
+	width: 150px;
+	height: 32px;
+	right: 10px;
+	top: calc(50% - 32px/2);
+	
+	display: flex;
+	align-items: center;
+
+}
+
+.Phone-myMainFlex{
+    position: relative;
+    width: 375px;
+    height: 480px;
+    background-color:#E5E5E5;
+}
+
+.Phone-myMainFlexContent-image{
+	position: absolute;
+	height: 220px;
+	left: 5px;
+	width: 365px;
+	right: 5px;
+/*	right: 735px;*/
+	top: 5px;
+	background-color: #e6ecf8;
+}
+.Phone-myMainFlexContent-img{
+position: absolute;
+width: 40%px;
+height: 40px;
+left: calc(50% - 59px/2);
+top: calc(50% - 40px/2);
+opacity: 0.1;
+/* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)), drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); */
+}
+
+
+.Phone-myMainFlexContent{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    position: absolute;
+    width: 355px;
+    height: 254px;
+    right: 0px;
+    top: 235px; 
+}
+
+
+.Phone-myMainFlexContent-titres{
+/* title + text */
+
+/* Auto Layout */
+	display: flex;
+	flex-direction: column;
+/*	align-items: center;  */
+	padding: 0px;
+	position: static;
+	height: 156px;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+
+/* Inside Auto Layout */
+	flex: none;
+	order: 0;
+	align-self: center;
+	flex-grow: 0;
+	margin: 0px 0px;
+}
+
+
+.Phone-myMainFlexContent-titre{
+	position: relative;
+	height: 80px;
+	left: 0px;
+	right: 0px;
+	top: calc(50% - 80px/2 - 38px);
+/* H3 - bold 32 (40, 0.1px) */
+
+	font-family: Mulish;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 26px;
+	line-height: 34px;
+/* or 125% */
+
+	letter-spacing: 0.1px;
+
+/* Light / Black */
+	color: #373F41;	
+	
+/* Inside Auto Layout */
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	margin: 0px 0px;	
+	
+}
+
+
+.Phone-myMainFlexContent-sstitre{
+	position: relative;
+	height: 44px;
+	left: 0px;
+	right: 0px;
+	/* top: calc(50% - 44px/2 + 56px); /*
+
+	font-family: Mulish;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 22px;
+/* or 137% */
+	letter-spacing: 0.3px;
+/* Light / Gray dark */
+	color: #737B7D;
+/*
+/* Inside Auto Layout */
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+	margin: 32px 0px; 
+}
+
+
+.Phone-myMainFlexContent-boutons{
+	/* buttons */
+	
+	/* Auto Layout */
+	
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		padding: 0px;
+	
+		position: static;
+		width: 242px;
+		height: 42px;
+		left: 0px;
+		top: 212px;
+	
+	
+	
+	/* Inside Auto Layout */
+	
+		flex: none;
+		order: 1;
+		align-self: flex-start;
+		flex-grow: 0;
+		margin: 0px 0px;
+	}
+	
+	
+	.myMainFlexContent-bouton-login{
+	/* outlined / default */
+	
+	
+	/* Auto Layout */
+	
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		padding: 12px 18px;
+	
+		position: static;
+		width: 109px;
+		height: 42px;
+		left: 133px;
+		top: calc(50% - 42px/2);
+	
+	/* Accent / Default */
+	
+		border: 1px solid #3C64B1;
+		box-sizing: border-box;
+	
+	/* Inside Auto Layout */
+	
+		flex: none;
+		order: 1;
+		flex-grow: 0;
+		margin: 0px 24px;
+	}
+	.myMainFlexContent-bouton-login:hover{
+	background-color: whitesmoke;
+	}
+	.myMainFlexContent-bouton-inscription{
+	/* contained / default */
+	/* Auto Layout */
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		padding: 12px 18px;
+	
+		position: static;
+		width: 109px;
+		height: 42px;
+		left: 0px;
+		top: calc(50% - 42px/2);
+	
+	/* Accent / Default */
+		background: #3C64B1;
+	
+	/* Inside Auto Layout */
+		flex: none;
+		order: 0;
+		flex-grow: 0;
+		margin: 0px 24px;
+	}
+	.myMainFlexContent-bouton-inscription:hover{
+		background: #2752a0;
+	}
+	.myMainFlexContent-bouton-inscription-label{
+	/* label */
+		position: static;
+		height: 18px; 
+		left: 18px;
+		right: 18px;
+		top: calc(50% - 18px/2);
+	
+	/* Button - bold 14 (18, 0.3px) */
+		font-family: Mulish;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 14px;
+		line-height: 18px;
+	/* identical to box height, or 129% */
+		display: flex;
+		align-items: center;
+		text-align: center;
+		letter-spacing: 0.3px;
+	
+	/* Light / White */
+		color: #FFFFFF;
+	
+	
+	/* Inside Auto Layout */
+		flex: none;
+		order: 0;
+		flex-grow: 0;
+		margin: 0px 0px;
+	}
+	
+	.myMainFlexContent-bouton-login-label{
+	/* label */
+		position: static;
+		height: 18px;
+		left: 18px;
+		right: 18px;
+		top: calc(50% - 18px/2);
+	
+	/* Button - bold 14 (18, 0.3px) */
+	
+		font-family: Mulish;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 14px;
+		line-height: 18px;
+	/* identical to box height, or 129% */
+	
+		display: flex;
+		align-items: center;
+		text-align: center;
+		letter-spacing: 0.3px;
+	
+	/* Accent / Default */
+		color: #3C64B1;
+	
+	
+	/* Inside Auto Layout */
+		flex: none;
+		order: 0;
+		flex-grow: 0;
+		margin: 0px 0px;
+	}
+	
+	.Phone-MenuFlex{
+		position: relative;
+		width: 375px;
+		height: auto;
+		background: #FFFFFF;
+	}
+
+	.Phone-MenuFlexColx{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-top: 5px;
+
+		position: relative;
+		width: 255px;
+		height: 368px;
+		border-bottom:solid;
+		/*
+		left: calc(50% - 255px/2);
+		top: calc(50% - 368px/2);
+	*/
+	}
+	
+
+
+
+
+.Phone-RulesFlex{
+	position: relative;
+	width: 375px;
+	height: 880px;
+	background: #faf7f7;
+	}
+
+
+.Phone-RulesFlex-images{
+	position: relative;
+	height: 345px;
+	width: 345px;
+	top: 115px;
+/*	left: 15px;
+	right: 165px;
+	top: calc(50% - 440px/2); */
+	background-color: #e6ecf8;
+}
+.Phone-RulesFlex-img{
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	left: calc(50% - 40px/2);
+	top: calc(50% - 40px/2);
+}
+
+.Phone-RulesFlex-content{
+/* content */
+	
+/* Auto Layout */
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+
+	position: absolute;
+	width: 540px;
+	height: 290px;
+	left: 165px;
+	top: calc(50% - 290px/2);
+
+}
+
+.Phone-RulesFlex-content-titre{
+	position: relative;
+	height: 150px;
+	left: 15px;
+	right: 0px;
+	top: 25px;
+	
+	/* H3 - bold 32 (40, 0.1px) */
+	
+	font-family: Mulish;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 36px;
+	/* or 125% */
+	
+	letter-spacing: 0.1px;
+	
+	/* Light / Black */
+	
+	color: #373F41;
+
+
+}
+
+
+.Phone-RulesFlex-content-cols{
+/* Auto Layout */
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0px;
+	align-content: space-around;
+	position: relative;
+	height: 230px;
+	left: 0px;
+	right: 0px;
+	top: 10px;
+
+}
+
+.Phone-RulesFlex-content-col{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 20px;
+	
+	position: static;
+	width: 300px;
+	height: 114px;
+	left: 285px;
+	top: 0px;
+
+}
+
+.Phone-RulesFlexMargin{
+	margin: 0px 30px;	
+}
+
+.Phone-RulesFlex-content-sstitre{
+	
+	position: static;
+	height: 66px;
+	left: 0px;
+	right: 0px;
+	top: 48px;
+	
+	/* Body 1 - regular 16 (22, 0.3px) */
+	
+	font-family: Mulish;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 22px;
+	/* or 137% */
+	
+	letter-spacing: 0.3px;
+	
+	/* Light / Gray dark */
+	
+	color: #737B7D;
+
+}
+
+.Phone-RulesFlex-content-sstitre-icone{
+	position: static;
+	width: 32px;
+	height: 32px;
+	left: 0px;
+	top: 0px;
+	background-color: #e6ecf8;
+	
+	/* Inside Auto Layout */
+	
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	margin: 16px 0px;
+}
