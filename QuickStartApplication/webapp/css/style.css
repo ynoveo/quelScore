@@ -1304,3 +1304,7 @@ opacity: 0.1;
 	flex-grow: 0;
 	margin: 16px 0px;
 }
+
+.QSnodisplay{
+    display: none;
+}
