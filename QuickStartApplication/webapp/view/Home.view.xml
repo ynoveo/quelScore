@@ -83,7 +83,7 @@
 									<Text class="MenuFlexColx-user" text="" id="__text_pseudo"/>
 									<Text class="MenuFlexColx-ranking" text="Classement : " id="__text_classement"/>
 									<Text class="MenuFlexColx-nbpoints" text="Nb de points : " id="__text_points" />
-									<f:Avatar class="MenuFlexColx-avatar" id="avatar" width="100%" press="onAvatar"/>				                 	                								
+									<f:Avatar class="MenuFlexColx-avatar" id="avatar" press="onAvatar"/>				                 	                								
 							
 								</html:div>	
 							
@@ -167,7 +167,7 @@
 				        <items>
 				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box4a" alignContent="Center" alignItems="Center" direction="Column" justifyContent="Center">
 				                <items>
-				                	<f:Avatar id="avatar_old" width="100%" press="onAvatar"/>
+				                	<f:Avatar id="avatar_old" press="onAvatar"/>
 				                    <Text text="" id="__text_pseudo_old"/>
 				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Classement : " id="__text_classement_old"/>
 				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Nb de points : " id="__text_points_old" />
@@ -195,9 +195,9 @@
 				    </FlexBox>
 				    <FlexBox xmlns="sap.m" wrap="Wrap"  width="1264px" id="__box_bandeau5"  backgroundDesign="Solid" renderType="Bare" alignItems="Stretch">
 				        <items>
-				            <FlexBox xmlns="sap.m" min-width="50%" height="200px" fitContainer="true" id="__box5a" alignContent="Center" alignItems="Center" direction="Column" justifyContent="Center">
+				            <FlexBox xmlns="sap.m" height="200px" fitContainer="true" id="__box5a" alignContent="Center" alignItems="Center" direction="Column" justifyContent="Center">
 				                <items>
-				                    <Text text="100% Gratuit" id="__textR1" align="center" color="white"/>
+				                    <Text text="100% Gratuit" id="__textR1" />
 				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__textR2" text="Facile à utiliser"/>
 				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__textR3" text="Du suspens jusqu'au dernier match"/>
 				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__textR4" text="Changer vos pronostics jusqu'à la dernière seconde avant le début du match" textAlign="Center" />

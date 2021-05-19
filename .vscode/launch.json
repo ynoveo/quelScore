@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run QuickStartApplication",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/QuickStartApplication/node_modules/@sap/html5-repo-mock/index.js",
+      "cwd": "${workspaceFolder}/QuickStartApplication",
+      "env": {
+        "PORT": "6004",
+        "MOCK_LOOKUP_DIRS": "[\"webapp\"]",
+        "run.config": "{\"handlerId\":\"ui5_flat_run_config_handler_id\",\"runnableId\":\"/home/user/projects/quelScore-2/QuickStartApplication\"}"
+      },
+      "args": [
+        "--standalone",
+        "/QuickStartApplication/index.html",
+        "--ui5",
+        "{\"version\":\".\"}"
+      ],
+      "envFile": "${workspaceFolder}/QuickStartApplication/.env1",
+      "preLaunchTask": "Build QuickStartApplication"
+    }
+  ]
+}
