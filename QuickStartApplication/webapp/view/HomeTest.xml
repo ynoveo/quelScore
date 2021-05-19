@@ -14,7 +14,7 @@
 				        	<Text text=" " id="textvide" visible="false"/>
 				        </items>
 				    </FlexBox>	
-				
+				<!-- modif bidon -->
                 	<html:div align="center">	
 
 						<html:div class="Phone-myMainFlexHeader">
