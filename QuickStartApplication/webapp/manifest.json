@@ -105,7 +105,11 @@
 				"pattern": "pronostics/{idUser}/pronostics/{oPseudo}",
 				"name": "mesPronostics",
 				"target": ["pronostics"]
-			}, {
+            }, {
+				"pattern": "initPassword/{initkey}",
+				"name": "initPassword",
+				"target": ["initpass"]
+            },{
 				"pattern": "compte",
 				"name": "monCompte",
 				"target": "compte"
@@ -146,6 +150,10 @@
 				"pronostics": {
 					"viewPath": "QuickStartApplication.view",
 					"viewName": "Pronostics",
+					"viewLevel": 2
+				}, "initpass": {
+					"viewPath": "QuickStartApplication.view",
+					"viewName": "InitPassword",
 					"viewLevel": 2
 				},
 				"compte": {

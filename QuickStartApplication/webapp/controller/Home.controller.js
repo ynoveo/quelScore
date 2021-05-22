@@ -47,7 +47,7 @@ sap.ui.define([
 		// Add JSPI : test si connexion active
 //			var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");			
 //			var sUrl = sPreURL + "JSON_V2018.php?action=CONNECT";
-			var sUrl = "https://www.quelscore.com/JSON_V2018.php?action=CONNECT";
+			var sUrl = "https://www.quelscore.com/JSON_V2021.php?action=CONNECT";
 			var otModel = new JSONModel();
 			if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
 				otModel.loadData("../webapp/localService/connect.json", {}, false);
@@ -205,7 +205,7 @@ onLogout: function (){
 				ogModel.setProperty("/pseudo", "");
 				ogModel.setProperty("/pwd", "");
 				var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
-				var sUrl = sPreURL + "JSON_V2018.php?action=DISCONNECT";
+				var sUrl = sPreURL + "JSON_V2021.php?action=DISCONNECT";
 				var otModel = new JSONModel();
 				otModel.loadData(sUrl, {}, false);
 				MessageToast.show("A bientôt");
@@ -241,7 +241,7 @@ onAvatar  : function () {
 							var selectedItem = oEvent.getParameter("selectedItem");
 							var oCells = selectedItem.getCells();
 							var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
-							var sUrl = sPreURL + "JSON_V2018.php?action=SETAVATAR&avatar=" + oCells[0].getText();
+							var sUrl = sPreURL + "JSON_V2021.php?action=SETAVATAR&avatar=" + oCells[0].getText();
 							var otModel = new JSONModel();
 							if(sap.ui.getCore().getModel("global").getProperty("/mode") !== "test") {
 									otModel.loadData(sUrl,{},false);				
@@ -329,7 +329,7 @@ onLogon: function () {
 						var sLogin = encodeURIComponent(sap.ui.getCore().byId("loginc").getValue());
 						var sPass = encodeURIComponent(sap.ui.getCore().byId("passc").getValue());
 						var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
-						var sUrl = sPreURL + "JSON_V2018.php?action=CONNECT&email=" + sLogin + "&pass=" + sPass;
+						var sUrl = sPreURL + "JSON_V2021.php?action=CONNECT&email=" + sLogin + "&pass=" + sPass;
 						var otModel = new JSONModel();
 
 						if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
@@ -434,7 +434,7 @@ var dialog = new Dialog({
 						var sPass2 = encodeURIComponent(sap.ui.getCore().byId('pass2').getValue());
 						var sPseudo = encodeURIComponent(sap.ui.getCore().byId('pseudo').getValue());
 						var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
-						var sUrl = sPreURL + "JSON_V2018.php?action=INSCRIPTION&mail=" + sEmail + "&pass1=" + sPass + "&pass2=" + sPass2 + "&pseudo=" + sPseudo;
+						var sUrl = sPreURL + "JSON_V2021.php?action=INSCRIPTION&mail=" + sEmail + "&pass1=" + sPass + "&pass2=" + sPass2 + "&pseudo=" + sPseudo;
 						var otModel = new JSONModel();
 						otModel.loadData(sUrl, {},false);	
 						oController.getView().setModel(otModel);
@@ -500,7 +500,7 @@ var dialog = new Dialog({
 						var sEmail = encodeURIComponent(sap.ui.getCore().byId('email').getValue());
 //						if(oController.verifMail(sEmail)) {
 							var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
-							var sUrl = sPreURL + "JSON_V2018.php?action=PASSWORD&mail=" + sEmail;
+							var sUrl = sPreURL + "JSON_V2021.php?action=PASSWORD&mail=" + sEmail;
 							var otModel = new JSONModel();
 							otModel.loadData(sUrl, {},false);	
 							oController.getView().setModel(otModel);
