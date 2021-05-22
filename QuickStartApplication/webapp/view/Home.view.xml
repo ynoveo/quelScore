@@ -48,7 +48,26 @@
 	
 							<html:div class="MenuFlexCol1">
 								<html:div class="MenuFlexColx-images">
-								<Button text="Mes pronostics" width="255px" id="btn_prono" icon="sap-icon://activities" press="onNavToPronostics"/>
+								<ScrollContainer height="100%" vertical="true">
+									<List items="{path: '/match'}" id="__table1" press="onNavToPronostics">
+										<CustomListItem press="onNavToPronostics">
+											<VBox>
+												<Text text="{matchdate} - {heurematch}" maxLines="0" textAlign="Left"/>
+												<HBox>
+													<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" width="50%">
+														<Image src="./flag/{flagA}" width="20%"/>
+														<Text text="{txtequipeA}" maxLines="0"/>
+													</VBox>
+													<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" width="50%">
+														<Image src="./flag/{flagB}" width="20%"/>
+														<Text text="{txtequipeB}" maxLines="0"/>
+													</VBox>
+												</HBox>
+											</VBox>
+										</CustomListItem>
+									</List>
+								</ScrollContainer>
+								
 								</html:div>	
 								<html:div class="MenuFlexColx-titres">
 									<Text class="MenuFlexColx-titre" text="Mes pronostics"/>
@@ -68,7 +87,38 @@
 
 							<html:div class="MenuFlexCol3">
 								<html:div class="MenuFlexColx-images">
-									<Button text="Classement" width="255px" id="btn_rank" icon="sap-icon://leads" press="onNavToCompte"/>
+									<ScrollContainer height="100%" vertical="true">
+									<Table noDataText="Aucun joueur" id="__table0" items="{path: '/joueur'}">
+										<items>
+											<ColumnListItem counter="0" id="__item7" press="onNavToCompte" selected="true" type="Active">
+												<cells>
+													<Text text="{classement}" maxLines="0" id="__text5"/>
+													<f:Avatar
+													id="avatarbis"
+													displaySize="Custom"
+													customDisplaySize="25px"
+													src="{parts: [
+															{path: 'avatar' },{path: 'pseudo' }
+															],
+															formatter: '.avatarformatter'}"/>
+													<Text text="{pseudo}" maxLines="0" id="__text6"/>
+													<Text text="{points}" maxLines="0" id="__text7"/>
+
+												 </cells>
+											</ColumnListItem>
+										 </items>
+										<columns>
+											<Column id="__column0" width="10%" hAlign="Center">
+											</Column>
+											<Column width="20%" hAlign="Center">
+											</Column>
+											<Column id="__column1" width="50%">
+											</Column>
+											<Column id="__column2" width="20%">
+											</Column>
+											</columns>
+									</Table>
+									</ScrollContainer>
 								</html:div>	
 								<html:div class="MenuFlexColx-titres">
 									<Text class="MenuFlexColx-titre" text="Classement"/>
@@ -117,7 +167,7 @@
    	                 							
 						</html:div>
      
- 					<FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"  width="1440px" id="__box_ynoveo" justifyContent="Center" alignContent="Center" alignItems="Center" direction="Column">
+ 					<FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"  width="1366px" id="__box_ynoveo" justifyContent="Center" alignContent="Center" alignItems="Center" direction="Column">
 						<items>
 						<Panel expandable="true" expanded="true"  class="sapUiResponsiveMargin">
 						<headerToolbar>
@@ -195,7 +245,7 @@
 				    </FlexBox>
 				    <FlexBox xmlns="sap.m" wrap="Wrap"  width="1264px" id="__box_bandeau5"  backgroundDesign="Solid" renderType="Bare" alignItems="Stretch">
 				        <items>
-				            <FlexBox xmlns="sap.m" height="200px" fitContainer="true" id="__box5a" alignContent="Center" alignItems="Center" direction="Column" justifyContent="Center">
+				            <FlexBox xmlns="sap.m" min-width="50%" height="200px" fitContainer="true" id="__box5a" alignContent="Center" alignItems="Center" direction="Column" justifyContent="Center">
 				                <items>
 				                    <Text text="100% Gratuit" id="__textR1" />
 				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__textR2" text="Facile à utiliser"/>
