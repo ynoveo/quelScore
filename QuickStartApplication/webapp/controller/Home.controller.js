@@ -80,7 +80,41 @@ sap.ui.define([
 			} 
 // fin ajout JSPI 	
 			
+		//ajout GLOU
+			var ogModel=sap.ui.getCore().getModel("global");
+			var sLogin = ogModel.getProperty("/pseudo");
+			var sPass = ogModel.getProperty("/pwd");
+			var sPreURL = ogModel.getProperty("/preURL");
+			var sUrl = "https://www.quelscore.com/JSON_V2021.php?action=PLAYERLIST&groupe=0&email=" + sLogin + "&pass=" + sPass;
+			var oModel = new JSONModel();
+			if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
+				oModel.loadData("../webapp/localService/userGroup.json");
+			} else {
+				oModel.loadData(sUrl,{},false);				
+			}
+						
+			var oTable = this.getView().byId("__table0");
+			oTable.setModel(oModel);
+			var oModel2 = new JSONModel();
+			var sUrl2 = "https://www.quelscore.com/JSON_V2021.php?action=MATCHLIST";
+			var oTable2 = this.getView().byId("__table1");
+			oModel2.loadData(sUrl2,{},false);
+			oTable2.setModel(oModel2);
+			
 		},
+		
+		avatarformatter: function (avatar,pseudo) {
+		if (pseudo==="GLOU" || pseudo==="JSPI"){
+			return "./avatars/ynoveo-eo-final.png";
+		}else{
+			if (avatar==="AUCUN"){
+				return "";
+			}else{
+				return "./avatars/"+avatar ;
+			}
+		}
+	},
+			//fin ajout GLOU
 		/**
 	*@memberOf QuickStartApplication.controller.View1
 	*/
