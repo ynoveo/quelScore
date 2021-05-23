@@ -13,8 +13,9 @@ sap.ui.define([
 	return Controller.extend("QuickStartApplication.controller.Home", {
 
 		onInit: function () {
-            if (sap.ui.Device.system.phone) {
-            	sap.ui.core.UIComponent.getRouterFor(this).navTo("HomeTest");
+            if (screen.width<1366) {
+			//if (sap.ui.Device.system.phone) {
+            	sap.ui.core.UIComponent.getRouterFor(this).navTo("HomePhone");
             }
 			//var oModel = new JSONModel();
 //			oModel.loadData("https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty&phase=A");
