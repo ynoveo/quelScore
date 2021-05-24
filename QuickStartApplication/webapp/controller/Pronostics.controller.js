@@ -91,7 +91,7 @@ sap.ui.define([
 				var sLogin = ogModel.getProperty("/pseudo");
 	  			var sPass = ogModel.getProperty("/pwd");
 				var sPreURL = ogModel.getProperty("/preURL");  			
-				var sUrl = sPreURL + "JSON_V2018.php?action=TOPTEAM&phase=" + x[i];
+				var sUrl = sPreURL + "JSON_V2021.php?action=TOPTEAM&phase=" + x[i];
 				
 				//
 				if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
@@ -230,7 +230,7 @@ sap.ui.define([
 			var sLogin = ogModel.getProperty("/pseudo");
   			var sPass = ogModel.getProperty("/pwd");
 			var sPreURL = ogModel.getProperty("/preURL");  			
-			var sUrl = sPreURL + "JSON_V2018.php?action=MATCHLIST&idPlayer=" + sIdUser + "&email=" + sLogin + "&pass=" + sPass;
+			var sUrl = sPreURL + "JSON_V2021.php?action=MATCHLIST&idPlayer=" + sIdUser + "&email=" + sLogin + "&pass=" + sPass;
 			var sUrlOuvert=sUrl +"&pronoOuvert=Y";
 			var sUrlClos=sUrl +"&pronoOuvert=N";
 			var oModel = new JSONModel();
@@ -393,7 +393,7 @@ sap.ui.define([
 					var sLogin = ogModel.getProperty("/pseudo");
 		  			var sPass = ogModel.getProperty("/pwd");
 					var sPreURL = ogModel.getProperty("/preURL");  			
-					var sUrl = sPreURL + "JSON_V2018.php?action=MATCHSTATS&idmatch=" + idMatch;
+					var sUrl = sPreURL + "JSON_V2021.php?action=MATCHSTATS&idmatch=" + idMatch;
 					var oStatModel = new JSONModel();
 
 					if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
@@ -537,7 +537,7 @@ sap.ui.define([
 									var sPseudo = olModel.getProperty("/pseudo");
 									var sPwd = olModel.getProperty("/pwd");
 									var sPreURL = olModel.getProperty("/preURL");
-									var updateURL = sPreURL + "JSON_V2018.php?action=SAVESCORE&idmatch="+idMatch+"&scoreA="+newPronoA+"&scoreB="+newPronoB+"&email="+sPseudo+"&pass="+sPwd;
+									var updateURL = sPreURL + "JSON_V2021.php?action=SAVESCORE&idmatch="+idMatch+"&scoreA="+newPronoA+"&scoreB="+newPronoB+"&email="+sPseudo+"&pass="+sPwd;
 									$.ajax({
 										type: "POST",
 										data: "",
@@ -551,7 +551,7 @@ sap.ui.define([
 										    var ogModel=sap.ui.getCore().getModel("global");
 											var sUser = ogModel.getProperty("/iduser");
 											var sPreURL2 = ogModel.getProperty("/preURL");
-											var sUrl = sPreURL2 + "JSON_V2018.php?action=MATCHLIST&idPlayer=" + sUser+"&pronoOuvert=Y";
+											var sUrl = sPreURL2 + "JSON_V2021.php?action=MATCHLIST&idPlayer=" + sUser+"&pronoOuvert=Y";
 											var oModel = new JSONModel();
 											oModel.loadData(sUrl,{},false);
 											var i;
@@ -559,7 +559,7 @@ sap.ui.define([
 											for (i = 0; i < x.length; i++) { 
 											var oModelClGroupe = new JSONModel();
 											var sPreURL = ogModel.getProperty("/preURL");  			
-											var sUrl = sPreURL + "JSON_V2018.php?action=TOPTEAM&phase=" + x[i];
+											var sUrl = sPreURL + "JSON_V2021.php?action=TOPTEAM&phase=" + x[i];
 											
 											//
 											if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {

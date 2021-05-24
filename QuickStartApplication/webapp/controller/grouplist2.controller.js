@@ -28,7 +28,7 @@ sap.ui.define([
 			var sLogin = ogModel.getProperty("/pseudo");
 			var sPass = ogModel.getProperty("/pwd");
 			var sPreURL = ogModel.getProperty("/preURL");
-			var sUrl = sPreURL + "JSON_V2018.php?action=PLAYERLIST&groupe=" + sId + "&email=" + sLogin + "&pass=" + sPass;
+			var sUrl = sPreURL + "JSON_V2021.php?action=PLAYERLIST&groupe=" + sId + "&email=" + sLogin + "&pass=" + sPass;
 			var oModel = new JSONModel();
 			if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
 				oModel.loadData("../webapp/localService/userGroup.json");
@@ -98,7 +98,7 @@ sap.ui.define([
 				var sLogin = ogModel.getProperty("/pseudo");
 				var sPass = ogModel.getProperty("/pwd");
 				var sPreURL = ogModel.getProperty("/preURL");
-				var sUrl = sPreURL + "JSON_V2018.php?action=ASKGROUP&idgroup=" + sId + "&email=" + sLogin + "&pass=" + sPass;
+				var sUrl = sPreURL + "JSON_V2021.php?action=ASKGROUP&idgroup=" + sId + "&email=" + sLogin + "&pass=" + sPass;
 				var oModel = new JSONModel();
 				oModel.loadData(sUrl,{},false);
 				if(oModel.getProperty("/reponse/retcode")==="0"){
@@ -115,7 +115,7 @@ sap.ui.define([
 				var sPass = ogModel.getProperty("/pwd");
 	//			var sIdUser = ogModel.getProperty("/iduser");
 				var sPreURL = ogModel.getProperty("/preURL");
-				var sUrl = sPreURL + "JSON_V2018.php?action=QUITGROUP&idgroup=" + sId + "&email=" + sLogin + "&pass=" + sPass;
+				var sUrl = sPreURL + "JSON_V2021.php?action=QUITGROUP&idgroup=" + sId + "&email=" + sLogin + "&pass=" + sPass;
 				var oModel = new JSONModel();
 				oModel.loadData(sUrl,{},false);
 				if(oModel.getProperty("/reponse/retcode")==="0"){
@@ -203,7 +203,7 @@ sap.ui.define([
 		var sLogin = ogModel.getProperty("/pseudo");
 		var sPass = ogModel.getProperty("/pwd");
 		var sPreURL = ogModel.getProperty("/preURL");
-		var sUrl = sPreURL + "JSON_V2018.php?action=CONFIRMUSER&idgroup=" + _sId + "&iduser=" + _sIdJoueur + "&email=" + sLogin + "&pass=" + sPass;	
+		var sUrl = sPreURL + "JSON_V2021.php?action=CONFIRMUSER&idgroup=" + _sId + "&iduser=" + _sIdJoueur + "&email=" + sLogin + "&pass=" + sPass;	
 		var oModel = new JSONModel();
 		oModel.loadData(sUrl,{},false);
 		if(oModel.getProperty("/reponse/retcode")==="0"){
