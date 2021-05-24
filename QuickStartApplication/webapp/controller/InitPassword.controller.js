@@ -14,7 +14,7 @@ sap.ui.define([
 ], function (Controller, History, JSONModel, Dialog, Button, TextField, SimpleForm, GroupHeaderListItem, MessageToast, Filter, Input, Label) {
 	"use strict";
 
-	return Controller.extend("QuickStartApplication.controller.Pronostics", {
+	return Controller.extend("QuickStartApplication.controller.InitPassword", {
         onUserMatched: function(oEvent){
             
             var passkey = decodeURIComponent(oEvent.getParameter("arguments").initkey);
@@ -51,8 +51,11 @@ sap.ui.define([
 						//MessageToast.show("code retour = " + otModel.getProperty("/reponse/retcode"));
 						if(otModel.getProperty("/reponse/retcode") === "0") {
                             MessageToast.show("Mise à jour du mot de passe réussie");
-                            setTimeout(sap.ui.core.UIComponent.getRouterFor(oController).navTo("appHome"), 5000);        
-                                              
+                            if (screen.width<1366) {			
+                                   	setTimeout(sap.ui.core.UIComponent.getRouterFor(this).navTo("HomePhone"), 5000);
+                            } else {
+                                setTimeout(sap.ui.core.UIComponent.getRouterFor(oController).navTo("appHome"), 5000);        
+                            }          
                             // ++ redirection vers l'accueil : https://www.quelscore.com
 	    					dialog.close();
 						} else {
@@ -69,7 +72,12 @@ sap.ui.define([
 				new Button({
 					text: 'Annuler',
 					press: function () {
-                        sap.ui.core.UIComponent.getRouterFor(oController).navTo("appHome");
+                        if (screen.width<1366) {
+			            //if (sap.ui.Device.system.phone) {
+            	            sap.ui.core.UIComponent.getRouterFor(this).navTo("HomePhone");
+                        }else{
+                            sap.ui.core.UIComponent.getRouterFor(oController).navTo("appHome");
+                        }
                         dialog.close();
 					}
 				})
