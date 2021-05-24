@@ -52,7 +52,7 @@ sap.ui.define([
 						if(otModel.getProperty("/reponse/retcode") === "0") {
                             MessageToast.show("Mise à jour du mot de passe réussie");
                             if (screen.width<1366) {			
-                                   	setTimeout(sap.ui.core.UIComponent.getRouterFor(this).navTo("HomePhone"), 5000);
+                                   	setTimeout(sap.ui.core.UIComponent.getRouterFor(oController).navTo("HomePhone"), 5000);
                             } else {
                                 setTimeout(sap.ui.core.UIComponent.getRouterFor(oController).navTo("appHome"), 5000);        
                             }          
@@ -74,7 +74,7 @@ sap.ui.define([
 					press: function () {
                         if (screen.width<1366) {
 			            //if (sap.ui.Device.system.phone) {
-            	            sap.ui.core.UIComponent.getRouterFor(this).navTo("HomePhone");
+            	            sap.ui.core.UIComponent.getRouterFor(oController).navTo("HomePhone");
                         }else{
                             sap.ui.core.UIComponent.getRouterFor(oController).navTo("appHome");
                         }
