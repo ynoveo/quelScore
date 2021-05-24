@@ -138,12 +138,14 @@
 				"home": {
 					"viewPath": "QuickStartApplication.view",
 					"viewName": "Home",
+					"viewId": "HomeID",
 					"viewLevel": 2,
 					"transition": "slide"
                 },
                 "HomePhone": {
 					"viewPath": "QuickStartApplication.view",
 					"viewName": "HomeTest",
+					"viewId": "HomePhoneID",
 					"viewLevel": 2,
 					"transition": "slide"
 				},

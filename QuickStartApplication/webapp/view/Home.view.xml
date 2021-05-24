@@ -30,10 +30,10 @@
 									<Text class="myMainFlexContent-titre" id="textTitre" text="Concours de pronostics &#10;EURO 2021"/>
 									<Text class="myMainFlexContent-sstitre" id="textSoustitre" text="Défier vos collègues, vos amis , votre famille à travers un concours de pronostics"/>										
 									<html:div class="myMainFlexContent-boutons" id="FlexContent-boutons" >									
-										<html:Button  id="btn_ins" onclick="sap.ui.getCore().byId('__xmlview1').getController().onSubscribe()" class="myMainFlexContent-bouton-inscription">
+										<html:Button  id="btn_ins" onclick="sap.ui.getCore().byId('__component0---HomeID').getController().onSubscribe()" class="myMainFlexContent-bouton-inscription">
 											<html:label class="myMainFlexContent-bouton-inscription-label">Inscription</html:label>
 										</html:Button>										
-										<html:Button value="Connexion" id="btn_connect" onclick="sap.ui.getCore().byId('__xmlview1').getController().onLogon()" class="myMainFlexContent-bouton-login">
+										<html:Button value="Connexion" id="btn_connect" onclick="sap.ui.getCore().byId('__component0---HomeID').getController().onLogon()" class="myMainFlexContent-bouton-login">
 											<html:label class="myMainFlexContent-bouton-login-label">Connexion</html:label>
 										</html:Button>										
 									</html:div>  	

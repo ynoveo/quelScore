@@ -35,10 +35,10 @@
 																		
 									<html:div class="Phone-myMainFlexContent-boutons" id="FlexContent-boutons" >				
 
-										<html:Button  id="btn_ins" onclick="sap.ui.getCore().byId('__xmlview1').getController().onSubscribe()" class="myMainFlexContent-bouton-inscription">
+										<html:Button  id="btn_ins" onclick="sap.ui.getCore().byId('__component0---HomePhoneID').getController().onSubscribe()" class="myMainFlexContent-bouton-inscription">
 											<html:label class="myMainFlexContent-bouton-inscription-label">Inscription</html:label>
 										</html:Button>										
-										<html:Button value="Connexion" id="btn_connect" onclick="sap.ui.getCore().byId('__xmlview1').getController().onLogon()" class="myMainFlexContent-bouton-login">
+										<html:Button value="Connexion" id="btn_connect" onclick="sap.ui.getCore().byId('__component0---HomePhoneID').getController().onLogon()" class="myMainFlexContent-bouton-login">
 											<html:label class="myMainFlexContent-bouton-login-label">Connexion</html:label>
 										</html:Button>			
 
