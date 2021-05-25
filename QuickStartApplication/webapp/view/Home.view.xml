@@ -17,13 +17,13 @@
                 	<html:div align="center">	
 
 						<html:div class="myMainFlexHeader">
-								<html:div class="myMainFlexHeader-Logo">Quelscore.com</html:div>
+								<html:div class="myMainFlexHeader-Logo"></html:div>
 								<html:div class="myMainFlexHeader-disconnect"><Button visible="false" text="Deconnexion" width="150px" id="Btn_logout" icon="sap-icon://disconnected" type="Reject" press="onLogout"/></html:div>
 						</html:div>
 
 						<html:div class="myMainFlex" id="accueil">
 	
-							<html:div class="myMainFlexContent-image" id="FlexContent-images"><html:img src="./images/imgeuro.jpeg" class="myMainFlexContent-img"/></html:div>
+							<html:div class="myMainFlexContent-image" id="FlexContent-images"><!-- <html:img src="./images/imgeuro.jpeg" class="myMainFlexContent-img"/> --> </html:div>
 							<html:div class="myMainFlexContent" id="FlexContent">
 							
 								<html:div class="myMainFlexContent-titres" id="FlexContent-titres">
@@ -77,7 +77,8 @@
 	
 							<html:div class="MenuFlexCol2">
 								<html:div class="MenuFlexColx-images">
-									<Button text="Mes groupes" width="255px" id="btn_grps" icon="sap-icon://family-care" press="onNavToGroupe"/>
+                                    <html:a href="javascript:sap.ui.getCore().byId('__component0---HomeID').getController().onNavToGroupe();" ><html:img src="./images/03-mes-groupes-255x260px.jpg"/></html:a>
+								<!--	<Button text="Mes groupes" width="255px" id="btn_grps" icon="sap-icon://family-care" press="onNavToGroupe"/> -->
 								</html:div>	
 								<html:div class="MenuFlexColx-titres">
 									<Text class="MenuFlexColx-titre" text="Mes groupes"/>
@@ -125,7 +126,9 @@
 									<Text class="MenuFlexColx-sstitre" text="Consulter le classement général et les pronostics de vos concurrents" textAlign="Center"/>
 								</html:div>	
 							</html:div>
-							
+							<html:div class="MenuFlexCol4" id="userinfo_notconnected">
+                                <html:img src="./images/04-zone-vide-deconnectee-255x368px.jpg" width="100%"/>
+                            </html:div>
 							<html:div class="MenuFlexCol4" id="userinfo">
 						
 								<html:div class="MenuFlexColx-images">		
@@ -143,7 +146,7 @@
 								</html:div>	
 								
 							</html:div>
-
+                            
 						</html:div>
 
 						<html:div class="RulesFlex">
@@ -155,11 +158,11 @@
 									<Text class="RulesFlex-content-titre" text="Les règles de ce jeu entièrement gratuit, garantissent le suspens jusqu’au dernier match"/>		
 								<html:div class="RulesFlex-content-cols">
 									<html:div class="RulesFlex-content-col">
-										<html:div class="RulesFlex-content-sstitre-icone"></html:div>
+										<html:div class="RulesFlex-content-sstitre-icone"><html:img src="./images/05-icone1-32x32px.png" width="100%"/></html:div>
 										<Text class="RulesFlex-content-sstitre" text="Pour chaque match vous pronostiquez le score , vous gagnez des points en fonction du résultat du match"/>
 									</html:div>
 									<html:div class="RulesFlex-content-col RulesFlexMargin">
-										<html:div class="RulesFlex-content-sstitre-icone"></html:div>
+										<html:div class="RulesFlex-content-sstitre-icone"><html:img src="./images/06-icone2-32x32px.png" width="100%"/></html:div>
 										<Text class="RulesFlex-content-sstitre" text="Vous pouvez changer votre pronostics jusqu’au début du match, et adapter votre stratégie pour terminer 1er."/>
 									</html:div>
 								</html:div>
