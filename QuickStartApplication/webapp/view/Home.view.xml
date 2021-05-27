@@ -127,7 +127,7 @@
 								</html:div>	
 							</html:div>
 							<html:div class="MenuFlexCol5" id="userinfo_notconnected">
-                                <html:img src="./images/04-zone-vide-deconnectee-255x368px.jpg" width="100%"/>
+                                <html:img src="./images/04-zone-vide-deconnectee-255x260px.jpg" width="100%"/>
                             </html:div>
 							<html:div class="MenuFlexCol4" id="userinfo">
 						
