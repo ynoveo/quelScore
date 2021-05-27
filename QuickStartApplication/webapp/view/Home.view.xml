@@ -48,26 +48,13 @@
 	
 							<html:div class="MenuFlexCol1">
 								<html:div class="MenuFlexColx-images">
-								<ScrollContainer height="100%" vertical="true">
-									<List items="{path: '/match'}" id="__table1" press="onNavToPronostics">
-										<CustomListItem press="onNavToPronostics">
-											<VBox>
-												<Text text="{matchdate} - {heurematch}" maxLines="0" textAlign="Left"/>
-												<HBox>
-													<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" width="50%">
-														<Image src="./flag/{flagA}" width="20%"/>
-														<Text text="{txtequipeA}" maxLines="0"/>
-													</VBox>
-													<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" width="50%">
-														<Image src="./flag/{flagB}" width="20%"/>
-														<Text text="{txtequipeB}" maxLines="0"/>
-													</VBox>
-												</HBox>
-											</VBox>
-										</CustomListItem>
-									</List>
-								</ScrollContainer>
-								
+									<Text class="MenuFlexColx-pron-t1" text="Prochain match :"/>
+									<Image class="MenuFlexColx-pron-f1" src="./flag/Turkey.png" width="10%" press="onNavToPronostics"/>
+									<Text class="MenuFlexColx-prone-e1" text="Turquie" press="onNavToPronostics"/>
+									<Image class="MenuFlexColx-pron-f2" src="./flag/Italy.png" width="10%" press="onNavToPronostics"/>
+									<Text class="MenuFlexColx-pron-e2" text="Italie" press="onNavToPronostics"/>
+									<Text class="MenuFlexColx-pron-t2" text="Pariez avant" press="onNavToPronostics"/>
+									<Text class="MenuFlexColx-pron-t3" text="2j 15h 42min" press="onNavToPronostics"/>
 								</html:div>	
 								<html:div class="MenuFlexColx-titres">
 									<Text class="MenuFlexColx-titre" text="Mes pronostics"/>
@@ -246,7 +233,7 @@
 				            </items>
 				        
 				    </FlexBox>
-            <!--  
+    <!-- 					
 				    <FlexBox xmlns="sap.m" wrap="Wrap"  width="1264px" id="__box_bandeau5"  backgroundDesign="Solid" renderType="Bare" alignItems="Stretch">
 				        <items>
 				            <FlexBox xmlns="sap.m" height="200px" fitContainer="true" id="__box5a" alignContent="Center" alignItems="Center" direction="Column" justifyContent="Center">
@@ -265,7 +252,7 @@
 				            </items>
 				    </FlexBox>
 
-              
+               
 				    <FlexBox xmlns="sap.m"  width="1264px" id="__box_rules" backgroundDesign="Translucent" wrap="Wrap">
 				        <items>
 				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box6a" alignContent="Center" alignItems="Start" direction="Column" justifyContent="Center" height="200px">
