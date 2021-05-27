@@ -46,8 +46,8 @@
 		
 						<html:div class="MenuFlex">
 	
-							<html:div class="MenuFlexCol1">
-								<html:div class="MenuFlexColx-images">
+							<html:div class="MenuFlexCol1" onclick="sap.ui.getCore().byId('__component0---HomeID').getController().onNavToPronostics()">
+								<html:div class="MenuFlexColx-images-pron">
 									<Text class="MenuFlexColx-pron-t1" text="Prochain match :"/>
 									<Image class="MenuFlexColx-pron-f1" src="./flag/Turkey.png" press="onNavToPronostics"/>
 									<Text class="MenuFlexColx-pron-e1" text="Turquie" press="onNavToPronostics"/>

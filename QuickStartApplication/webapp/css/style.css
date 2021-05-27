@@ -600,7 +600,9 @@
 		top: calc(50% - 368px/2);
 	
 	}
-	
+	.MenuFlexColx-images-pron:hover{
+	background-color: whitesmoke;
+	}
 	.MenuFlexCol2{
 		display: flex;
 		flex-direction: column;
@@ -871,6 +873,23 @@
 	}
 	
 	.MenuFlexColx-images{
+		position: static;
+		left: 0px;
+		right: 0px;
+		top: 0px;
+		bottom: 108px;
+		background-color: #e6ecf8;
+		height: calc(368px - 108px);
+		width:100%;
+		vertical-align: bottom;
+		/*Inside Auto Layout 
+		flex: none;
+		order: 0;
+		flex-grow: 0;
+		margin: 32px 0px;*/
+	
+	}
+	.MenuFlexColx-images-pron{
 		position: static;
 		left: 0px;
 		right: 0px;
