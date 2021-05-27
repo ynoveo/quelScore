@@ -82,7 +82,7 @@
 								</html:div>	
 								<html:div class="MenuFlexColx-titres">
 									<Text class="MenuFlexColx-titre" text="Mes groupes"/>
-									<Text class="MenuFlexColx-sstitre" text="Rejoingner des groupes et créer votre compétition en cercle restreint" textAlign="Center"/>
+									<Text class="MenuFlexColx-sstitre" text="Rejoigner des groupes et créer votre compétition en cercle restreint" textAlign="Center"/>
 								</html:div>	
 							</html:div>
 
@@ -163,7 +163,7 @@
 									</html:div>
 									<html:div class="RulesFlex-content-col RulesFlexMargin">
 										<html:div class="RulesFlex-content-sstitre-icone"><html:img src="./images/06-icone2-32x32px.png" width="100%"/></html:div>
-										<Text class="RulesFlex-content-sstitre" text="Vous pouvez changer votre pronostics jusqu’au début du match, et adapter votre stratégie pour terminer 1er."/>
+										<Text class="RulesFlex-content-sstitre" text="Vous pouvez changer votre pronostic jusqu’au début du match, et adapter votre stratégie pour terminer 1er."/>
 									</html:div>
 								</html:div>
 							</html:div>
