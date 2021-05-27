@@ -120,9 +120,9 @@
 						
 								<html:div class="MenuFlexCol4-images">		
 														
-									<Text class="MenuFlexColx-user" text="" id="__text_pseudo"/>
-									<Text class="MenuFlexColx-ranking" text="Classement : " id="__text_classement"/>
-									<Text class="MenuFlexColx-nbpoints" text="Nb de points : " id="__text_points" />
+									<Text class="MenuFlexColx-user" text="" id="__text_pseudo" textAlign="Center"/>
+									<Text class="MenuFlexColx-ranking" text="" id="__text_classement" textAlign="Center"/>
+									<Text class="MenuFlexColx-nbpoints" text="" id="__text_points" textAlign="Center"/>
 									<f:Avatar class="MenuFlexColx-avatar" id="avatar" press="onAvatar"/>				                 	                								
 							
 								</html:div>	

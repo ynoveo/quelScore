@@ -68,7 +68,8 @@ sap.ui.define([
 					this.byId("avatar").setSrc("./avatars/"+otModel.getProperty("/reponse/avatar"));
 				}
 				this.byId("__text_pseudo").setProperty("text", otModel.getProperty("/reponse/pseudo"));
-				this.byId("__text_classement").setProperty("text", "Classement général : " +  otModel.getProperty("/reponse/position"));
+    //            this.byId("__text_classement").setProperty("text", "Classement général : " +  otModel.getProperty("/reponse/position"));
+                this.byId("__text_classement").setProperty("text", otModel.getProperty("/reponse/position"));
 				this.byId("__text_points").setProperty("text", otModel.getProperty("/reponse/nbpoints") + " pts");
 				
 				var ogModel=sap.ui.getCore().getModel("global");
@@ -397,7 +398,8 @@ onLogon: function () {
 		    				oController.byId("avatar").setSrc("./avatars/"+otModel.getProperty("/reponse/avatar"));
 		    			}
 		    			oController.byId("__text_pseudo").setProperty("text", otModel.getProperty("/reponse/pseudo"));
-		    			oController.byId("__text_classement").setProperty("text", "Classement général : " +  otModel.getProperty("/reponse/position"));
+//                        oController.byId("__text_classement").setProperty("text", "Classement général : " +  otModel.getProperty("/reponse/position"));
+                        oController.byId("__text_classement").setProperty("text", otModel.getProperty("/reponse/position"));
 		    			oController.byId("__text_points").setProperty("text", otModel.getProperty("/reponse/nbpoints") + " pts");
 		    			
 	    				var ogModel=sap.ui.getCore().getModel("global");
