@@ -663,34 +663,34 @@
 		position: absolute;
 		width: 40px;
 		height: 40px;
-		left: 36px;
-		top: 33px;
+		left: 150px;
+		top: 40px;
 	}
 	.MenuFlexColx-user{ 
-		position: relative;
-		width: 144px;
-		height: 40px;
-		left: 80;
-		top: calc(50% - 40px/2 - 77px);
-		margin-left:50px;
+		position: absolute;
+		width: 130px;
+		height: 50px;
+		left: 62px;
+		top: 66px;
+		margin-left:0px;
 		font-family: Mulish;
 		font-style: normal;
-		font-weight: normal;
-		font-size: 16px;
+		font-weight: bold;
+		font-size: 18px;
 		line-height: 40px;
 		/* identical to box height, or 250% */
 		
-		letter-spacing: 0.3px;
+		letter-spacing: 0.2px;
 		
 	/* Light / Gray dark */
-		color: #737B7D;
+		color: #FFFFFF;
 	}
 	.MenuFlexColx-nbpoints{ 
 		position: absolute;
 		width: 100px;
 		height: 40px;
-		left: 77px;
-		top: 120px;
+		left: 80px;
+		top: 215px;
 		font-family: Mulish;
 		font-style: normal;
 		font-weight: normal;
@@ -700,25 +700,25 @@
 		
 		letter-spacing: 0.3px;
 	/* Light / Gray dark */
-		color: #737B7D;
+		color: #FFFFFF;
 	}
 	.MenuFlexColx-ranking{ 
 		position: absolute;
 		width: 205px;
 		height: 40px;
-		left: 36px;
-		top: 190px;
+		left: 27px;
+		top: 123px;
 		
 		font-family: Mulish;
 		font-style: normal;
-		font-weight: normal;
-		font-size: 15px;
+		font-weight: bold;
+		font-size: 42px;
 		line-height: 40px;
 		/* identical to box height, or 333% */
 		
 		letter-spacing: 0.3px;
 		
-		color: #737B7D;
+		color: #FFFFFF;
 		
 	}
 	
