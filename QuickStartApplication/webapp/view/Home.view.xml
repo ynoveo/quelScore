@@ -131,7 +131,7 @@
                             </html:div>
 							<html:div class="MenuFlexCol4" id="userinfo">
 						
-								<html:div class="MenuFlexColx-images">		
+								<html:div class="MenuFlexCol4-images">		
 														
 									<Text class="MenuFlexColx-user" text="" id="__text_pseudo"/>
 									<Text class="MenuFlexColx-ranking" text="Classement : " id="__text_classement"/>
@@ -186,7 +186,7 @@
  						</Panel>  
          				</items>
 					</FlexBox>	           
-
+<!--
 				    <FlexBox xmlns="sap.m" width="1264px" id="__box_text2" backgroundDesign="Translucent" wrap="Wrap">
 				        <items>
 				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box2a" alignContent="Center" alignItems="Start" direction="Column" justifyContent="Center" height="150px">
@@ -200,7 +200,7 @@
 				            </items>
 				        
 				    </FlexBox>				    
-			
+	-->		
 				    
 				    <FlexBox  width="1264px" id="__box_login" height="200px">
 				        <items>
@@ -246,6 +246,7 @@
 				            </items>
 				        
 				    </FlexBox>
+            <!--  
 				    <FlexBox xmlns="sap.m" wrap="Wrap"  width="1264px" id="__box_bandeau5"  backgroundDesign="Solid" renderType="Bare" alignItems="Stretch">
 				        <items>
 				            <FlexBox xmlns="sap.m" height="200px" fitContainer="true" id="__box5a" alignContent="Center" alignItems="Center" direction="Column" justifyContent="Center">
@@ -263,6 +264,8 @@
 				            </FlexBox>
 				            </items>
 				    </FlexBox>
+
+              
 				    <FlexBox xmlns="sap.m"  width="1264px" id="__box_rules" backgroundDesign="Translucent" wrap="Wrap">
 				        <items>
 				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box6a" alignContent="Center" alignItems="Start" direction="Column" justifyContent="Center" height="200px">
@@ -278,7 +281,7 @@
 				            </items>
 				        
 				    </FlexBox>
-					
+		-->			
 
 					</html:div> 
 

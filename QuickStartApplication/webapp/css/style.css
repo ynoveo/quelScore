@@ -125,7 +125,7 @@
 	/*	width: 1440px;   */
 		width: 1366px;
 		height: 688px;
-		background-color:#E5E5E5;
+		background-color:#dceef0;
 	}
 	.myMainFlexHeader{
 		position: relative;
@@ -149,7 +149,7 @@
 		position: relative;
 		width: 1366px;
 		height: 600px;
-		background: #faf7f7;
+		background: #dceef0;
 		}
 	
 	
@@ -765,7 +765,22 @@
 		margin: 32px 0px;*/
 	
 	}
-	
+    
+    .MenuFlexCol4-images{
+		position: static;
+		left: 0px;
+		right: 0px;
+		top: 0px;
+		bottom: 108px;
+		background-image:url("../images/04-zone-vide-connectee-255x260px.png");
+		height: calc(368px - 108px);
+		width:100%;
+        vertical-align: bottom;
+        
+
+	}
+
+
 	.MenuFlexColx-titre{
 	/* Mes groupes */
 		position: static;
