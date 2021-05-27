@@ -199,7 +199,7 @@
 		font-family: Mulish;
 		font-style: normal;
 		font-weight: bold;
-		font-size: 32px;
+		font-size: 38px;
 		line-height: 40px;
 		/* or 125% */
 		
@@ -635,6 +635,20 @@
 		align-items: center;
 		padding: 0px;
 		display: none;
+		position: absolute;
+		width: 255px;
+		height: 368px;
+		left: calc(50% - 255px/2 + 427.5px);
+		top: calc(50% - 368px/2);
+	
+	}
+    
+    	.MenuFlexCol5{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 0px;
+
 		position: absolute;
 		width: 255px;
 		height: 368px;

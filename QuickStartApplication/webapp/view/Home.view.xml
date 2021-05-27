@@ -126,7 +126,7 @@
 									<Text class="MenuFlexColx-sstitre" text="Consulter le classement général et les pronostics de vos concurrents" textAlign="Center"/>
 								</html:div>	
 							</html:div>
-							<html:div class="MenuFlexCol4" id="userinfo_notconnected">
+							<html:div class="MenuFlexCol5" id="userinfo_notconnected">
                                 <html:img src="./images/04-zone-vide-deconnectee-255x368px.jpg" width="100%"/>
                             </html:div>
 							<html:div class="MenuFlexCol4" id="userinfo">
@@ -155,7 +155,7 @@
 											
 							</html:div>
 							<html:div class="RulesFlex-content">
-									<Text class="RulesFlex-content-titre" text="Les règles de ce jeu entièrement gratuit, garantissent le suspens jusqu’au dernier match"/>		
+									<Text class="RulesFlex-content-titre" text="Suspens garanti jusqu’au dernier match !"/>		
 								<html:div class="RulesFlex-content-cols">
 									<html:div class="RulesFlex-content-col">
 										<html:div class="RulesFlex-content-sstitre-icone"><html:img src="./images/05-icone1-32x32px.png" width="100%"/></html:div>

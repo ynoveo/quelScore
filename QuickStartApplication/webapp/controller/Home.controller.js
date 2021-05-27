@@ -20,7 +20,8 @@ sap.ui.define([
 			//test2
 			this.byId("__box_text1").addStyleClass("mybg");
 //			this.byId("__box_text2").addStyleClass("mybandeau2");
-			this.byId("__box2a").addStyleClass("mybandeau2a");
+/*
+            this.byId("__box2a").addStyleClass("mybandeau2a");
 			this.byId("__box2b").addStyleClass("mybandeau2b");
 			this.byId("__box3a").addStyleClass("mybandeau3a");
 			this.byId("__box3b").addStyleClass("mybandeau3b");			
@@ -33,11 +34,12 @@ sap.ui.define([
 			this.byId("__textR1").addStyleClass("myText");
 			this.byId("__textR2").addStyleClass("myText");
 			this.byId("__textR3").addStyleClass("myText");
-			this.byId("__textR4").addStyleClass("myText");
+            this.byId("__textR4").addStyleClass("myText");
 			this.byId("__box_ynoveo").addStyleClass("mybandeau7");			
 			this.byId("__text_pseudo").addStyleClass("myBlackText");
 			this.byId("__text_classement").addStyleClass("myBlackText");			
-			this.byId("__text_points").addStyleClass("myBlackText");	
+            this.byId("__text_points").addStyleClass("myBlackText");	
+            */
 			var oBusyDialog_Global = new sap.m.BusyDialog("GlobalBusyDialog");
 		},
 		onAfterRendering: function (){
@@ -59,9 +61,9 @@ sap.ui.define([
 				this.byId("__box_user_info").setVisible(true);
 				this.byId("Btn_logout").setVisible(true);
 				var myhtmlid = this.createId("userinfo");
-				document.getElementById(myhtmlid).style.display = "block";  //masquer
+                document.getElementById(myhtmlid).style.display = "block";  //afficher
 				document.getElementById(this.createId("accueil")).style.display = "none";
-				
+				document.getElementById(this.createId("userinfo_notconnected")).style.display = "none";
 				if (otModel.getProperty("/reponse/avatar")!=="AUCUN"){
 					this.byId("avatar").setSrc("./avatars/"+otModel.getProperty("/reponse/avatar"));
 				}
@@ -229,7 +231,8 @@ onLogout: function (){
 				this.byId("Btn_logout").setVisible(false);
 				var myhtmlid = this.createId("userinfo");
 				document.getElementById(myhtmlid).style.display = "none";  //masquer
-				document.getElementById(this.createId("accueil")).style.display = "block";
+                document.getElementById(this.createId("accueil")).style.display = "block";
+                document.getElementById(this.createId("userinfo_notconnected")).style.display = "block";
 //Ajouter les  évenements pour revenir interface initiale
 
 				var ogModel=sap.ui.getCore().getModel("global");
@@ -387,7 +390,8 @@ onLogon: function () {
 						oController.byId("Btn_logout").setVisible(true);
 						var myhtmlid = oController.createId("userinfo");
 						document.getElementById(myhtmlid).style.display = "block";  //masquer
-						document.getElementById(oController.createId("accueil")).style.display = "none";
+                        document.getElementById(oController.createId("accueil")).style.display = "none";
+                        document.getElementById(oController.createId("userinfo_notconnected")).style.display = "none";
 
 		    			if (otModel.getProperty("/reponse/avatar")!=="AUCUN"){
 		    				oController.byId("avatar").setSrc("./avatars/"+otModel.getProperty("/reponse/avatar"));
@@ -481,7 +485,8 @@ var dialog = new Dialog({
 							oController.byId("Btn_logout").setVisible(true);
 							var myhtmlid = oController.createId("userinfo");
 							document.getElementById(myhtmlid).style.display = "block";  //masquer
-							document.getElementById(oController.createId("accueil")).style.display = "none";							
+                            document.getElementById(oController.createId("accueil")).style.display = "none";
+                            document.getElementById(oController.createId("userinfo_notconnected")).style.display = "none";							
 			    			oController.byId("__text_pseudo").setProperty("text", otModel.getProperty("/reponse/pseudo"));
 //			    			oController.byId("__text_classement").setProperty("text", "Position au classement général : " +  otModel.getProperty("/reponse/position"));
 			    			oController.byId("__text_points").setProperty("text", " 0 point");
