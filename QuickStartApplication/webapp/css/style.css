@@ -600,7 +600,9 @@
 		top: calc(50% - 368px/2);
 	
 	}
-	
+	.MenuFlexColx-images-pron:hover{
+	background-color: whitesmoke;
+	}
 	.MenuFlexCol2{
 		display: flex;
 		flex-direction: column;
@@ -657,7 +659,130 @@
 	
 	}
 	
+	.MenuFlexColx-pron-t1{ 
+		position: absolute;
+		height: 50px;
+		left: 60px;
+		top: 20px;
+		font-family: Mulish;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 18px;
+		line-height: 40px;
+		text-align : center;
+		/* identical to box height, or 250% */
+		
+		letter-spacing: 0.2px;
+	}
 	
+	.MenuFlexColx-pron-t2{ 
+		position: absolute;
+		height: 50px;
+		left: 70px;
+		top: 180px;
+		margin-left:0px;
+		font-family: Mulish;
+		font-style: normal;
+		font-size: 18px;
+		line-height: 40px;
+		/* identical to box height, or 250% */
+		
+		letter-spacing: 0.2px;
+	}
+	
+	.MenuFlexColx-pron-t3{ 
+		position: absolute;
+		height: 50px;
+		left: 70px;
+		top: 220px;
+		margin-left:0px;
+		font-family: Mulish;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 18px;
+		line-height: 40px;
+		color: #48b9c1;
+		/* identical to box height, or 250% */
+		
+		letter-spacing: 0.2px;
+
+	}
+	
+	.MenuFlexColx-pron-f1{ 
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		left: 55px;
+		top: 85px;
+		margin-left:0px;
+		font-family: Mulish;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 18px;
+		line-height: 40px;
+		/* identical to box height, or 250% */
+		
+		letter-spacing: 0.2px;
+		
+	/* Light / Gray dark */
+		color: #FFFFFF;
+	}
+	
+	.MenuFlexColx-pron-f2{ 
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		left: 155px;
+		top: 85px;
+		margin-left:0px;
+		font-family: Mulish;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 18px;
+		line-height: 40px;
+		/* identical to box height, or 250% */
+		
+		letter-spacing: 0.2px;
+		
+	/* Light / Gray dark */
+		color: #FFFFFF;
+	}
+	
+	.MenuFlexColx-pron-e1{ 
+		position: absolute;
+		width: 100px;
+		height: 30px;
+		left: 45px;
+		top: 135px;
+		margin-left:0px;
+		font-family: Mulish;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 18px;
+		line-height: 40px;
+		/* identical to box height, or 250% */
+		
+		letter-spacing: 0.2px;
+
+	}
+	
+	.MenuFlexColx-pron-e2{ 
+		position: absolute;
+		width: 100px;
+		height: 30px;
+		left: 160px;
+		top: 135px;
+		margin-left:0px;
+		font-family: Mulish;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 18px;
+		line-height: 40px;
+		/* identical to box height, or 250% */
+		
+		letter-spacing: 0.2px;
+
+	}
 	
 	.MenuFlexColx-avatar{ 
 		position: absolute;
@@ -758,6 +883,24 @@
 		height: calc(368px - 108px);
 		width:100%;
 		vertical-align: bottom;
+		/*Inside Auto Layout 
+		flex: none;
+		order: 0;
+		flex-grow: 0;
+		margin: 32px 0px;*/
+	
+	}
+	.MenuFlexColx-images-pron{
+		position: static;
+		left: 0px;
+		right: 0px;
+		top: 0px;
+		bottom: 108px;
+		background-color: #fafbfe;
+		height: calc(368px - 108px);
+		width:100%;
+		vertical-align: bottom;
+		cursor: pointer;
 		/*Inside Auto Layout 
 		flex: none;
 		order: 0;
