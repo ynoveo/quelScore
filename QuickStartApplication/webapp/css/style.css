@@ -895,10 +895,11 @@
 		right: 0px;
 		top: 0px;
 		bottom: 108px;
-		background-color: #e6ecf8;
+		background-color: #fafbfe;
 		height: calc(368px - 108px);
 		width:100%;
 		vertical-align: bottom;
+		cursor: pointer;
 		/*Inside Auto Layout 
 		flex: none;
 		order: 0;
