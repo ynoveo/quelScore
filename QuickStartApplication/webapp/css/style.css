@@ -670,6 +670,7 @@
 		font-size: 18px;
 		line-height: 40px;
 		text-align : center;
+		cursor: pointer;
 		/* identical to box height, or 250% */
 		
 		letter-spacing: 0.2px;
@@ -685,6 +686,7 @@
 		font-style: normal;
 		font-size: 18px;
 		line-height: 40px;
+		cursor: pointer;
 		/* identical to box height, or 250% */
 		
 		letter-spacing: 0.2px;
@@ -702,6 +704,7 @@
 		font-size: 18px;
 		line-height: 40px;
 		color: #48b9c1;
+		cursor: pointer;
 		/* identical to box height, or 250% */
 		
 		letter-spacing: 0.2px;
@@ -760,6 +763,7 @@
 		font-weight: bold;
 		font-size: 18px;
 		line-height: 40px;
+		cursor: pointer;
 		/* identical to box height, or 250% */
 		
 		letter-spacing: 0.2px;
@@ -778,6 +782,7 @@
 		font-weight: bold;
 		font-size: 18px;
 		line-height: 40px;
+		cursor: pointer;
 		/* identical to box height, or 250% */
 		
 		letter-spacing: 0.2px;
