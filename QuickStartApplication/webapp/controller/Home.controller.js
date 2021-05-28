@@ -94,11 +94,6 @@ sap.ui.define([
 						
 			var oTable = this.getView().byId("__table0");
 			oTable.setModel(oModel);
-			var oModel2 = new JSONModel();
-			var sUrl2 = "https://www.quelscore.com/JSON_V2021.php?action=MATCHLIST";
-			var oTable2 = this.getView().byId("__table1");
-			oModel2.loadData(sUrl2,{},false);
-			oTable2.setModel(oModel2);
 			
 		},
 		

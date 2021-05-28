@@ -50,11 +50,11 @@
 								<html:div class="MenuFlexColx-images-pron">
 									<Text class="MenuFlexColx-pron-t1" text="Prochain match :"/>
 									<Image class="MenuFlexColx-pron-f1" src="./flag/Turkey.png" press="onNavToPronostics"/>
-									<Text class="MenuFlexColx-pron-e1" text="Turquie" press="onNavToPronostics"/>
+									<Text class="MenuFlexColx-pron-e1" text="Turquie"/>
 									<Image class="MenuFlexColx-pron-f2" src="./flag/Italy.png" press="onNavToPronostics"/>
-									<Text class="MenuFlexColx-pron-e2" text="Italie" press="onNavToPronostics"/>
-									<Text class="MenuFlexColx-pron-t2" text="Pariez avant" press="onNavToPronostics"/>
-									<Text class="MenuFlexColx-pron-t3" text="2j 15h 42min" press="onNavToPronostics"/>
+									<Text class="MenuFlexColx-pron-e2" text="Italie"/>
+									<Text class="MenuFlexColx-pron-t2" text="Pariez avant"/>
+									<Text class="MenuFlexColx-pron-t3" text="2j 15h 42min"/>
 								</html:div>	
 								<html:div class="MenuFlexColx-titres">
 									<Text class="MenuFlexColx-titre" text="Mes pronostics"/>
