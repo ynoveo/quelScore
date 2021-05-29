@@ -122,6 +122,7 @@
 														
 									<Text class="MenuFlexColx-user" text="" id="__text_pseudo" textAlign="Center"/>
 									<Text class="MenuFlexColx-ranking" text="" id="__text_classement" textAlign="Center"/>
+                                    <Text class="MenuFlexColx-rank_lbl" text="Classement général" id="__text_ranking_lbl" textAlign="Center"/>
 									<Text class="MenuFlexColx-nbpoints" text="" id="__text_points" textAlign="Center"/>
 									<f:Avatar class="MenuFlexColx-avatar" id="avatar" press="onAvatar"/>				                 	                								
 							
@@ -188,7 +189,7 @@
 				        
 				    </FlexBox>				    
 	-->		
-				    
+			 <!-- 	    
 				    <FlexBox  width="1264px" id="__box_login" height="200px">
 				        <items>
 				            <FlexBox xmlns="sap.m" width="50%" id="__box3a" alignContent="Center" alignItems="Center" justifyContent="Center">
@@ -203,6 +204,7 @@
 				    </FlexBox>
 				        </items>
 				    </FlexBox>
+                   
 				    <FlexBox xmlns="sap.m" visible="false"  width="1264px" id="__box_user_info" height="200px" backgroundDesign="Translucent">
 				        <items>
 				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box4a" alignContent="Center" alignItems="Center" direction="Column" justifyContent="Center">
@@ -233,7 +235,7 @@
 				            </items>
 				        
 				    </FlexBox>
-    <!-- 					
+    					
 				    <FlexBox xmlns="sap.m" wrap="Wrap"  width="1264px" id="__box_bandeau5"  backgroundDesign="Solid" renderType="Bare" alignItems="Stretch">
 				        <items>
 				            <FlexBox xmlns="sap.m" height="200px" fitContainer="true" id="__box5a" alignContent="Center" alignItems="Center" direction="Column" justifyContent="Center">

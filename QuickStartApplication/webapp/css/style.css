@@ -139,8 +139,8 @@
 	
 	.MenuFlex{
 		position: relative;
-		width: 1366px;
-		height: 390px;
+		width: 1366px;  
+		height: 490px;
 		background: #FFFFFF;
 	}
 	
@@ -470,7 +470,8 @@
 		margin: 0px 24px;
 	}
 	.myMainFlexContent-bouton-login:hover{
-	background-color: whitesmoke;
+    background-color: whitesmoke;
+    cursor: pointer;
 	}
 	.myMainFlexContent-bouton-inscription{
 	/* contained / default */
@@ -496,7 +497,8 @@
 		margin: 0px 24px;
 	}
 	.myMainFlexContent-bouton-inscription:hover{
-		background: #2752a0;
+        background: #2752a0;
+        cursor: pointer;
 	}
 	.myMainFlexContent-bouton-inscription-label{
 	/* label */
@@ -801,13 +803,13 @@
 		width: 130px;
 		height: 50px;
 		left: 62px;
-		top: 66px;
+		top: 80px;
 		margin-left:0px;
 		font-family: Mulish;
 		font-style: normal;
 		font-weight: bold;
 		font-size: 18px;
-		line-height: 40px;
+		line-height: 18px;
 		/* identical to box height, or 250% */
 		
 		letter-spacing: 0.2px;
@@ -847,11 +849,27 @@
 		/* identical to box height, or 333% */
 		
 		letter-spacing: 0.3px;
-		
 		color: #FFFFFF;
-		
 	}
-	
+    
+    	.MenuFlexColx-rank_lbl{ 
+		position: absolute;
+		width: 205px;
+		height: 20px;
+		left: 27px;
+		top: 163px;
+		
+		font-family: Mulish;
+		font-style: italic;
+		font-weight: bold;
+		font-size: 11px;
+		line-height: 20px;
+		/* identical to box height, or 333% */
+		
+		letter-spacing: 0.3px;
+		color: #FFFFFF;
+	}
+    
 	/* title + text */
 	
 	.MenuFlexColx-titres{

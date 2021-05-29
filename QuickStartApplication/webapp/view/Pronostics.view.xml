@@ -28,8 +28,7 @@
 										<lists>
 											<FacetFilterList
 												title="{global>type}"
-												key="{global>key}"
-												multiselect="true"
+												key="{global>key}"												
 												listClose="handleListClose"
 												items="{global>values}" >
 												<items>
@@ -53,9 +52,9 @@
 										noDataText="Aucun match"
 										headerText="Matchs à venir"
 				        				width="100%"
-				        				hAlign="Center">
+				        				>
 										<columns>
-											<Column width="{remote>/flagsize}" hAlign="Left" vAlign="Center"/>
+											<Column width="{remote>/flagsize}" hAlign="Left" />
 											<Column width="{remote>/teamsize}" hAlign="Right"/>
 											<Column width="18%" hAlign="Center"/>
 											<Column width="{remote>/teamsize}" hAlign="Left"/>
@@ -66,7 +65,7 @@
 											<ColumnListItem selected="true" type="Active" press="openPopup">
 												<cells>
 													<Image src="./flag/{remote>flagA}" width="100%"/>
-													<ObjectIdentifier id="equipeA" title="{remote>txtequipeA}" text="Mon score" wrapping="false"/>
+													<ObjectIdentifier id="equipeA" title="{remote>txtequipeA}" text="Mon score"/>
 													<ObjectIdentifier
 														id="scores"
 														title="{parts: [
@@ -105,7 +104,6 @@
 											<FacetFilterList
 												title="{global>type}"
 												key="{global>key}"
-												multiselect="true"
 												listClose="handleListClose"
 												items="{global>values}" >
 												<items>
@@ -131,9 +129,9 @@
 										growing="true"
 										growingThreshold="5"
 					    				width="100%"
-					    				hAlign="Center">
+					    				>
 										<columns>
-											<Column width="{remote>/flagsize}" hAlign="Left" vAlign="Center"/>
+											<Column width="{remote>/flagsize}" hAlign="Left"/>
 											<Column width="{remote>/teamsize}" hAlign="Right"/>
 											<Column width="18%" hAlign="Center"/>
 											<Column width="{remote>/teamsize}" hAlign="Left"/>

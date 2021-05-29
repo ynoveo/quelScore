@@ -57,8 +57,8 @@ sap.ui.define([
 			//MessageToast.show("code retour = " + otModel.getProperty("/reponse/retcode"));
 			if(otModel.getProperty("/reponse/retcode") === "0") {
 
-				this.byId("__box_login").setVisible(false);
-				this.byId("__box_user_info").setVisible(true);
+		//		this.byId("__box_login").setVisible(false);
+		//		this.byId("__box_user_info").setVisible(true);
 				this.byId("Btn_logout").setVisible(true);
 				var myhtmlid = this.createId("userinfo");
                 document.getElementById(myhtmlid).style.display = "block";  //afficher
@@ -232,8 +232,8 @@ onLogout: function (){
 //			    this.byId("__button_disc").setVisible(false);
 //			    this.byId("Bt_sub").setVisible(true);
 //			    this.byId("__item0").setVisible(false);
-		    	this.byId("__box_login").setVisible(true);
-		    	this.byId("__box_user_info").setVisible(false);
+//		    	this.byId("__box_login").setVisible(true);
+//		    	this.byId("__box_user_info").setVisible(false);
 				this.byId("Btn_logout").setVisible(false);
 				var myhtmlid = this.createId("userinfo");
 				document.getElementById(myhtmlid).style.display = "none";  //masquer
@@ -391,8 +391,8 @@ onLogon: function () {
 		    			oController.byId("Bt_sub").setVisible(false);
 		    			oController.byId("__item0").setVisible(true);
 */
-		    			oController.byId("__box_login").setVisible(false);
-		    			oController.byId("__box_user_info").setVisible(true);
+//		    			oController.byId("__box_login").setVisible(false);
+//		    			oController.byId("__box_user_info").setVisible(true);
 						oController.byId("Btn_logout").setVisible(true);
 						var myhtmlid = oController.createId("userinfo");
 						document.getElementById(myhtmlid).style.display = "block";  //masquer
@@ -487,8 +487,8 @@ var dialog = new Dialog({
 //			    			oController.byId("Bt_sub").setVisible(false);
 //			    			oController.byId("__item0").setVisible(true);
 
-			    			oController.byId("__box_login").setVisible(false);
-			    			oController.byId("__box_user_info").setVisible(true);
+//			    			oController.byId("__box_login").setVisible(false);
+//			    			oController.byId("__box_user_info").setVisible(true);
 							oController.byId("Btn_logout").setVisible(true);
 							var myhtmlid = oController.createId("userinfo");
 							document.getElementById(myhtmlid).style.display = "block";  //masquer
