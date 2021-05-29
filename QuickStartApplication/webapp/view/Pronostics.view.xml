@@ -11,6 +11,7 @@
 					<Button icon="sap-icon://media-play" tooltip="Page suivante" press="onNext" />
 				</headerContent>
 				<content>
+                    <FlexBox alignItems="Center" justifyContent="Center">
 					<Carousel id="carousel" class="sapUiResponsiveContentPadding" loop="true" pageIndicatorPlacement="Top">
 						<ScrollContainer height="100%" width="100%"
 							horizontal="false" vertical="true">
@@ -143,7 +144,7 @@
 											<ColumnListItem id="matchTable2_" selected="true" type="Active" press="openPopup">
 												<cells>
 													<Image src="./flag/{remoteClos>flagA}" width="100%"/>
-													<ObjectIdentifier id="equipeA2" title="{remoteClos>txtequipeA}" text="Mon score" wrapping="false"/>
+													<ObjectIdentifier id="equipeA2" title="{remoteClos>txtequipeA}" text="Mon score"/>
 													<ObjectIdentifier
 														id="scores2"
 														title="{parts: [
@@ -166,10 +167,11 @@
 							</VBox>
 						</ScrollContainer>
 						<ScrollContainer height="100%" width="100%"
-							horizontal="false" vertical="true" id="classementGroupe" title="Classement des groupes">
+							horizontal="false" vertical="true" id="classementGroupe">
 							
 						</ScrollContainer>
 					</Carousel>
+                    </FlexBox>
 				</content>
 			</Page>
 		</pages>

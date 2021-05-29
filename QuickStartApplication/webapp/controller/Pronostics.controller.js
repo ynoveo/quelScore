@@ -15,7 +15,11 @@ sap.ui.define([
 	return Controller.extend("QuickStartApplication.controller.Pronostics", {
 
 		onInit: function() {
-//
+//                  Si l'écran est trop grand on limite la taille du caroussel
+                if (screen.width>1250) {
+                    this.getView().byId("carousel").setWidth('1250px');
+                }
+
 //
 			// Récupération du paramètre passé à la vue
 			sap.ui.core.UIComponent.getRouterFor(this).getRoute("mesPronostics").attachPatternMatched(this.onUserMatched, this);
