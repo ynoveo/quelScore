@@ -675,7 +675,7 @@ sap.ui.define([
 		getGroup: function (oContext){
 			var sKey = oContext.getProperty("sortdate");
 			var sPhase = oContext.getProperty("phase");
-			var x = ["A", "B","C","D","E","F","G","H"];
+			var x = ["A", "B","C","D","E","F"];
 			if(x.indexOf(sPhase) !== -1){
 				var suffixe="Match de groupe";
 			}else{

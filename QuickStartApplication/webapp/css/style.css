@@ -1020,7 +1020,7 @@
 		right: 0px;
 		top: 0px;
 		width: 375px;
-		background-color: teal;
+        background-image: url("../images/01-entete-375x44px.jpg");
 	}
 	
 	
@@ -1050,7 +1050,7 @@
 	
 	.Phone-myMainFlexHeader-disconnect{
 		position: absolute;
-		width: 150px;
+		width: 50px;
 		height: 32px;
 		right: 10px;
 		top: calc(50% - 32px/2);
@@ -1064,7 +1064,7 @@
 		position: relative;
 		width: 375px;
 		height: 480px;
-		background-color:#E5E5E5;
+		background-color:#dceef0;
 	}
 	
 	.Phone-myMainFlexContent-image{
@@ -1074,15 +1074,15 @@
 		width: 365px;
 		right: 5px;
 	/*	right: 735px;*/
-		top: 5px;
-		background-color: #e6ecf8;
+        top: 5px;
+       background-image: url("../images/02-bloc-inscription-355x220px.png");
 	}
 	.Phone-myMainFlexContent-img{
 	position: absolute;
-	width: 40%px;
-	height: 40px;
-	left: calc(50% - 59px/2);
-	top: calc(50% - 40px/2);
+	width: 355px;
+	height: 220px;
+	left: calc(50% - 355px/2);
+	top: calc(50% - 220px/2);
 	opacity: 0.1;
 	/* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)), drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); */
 	}
@@ -1371,7 +1371,7 @@
 	/*	left: 15px;
 		right: 165px;
         top: calc(50% - 440px/2); */
-        background-color: #e6ecf8;
+        background-image: url("../images/07-regles-345x345px.png");
 	}
 	.Phone-RulesFlex-img{
 		position: absolute;
@@ -1490,7 +1490,7 @@
 		height: 32px;
 		left: 0px;
 		top: 0px;
-		background-color: #e6ecf8;
+
 		
 		/* Inside Auto Layout */
 		

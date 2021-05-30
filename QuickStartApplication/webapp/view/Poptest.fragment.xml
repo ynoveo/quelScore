@@ -1,0 +1,13 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+	<Popover
+		id="myPopover"
+		title="Statistique"
+		class="sapUiResponsivePadding--header sapUiResponsivePadding--footer"
+		placement="Bottom" >
+		<html:iframe src="https://ynoveo-apps.fr/" style="height:400px;width:600px;"></html:iframe>
+ 
+	</Popover>
+</core:FragmentDefinition>

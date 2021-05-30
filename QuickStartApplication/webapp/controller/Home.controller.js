@@ -6,9 +6,10 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/m/MessageToast",
 	"sap/m/Input",
-	"sap/m/Label"
+    "sap/m/Label",
+    'sap/ui/core/Fragment'
 	
-], function (Controller, Dialog, Button, Text, JSONModel, MessageToast, Input, Label) {
+], function (Controller, Dialog, Button, Text, JSONModel, MessageToast, Input, Label, Fragment) {
 	"use strict";
 	return Controller.extend("QuickStartApplication.controller.Home", {
 
@@ -572,7 +573,29 @@ var dialog = new Dialog({
 
 			dialog.open();
 		},
-		
+
+        
+handlePopoverPress: function (oEvent) {
+			var oButton = oEvent.getSource(),
+				oView = this.getView();
+
+			// create popover
+			if (!this._pPopover) {
+				this._pPopover = Fragment.load({
+					id: oView.getId(),
+					name: "QuickStartApplication.view.Poptest",
+					controller: this
+				}).then(function(oPopover) {
+					oView.addDependent(oPopover);
+					return oPopover;
+				});
+			}
+			this._pPopover.then(function(oPopover) {
+				oPopover.openBy(oButton);
+			});
+		},
+
+
 verifMail: function(oMail) {
 // !! Cette fonction ne fonctionne pas !!
 		   var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;

@@ -8,6 +8,7 @@
 		<pages><Page showHeader="false" showFooter="false">
 				
 				<content>
+                                  	<Button text="Test"	press="handlePopoverPress" />
 				    <FlexBox width="100%" id="__box_text1" visible="false">
 				        <items>
 				        	<Text text=" " id="textvide"/>
@@ -173,7 +174,9 @@
 						</content>
  						</Panel>  
          				</items>
-					</FlexBox>	           
+					</FlexBox>	       
+  
+
 <!--
 				    <FlexBox xmlns="sap.m" width="1264px" id="__box_text2" backgroundDesign="Translucent" wrap="Wrap">
 				        <items>

@@ -14,17 +14,17 @@
 				        	<Text text=" " id="textvide" visible="false"/>
 				        </items>
 				    </FlexBox>	
-				<!-- modif bidon -->
+
                 	<html:div align="center">	
 
 						<html:div class="Phone-myMainFlexHeader">
-								<html:div class="Phone-myMainFlexHeader-Logo">Quelscore.com</html:div>
-								<html:div class="Phone-myMainFlexHeader-disconnect"><Button visible="false" text="Deconnexion" width="150px" id="Btn_logout" icon="sap-icon://disconnected" type="Reject" press="onLogout"/></html:div>
+								<html:div class="Phone-myMainFlexHeader-Logo"></html:div>
+								<html:div class="Phone-myMainFlexHeader-disconnect"><Button visible="false" text="" width="50px" id="Btn_logout" icon="sap-icon://disconnected" type="Reject" press="onLogout"/></html:div>
 						</html:div>
 
 						<html:div class="Phone-myMainFlex" id="accueil">
 		
-							<html:div class="Phone-myMainFlexContent-image" id="FlexContent-images"><html:img src="./images/imgeuro.jpeg" class="Phone-myMainFlexContent-img"/></html:div>
+							<html:div class="Phone-myMainFlexContent-image" id="FlexContent-images"></html:div>
 		
 							<html:div class="Phone-myMainFlexContent" id="FlexContent">
 							
@@ -54,6 +54,7 @@
 						</html:div> 
 
 						<html:div class="Phone-MenuFlex">
+                        <!--
 							<html:div class="Phone-MenuFlexColx QSnodisplay" id="userinfo" style="display: none">						
 								<html:div class="MenuFlexColx-images">		
 														
@@ -68,8 +69,29 @@
 									<Text class="MenuFlexColx-titre" text="Mes infos"/>
 									<Text class="MenuFlexColx-sstitre" text="cliquez sur votre avatar pour le modifier" textAlign="Center"/>								
 								</html:div>	
+							
+							</html:div>
+-->	
+                            <html:div class="MenuFlexColx QSnodisplay" id="userinfo" style="display: none">					
+								<html:div class="MenuFlexCol4-images">		
+														
+									<Text class="MenuFlexColx-user" text="" id="__text_pseudo" textAlign="Center"/>
+									<Text class="MenuFlexColx-ranking" text="" id="__text_classement" textAlign="Center"/>
+                                    <Text class="MenuFlexColx-rank_lbl" text="Classement général" id="__text_ranking_lbl" textAlign="Center"/>
+									<Text class="MenuFlexColx-nbpoints" text="" id="__text_points" textAlign="Center"/>
+									<f:Avatar class="MenuFlexColx-avatar" id="avatar" press="onAvatar"/>				                 	                								
+							
+								</html:div>	
+							
+								<html:div class="MenuFlexColx-titres">
+									<Text class="MenuFlexColx-titre" text="Mes infos"/>
+									<Text class="MenuFlexColx-sstitre" text="cliquez sur votre avatar pour le modifier" textAlign="Center"/>								
+								</html:div>	
 								
 							</html:div>
+
+
+
 							<html:div class="Phone-MenuFlexColx">
 								<html:div class="MenuFlexColx-images">
                                     <ScrollContainer height="100%" vertical="true">
@@ -101,7 +123,8 @@
 	
 							<html:div class="Phone-MenuFlexColx">
 								<html:div class="MenuFlexColx-images">
-									<Button text="Mes groupes" width="255px" id="btn_grps" icon="sap-icon://family-care" press="onNavToGroupe"/>
+                             <html:a href="javascript:sap.ui.getCore().byId('__component0---HomePhoneID').getController().onNavToGroupe();" ><html:img src="./images/03-mes-groupes-255x260px.jpg"/></html:a>   
+					
 								</html:div>	
 								<html:div class="MenuFlexColx-titres">
 									<Text class="MenuFlexColx-titre" text="Mes groupes"/>
@@ -151,7 +174,9 @@
 									<Text class="MenuFlexColx-sstitre" text="Consulter le classement général et les pronostics de vos concurrents" textAlign="Center"/>
 								</html:div>	
 							</html:div>
-							
+							<html:div class="MenuFlexCol5" id="userinfo_notconnected">
+                                <html:img src="./images/04-zone-vide-deconnectee-255x260px.jpg" width="100%"/>
+                            </html:div>
 							
 
 						</html:div>
@@ -163,15 +188,15 @@
 	<!--						
 							<html:div class="RulesFlex-content">
 	-->						
-							<Text class="Phone-RulesFlex-content-titre" text="Les règles de ce jeu entièrement gratuit, garantissent le suspens jusqu’au dernier match"/>		
+							<Text class="Phone-RulesFlex-content-titre" text="Suspens garanti jusqu’au dernier match !"/>		
 
 							<html:div class="Phone-RulesFlex-content-cols">
 								<html:div class="Phone-RulesFlex-content-col">
-									<html:div class="Phone-RulesFlex-content-sstitre-icone"></html:div>
+									<html:div class="Phone-RulesFlex-content-sstitre-icone"><html:img src="./images/05-icone1-32x32px.png" width="100%"/></html:div>
 									<Text class="Phone-RulesFlex-content-sstitre" text="Pour chaque match vous pronostiquez le score , vous gagnez des points en fonction du résultat du match"/>
 								</html:div>
 								<html:div class="Phone-RulesFlex-content-col RulesFlexMargin">
-									<html:div class="Phone-RulesFlex-content-sstitre-icone"></html:div>
+									<html:div class="Phone-RulesFlex-content-sstitre-icone"><html:img src="./images/06-icone2-32x32px.png" width="100%"/></html:div>
 									<Text class="Phone-RulesFlex-content-sstitre" text="Vous pouvez changer votre pronostics jusqu’au début du match, et adapter votre stratégie pour terminer 1er."/>
 								</html:div>
 							</html:div>
@@ -201,97 +226,7 @@
          				</items>
 					</FlexBox>	           
 
-				    <FlexBox xmlns="sap.m" width="1264px" id="__box_text2" backgroundDesign="Translucent" wrap="Wrap">
-				        <items>
-				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box2a" alignContent="Center" alignItems="Start" direction="Column" justifyContent="Center" height="150px">
-				                <items>
-				                    </items>
-				            </FlexBox>
-				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box2b" justifyContent="Center" alignContent="Center" alignItems="Center" direction="Column" height="150px">
-				                <items>
-				                    </items>
-				            </FlexBox>
-				            </items>
-				        
-				    </FlexBox>				    
-			
-				    
-				    <FlexBox  width="1264px" id="__box_login" height="200px">
-				        <items>
-				            <FlexBox xmlns="sap.m" width="50%" id="__box3a" alignContent="Center" alignItems="Center" justifyContent="Center">
-				        <items>
-				            <Button text="Inscription" width="150px" id="__button0" activeIcon="sap-icon://account" icon="sap-icon://account" type="Emphasized" press="onSubscribe"/>
-				        </items>
-				    </FlexBox>
-				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box3b" justifyContent="Center" alignContent="Center" alignItems="Center">
-				        <items>
-				            <Button xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Connexion" width="150px" id="__button0_copy" activeIcon="sap-icon://log" icon="sap-icon://log" type="Accept" press="onLogon"/>
-				        </items>
-				    </FlexBox>
-				        </items>
-				    </FlexBox>
-				    <FlexBox xmlns="sap.m" visible="false"  width="1264px" id="__box_user_info" height="200px" backgroundDesign="Translucent">
-				        <items>
-				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box4a" alignContent="Center" alignItems="Center" direction="Column" justifyContent="Center">
-				                <items>
-				                	<f:Avatar id="avatar_old" press="onAvatar"/>
-				                    <Text text="" id="__text_pseudo_old"/>
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Classement : " id="__text_classement_old"/>
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Nb de points : " id="__text_points_old" />
-				                    
-									
-									
-		
-									
-									</items>
-				                
-				            </FlexBox>
-				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box4b" justifyContent="Center" alignContent="Center" alignItems="Center" direction="Column">
-				                
-				            <items>
-				                
-				                <Button text="Mes pronostics" width="150px" id="__button1" icon="sap-icon://activities" press="onNavToPronostics"/>
-				                <Button xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Mes groupes" width="150px" id="__button1_copy" icon="sap-icon://family-care" press="onNavToGroupe"/>                
-				                <Button xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Classement" width="150px" id="__button1_copy2" icon="sap-icon://leads" press="onNavToCompte"/>
-				                <Button xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Deconnexion" width="150px" id="__button0_logout" icon="sap-icon://disconnected" type="Reject" press="onLogout"/>
-				            </items>
-				                
-				            </FlexBox>
-				            </items>
-				        
-				    </FlexBox>
-				    <FlexBox xmlns="sap.m" wrap="Wrap"  width="1264px" id="__box_bandeau5"  backgroundDesign="Solid" renderType="Bare" alignItems="Stretch">
-				        <items>
-				            <FlexBox xmlns="sap.m" height="200px" fitContainer="true" id="__box5a" alignContent="Center" alignItems="Center" direction="Column" justifyContent="Center">
-				                <items>
-				                    <Text text="100% Gratuit" id="__textR1" />
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__textR2" text="Facile à utiliser"/>
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__textR3" text="Du suspens jusqu'au dernier match"/>
-				                    <Text xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__textR4" text="Changer vos pronostics jusqu'à la dernière seconde avant le début du match" textAlign="Center" />
-				                </items>
-				            </FlexBox>
-				            <FlexBox fitContainer="true" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" height="200px" id="__box5b" justifyContent="Center">
-				                <items>
-             			
-				                </items>
-				            </FlexBox>
-				            </items>
-				    </FlexBox>
-				    <FlexBox xmlns="sap.m"  width="1264px" id="__box_rules" backgroundDesign="Translucent" wrap="Wrap">
-				        <items>
-				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box6a" alignContent="Center" alignItems="Start" direction="Column" justifyContent="Center" height="200px">
-				                <items>
-				                    </items>
-				                
-				            </FlexBox>
-				            <FlexBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="50%" id="__box6b" justifyContent="Center" alignContent="Center" alignItems="Center" direction="Column" height="200px">
-				                
-				                <items>
-				                    </items>
-				            </FlexBox>
-				            </items>
-				        
-				    </FlexBox>
+				   
 					
 
 					</html:div> 
