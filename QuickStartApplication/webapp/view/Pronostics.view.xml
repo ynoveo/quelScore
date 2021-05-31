@@ -11,7 +11,7 @@
 					<Button icon="sap-icon://media-play" tooltip="Page suivante" press="onNext" />
 				</headerContent>
 				<content>
-                    <FlexBox alignItems="Center" justifyContent="Center">
+                    
 					<Carousel id="carousel" class="sapUiResponsiveContentPadding" loop="true" pageIndicatorPlacement="Top">
 						<ScrollContainer height="100%" width="100%"
 							horizontal="false" vertical="true">
@@ -159,7 +159,7 @@
 							
 						</ScrollContainer>
 					</Carousel>
-                    </FlexBox>
+                    
 				</content>
 			</Page>
 		</pages>
