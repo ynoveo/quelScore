@@ -72,7 +72,7 @@
 							
 							</html:div>
 -->	
-                            <html:div class="MenuFlexColx QSnodisplay" id="userinfo" style="display: none">					
+                            <html:div class="Phone-MenuFlexColx QSnodisplay" id="userinfo" style="display: none">					
 								<html:div class="MenuFlexCol4-images">		
 														
 									<Text class="MenuFlexColx-user" text="" id="__text_pseudo" textAlign="Center"/>
@@ -92,33 +92,20 @@
 
 
 
-							<html:div class="Phone-MenuFlexColx">
-								<html:div class="MenuFlexColx-images">
-                                    <ScrollContainer height="100%" vertical="true">
-                                        <List items="{path: '/match'}" id="__table1" press="onNavToPronostics">
-                                            <CustomListItem press="onNavToPronostics">
-                                                <VBox>
-                                                    <Text text="{matchdate} - {heurematch}" maxLines="0" textAlign="Left"/>
-                                                    <HBox>
-                                                        <VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" width="50%">
-                                                            <Image src="./flag/{flagA}" width="20%"/>
-                                                            <Text text="{txtequipeA}" maxLines="0"/>
-                                                        </VBox>
-                                                        <VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" width="50%">
-                                                            <Image src="./flag/{flagB}" width="20%"/>
-                                                            <Text text="{txtequipeB}" maxLines="0"/>
-                                                        </VBox>
-                                                    </HBox>
-                                                </VBox>
-                                            </CustomListItem>
-                                        </List>
-                                    </ScrollContainer>
-
-								</html:div>	
-								<html:div class="MenuFlexColx-titres">
-									<Text class="MenuFlexColx-titre" text="Mes pronostics"/>
-									<Text class="MenuFlexColx-sstitre" text="Modifier et visualiser vos pronostics et les statistiques" textAlign="Center"/>									
-								</html:div>	
+							<html:div class="Phone-MenuFlexColx" onclick="sap.ui.getCore().byId('__component0---HomePhoneID').getController().onNavToPronostics()">
+									<html:div class="MenuFlexColx-images-pron">
+										<Text class="MenuFlexColx-pron-t1" text="Prochain pronostic" textAlign="Center"/>
+										<Image id="flagA" class="MenuFlexColx-pron-f1" src="./flag/Turkey.png" press="onNavToPronostics"/>
+										<Text id="equipeA" class="MenuFlexColx-pron-e1" text="Turquie" textAlign="Center"/>
+										<Image id="flagB" class="MenuFlexColx-pron-f2" src="./flag/Italy.png" press="onNavToPronostics"/>
+										<Text id="equipeB" class="MenuFlexColx-pron-e2" text="Italie" textAlign="Center"/>
+										<Text class="MenuFlexColx-pron-t2" text="Il reste"  textAlign="Center"/>
+										<Text id="tempsRestant" class="MenuFlexColx-pron-t3" text="2j 15h 42min"  textAlign="Center"/>
+									</html:div>	
+									<html:div class="MenuFlexColx-titres">
+										<Text class="MenuFlexColx-titre" text="Mes pronostics"/>
+										<Text class="MenuFlexColx-sstitre" text="Modifier et visualiser vos pronostics et les statistiques" textAlign="Center"/>									
+									</html:div>
 							</html:div>
 	
 							<html:div class="Phone-MenuFlexColx">
@@ -174,9 +161,6 @@
 									<Text class="MenuFlexColx-sstitre" text="Consulter le classement général et les pronostics de vos concurrents" textAlign="Center"/>
 								</html:div>	
 							</html:div>
-							<html:div class="MenuFlexCol5" id="userinfo_notconnected">
-                                <html:img src="./images/04-zone-vide-deconnectee-255x260px.jpg" width="100%"/>
-                            </html:div>
 							
 
 						</html:div>

@@ -64,7 +64,10 @@ sap.ui.define([
 				var myhtmlid = this.createId("userinfo");
                 document.getElementById(myhtmlid).style.display = "block";  //afficher
 				document.getElementById(this.createId("accueil")).style.display = "none";
-				document.getElementById(this.createId("userinfo_notconnected")).style.display = "none";
+				var url = window.location.href;
+				if (url.indexOf('HomePhone') == -1){
+					document.getElementById(this.createId("userinfo_notconnected")).style.display = "none";
+				}
 				if (otModel.getProperty("/reponse/avatar")!=="AUCUN"){
 					this.byId("avatar").setSrc("./avatars/"+otModel.getProperty("/reponse/avatar"));
 				}
@@ -96,6 +99,36 @@ sap.ui.define([
 			var oTable = this.getView().byId("__table0");
 			oTable.setModel(oModel);
 			
+			//prochain pronostic
+					
+			var sUrl = "https://www.quelscore.com/JSON_V2021.php?action=MATCHLIST&pronoOuvert=Y";
+			var oModelpron = new JSONModel();
+			oModelpron.loadData(sUrl,{},false);
+			this.byId("equipeA").setProperty("text", oModelpron.oData.match[0].txtequipeA);
+			this.byId("equipeB").setProperty("text", oModelpron.oData.match[0].txtequipeB);
+			this.byId("flagA").setSrc("./flag/"+oModelpron.oData.match[0].flagA);
+			this.byId("flagB").setSrc("./flag/"+oModelpron.oData.match[0].flagB);
+			var __annee=oModelpron.oData.match[0].matchdate.substring(6, 10);
+			var __mois=oModelpron.oData.match[0].matchdate.substring(3, 5);
+			var __jour=oModelpron.oData.match[0].matchdate.substring(0, 2);
+			var __d = new Date(__annee,__mois-1,__jour);
+			var __d_now=new Date();
+			// get total seconds between the times
+			var delta = Math.abs(__d - __d_now) / 1000;
+
+			// calculate (and subtract) whole days
+			var days = Math.floor(delta / 86400);
+			delta -= days * 86400;
+
+			// calculate (and subtract) whole hours
+			var hours = Math.floor(delta / 3600) % 24;
+			delta -= hours * 3600;
+
+			// calculate (and subtract) whole minutes
+			var minutes = Math.floor(delta / 60) % 60;
+			delta -= minutes * 60;
+			
+			this.byId("tempsRestant").setProperty("text", days+"j "+hours+"h et "+minutes+"min");
 		},
 		
 		avatarformatter: function (avatar,pseudo) {
@@ -239,7 +272,10 @@ onLogout: function (){
 				var myhtmlid = this.createId("userinfo");
 				document.getElementById(myhtmlid).style.display = "none";  //masquer
                 document.getElementById(this.createId("accueil")).style.display = "block";
+				var url = window.location.href;
+				if (url.indexOf('HomePhone') == -1){
                 document.getElementById(this.createId("userinfo_notconnected")).style.display = "block";
+				}
 //Ajouter les  évenements pour revenir interface initiale
 
 				var ogModel=sap.ui.getCore().getModel("global");
@@ -398,8 +434,10 @@ onLogon: function () {
 						var myhtmlid = oController.createId("userinfo");
 						document.getElementById(myhtmlid).style.display = "block";  //masquer
                         document.getElementById(oController.createId("accueil")).style.display = "none";
-                        document.getElementById(oController.createId("userinfo_notconnected")).style.display = "none";
-
+						var url = window.location.href;
+						if (url.indexOf('HomePhone') == -1){
+							document.getElementById(oController.createId("userinfo_notconnected")).style.display = "none";
+						}
 		    			if (otModel.getProperty("/reponse/avatar")!=="AUCUN"){
 		    				oController.byId("avatar").setSrc("./avatars/"+otModel.getProperty("/reponse/avatar"));
 		    			}
@@ -494,8 +532,11 @@ var dialog = new Dialog({
 							var myhtmlid = oController.createId("userinfo");
 							document.getElementById(myhtmlid).style.display = "block";  //masquer
                             document.getElementById(oController.createId("accueil")).style.display = "none";
-                            document.getElementById(oController.createId("userinfo_notconnected")).style.display = "none";							
-			    			oController.byId("__text_pseudo").setProperty("text", otModel.getProperty("/reponse/pseudo"));
+							var url = window.location.href;
+							if (url.indexOf('HomePhone') == -1){
+								document.getElementById(oController.createId("userinfo_notconnected")).style.display = "none";							
+			    			}
+							oController.byId("__text_pseudo").setProperty("text", otModel.getProperty("/reponse/pseudo"));
 //			    			oController.byId("__text_classement").setProperty("text", "Position au classement général : " +  otModel.getProperty("/reponse/position"));
 			    			oController.byId("__text_points").setProperty("text", " 0 point");
 

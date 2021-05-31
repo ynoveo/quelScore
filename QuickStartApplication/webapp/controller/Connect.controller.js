@@ -14,7 +14,7 @@ sap.ui.define([
 			var url = window.location.href;
 			if (url.indexOf('Password') == -1){ //true
 			//if (window.location.href=="https://www.quelscore.com/"){
-			if (screen.width<1366) {
+			if (screen.width<1250) {
 			//if (sap.ui.Device.system.phone) {
             	sap.ui.core.UIComponent.getRouterFor(this).navTo("HomePhone");
             } else {
