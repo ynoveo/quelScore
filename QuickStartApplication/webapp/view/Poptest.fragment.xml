@@ -7,8 +7,9 @@
 		title="Statistique"
 		class="sapUiResponsivePadding--header sapUiResponsivePadding--footer"
 		placement="Bottom" >
-        <Text text="{remote>txtequipeA}"/>         <Text text="test" id="untest"/>
-		<html:iframe src="https://ynoveo-apps.fr/" style="height:400px;width:600px;"></html:iframe>
+        <Text text="test" id="untest" visible="false"/>
+        <!-- ajouter au controler la recherche de l'id ifrm puis définir l'url https://ynoveo-apps.fr/?idmatch -->
+		<html:iframe src="https://ynoveo-apps.fr/" style="height:100%;width:100p%;" id="ifrm"></html:iframe>
  
 	</Popover>
 </core:FragmentDefinition>

@@ -800,14 +800,18 @@ sap.ui.define([
 					name: "QuickStartApplication.view.Poptest",
 					controller: this
 				}).then(function(oPopover) {
-					oView.addDependent(oPopover);
+                    oView.addDependent(oPopover);
+                    oPopover.attachAfterOpen(function() {
+						document.getElementById(this.createId("ifrm")).src = "https://ynoveo-apps.fr/" + "?idmatch=" + + this.byId("untest").getText();
+					}, this);
 					return oPopover;
 				}.bind(this));
 			}
 			this._pPopover.then(function(oPopover) {
-                oPopover.bindElement(oCtx.getPath());
+ //               oPopover.bindElement(oCtx.getPath());
                 // passer l'id du match à la popup
                 oPopover.oParent.byId("untest").setText(oCtx.getProperty("idMatch"));
+ //               document.getElementById(oPopover.oParent.createId("ifrm")).url = "https://ynoveo-apps.fr/" + "?idmatch=" + oCtx.getProperty("idMatch") ;
 				oPopover.openBy(oButton);
 			});
 		},
