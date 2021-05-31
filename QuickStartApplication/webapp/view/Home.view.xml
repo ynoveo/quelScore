@@ -49,13 +49,13 @@
 	
 							<html:div class="MenuFlexCol1" onclick="sap.ui.getCore().byId('__component0---HomeID').getController().onNavToPronostics()">
 								<html:div class="MenuFlexColx-images-pron">
-									<Text class="MenuFlexColx-pron-t1" text="Prochain match :"/>
-									<Image class="MenuFlexColx-pron-f1" src="./flag/Turkey.png" press="onNavToPronostics"/>
-									<Text class="MenuFlexColx-pron-e1" text="Turquie"/>
-									<Image class="MenuFlexColx-pron-f2" src="./flag/Italy.png" press="onNavToPronostics"/>
-									<Text class="MenuFlexColx-pron-e2" text="Italie"/>
-									<Text class="MenuFlexColx-pron-t2" text="Pariez avant"/>
-									<Text class="MenuFlexColx-pron-t3" text="2j 15h 42min"/>
+									<Text class="MenuFlexColx-pron-t1" text="Prochain pronostic"/>
+									<Image id="flagA" class="MenuFlexColx-pron-f1" src="./flag/Turkey.png" press="onNavToPronostics"/>
+									<Text id="equipeA" class="MenuFlexColx-pron-e1" text="Turquie"/>
+									<Image id="flagB" class="MenuFlexColx-pron-f2" src="./flag/Italy.png" press="onNavToPronostics"/>
+									<Text id="equipeB" class="MenuFlexColx-pron-e2" text="Italie"/>
+									<Text class="MenuFlexColx-pron-t2" text="Il reste"/>
+									<Text id="tempsRestant" class="MenuFlexColx-pron-t3" text="2j 15h 42min"/>
 								</html:div>	
 								<html:div class="MenuFlexColx-titres">
 									<Text class="MenuFlexColx-titre" text="Mes pronostics"/>
