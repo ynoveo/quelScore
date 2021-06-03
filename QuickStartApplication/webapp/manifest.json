@@ -1,12 +1,12 @@
 {
 	"_version": "1.1.0",
 	"sap.app": {
-		"_version": "1.1.0",
+		"_version": "1.2.0",
 		"id": "QuickStartApplication",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
-			"version": "1.0.0"
+			"version": "1.2.0"
 		},
 		"title": "Quelscore Euro 2021",
 		"description": "Concours de pronostics pour l'euro 2021",
@@ -19,7 +19,7 @@
 		"dataSources": {}
 	},
 	"sap.ui": {
-		"_version": "1.1.0",
+		"_version": "1.2.0",
         "technology": "UI5",
 		"icons": {
 			"icon": "",
@@ -40,7 +40,7 @@
         "config": {
         "fullWidth": true
         },
-		"_version": "1.1.0",
+		"_version": "1.2.0",
 		"rootView": {
 			"viewName": "QuickStartApplication.view.Connect",
 			"type": "XML"
@@ -102,7 +102,7 @@
                 "name": "HomePhone",
 				"target": ["HomePhone"]
 			},{
-				"pattern": "pronostics/{idUser}/pronostics/{oPseudo}",
+				"pattern": "pronostics/{idUser}/pronostics/{oPseudo}/EURO2020",
 				"name": "mesPronostics",
 				"target": ["pronostics"]
             }, {
@@ -152,7 +152,7 @@
 				"pronostics": {
 					"viewPath": "QuickStartApplication.view",
 					"viewName": "Pronostics",
-					"viewLevel": 2
+					"viewLevel": 3
 				}, "initpass": {
 					"viewPath": "QuickStartApplication.view",
 					"viewName": "InitPassword",
@@ -191,6 +191,6 @@
 	},
 	"sap.platform.hcp": {
 		"uri": "webapp",
-		"_version": "1.1.0"
+		"_version": "1.2.0"
 	}
 }
