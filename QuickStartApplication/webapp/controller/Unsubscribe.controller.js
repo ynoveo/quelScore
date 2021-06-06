@@ -20,13 +20,10 @@ sap.ui.define([
             var passkey = decodeURIComponent(oEvent.getParameter("arguments").initkey);
 			var oController = this;
 			var dialog = new Dialog({
-				title: "Nouveau du mot de passe",
+				title: "Se Désinscrire",
 				type: "Message",
 				content: [
-					new Label({ text: "Mot de passe" }),
-                    new Input("passc", {type: "Password"}),
-                    new Label({ text: "Confirmer le Mot de passe" }),
-                    new Input("passc2", {type: "Password"})    
+					new Label({ text: "Souhaitez-vous vraiment vous désinscrire de quelscore ?" }),
 				],
 				buttons: 
 				[ 
@@ -34,12 +31,10 @@ sap.ui.define([
 				new Button({
 					id: "idValid",
 					text: "Valider",
-					type: "Accept",
+					type: "Reject",
 					press: function () {
-                        var sPass = encodeURIComponent(sap.ui.getCore().byId("passc").getValue());
-                        var sPass2 = encodeURIComponent(sap.ui.getCore().byId("passc2").getValue());
 						var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
-						var sUrl = sPreURL + "JSON_V2021.php?action=SECINIT&key=" + passkey + "&pass=" + sPass + "&passb=" + sPass2;
+						var sUrl = sPreURL + "JSON_V2021.php?action=UNSUBSCRIBE&key=" + passkey;
 						var otModel = new JSONModel();
 
 						if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
@@ -50,7 +45,7 @@ sap.ui.define([
 						oController.getView().setModel(otModel);
 						//MessageToast.show("code retour = " + otModel.getProperty("/reponse/retcode"));
 						if(otModel.getProperty("/reponse/retcode") === "0") {
-                            MessageToast.show("Mise à jour du mot de passe réussie");
+                            MessageToast.show("Demande de désinscription bien reçu, elle sera effective d'ici 24h");
                             if (screen.width<1250) {			
                                    	setTimeout(sap.ui.core.UIComponent.getRouterFor(oController).navTo("HomePhone"), 5000);
                             } else {
@@ -101,7 +96,7 @@ sap.ui.define([
         },
 		onInit: function() {
 //--------  
-            sap.ui.core.UIComponent.getRouterFor(this).getRoute("initPassword").attachPatternMatched(this.onUserMatched, this);
+            sap.ui.core.UIComponent.getRouterFor(this).getRoute("unsubscribe").attachPatternMatched(this.onUserMatched, this);
           
 //-------
 

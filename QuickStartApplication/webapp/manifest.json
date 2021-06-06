@@ -115,6 +115,10 @@
 				"name": "initPassword",
 				"target": ["initpass"]
             },{
+				"pattern": "unsubscribe/{initkey}",
+				"name": "unsubscribe",
+				"target": ["unsubscribe"]
+            },{
 				"pattern": "compte",
 				"name": "monCompte",
 				"target": "compte"
@@ -161,6 +165,10 @@
 				}, "initpass": {
 					"viewPath": "QuickStartApplication.view",
 					"viewName": "InitPassword",
+					"viewLevel": 2
+                }, "unsubscribe": {
+					"viewPath": "QuickStartApplication.view",
+					"viewName": "Unsubscribe",
 					"viewLevel": 2
 				},
 				"compte": {

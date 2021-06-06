@@ -68,7 +68,7 @@
 														text="{remote>pronoA} - {remote>pronoB}"/>
 													<ObjectIdentifier id="equipeB" title="{remote>txtequipeB}" text="{parts: [{path: 'remote>points'},{path: 'remote>matchfini'}], formatter: '.nbpoints'}" />
 													<Image src="./flag/{remote>flagB}" width="100%"/>
-                                                    <Button icon="sap-icon://bbyd-dashboard" design="Emphasized" press="handlePopoverPress"/>
+                                                    <Button icon="sap-icon://bbyd-dashboard" type="Emphasized" press="handlePopoverPress" text="Stats"/>
 													<core:HTML content="{remote>commentaire}"/> 
 												</cells>
 											</ColumnListItem>
@@ -127,6 +127,7 @@
 											<Column width="{remote>/teamsize}" hAlign="Left"/>
 											<Column width="{remote>/flagsize}" hAlign="Left"/>
 											<Column demandPopin="true" minScreenWidth="9999px"/>
+                                            <Column demandPopin="true" minScreenWidth="9999px"/>
 										</columns>
 										<items>
 											<ColumnListItem id="matchTable2_" selected="true" type="Active" press="openPopup">
@@ -146,6 +147,7 @@
 														text="{remoteClos>pronoA} - {remoteClos>pronoB}"/>
 													<ObjectIdentifier id="equipeB2" title="{remoteClos>txtequipeB}" text="{parts: [{path: 'remoteClos>points'},{path: 'remoteClos>matchfini'}], formatter: '.nbpoints'}" />
 													<Image src="./flag/{remoteClos>flagB}" width="100%"/>
+                                                    <Button icon="sap-icon://bbyd-dashboard" type="Emphasized" press="handlePopoverPress" text="Stats"/>
 													<core:HTML content="{remoteClos>commentaire}"/>
 												</cells>
 											</ColumnListItem>
