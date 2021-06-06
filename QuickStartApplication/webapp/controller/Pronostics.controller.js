@@ -87,7 +87,7 @@ sap.ui.define([
 			}, this);
 	
 			//Affichage du classement des groupes
-			var x = ["A", "B","C","D","E","F","G","H"];
+			var x = ["A", "B","C","D","E","F"];
 			var i;
 			for (i = 0; i < x.length; i++) { 
 				var oModelClGroupe = new JSONModel();
@@ -803,7 +803,7 @@ sap.ui.define([
                     oView.addDependent(oPopover);
                     oPopover.attachAfterOpen(function() {
 						document.getElementById(this.createId("ifrm")).width =  Math.max(screen.width * 0.7, 375);
-						document.getElementById(this.createId("ifrm")).height = screen.height * 0.55;
+						document.getElementById(this.createId("ifrm")).height = screen.height * 0.65;
 						document.getElementById(this.createId("ifrm")).src = "https://ynoveo-apps.fr/" + "?idmatch=" + this.byId("untest").getText();
 					}, this);
 					return oPopover;
@@ -813,9 +813,9 @@ sap.ui.define([
  //               oPopover.bindElement(oCtx.getPath());
                 // passer l'id du match à la popup
                 oPopover.oParent.byId("untest").setText(oCtx.getProperty("idMatch"));
-//				
+//				oPopover.oParent.byId("carousel")
  //               document.getElementById(oPopover.oParent.createId("ifrm")).url = "https://ynoveo-apps.fr/" + "?idmatch=" + oCtx.getProperty("idMatch") ;
-				oPopover.openBy(oButton);
+				oPopover.openBy(oPopover.oParent.byId("idFacetFilter1"));
 				
 			});
 		},

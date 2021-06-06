@@ -1,5 +1,5 @@
 {
-	"_version": "1.1.0",
+	"_version": "1.2.0",
 	"sap.app": {
 		"_version": "1.2.0",
 		"id": "QuickStartApplication",
@@ -105,7 +105,12 @@
 				"pattern": "pronostics/{idUser}/pronostics/{oPseudo}/EURO2020",
 				"name": "mesPronostics",
 				"target": ["pronostics"]
-            }, {
+            }, 
+            {
+				"pattern": "pronostics2020/{idUser}/pronostics/{oPseudo}/EURO2020",
+				"name": "mesPronostics2020",
+				"target": ["pronostics"]
+            },{
 				"pattern": "initPassword/{initkey}",
 				"name": "initPassword",
 				"target": ["initpass"]
