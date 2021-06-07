@@ -111,7 +111,9 @@ sap.ui.define([
 			var __annee=oModelpron.oData.match[0].matchdate.substring(6, 10);
 			var __mois=oModelpron.oData.match[0].matchdate.substring(3, 5);
 			var __jour=oModelpron.oData.match[0].matchdate.substring(0, 2);
-			var __d = new Date(__annee,__mois-1,__jour);
+			var __heure=oModelpron.oData.match[0].heurematch.substring(0, 2);
+			var __minutes=oModelpron.oData.match[0].heurematch.substring(3, 5);
+			var __d = new Date(__annee,__mois-1,__jour,__heure,__minutes);
 			var __d_now=new Date();
 			// get total seconds between the times
 			var delta = Math.abs(__d - __d_now) / 1000;

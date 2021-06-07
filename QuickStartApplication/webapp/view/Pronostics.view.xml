@@ -6,13 +6,13 @@
 				title=""
 				showNavButton="true"
 				navButtonPress="onNavBack">
-				<headerContent>
+				<!--<headerContent
 					<Button icon="sap-icon://media-reverse" tooltip="Page précédente" press="onPrevious" />
 					<Button icon="sap-icon://media-play" tooltip="Page suivante" press="onNext" />
-				</headerContent>
+				</headerContent>-->
 				<content>
-                    
-					<Carousel id="carousel" class="sapUiResponsiveContentPadding" loop="true" pageIndicatorPlacement="Top">
+                    <HBox justifyContent="Center" renderType="Bare">
+					<Carousel id="carousel" class="sapUiResponsiveContentPadding" loop="true" pageIndicatorPlacement="Top" arrowsPlacement="PageIndicator">
 						<ScrollContainer height="100%" width="100%"
 							horizontal="false" vertical="true">
 							<VBox id="idVBox">
@@ -161,6 +161,7 @@
 							
 						</ScrollContainer>
 					</Carousel>
+					</HBox>
                     
 				</content>
 			</Page>
