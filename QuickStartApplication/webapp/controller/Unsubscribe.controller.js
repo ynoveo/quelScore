@@ -46,11 +46,7 @@ sap.ui.define([
 						//MessageToast.show("code retour = " + otModel.getProperty("/reponse/retcode"));
 						if(otModel.getProperty("/reponse/retcode") === "0") {
                             MessageToast.show("Demande de désinscription bien reçu, elle sera effective d'ici 24h");
-                            if (screen.width<1250) {			
-                                   	setTimeout(sap.ui.core.UIComponent.getRouterFor(oController).navTo("HomePhone"), 5000);
-                            } else {
-                                setTimeout(sap.ui.core.UIComponent.getRouterFor(oController).navTo("appHome"), 5000);        
-                            }          
+                           
                             // ++ redirection vers l'accueil : https://www.quelscore.com
 	    					dialog.close();
 						} else {
@@ -67,17 +63,16 @@ sap.ui.define([
 				new Button({
 					text: 'Annuler',
 					press: function () {
-                        if (screen.width<1250) {
-			            //if (sap.ui.Device.system.phone) {
-            	            sap.ui.core.UIComponent.getRouterFor(oController).navTo("HomePhone");
-                        }else{
-                            sap.ui.core.UIComponent.getRouterFor(oController).navTo("appHome");
-                        }
                         dialog.close();
 					}
 				})
 			],
 				afterClose: function() {
+                            if (screen.width<1250) {			
+                                   	setTimeout(sap.ui.core.UIComponent.getRouterFor(oController).navTo("HomePhone"), 5000);
+                            } else {
+                                setTimeout(sap.ui.core.UIComponent.getRouterFor(oController).navTo("appHome"), 5000);        
+                            }                              
 					dialog.destroy();
 				},
 				afterOpen : function(){
@@ -89,6 +84,7 @@ sap.ui.define([
 					});
 				}
 			});
+
 
 			dialog.open();
 		

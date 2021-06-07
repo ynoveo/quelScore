@@ -12,7 +12,7 @@ sap.ui.define([
 		 */
 			onInit: function() {
 			var url = window.location.href;
-			if (url.indexOf('Password') == -1){ //true
+			if (url.indexOf('Password') == -1 && url.indexOf('unsubscribe') == -1){ //true
 			//if (window.location.href=="https://www.quelscore.com/"){
 			if (screen.width<1250) {
 			//if (sap.ui.Device.system.phone) {
