@@ -134,7 +134,7 @@ sap.ui.define([
 		},
 		
 		avatarformatter: function (avatar,pseudo) {
-		if (pseudo==="GLOU" || pseudo==="JSPI"){
+		if (pseudo==="GLOU" || pseudo==="JSPI" || pseudo==="VNajean"){
 			return "./avatars/ynoveo-eo-final.png";
 		}else{
 			if (avatar==="AUCUN"){
