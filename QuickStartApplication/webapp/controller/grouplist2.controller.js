@@ -38,7 +38,7 @@ sap.ui.define([
 			this.getView().setModel(oModel);
 			this._oPage = this.byId("PageGroup");
 			if(sId === "0"){
-				this._oPage.setTitle("Classement : Top 100");	
+				this._oPage.setTitle("Classement : Top 50");	
 				this.byId("bt_reject").setVisible(false);
 				this.byId("bt_join").setVisible(false);				
 			}  else { 
@@ -133,7 +133,7 @@ sap.ui.define([
 	},
 	
 	avatarformatter: function (avatar,pseudo) {
-		if (pseudo==="GLOU" || pseudo==="JSPI" || pseudo==="VNajean"){
+		if (pseudo==="GLOU" || pseudo==="JSPI" || pseudo==="VNajean" || pseudo==="YNOVEO BOT"){
 			return "./avatars/ynoveo-eo-final.png";
 		}else{
 			if (avatar==="AUCUN"){
@@ -152,7 +152,7 @@ sap.ui.define([
 		var sLogin = ogModel.getProperty("/pseudo");
 		var sPass = ogModel.getProperty("/pwd");
 		var sPreURL = ogModel.getProperty("/preURL");
-		var sUrl = sPreURL + "JSON_V2016.php?action=DELUSER&idgroup=" + _sId + "&iduser=" + _sIdJoueur + "&email=" + sLogin + "&pass=" + sPass;	
+		var sUrl = sPreURL + "JSON_V2021.php?action=DELUSER&idgroup=" + _sId + "&iduser=" + _sIdJoueur + "&email=" + sLogin + "&pass=" + sPass;	
 		var oModel = new JSONModel();
 		var dialog = new Dialog ({
 			title: 'Confirmation de suppression',
