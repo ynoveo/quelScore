@@ -30,7 +30,7 @@
 							
 								<html:div class="Phone-myMainFlexContent-titres" id="FlexContent-titres">
 							
-									<Text class="Phone-myMainFlexContent-titre" id="textTitre" text="Concours de pronostics &#10;EURO 2021"/>
+									<Text class="Phone-myMainFlexContent-titre" id="textTitre" text="Concours de pronostics &#10;Coupe du monde 2022"/>
 									<Text class="Phone-myMainFlexContent-sstitre" id="textSoustitre" text="Défier vos collègues, vos amis , votre famille à travers un concours de pronostics"/>	
 																		
 									<html:div class="Phone-myMainFlexContent-boutons" id="FlexContent-boutons" >				
@@ -204,7 +204,7 @@
 						<content>
 
         					<Text width="325px" text="Cette application a été entièrement réalisée avec la bibliothèque SAPUI5 par Ynoveo. Pour avoir plus d'information, consulter notre offre SAP FIORI" class="sapUiMediumMarginBottom, sapUiMediumPadding, fontYnoveo"/>
-							<Image src="https://www.quelscore.com/localService/ynoveosmall.png" press="onYnoveo"/><Button icon="sap-icon://email" press="onMail"/>
+							<Image src="https://www.quelscore.com/localService/ynoveosmall.png" press="onYnoveo"/><Button icon="sap-icon://email" press="onMail"/><Button icon="sap-icon://hide" press="onSecret"/>
 						</content>
  						</Panel>  
          				</items>

@@ -6,9 +6,25 @@
 		id="myPopover"
 		title="Statistique"
 		class="sapUiResponsivePadding--header sapUiResponsivePadding--footer"
+		modal="true"
 		placement="Bottom" >
         <Text text="test" id="untest" visible="false" />
+		<Text text="test" id="idj" visible="false" />
+		<Text text="test" id="endflag" visible="false" />
         <!-- ajouter au controler la recherche de l'id ifrm puis définir l'url https://ynoveo-apps.fr/?idmatch -->
 		<html:iframe src="https://ynoveo-apps.fr/" width="375px" height="375px" id="ifrm"></html:iframe>
+	
+	<footer>
+        <Toolbar>
+            <ToolbarSpacer/>
+            <Button
+                id="close"
+                text="Fermer"
+				press="handlClosePress" 
+                />
+        </Toolbar>
+    </footer>
+
+	
 	</Popover>
 </core:FragmentDefinition>

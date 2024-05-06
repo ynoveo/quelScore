@@ -2,7 +2,7 @@
 	  xmlns:mvc="sap.ui.core.mvc" 
 	  xmlns:f="sap.f" 
 	  xmlns="sap.m" 
-	  controllerName="QuickStartApplication.controller.Home" 
+	  controllerName="QuickStartApplication.controller.Home2022" 
 	  displayBlock="true">
 	<App >
 		<pages><Page showHeader="false" showFooter="false">
@@ -28,7 +28,7 @@
 							<html:div class="myMainFlexContent" id="FlexContent">
 							
 								<html:div class="myMainFlexContent-titres" id="FlexContent-titres">
-									<Text class="myMainFlexContent-titre" id="textTitre" text="Concours de pronostics &#10;EURO 2021"/>
+									<Text class="myMainFlexContent-titre" id="textTitre" text="Concours de pronostics &#10;Coupe du monde 2022"/>
 									<Text class="myMainFlexContent-sstitre" id="textSoustitre" text="Défier vos collègues, vos amis , votre famille à travers un concours de pronostics"/>										
 									<html:div class="myMainFlexContent-boutons" id="FlexContent-boutons" >									
 										<html:Button  id="btn_ins" onclick="sap.ui.getCore().byId('__component0---HomeID').getController().onSubscribe()" class="myMainFlexContent-bouton-inscription">
@@ -166,6 +166,7 @@
 							<Toolbar height="3rem">
 								<Title text="Créé par YNOVEO"/>
 								<Button icon="sap-icon://email" press="onMail"/>
+								<Button icon="sap-icon://hide" press="onSecret"/>
 							</Toolbar>
 						</headerToolbar>
 						<content>

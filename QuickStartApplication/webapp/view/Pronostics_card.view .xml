@@ -1,0 +1,346 @@
+﻿<mvc:View xmlns:core="sap.ui.core" xmlns:grid="sap.ui.layout.cssgrid" xmlns:webc="sap.ui.webc.main" xmlns:t="sap.tnt" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f" xmlns:card="sap.f.cards" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="QuickStartApplication.controller.PronosticsCard">
+	<App>
+		<pages>
+			<Page
+				id="idPage"
+				title=""
+				showNavButton="true"
+				navButtonPress="onNavBack">
+				<content>
+					<HBox justifyContent="Center" renderType="Bare">
+					<Text text="" visible="true" id="pbiPlace"/>
+					</HBox>
+                    <HBox justifyContent="Center" renderType="Bare">
+					<!--<Carousel id="carousel" class="sapUiResponsiveContentPadding" loop="true" pageIndicatorPlacement="Top" arrowsPlacement="PageIndicator">-->
+					<IconTabBar
+						id="idIconTabBar"
+						select="handleIconTabBarSelect"
+						headerBackgroundDesign="Transparent"
+						class="sapUiResponsiveContentPadding">
+						<items>
+							<IconTabFilter text="Pronostics">		
+							
+							<f:GridList
+								width="100%"
+								class="sapUiSmallMarginBegin"
+								id="gridList"
+								headerText="Matchs à venir"
+								items="{
+											path: 'remote>/match',
+											sorter: {
+												path: 'remote>sortdate',
+												descending: false,
+												group: '.getGroup'
+											},
+											groupHeaderFactory: '.getGroupHeader'
+											
+										}"
+								noDataText="Aucun match"
+								>
+								<f:customLayout>
+									<grid:GridBoxLayout boxWidth="22.5rem" />
+								</f:customLayout>
+								<f:GridListItem>
+										<f:Card width="100%" height="100%">
+											<f:header>
+												<card:Header 
+												iconSrc="{parts: [{path: 'remote>sortdate'},{path: 'remote>encours' },{path: 'remote>matchfini' }], formatter: '.typeIcone'}"
+												title="{parts: [
+													                {path: 'remote>encours' },
+													                {path: 'remote>matchfini' },
+													                {path: 'remote>scoreA' },
+													                {path: 'remote>scoreB' },
+													                {path: 'remote>heurematch' }
+													            ],
+													            formatter: '.heureOuScore'} - {parts: [{path: 'remote>phase'}], formatter: '.typeMatch'}"
+																															/>
+											</f:header>
+											<f:content width="100%">
+												<VBox class="sapUiMediumMarginTopBottom" fitContainer="true">
+													<Table>
+														<columns>
+															<Column width="20%" hAlign="Center"/>
+															<Column width="5%" hAlign="Center"/>
+															<Column width="50%" hAlign="Center"/>
+															<Column width="15%" hAlign="Center"/>
+															<Column width="15%" hAlign="Center"/>
+														</columns>
+														<items>
+															<ColumnListItem>
+																<cells>
+																	<Image src="./flag/{remote>flagA}" width="100%"/>
+																	<Text text="" />
+																	<Text text="{remote>txtequipeA}"/>
+																	<Button
+																		id="plusA"
+																		text="{parts: [
+																				{path: 'remote>pronoA' }
+																			],
+																			formatter: '.scoreNonVide'}"
+																		type="{parts: [
+																			{path: 'remote>pronoA' },
+																			{path: 'remote>pronoB' }
+																		],
+																		formatter: '.couleurScore'}"
+																		press="onPlusMoinsScorev2"
+																		/>
+																	<Button id="moinsA" icon="sap-icon://negative" type="Transparent" press="onPlusMoinsScorev2"/>
+																</cells>
+															</ColumnListItem>
+															<ColumnListItem>
+																<cells>
+																	<Image src="./flag/{remote>flagB}" width="100%"/>
+																	<Text text="" />
+																	<Text text="{remote>txtequipeB}" />
+																	<Button
+																		text="{parts: [
+																				{path: 'remote>pronoB' }
+																			],
+																			formatter: '.scoreNonVide'}"
+																		type="{parts: [
+																			{path: 'remote>pronoB' },
+																			{path: 'remote>pronoA' }
+																		],
+																		formatter: '.couleurScore'}"
+																		press="onPlusMoinsScorev2"
+																		 id="plusB"
+																		/>
+																	<Button id="moinsB" icon="sap-icon://negative" type="Transparent" press="onPlusMoinsScorev2"/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+													<Table>
+														<columns>
+															<Column width="70%" hAlign="Left"/>
+															<Column width="30%" hAlign="Center"/>
+														</columns>
+														<items>
+															<ColumnListItem>
+																<cells>
+																	<Text text="{remote>commentaireSeul}"/>
+																	<Button icon="sap-icon://bbyd-dashboard" type="Emphasized" press="handlePopoverPress" text="Stats" id='btn_stats_prono'/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</VBox>
+											</f:content>
+										</f:Card>
+									<!--</VBox>-->
+								</f:GridListItem>
+							</f:GridList>
+						</IconTabFilter>
+						<IconTabFilter text="Résultats">
+							<f:GridList
+									width="100%"
+									class="sapUiSmallMarginBegin"
+									id="gridListClos"
+									headerText="Résultats"
+									items="{
+												path: 'remoteClos>/match',
+												sorter: {
+													path: 'remoteClos>sortdate',
+													descending: true,
+													group: '.getGroup'
+												},
+												groupHeaderFactory: '.getGroupHeader'
+												
+											}"
+									noDataText="Aucun match">
+									<f:customLayout>
+										<grid:GridBoxLayout boxWidth="22.5rem" />
+									</f:customLayout>
+									<f:GridListItem>
+											<f:Card width="100%" height="100%">
+												<f:header>
+													<card:Header
+													iconSrc="{parts: [{path: 'remoteClos>sortdate'},{path: 'remoteClos>encours' },{path: 'remoteClos>matchfini' }], formatter: '.typeIcone'}"
+													title="{parts: [
+																		{path: 'remoteClos>encours' },
+																		{path: 'remoteClos>matchfini' },
+																		{path: 'remoteClos>scoreA' },
+																		{path: 'remoteClos>scoreB' },
+																		{path: 'remoteClos>heurematch' }
+																	],
+																	formatter: '.heureOuScore'} - {parts: [{path: 'remoteClos>phase'}], formatter: '.typeMatch'}" />
+												</f:header>
+												<f:content width="100%">
+													<VBox class="sapUiMediumMarginTopBottom" fitContainer="true">
+														<Table>
+															<columns>
+																<Column width="20%" hAlign="Center"/>
+																<Column width="5%" hAlign="Center"/>
+																<Column width="50%" hAlign="Center"/>
+																<Column width="15%" hAlign="Center"/>
+																<Column width="15%" hAlign="Center"/>
+															</columns>
+															<items>
+																<ColumnListItem>
+																	<cells>
+																		<Image src="./flag/{remoteClos>flagA}" width="100%"/>
+																		<Text text="" />
+																		<Text text="{remoteClos>txtequipeA}"/>
+																		<Button
+																			enabled="false"
+																			text="{parts: [
+																					{path: 'remoteClos>pronoA' }
+																				],
+																				formatter: '.scoreNonVide'}"
+																			type="{parts: [
+																				{path: 'remoteClos>pronoA' },
+																				{path: 'remoteClos>pronoB' }
+																			],
+																			formatter: '.couleurScore'}"
+																			/>
+																		<Text text="{parts: [
+																				{path: 'remoteClos>scoreA' },
+																				{path: 'remoteClos>encours' }
+																			],
+																			formatter: '.scoreOuVide'}" />
+																	</cells>
+																</ColumnListItem>
+																<ColumnListItem>
+																	<cells>
+																		<Image src="./flag/{remoteClos>flagB}" width="100%"/>
+																		<Text text="" />
+																		<Text text="{remoteClos>txtequipeB}" />
+																		<Button
+																			enabled="false"
+																			text="{parts: [
+																					{path: 'remoteClos>pronoB' }
+																				],
+																				formatter: '.scoreNonVide'}"
+																			type="{parts: [
+																				{path: 'remoteClos>pronoB' },
+																				{path: 'remoteClos>pronoA' }
+																			],
+																			formatter: '.couleurScore'}"
+																			/>
+																		<Text text="{parts: [
+																				{path: 'remoteClos>scoreB' },
+																				{path: 'remoteClos>encours' }
+																			],
+																			formatter: '.scoreOuVide'}" />
+																	</cells>
+																</ColumnListItem>
+															</items>
+														</Table>
+														<Table>
+															<columns>
+																<Column width="20%" hAlign="Center"/>
+																<Column width="50%" hAlign="Left"/>
+																<Column width="30%" hAlign="Center"/>
+															</columns>
+															<items>
+																<ColumnListItem>
+																	<cells>
+																		<t:InfoLabel text="{remoteClos>points} pts" colorScheme="{parts: [{path: 'remoteClos>points'}], formatter: '.couleursPoints'}" />
+																		<Text text="{remoteClos>commentaireSeul}"/>
+																		<Button icon="sap-icon://bbyd-dashboard" type="Emphasized" press="handlePopoverPress" text="Stats" id='btn_stats_prono2'/>
+																	</cells>
+																</ColumnListItem>
+															</items>
+														</Table>
+													</VBox>
+												</f:content>
+											</f:Card>
+										<!--</VBox>-->
+									</f:GridListItem>
+								</f:GridList>
+						</IconTabFilter>
+						<!--<ScrollContainer height="100%" width="100%"
+							horizontal="false" vertical="true">
+							<VBox
+								id="idVBox2">
+								<items>
+									<FacetFilter
+										id="idFacetFilter2"
+										type="Light"
+										showPersonalization="true"
+										showReset="true"
+										reset="handleFacetFilterReset"
+										lists="{global>/Filters}"
+										>
+										<lists>
+											<FacetFilterList
+												title="{global>type}"
+												key="{global>key}"
+												listClose="handleListClose"
+												items="{global>values}" >
+												<items>
+													<FacetFilterItem
+														text="{global>data}"/>
+												</items>
+											</FacetFilterList>
+										</lists>
+									</FacetFilter>
+									<Table
+					    				id="matchTable2"
+					    				items="{
+											path: 'remoteClos>/match',
+											sorter: {
+												path: 'remoteClos>sortdate',
+												descending: true,
+												group: '.getGroup'
+											},
+											groupHeaderFactory: '.getGroupHeader'
+										}"
+										noDataText="Aucun match"
+										headerText="Résultats"
+										growing="true"
+										growingThreshold="5"
+					    				width="100%"
+					    				>
+										<columns>
+											<Column width="{remote>/flagsize}" hAlign="Left"/>
+											<Column width="{remote>/teamsize}" hAlign="Right"/>
+											<Column width="18%" hAlign="Center"/>
+											<Column width="{remote>/teamsize}" hAlign="Left"/>
+											<Column width="{remote>/flagsize}" hAlign="Left"/>
+											<Column demandPopin="true" minScreenWidth="9999px"/>
+                                            <Column demandPopin="true" minScreenWidth="9999px"/>
+										</columns>
+										<items>
+											<ColumnListItem id="matchTable2_" selected="true" type="Active" press="openPopup">
+												<cells>
+													<Image src="./flag/{remoteClos>flagA}" width="100%"/>
+													<ObjectIdentifier id="equipeA2" title="{remoteClos>txtequipeA}" text="Mon score"/>
+													<ObjectIdentifier
+														id="scores2"
+														title="{parts: [
+													                {path: 'remoteClos>encours' },
+													                {path: 'remoteClos>matchfini' },
+													                {path: 'remoteClos>scoreA' },
+													                {path: 'remoteClos>scoreB' },
+													                {path: 'remoteClos>heurematch' }
+													            ],
+													            formatter: '.heureOuScore'}"
+														text="{remoteClos>pronoA} - {remoteClos>pronoB}"/>
+													<ObjectIdentifier id="equipeB2" title="{remoteClos>txtequipeB}" text="{parts: [{path: 'remoteClos>points'},{path: 'remoteClos>matchfini'}], formatter: '.nbpoints'}" />
+													<Image src="./flag/{remoteClos>flagB}" width="100%"/>
+                                                    <Button icon="sap-icon://bbyd-dashboard" type="Emphasized" press="handlePopoverPress" text="Stats"/>
+													<core:HTML content="{remoteClos>commentaire}"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</items>
+							</VBox>
+						</ScrollContainer>-->
+					<IconTabFilter text="Classements" id="classementGroupe">
+							<!--<ScrollContainer height="100%" width="100%"
+								horizontal="false" vertical="true" id="classementGroupe">
+								
+							</ScrollContainer>-->
+						</IconTabFilter>
+					</items>
+					</IconTabBar>
+					<!--</Carousel>-->
+					</HBox>
+                    
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

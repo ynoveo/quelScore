@@ -1,4 +1,4 @@
-﻿<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="QuickStartApplication.controller.Pronostics">
+﻿<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="QuickStartApplication.controller.Pronostics2">
 	<App>
 		<pages>
 			<Page
@@ -68,7 +68,7 @@
 														text="{remote>pronoA} - {remote>pronoB}"/>
 													<ObjectIdentifier id="equipeB" title="{remote>txtequipeB}" text="{parts: [{path: 'remote>points'},{path: 'remote>matchfini'}], formatter: '.nbpoints'}" />
 													<Image src="./flag/{remote>flagB}" width="100%"/>
-                                                    <Button icon="sap-icon://bbyd-dashboard" type="Emphasized" press="handlePopoverPress" text="Stats"/>
+                                                    <Button icon="sap-icon://bbyd-dashboard" press="handlePopoverPress" text="Stats" id='btn_stats_prono'/>
 													<core:HTML content="{remote>commentaire}"/> 
 												</cells>
 											</ColumnListItem>
