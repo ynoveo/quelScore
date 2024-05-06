@@ -1,15 +1,15 @@
 {
-	"_version": "1.2.0",
+	"_version": "1.2.2022",
 	"sap.app": {
-		"_version": "1.2.0",
+		"_version": "1.2.2022",
 		"id": "QuickStartApplication",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
-			"version": "1.2.0"
+			"version": "1.2.2022"
 		},
-		"title": "Quelscore Euro 2021",
-		"description": "Concours de pronostics pour l'euro 2021",
+		"title": "Quelscore COUPE DU MONDE  2022",
+		"description": "Concours de pronostics pour la coupe du monde 2022",
 		"resources": "resources.json",
 		"ach": "ach",
 		"sourceTemplate": {
@@ -19,7 +19,7 @@
 		"dataSources": {}
 	},
 	"sap.ui": {
-		"_version": "1.2.0",
+		"_version": "1.2.2022",
         "technology": "UI5",
 		"icons": {
 			"icon": "",
@@ -40,7 +40,7 @@
         "config": {
         "fullWidth": true
         },
-		"_version": "1.2.0",
+		"_version": "1.2.2022",
 		"rootView": {
 			"viewName": "QuickStartApplication.view.Connect",
 			"type": "XML"
@@ -102,9 +102,18 @@
                 "name": "HomePhone",
 				"target": ["HomePhone"]
 			},{
-				"pattern": "pronostics/{idUser}/pronostics/{oPseudo}/EURO2020",
+				"pattern": "pronosticsV2022/{idUser}/pronostics/{oPseudo}/WC2022",
 				"name": "mesPronostics",
-				"target": ["pronostics"]
+				"target": ["pronostics_card"]
+            },{
+				"pattern": "pronosticsV2022/{idUser}/pronostics/{oPseudo}/TEST",
+				"name": "mesPronostics_card",
+				"target": ["pronostics_test"]
+            }, 
+			{
+				"pattern": "pronosticsVTEST/{idUser}/pronostics/{oPseudo}/Password",
+				"name": "mesPronosticsTest",
+				"target": ["pronosticstest"]
             }, 
             {
 				"pattern": "pronostics2020/{idUser}/pronostics/{oPseudo}/EURO2020",
@@ -158,9 +167,22 @@
 					"viewLevel": 2,
 					"transition": "slide"
 				},
-				"pronostics": {
+				"pronosticstest": {
 					"viewPath": "QuickStartApplication.view",
 					"viewName": "Pronostics",
+					"viewLevel": 3
+				},
+				"pronostics": {
+					"viewPath": "QuickStartApplication.view",
+					"viewName": "Pronostics2",
+					"viewLevel": 3
+				},"pronostics_card": {
+					"viewPath": "QuickStartApplication.view",
+					"viewName": "Pronostics_card",
+					"viewLevel": 3
+				},"pronostics_test": {
+					"viewPath": "QuickStartApplication.view",
+					"viewName": "Pronostics_test",
 					"viewLevel": 3
 				}, "initpass": {
 					"viewPath": "QuickStartApplication.view",
@@ -204,6 +226,6 @@
 	},
 	"sap.platform.hcp": {
 		"uri": "webapp",
-		"_version": "1.2.0"
+		"_version": "1.2.2022"
 	}
 }
