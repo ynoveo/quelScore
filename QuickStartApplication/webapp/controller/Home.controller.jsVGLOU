@@ -6,14 +6,18 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/m/MessageToast",
 	"sap/m/Input",
-    "sap/m/Label",
-    'sap/ui/core/Fragment'
+	"sap/m/Label"
 	
-], function (Controller, Dialog, Button, Text, JSONModel, MessageToast, Input, Label, Fragment) {
+], function (Controller, Dialog, Button, Text, JSONModel, MessageToast, Input, Label) {
 	"use strict";
 	return Controller.extend("QuickStartApplication.controller.Home", {
 
 		onInit: function () {
+			if (screen.width<1366) {
+			//if (sap.ui.Device.system.phone) {
+            sap.ui.core.UIComponent.getRouterFor(this).navTo("HomePhone");
+			
+            }
 			//var oModel = new JSONModel();
 //			oModel.loadData("https://www.quelscore.com/JSON_V2016.php?action=MATCHLIST&email=francois.dumont@ynoveo.fr&pass=azerty&phase=A");
 			//oModel.loadData("../webapp/localService/connect.json");
@@ -21,8 +25,7 @@ sap.ui.define([
 			//test2
 			this.byId("__box_text1").addStyleClass("mybg");
 //			this.byId("__box_text2").addStyleClass("mybandeau2");
-/*
-            this.byId("__box2a").addStyleClass("mybandeau2a");
+			this.byId("__box2a").addStyleClass("mybandeau2a");
 			this.byId("__box2b").addStyleClass("mybandeau2b");
 			this.byId("__box3a").addStyleClass("mybandeau3a");
 			this.byId("__box3b").addStyleClass("mybandeau3b");			
@@ -35,19 +38,18 @@ sap.ui.define([
 			this.byId("__textR1").addStyleClass("myText");
 			this.byId("__textR2").addStyleClass("myText");
 			this.byId("__textR3").addStyleClass("myText");
-            this.byId("__textR4").addStyleClass("myText");
+			this.byId("__textR4").addStyleClass("myText");
 			this.byId("__box_ynoveo").addStyleClass("mybandeau7");			
 			this.byId("__text_pseudo").addStyleClass("myBlackText");
 			this.byId("__text_classement").addStyleClass("myBlackText");			
-            this.byId("__text_points").addStyleClass("myBlackText");	
-            */
+			this.byId("__text_points").addStyleClass("myBlackText");	
 			var oBusyDialog_Global = new sap.m.BusyDialog("GlobalBusyDialog");
 		},
 		onAfterRendering: function (){
 		// Add JSPI : test si connexion active
 //			var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");			
 //			var sUrl = sPreURL + "JSON_V2018.php?action=CONNECT";
-			var sUrl = "https://www.quelscore.com/JSON_V2021.php?action=CONNECT";
+			var sUrl = "https://www.quelscore.com/JSON_V2018.php?action=CONNECT";
 			var otModel = new JSONModel();
 			if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
 				otModel.loadData("../webapp/localService/connect.json", {}, false);
@@ -58,32 +60,27 @@ sap.ui.define([
 			//MessageToast.show("code retour = " + otModel.getProperty("/reponse/retcode"));
 			if(otModel.getProperty("/reponse/retcode") === "0") {
 
-		//		this.byId("__box_login").setVisible(false);
-		//		this.byId("__box_user_info").setVisible(true);
+				this.byId("__box_login").setVisible(false);
+				this.byId("__box_user_info").setVisible(true);
 				this.byId("Btn_logout").setVisible(true);
 				var myhtmlid = this.createId("userinfo");
-                document.getElementById(myhtmlid).style.display = "block";  //afficher
+				document.getElementById(myhtmlid).style.display = "block";  //masquer
 				document.getElementById(this.createId("accueil")).style.display = "none";
-				var url = window.location.href;
-				if (url.indexOf('HomePhone') == -1){
-					document.getElementById(this.createId("userinfo_notconnected")).style.display = "none";
-				}
+				
 				if (otModel.getProperty("/reponse/avatar")!=="AUCUN"){
 					this.byId("avatar").setSrc("./avatars/"+otModel.getProperty("/reponse/avatar"));
 				}
 				this.byId("__text_pseudo").setProperty("text", otModel.getProperty("/reponse/pseudo"));
-    //            this.byId("__text_classement").setProperty("text", "Classement général : " +  otModel.getProperty("/reponse/position"));
-                this.byId("__text_classement").setProperty("text", otModel.getProperty("/reponse/position"));
+				this.byId("__text_classement").setProperty("text", "Classement général : " +  otModel.getProperty("/reponse/position"));
 				this.byId("__text_points").setProperty("text", otModel.getProperty("/reponse/nbpoints") + " pts");
 				
 				var ogModel=sap.ui.getCore().getModel("global");
 				ogModel.setProperty("/pseudo", otModel.getProperty("/reponse/pseudo"));
 		//		ogModel.setProperty("/pwd", sPass);
 				ogModel.setProperty("/iduser", otModel.getProperty("/reponse/iduser") );
-			} 
-// fin ajout JSPI 	
-			
-		//ajout GLOU
+			}
+// fin ajout JSPI 
+			//ajout GLOU
 			var ogModel=sap.ui.getCore().getModel("global");
 			var sLogin = ogModel.getProperty("/pseudo");
 			var sPass = ogModel.getProperty("/pwd");
@@ -98,49 +95,18 @@ sap.ui.define([
 						
 			var oTable = this.getView().byId("__table0");
 			oTable.setModel(oModel);
+			var oModel2 = new JSONModel();
+			var sUrl2 = "https://www.quelscore.com/JSON_V2021.php?action=MATCHLIST";
+			var oTable2 = this.getView().byId("__table1");
+			oModel2.loadData(sUrl2,{},false);
+			oTable2.setModel(oModel2);
 			
-			//prochain pronostic
-					
-			var sUrl = "https://www.quelscore.com/JSON_V2021.php?action=MATCHLIST&pronoOuvert=Y";
-			var oModelpron = new JSONModel();
-			oModelpron.loadData(sUrl,{},false);
-			this.byId("equipeA").setProperty("text", oModelpron.oData.match[0].txtequipeA);
-			this.byId("equipeB").setProperty("text", oModelpron.oData.match[0].txtequipeB);
-			this.byId("flagA").setSrc("./flag/"+oModelpron.oData.match[0].flagA);
-			this.byId("flagB").setSrc("./flag/"+oModelpron.oData.match[0].flagB);
-			var __annee=oModelpron.oData.match[0].matchdate.substring(6, 10);
-			var __mois=oModelpron.oData.match[0].matchdate.substring(3, 5);
-			var __jour=oModelpron.oData.match[0].matchdate.substring(0, 2);
-			var __heure=oModelpron.oData.match[0].heurematch.substring(0, 2);
-			var __minutes=oModelpron.oData.match[0].heurematch.substring(3, 5);
-			var __d = new Date(__annee,__mois-1,__jour,__heure,__minutes);
-			var __d_now=new Date();
-			// get total seconds between the times
-			var delta = Math.abs(__d - __d_now) / 1000;
-
-			// calculate (and subtract) whole days
-			var days = Math.floor(delta / 86400);
-			delta -= days * 86400;
-
-			// calculate (and subtract) whole hours
-			var hours = Math.floor(delta / 3600) % 24;
-			delta -= hours * 3600;
-
-			// calculate (and subtract) whole minutes
-			var minutes = Math.floor(delta / 60) % 60;
-			delta -= minutes * 60;
-			
-			this.byId("tempsRestant").setProperty("text", days+"j "+hours+"h et "+minutes+"min");
 		},
 		
 		avatarformatter: function (avatar,pseudo) {
-		if (pseudo==="GLOU" || pseudo==="JSPI" || pseudo==="VNajean" || pseudo==="YNOVEO BOT"){
+		if (pseudo==="GLOU" || pseudo==="JSPI"){
 			return "./avatars/ynoveo-eo-final.png";
-		}
-		else if(pseudo==="Martine"){
-			return "./avatars/Winner.png";	
-		}
-		else{
+		}else{
 			if (avatar==="AUCUN"){
 				return "";
 			}else{
@@ -148,24 +114,14 @@ sap.ui.define([
 			}
 		}
 	},
-			//fin ajout GLOU
+			//fin ajout GLOU		
 		/**
 	*@memberOf QuickStartApplication.controller.View1
 	*/
 		onNavToPronostics: function () {
 			//      This code was generated by the layout editor.
 			// on test si le user est connecté sinon on affiche un message d'erreur
-			var sUrl = "https://www.quelscore.com/JSON_V2021.php?action=CONNECT";
-			var otModel = new JSONModel();
-			if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
-				otModel.loadData("../webapp/localService/connect.json", {}, false);
-			} else {
-				otModel.loadData(sUrl, {}, false);	
-			}
 			var ogModel=sap.ui.getCore().getModel("global");
-				ogModel.setProperty("/pseudo", otModel.getProperty("/reponse/pseudo"));
-		//		ogModel.setProperty("/pwd", sPass);
-				ogModel.setProperty("/iduser", otModel.getProperty("/reponse/iduser") );
 			var sLogin = ogModel.getProperty("/pseudo");
 /*			  var oButton1 = new sap.m.Button("Submit", {
                      text: "test",
@@ -272,23 +228,19 @@ onLogout: function (){
 //			    this.byId("__button_disc").setVisible(false);
 //			    this.byId("Bt_sub").setVisible(true);
 //			    this.byId("__item0").setVisible(false);
-//		    	this.byId("__box_login").setVisible(true);
-//		    	this.byId("__box_user_info").setVisible(false);
+		    	this.byId("__box_login").setVisible(true);
+		    	this.byId("__box_user_info").setVisible(false);
 				this.byId("Btn_logout").setVisible(false);
 				var myhtmlid = this.createId("userinfo");
 				document.getElementById(myhtmlid).style.display = "none";  //masquer
-                document.getElementById(this.createId("accueil")).style.display = "block";
-				var url = window.location.href;
-				if (url.indexOf('HomePhone') == -1){
-                document.getElementById(this.createId("userinfo_notconnected")).style.display = "block";
-				}
+				document.getElementById(this.createId("accueil")).style.display = "block";
 //Ajouter les  évenements pour revenir interface initiale
 
 				var ogModel=sap.ui.getCore().getModel("global");
 				ogModel.setProperty("/pseudo", "");
 				ogModel.setProperty("/pwd", "");
 				var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
-				var sUrl = sPreURL + "JSON_V2021.php?action=DISCONNECT";
+				var sUrl = sPreURL + "JSON_V2018.php?action=DISCONNECT";
 				var otModel = new JSONModel();
 				otModel.loadData(sUrl, {}, false);
 				MessageToast.show("A bientôt");
@@ -297,94 +249,6 @@ onLogout: function (){
 
 onMail: function () {
                     sap.m.URLHelper.triggerEmail("fiori@ynoveo.fr", "SAP FIORI - quelscore", "");
- },
-
-onSecret: function () {
-			//      This code was generated by the layout editor.
-			// on test si le user est connecté sinon on affiche un message d'erreur
-			var sUrl = "https://www.quelscore.com/JSON_V2021.php?action=CONNECT";
-			var otModel = new JSONModel();
-			if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
-				otModel.loadData("../webapp/localService/connect.json", {}, false);
-			} else {
-				otModel.loadData(sUrl, {}, false);	
-			}
-			
-			var pseudo=otModel.getProperty("/reponse/pseudo");
-			if (pseudo==="GLOU" || pseudo==="JSPI"){
-			
-			var ogModel=sap.ui.getCore().getModel("global");
-				ogModel.setProperty("/pseudo", otModel.getProperty("/reponse/pseudo"));
-		//		ogModel.setProperty("/pwd", sPass);
-				ogModel.setProperty("/iduser", otModel.getProperty("/reponse/iduser") );
-			var sLogin = ogModel.getProperty("/pseudo");
-/*			  var oButton1 = new sap.m.Button("Submit", {
-                     text: "test",
-					 press: function () {
-							this.close();
-						}
-             });
-			  var oButton2 = new sap.m.Button("Submit2", {
-                     text: "test",
-					 press: function () {
-							this.close();
-						}
-             });*/
-
-				if(sLogin===""){
-					var oController = this;
-					var dialog = new Dialog({
-					title: "Identifiez-vous",
-					type: "Message",
-					content: new Text({ text: "Identifiez-vous ou inscrivez vous pour faire vos pronostics pour l'euro2016" }),
-//					
-/*					buttons: new Button({
-						text: "Fermer",
-						type: "Emphasized",
-						width: "150px",
-						press: function () {
-							dialog.close();
-						}
-						}),*/
-					buttons: [new Button({
-						text: "S'identifier",
-						type: "Accept",
-						press: function () {
-							oController.onLogon();
-							dialog.close();
-						}
-					}),
-					new Button({
-						text: "S'inscrire",
-						type: "Emphasized",
-						press: function () {
-							oController.onSubscribe();
-							dialog.close();
-						}
-					}),
-					new Button({
-						text: "Annuler",
-						type: "Reject",
-						press: function () {
-							dialog.close();
-						}
-					})],
-					
-					afterClose: function () {
-						dialog.destroy();
-					}
-				});
-				dialog.open();
-			}	else {
-				var sIdUser = ogModel.getProperty("/iduser");
-				var sPseudo = ogModel.getProperty("/pseudo");
-				sap.ui.core.UIComponent.getRouterFor(this).navTo("mesPronostics_card", { idUser: sIdUser, oPseudo: sPseudo});
-				
-						var getDialog = sap.ui.getCore().byId("GlobalBusyDialog");
-						getDialog.open();
-					
-			}
-			}
  },
 
 onYnoveo: function () {
@@ -412,7 +276,7 @@ onAvatar  : function () {
 							var selectedItem = oEvent.getParameter("selectedItem");
 							var oCells = selectedItem.getCells();
 							var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
-							var sUrl = sPreURL + "JSON_V2021.php?action=SETAVATAR&avatar=" + oCells[0].getText();
+							var sUrl = sPreURL + "JSON_V2018.php?action=SETAVATAR&avatar=" + oCells[0].getText();
 							var otModel = new JSONModel();
 							if(sap.ui.getCore().getModel("global").getProperty("/mode") !== "test") {
 									otModel.loadData(sUrl,{},false);				
@@ -500,7 +364,7 @@ onLogon: function () {
 						var sLogin = encodeURIComponent(sap.ui.getCore().byId("loginc").getValue());
 						var sPass = encodeURIComponent(sap.ui.getCore().byId("passc").getValue());
 						var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
-						var sUrl = sPreURL + "JSON_V2021.php?action=CONNECT&email=" + sLogin + "&pass=" + sPass;
+						var sUrl = sPreURL + "JSON_V2018.php?action=CONNECT&email=" + sLogin + "&pass=" + sPass;
 						var otModel = new JSONModel();
 
 						if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
@@ -522,22 +386,18 @@ onLogon: function () {
 		    			oController.byId("Bt_sub").setVisible(false);
 		    			oController.byId("__item0").setVisible(true);
 */
-//		    			oController.byId("__box_login").setVisible(false);
-//		    			oController.byId("__box_user_info").setVisible(true);
+		    			oController.byId("__box_login").setVisible(false);
+		    			oController.byId("__box_user_info").setVisible(true);
 						oController.byId("Btn_logout").setVisible(true);
 						var myhtmlid = oController.createId("userinfo");
 						document.getElementById(myhtmlid).style.display = "block";  //masquer
-                        document.getElementById(oController.createId("accueil")).style.display = "none";
-						var url = window.location.href;
-						if (url.indexOf('HomePhone') == -1){
-							document.getElementById(oController.createId("userinfo_notconnected")).style.display = "none";
-						}
+						document.getElementById(oController.createId("accueil")).style.display = "none";
+
 		    			if (otModel.getProperty("/reponse/avatar")!=="AUCUN"){
 		    				oController.byId("avatar").setSrc("./avatars/"+otModel.getProperty("/reponse/avatar"));
 		    			}
 		    			oController.byId("__text_pseudo").setProperty("text", otModel.getProperty("/reponse/pseudo"));
-//                        oController.byId("__text_classement").setProperty("text", "Classement général : " +  otModel.getProperty("/reponse/position"));
-                        oController.byId("__text_classement").setProperty("text", otModel.getProperty("/reponse/position"));
+		    			oController.byId("__text_classement").setProperty("text", "Classement général : " +  otModel.getProperty("/reponse/position"));
 		    			oController.byId("__text_points").setProperty("text", otModel.getProperty("/reponse/nbpoints") + " pts");
 		    			
 	    				var ogModel=sap.ui.getCore().getModel("global");
@@ -609,7 +469,7 @@ var dialog = new Dialog({
 						var sPass2 = encodeURIComponent(sap.ui.getCore().byId('pass2').getValue());
 						var sPseudo = encodeURIComponent(sap.ui.getCore().byId('pseudo').getValue());
 						var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
-						var sUrl = sPreURL + "JSON_V2021.php?action=INSCRIPTION&mail=" + sEmail + "&pass1=" + sPass + "&pass2=" + sPass2 + "&pseudo=" + sPseudo;
+						var sUrl = sPreURL + "JSON_V2018.php?action=INSCRIPTION&mail=" + sEmail + "&pass1=" + sPass + "&pass2=" + sPass2 + "&pseudo=" + sPseudo;
 						var otModel = new JSONModel();
 						otModel.loadData(sUrl, {},false);	
 						oController.getView().setModel(otModel);
@@ -620,17 +480,13 @@ var dialog = new Dialog({
 //			    			oController.byId("Bt_sub").setVisible(false);
 //			    			oController.byId("__item0").setVisible(true);
 
-//			    			oController.byId("__box_login").setVisible(false);
-//			    			oController.byId("__box_user_info").setVisible(true);
+			    			oController.byId("__box_login").setVisible(false);
+			    			oController.byId("__box_user_info").setVisible(true);
 							oController.byId("Btn_logout").setVisible(true);
 							var myhtmlid = oController.createId("userinfo");
 							document.getElementById(myhtmlid).style.display = "block";  //masquer
-                            document.getElementById(oController.createId("accueil")).style.display = "none";
-							var url = window.location.href;
-							if (url.indexOf('HomePhone') == -1){
-								document.getElementById(oController.createId("userinfo_notconnected")).style.display = "none";							
-			    			}
-							oController.byId("__text_pseudo").setProperty("text", otModel.getProperty("/reponse/pseudo"));
+							document.getElementById(oController.createId("accueil")).style.display = "none";							
+			    			oController.byId("__text_pseudo").setProperty("text", otModel.getProperty("/reponse/pseudo"));
 //			    			oController.byId("__text_classement").setProperty("text", "Position au classement général : " +  otModel.getProperty("/reponse/position"));
 			    			oController.byId("__text_points").setProperty("text", " 0 point");
 
@@ -679,7 +535,7 @@ var dialog = new Dialog({
 						var sEmail = encodeURIComponent(sap.ui.getCore().byId('email').getValue());
 //						if(oController.verifMail(sEmail)) {
 							var sPreURL = sap.ui.getCore().getModel("global").getProperty("/preURL");
-							var sUrl = sPreURL + "JSON_V2021.php?action=PASSWORD&mail=" + sEmail;
+							var sUrl = sPreURL + "JSON_V2018.php?action=PASSWORD&mail=" + sEmail;
 							var otModel = new JSONModel();
 							otModel.loadData(sUrl, {},false);	
 							oController.getView().setModel(otModel);
@@ -708,10 +564,7 @@ var dialog = new Dialog({
 
 			dialog.open();
 		},
-
-        
-	
-
+		
 verifMail: function(oMail) {
 // !! Cette fonction ne fonctionne pas !!
 		   var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;

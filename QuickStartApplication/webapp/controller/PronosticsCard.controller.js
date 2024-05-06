@@ -13,17 +13,17 @@ sap.ui.define([
 ], function (Controller, History, JSONModel, Dialog, Button, TextField, SimpleForm, GroupHeaderListItem, MessageToast, Filter, Fragment) {
 	"use strict";
 
-	return Controller.extend("QuickStartApplication.controller.Pronostics", {
+	return Controller.extend("QuickStartApplication.controller.Pronostics2", {
 
 		onInit: function() {
 //                  Si l'écran est trop grand on limite la taille du caroussel
-                if (screen.width>1250) {
+                /*if (screen.width>1250) {
                     this.getView().byId("carousel").setWidth('1250px');
-                }
+                }*/
 
 //
 			// Récupération du paramètre passé à la vue
-			sap.ui.core.UIComponent.getRouterFor(this).getRoute("mesPronosticsTest").attachPatternMatched(this.onUserMatched, this);
+			sap.ui.core.UIComponent.getRouterFor(this).getRoute("mesPronostics").attachPatternMatched(this.onUserMatched, this);
 			
 			this.getView().addEventDelegate({  
 				onAfterShow: function() {  
@@ -87,7 +87,7 @@ sap.ui.define([
 			}, this);
 	
 			//Affichage du classement des groupes
-			var x = ["A", "B","C","D","E","F"];
+			var x = ["A", "B","C","D","E","F","G","H"];
 			var i;
 			for (i = 0; i < x.length; i++) { 
 				var oModelClGroupe = new JSONModel();
@@ -316,8 +316,9 @@ sap.ui.define([
 				var label = new sap.m.Label({ text : title });
 	
 					// Dropdown box pour pronostic A
-//					var oDropdownBox1 = new sap.ui.commons.DropdownBox("DropdownBox1");	
+					//var oDropdownBox1 = new sap.ui.commons.DropdownBox("DropdownBox1");
 					var oDropdownBox1 = new sap.m.ComboBox("DropdownBox1");
+					//var oDropdownBox1 = new sap.m.Select("DropdownBox1");
 					oDropdownBox1.setTooltip("Pronostic "+bindingContext.getProperty("txtequipeA"));
 					oDropdownBox1.setEditable(true);
 					oDropdownBox1.setWidth("40px");
@@ -354,7 +355,8 @@ sap.ui.define([
 					oDropdownBox1.setValue(bindingContext.getProperty("pronoA"));
 					
 					// Dropdown box pour pronostic B
-					var oDropdownBox2 = new sap.ui.commons.DropdownBox("DropdownBox2");
+					//var oDropdownBox2 = new sap.ui.commons.DropdownBox("DropdownBox2");
+					var oDropdownBox2 = new sap.m.ComboBox("DropdownBox2");
 					oDropdownBox2.setTooltip("Pronostic "+bindingContext.getProperty("txtequipeB"));
 					oDropdownBox2.setEditable(true);
 					oDropdownBox2.setWidth("40px");
@@ -631,6 +633,151 @@ sap.ui.define([
 			}
 		},
 		
+		onPlusMoinsScorev2:function(oEvent){
+			if(this._myUser) {
+			var oView = this.getView();
+			var bindingContext = oEvent.getSource().getBindingContext("remote");
+			var nomBouton = oEvent.getSource().getId();
+			
+			if (nomBouton.includes("plusA")){
+				var nomBoutonA=nomBouton;
+				var nomBoutonB = nomBoutonA.replace("plusA","plusB")
+				if (this.getView().byId(nomBoutonA).getText(newPronoA)==="+"){
+					var scorenumA=1;
+				} else {
+					var scorenumA=+this.getView().byId(nomBoutonA).getText(newPronoA)+1;
+				}
+				if (scorenumA > 9){
+					return;
+				}
+				var newPronoA = scorenumA.toString();				
+				if (this.getView().byId(nomBoutonB).getText(newPronoB)==="+"){
+					var newPronoB = "0";
+				} else {
+					newPronoB = this.getView().byId(nomBoutonB).getText(newPronoB);
+				}
+			} else if (nomBouton.includes("plusB")){
+				var nomBoutonB=nomBouton;
+				var nomBoutonA = nomBoutonB.replace("plusB","plusA")
+				if (this.getView().byId(nomBoutonB).getText(newPronoB)==="+"){
+					var scorenumB=1;
+				} else {
+					var scorenumB=+this.getView().byId(nomBoutonB).getText(newPronoB)+1;
+				}
+				if (scorenumB > 9){
+					return;
+				}
+				var newPronoB = scorenumB.toString();
+				
+				if (this.getView().byId(nomBoutonA).getText(newPronoA)==="+"){
+					var newPronoA = "0";
+				} else {
+					newPronoA = this.getView().byId(nomBoutonA).getText(newPronoA);
+				}
+			} else if (nomBouton.includes("moinsA")){
+				var nomBoutonA=nomBouton.replace("moinsA","plusA");
+				var nomBoutonB = nomBoutonA.replace("plusA","plusB")
+				if (this.getView().byId(nomBoutonA).getText(newPronoA)==="+"){
+					var scorenumA=-1;
+				} else {
+					var scorenumA=+this.getView().byId(nomBoutonA).getText(newPronoA)-1;
+				}
+				if (scorenumA < 0){
+					return;
+				}
+				var newPronoA = scorenumA.toString();				
+				if (this.getView().byId(nomBoutonB).getText(newPronoB)==="+"){
+					var newPronoB = "0";
+				} else {
+					newPronoB = this.getView().byId(nomBoutonB).getText(newPronoB);
+				}
+			} else if (nomBouton.includes("moinsB")){
+				var nomBoutonB=nomBouton.replace("moinsB","plusB");
+				var nomBoutonA = nomBoutonB.replace("plusB","plusA")
+				if (this.getView().byId(nomBoutonB).getText(newPronoB)==="+"){
+					var scorenumB=-1;
+				} else {
+					var scorenumB=+this.getView().byId(nomBoutonB).getText(newPronoB)-1;
+				}
+				if (scorenumB < 0){
+					return;
+				}
+				var newPronoB = scorenumB.toString();				
+				if (this.getView().byId(nomBoutonA).getText(newPronoA)==="+"){
+					var newPronoA = "0";
+				} else {
+					newPronoA = this.getView().byId(nomBoutonA).getText(newPronoA);
+				}
+			} else {
+				return
+			}
+			this.getView().byId(nomBoutonA).setText(newPronoA);
+			this.getView().byId(nomBoutonB).setText(newPronoB);
+			if (+newPronoA>+newPronoB){
+				this.getView().byId(nomBoutonA).setType("Accept");
+				this.getView().byId(nomBoutonB).setType("Reject");
+			} else if (+newPronoA<+newPronoB) {
+				this.getView().byId(nomBoutonB).setType("Accept");
+				this.getView().byId(nomBoutonA).setType("Reject");
+			} else {
+				this.getView().byId(nomBoutonA).setType("Default");
+				this.getView().byId(nomBoutonB).setType("Default");
+			}
+			// Récupération du pseudo + pwd car la session ne fonctionne pas
+			var olModel=sap.ui.getCore().getModel("global");
+			var sPseudo = olModel.getProperty("/pseudo");
+			var sPwd = olModel.getProperty("/pwd");
+			var sPreURL = olModel.getProperty("/preURL");
+			var idMatch = bindingContext.getProperty("idMatch");
+			var updateURL = sPreURL + "JSON_V2021.php?action=SAVESCORE&idmatch="+idMatch+"&scoreA="+newPronoA+"&scoreB="+newPronoB+"&email="+sPseudo+"&pass="+sPwd;
+			$.ajax({
+				type: "POST",
+				data: "",
+				crossDomain: true,
+				url: updateURL,
+				
+				contentType: "application/json",
+				success: function (res, status, xhr) {
+					/*//success code
+					//jQuery.sap.log.error("Success response: " + status + res);
+					var ogModel=sap.ui.getCore().getModel("global");
+					var sUser = ogModel.getProperty("/iduser");
+					var sPreURL2 = ogModel.getProperty("/preURL");
+					var sUrl = sPreURL2 + "JSON_V2021.php?action=MATCHLIST&idPlayer=" + sUser+"&pronoOuvert=Y";
+					var oModel = new JSONModel();
+					oModel.loadData(sUrl,{},false);
+					var i;
+					var x = ["A", "B","C","D","E","F","G","H"];
+					for (i = 0; i < x.length; i++) { 
+					var oModelClGroupe = new JSONModel();
+					var sPreURL = ogModel.getProperty("/preURL");  			
+					var sUrl = sPreURL + "JSON_V2021.php?action=TOPTEAM&phase=" + x[i];
+					
+					//
+					if(sap.ui.getCore().getModel("global").getProperty("/mode") === "test") {
+					oModelClGroupe.loadData("../webapp/localService/topteam"+x[i]+".json", {}, false);
+					} else {
+						oModelClGroupe.loadData(sUrl,{},false);				
+					}
+					
+	//											this.getView().setModel(oModelClGroupe, "remoteClgroupe"+x[i]);
+					oView.setModel(oModelClGroupe, "remoteClgroupe"+x[i]);
+						
+					}
+					oView.setModel(oModel, "remote");
+					MessageToast.show('Pronostic sauvegardé', {
+						duration: 1000, 
+						width: "15rem", // default max width supported 
+					});
+					
+				},
+					error: function (jqXHR, textStatus, errorThrown) {
+					jQuery.sap.log.error("Got an error response: " + textStatus + errorThrown);*/
+				}
+				});
+			}
+		},
+		
 		matchIcon :  function (enCours, matchFini) {
 			try {
 				if (matchFini === "Y") {
@@ -655,8 +802,9 @@ sap.ui.define([
 		heureOuScore :  function (enCours, matchFini, scoreA, scoreB, heurematch) {
 			try {
 				if (matchFini === "Y") {
-					var string = scoreA + " - " + scoreB;
-					return string;
+					//var string = scoreA + " - " + scoreB;
+					//return string;
+					return heurematch;
 				} else if (enCours === "Y") {
 					return "En cours";
 				} else {
@@ -664,6 +812,80 @@ sap.ui.define([
 				}
 			} catch (err) {
 				return "None";
+			}
+		},
+		
+		couleursPoints :  function (nbpoints) {
+			try {
+				if (nbpoints === "0") {
+					return 2;
+				} else {
+					return 8;
+				}
+			} catch (err) {
+				return 5;
+			}
+		},
+		
+		typeMatch :  function (phase) {
+			try {
+				var x = ["A", "B","C","D","E","F","G","H"];
+				if(x.indexOf(phase) !== -1){
+					var suffixe="Groupe " + phase;
+				}else{
+					var suffixe="";
+				}
+				return suffixe;
+			} catch (err) {
+				return "None";
+			}
+		},
+		
+		typeIcone :  function (sortdate,encours, matchfini) {
+			try {
+				var datematch = new Date(sortdate.substr(0,4), sortdate.substr(4,2)-1, sortdate.substr(6,2));
+				var aujourdhui = new Date();
+				var Difference_In_Time = datematch.getTime() - aujourdhui.getTime();
+				var Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
+				if (matchfini === "Y") {
+					return "sap-icon://accept"}
+				else if (encours === "Y") {
+					return "sap-icon://soccer"}
+				else if (Difference_In_Days > 0) {
+					return "sap-icon://calendar"}
+				else {return "sap-icon://away"} 
+			} catch (err) {
+				return "None";
+			}
+		},
+		
+		couleurScore :  function (scoreA, scoreB) {
+			try {
+				if (scoreA > scoreB) {
+					return 'Accept';
+				} else if (scoreA < scoreB) {
+					return 'Reject';
+				} else {
+					return 'Default';
+				}
+			} catch (err) {
+				return 'Default';
+			}
+		},
+		
+		scoreNonVide :  function (scoreA) {
+			if (scoreA === ""){
+				return "+";
+			} else {
+				return scoreA;
+			}
+		},
+		
+		scoreOuVide :  function (scoreA,enCours) {
+			if (enCours=== "Y"){
+				return "";
+			} else {
+				return scoreA;
 			}
 		},
 		
@@ -677,7 +899,7 @@ sap.ui.define([
 		getGroup: function (oContext){
 			var sKey = oContext.getProperty("sortdate");
 			var sPhase = oContext.getProperty("phase");
-			var x = ["A", "B","C","D","E","F"];
+			var x = ["A", "B","C","D","E","F","G","H"];
 			if(x.indexOf(sPhase) !== -1){
 				var suffixe="Match de groupe";
 			}else{
@@ -782,32 +1004,50 @@ sap.ui.define([
 		},
 
         handlePopoverPress: function (oEvent) {
-            var oCtx = oEvent.getSource().getBindingContext("remote"),
-                oButton = oEvent.getSource(),
+           // var oCtx = oEvent.getSource().getBindingContext("remote"),
+             var oButton = oEvent.getSource(),
 				oView = this.getView();
- /*               
-				var id =oEvent.oButton.getId();
-				if(String(id).indexOf("matchTable2") === -1){
-					var bindingContext = oEvent.getSource().getBindingContext("remote");
+                
+				var id =oButton.getId();
+				if(String(id).indexOf("btn_stats_prono2") === -1){
+					var oCtx = oEvent.getSource().getBindingContext("remote")
+	//				oPopover.oParent.byId("endflag").setText("X");
 				} else
 				{
-					var bindingContext = oEvent.getSource().getBindingContext("remoteClos");
+					var oCtx = oEvent.getSource().getBindingContext("remoteClos")
+	//				oPopover.oParent.byId("endflag").setText("");
                 }
- */               
-			// create popover
+                
+
+			
+				// create popover
+
+
+
 			if (!this._pPopover) {
 				this._pPopover = Fragment.load({
 					id: oView.getId(),
-					name: "QuickStartApplication.view.Poptest",
+					name: "QuickStartApplication.view.Poptest",	
 					controller: this
 				}).then(function(oPopover) {
                     oView.addDependent(oPopover);
                     oPopover.attachAfterOpen(function() {
 						document.getElementById(this.createId("ifrm")).width =  Math.max(screen.width * 0.6, 375);
-						//document.getElementById(this.createId("ifrm")).height = screen.height * 0.65;
+//						document.getElementById(this.createId("ifrm")).height = screen.height * 0.65;
 						document.getElementById(this.createId("ifrm")).height =Math.max(screen.width * 0.6, 375)*0.5625;
-						document.getElementById(this.createId("ifrm")).src = "https://ynoveo-apps.fr/" + "?idmatch=" + this.byId("untest").getText();
+						document.getElementById(this.createId("ifrm")).src = "https://ynoveo-apps.fr/" + "?idmatch=" + this.byId("untest").getText() + "&idj=" + this.byId("idj").getText() + "&clos=" + this.byId("endflag").getText();
 					}, this);
+					/* 
+					oPopover.modal = true;
+					var that = this;
+					var oCloseButton =  new Button({
+						text: "Fermer",
+						press: function () {
+							that._oPopover.close();
+						}
+					});					
+					oPopover.endButton = oCloseButton;
+				*/ 		
 					return oPopover;
 				}.bind(this));
 			}
@@ -815,14 +1055,17 @@ sap.ui.define([
  //               oPopover.bindElement(oCtx.getPath());
                 // passer l'id du match à la popup
                 oPopover.oParent.byId("untest").setText(oCtx.getProperty("idMatch"));
+				oPopover.oParent.byId("idj").setText(sap.ui.getCore().getModel("global").getProperty("/iduser"));
 //				oPopover.oParent.byId("carousel")
  //               document.getElementById(oPopover.oParent.createId("ifrm")).url = "https://ynoveo-apps.fr/" + "?idmatch=" + oCtx.getProperty("idMatch") ;
-				oPopover.openBy(oPopover.oParent.byId("idFacetFilter1"));
+				oPopover.openBy(oPopover.oParent.byId("pbiPlace"));
 				
 			});
 		},
 
-
+		handlClosePress: function () {
+			this.byId("myPopover").close();
+		},
 	    onNavBack: function () {
 	//      This code was generated by the layout editor.
 	            var oHistory, sPreviousHash;
@@ -830,10 +1073,10 @@ sap.ui.define([
 				oHistory = History.getInstance();
 				sPreviousHash = oHistory.getPreviousHash();
 	
-				if (sPreviousHash !== undefined) {
+				if ((sPreviousHash !== undefined)&&(sPreviousHash !== "")) {
 					window.history.go(-1);
 				} else {
-					this.getRouter().navTo("appHome", {}, true /*no history*/);
+					this.getOwnerComponent().getRouter().navTo("appHome", {}, true /*no history*/);
 				}
 			}
 		});
